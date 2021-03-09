@@ -202,13 +202,13 @@ function getMoneys() {
   } else {
     moneyView.innerHTML += `
     <ons-card>
-    <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">TU DINERO TOTAL:</label>
-    <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0;">$ 
-      <span class="totalMoneyTitle" id="totalMoneyMoney">
-        ${totalMoney}
-      </span>
-    </div>
-  </ons-card>`;
+      <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">TU DINERO TOTAL:</label>
+      <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0;">$ 
+        <span class="totalMoneyTitle" id="totalMoneyMoney">
+          ${totalMoney}
+        </span>
+      </div>
+    </ons-card>`;
   }
 
   for (let i = 0; i < moneys.length; i++) {
@@ -217,7 +217,6 @@ function getMoneys() {
 
     if (languaje == 'false') {
       moneyView.innerHTML += `
-      <ons-carousel-item style="background-color: #085078;">
         <ons-card>
           <div class="title moneyTitle">
             ${mName}
@@ -235,8 +234,7 @@ function getMoneys() {
           <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteMoney('${mName}')" >
             DELETE
           </ons-button>
-        </ons-card>
-      </ons-carousel-item>`;
+        </ons-card>`;
     } else {
       moneyView.innerHTML += `
       <ons-card>
