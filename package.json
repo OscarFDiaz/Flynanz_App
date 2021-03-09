@@ -1,0 +1,39 @@
+{
+  "name": "com.oscar.diaz",
+  "displayName": "Flynanz",
+  "version": "1.90.80",
+  "description": "Flynanz: Control de gastos y finanzas personales.",
+  "main": "index.js",
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "onsenui": "^2.10.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OscarFDiaz/Flynanz_Application.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "Personal",
+    "finance",
+    "finanzas",
+    "personales"
+  ],
+  "author": "Oscar Diaz",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^9.0.0",
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}

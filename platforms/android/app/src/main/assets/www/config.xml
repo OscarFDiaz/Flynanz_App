@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.oscar.diaz" versionCode= "19" version="1.90.81" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Flynanz</name>
+    <description>
+       Flynanz: Control de gastos y finanzas personales.
+    </description>
+	
+	<meta name="description" content="Flynanz: Control de gastos y finanzas personales."/>
+	
+    <author email="finanz.application@gmail.com" href="https://github.com/OscarFDiaz">
+        Oscar Diaz
+    </author>
+	
+    <content src="index.html" />
+	
+    <access origin="*" />
+	
+    <plugin name="cordova-plugin-whitelist" />
+	
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <!--
+		<icon density="ldpi" src="icons/icon-ldpi.png" />
+        <icon density="mdpi" src="icons/icon-mdpi.png" />
+        <icon density="hdpi" src="icons/icon-hdpi.png" />
+        <icon density="xhdpi" src="icons/icon-xhdpi.png" />
+        <icon density="xxhdpi" src="icons/icon-xxhdpi.png" />
+        <icon density="xxxhdpi" src="icons/icon-xxxhdpi.png" />
+        -->
+    </platform>
+
+    <icon src="icons/icono.png" platform="android"/>
+	
+	<preference name="android-minSdkVersion" value="22" /> 
+    <preference name="android-targetSdkVersion" value="29" /> 
+</widget>
