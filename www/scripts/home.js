@@ -340,7 +340,7 @@ function loadOptions() {
   }
 
   if (totalMoney == 'true') {
-    let amount = getTotalMoney();
+    let amount = formatMoney(getTotalMoney());
     document.getElementById('totalMoneyMoney').innerHTML = amount;
   }
 
