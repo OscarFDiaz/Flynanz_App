@@ -192,14 +192,14 @@ function updateSavingPreview() {
   let equivalentAmount = (parseInt(rangePercent) * parseFloat(mainAmount)) / 100;
 
   /* Update del preview */
-  document.getElementById('entryAmount').innerHTML = parseFloat(mainAmount).toFixed(2);
+  document.getElementById('entryAmount').innerHTML = formatMoney(parseFloat(mainAmount).toFixed(2));
   document.getElementById('entryDays').innerHTML = rangeDays;
   document.getElementById('entryPercent').innerHTML =
     rangePercent +
     `<span style="color: var(--card-text-title-color)"> % </span> | <span style="color: var(--card-text-title-color)">$</span> ` +
-    parseFloat(equivalentAmount).toFixed(2);
+    formatMoney(parseFloat(equivalentAmount).toFixed(2));
   let toExpend = (parseFloat(equivalentAmount) / parseInt(rangeDays)).toFixed(2);
-  document.getElementById('entryExpend').innerHTML = toExpend;
+  document.getElementById('entryExpend').innerHTML = formatMoney(toExpend);
 
   /*Update de los range*/
   document.getElementById('rangeSelectDays').innerHTML = rangeDays;
@@ -331,15 +331,15 @@ function updateLastSaving() {
   let sDaysLeft = savingStorage.daysLeft;
   let sMoneyDayLeft = savingStorage.moneyLeft;
 
-  document.getElementById('entryCurrentAmount').innerHTML = parseFloat(sInnerAmount).toFixed(2);
+  document.getElementById('entryCurrentAmount').innerHTML = formatMoney(parseFloat(sInnerAmount).toFixed(2));
   document.getElementById('entryCurrentDays').innerHTML = sDaysSelected;
   document.getElementById('entryCurrentDaysLeft').innerHTML = sDaysLeft;
   document.getElementById('entryCurrentPercent').innerHTML =
     sPercent +
     `<span style="color: var(--card-text-title-color)"> % </span> | <span style="color: var(--card-text-title-color)">$</span> ` +
-    sTakedAmount;
-  document.getElementById('entryCurrentExpend').innerHTML = sMoneyDay;
-  document.getElementById('entryCurrentExpendLeft').innerHTML = parseFloat(sMoneyDayLeft).toFixed(2);
+    formatMoney(sTakedAmount);
+  document.getElementById('entryCurrentExpend').innerHTML = formatMoney(sMoneyDay);
+  document.getElementById('entryCurrentExpendLeft').innerHTML = formatMoney(parseFloat(sMoneyDayLeft).toFixed(2));
 }
 
 function loadSaving() {
@@ -473,10 +473,10 @@ function loadSaving() {
     return;
   }
 
-  let sTakedAmount = parseFloat(savingStorage.equivalentAmount).toFixed(2);
-  let sMoneyDay = savingStorage.toExpend;
+  let sTakedAmount = formatMoney(parseFloat(savingStorage.equivalentAmount).toFixed(2));
+  let sMoneyDay = formatMoney(savingStorage.toExpend);
   let sDaysLeft = savingStorage.daysLeft;
-  let sMoneyDayLeft = savingStorage.moneyLeft;
+  let sMoneyDayLeft = formatMoney(savingStorage.moneyLeft);
 
   if (languaje == 'false') {
     sView.innerHTML = `<ons-card>
@@ -771,7 +771,7 @@ function endSavingDay() {
           let moneyLeft = storageS.moneyLeft;
 
           if (storageS.daysLeft < 1) {
-            ons.notification.toast('No quedan más días en tu fondo, ya no puedes terminar el día, lo siento!', {
+            ons.notification.toast(`There are no more days left in your fund, you can't finish the day anymore, I'm sorry!`, {
               title: 'Error!',
               timeout: 2000,
               animation: 'ascend',
@@ -953,9 +953,8 @@ function addToMoneyLeftMoney() {
         });
       }
     }
-  } else if (selectedRadioID == 'radio-2') {
     // Si quiero añadir el dinero a alguna cartera
-
+  } else if (selectedRadioID == 'radio-2') {
     const selMoney = document.getElementById('selectOptionAddMoney');
     const optMoney = selMoney.options;
     // Categoría seleccionada
@@ -1013,7 +1012,7 @@ function addToMoneyLeftMoney() {
     localStorage.setItem('savingStorage', JSON.stringify(savingStorage));
 
     // Pongo el dinero disponible en 0 dado que no quedan días restantes del fondo
-    if (parseInt(savingStorage.daysLeft) === 0) {
+    if (parseInt(savingStorage.daysLeft) < 1) {
       savingStorage.moneyLeft = 0;
       localStorage.setItem('savingStorage', JSON.stringify(savingStorage));
     }
@@ -1144,7 +1143,9 @@ function closeAlertSaving() {
   /* Se hizo una resta */
   if (actualMoney > endMoney) {
     let storage = JSON.parse(localStorage.getItem('savingStorage'));
+
     storage.moneyLeft = endMoney;
+
     localStorage.setItem('savingStorage', JSON.stringify(storage));
     document.getElementById('alertEditSavingMoney').hide();
 
@@ -1315,9 +1316,9 @@ function hideAlertAddExpenseSaving() {
   var choseMoney = optMoney[selMoney.selectedIndex].value;
 
   let eName = document.getElementById('alertExpenseNoteSaving').value;
-  let eMoney = document.getElementById('alertExpenseMoneySaving').value;
+  let eMoney = document.getElementById('alertExpenseMoneySaving').value; //dinero del gasto
   let eDate = document.getElementById('alertExpenseDateSaving').value;
-  let eid = localStorage.getItem('detailExpenseCount');
+  let eid = localStorage.getItem('detailExpenseCount'); //id unico de los gastos
 
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
@@ -1374,11 +1375,12 @@ function hideAlertAddExpenseSaving() {
       return;
     }
   }
+  let eMoneyFixed = parseFloat(eMoney).toFixed(2);
 
   let expenseDetail = {
     expenseName: choseCategory,
     inName: eName,
-    inAmount: eMoney,
+    inAmount: eMoneyFixed,
     inDate: eDate,
     inID: eid,
   };
@@ -1452,7 +1454,8 @@ function updateExpenseTotalMoneySaving(sendName, amountSend) {
     }
   }
 
-  expense.totalExpense += +newAmount;
+  let totalExpense = parseFloat(expense.totalExpense) + parseFloat(newAmount);
+  expense.totalExpense = totalExpense;
 
   /* Guardo el expense original*/
   if (localStorage.getItem('expenseStorage') === null) {

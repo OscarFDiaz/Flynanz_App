@@ -349,7 +349,7 @@ function loadOptions() {
   }
 
   if (savings == 'true') {
-    let amount = getTotalSavings();
+    let amount = formatMoney(getTotalSavings());
     document.getElementById('totalSavingsAmount').innerHTML = amount;
   }
 

@@ -255,6 +255,9 @@ function getGoals() {
     let gAMoney = goals[i].goalActualMoney;
     let gDate = goals[i].goalDate;
 
+    let gMoneyTS = formatMoney(gMoney);
+    let gAMoneyTS = formatMoney(gAMoney);
+
     let gPercent = getPercent(gMoney, gAMoney);
 
     let today = new Date().toJSON().slice(0, 10);
@@ -296,8 +299,8 @@ function getGoals() {
             <div class="progressBarContainer"> 
               <div class="progressBarPercent" style="--width: ${gPercent}" id="${gName}-pbar"></div> 
             </div> 
-            <span style="font-weight: 600">$ ${gAMoney}</span>
-            <span style="font-weight: 600; position: absolute; right: 16px; margin-right: 16px;">$ ${gMoney}</span>
+            <span style="font-weight: 600">$ ${gAMoneyTS}</span>
+            <span style="font-weight: 600; position: absolute; right: 16px; margin-right: 16px;">$ ${gMoneyTS}</span>
           </div>
         </div>
       </ons-card>`;
@@ -507,6 +510,9 @@ function loadDetailGoal() {
   let nModifyDate = parseGoal.date;
   let gDate = parseGoal.date;
 
+  let gAMoneyTS = formatMoney(gAMoney);
+  let gMoneyTS = formatMoney(gMoney);
+
   let gPercent = getPercent(gMoney, gAMoney);
 
   let today = new Date().toJSON().slice(0, 10);
@@ -541,10 +547,10 @@ function loadDetailGoal() {
       <ons-card>
         <div style="padding-top: 16px">
           <span style="margin-left: 20px; font-size: 30px; font-weight: bold; color: var(--detail-goal-content-color)">$ 
-            <span style="color: var(--detail-money-goal)" id="detailMoneyActualMoney">${gAMoney}</span>
+            <span style="color: var(--detail-money-goal)" id="detailMoneyActualMoney">${gAMoneyTS}</span>
           </span>
           <span style="position: absolute; right: 16px; margin-right: 20px;font-size: 16px; font-weight: 600; margin-top: 16px; color: var(--detail-goal-content-color)">$ 
-            <span style="color: var(--detail-money-goal)" id="detailMoneyGoalGoalMoney">${gMoney}</span>
+            <span style="color: var(--detail-money-goal)" id="detailMoneyGoalGoalMoney">${gMoneyTS}</span>
           </span>
           <div class="progressBarContainer percentBar" style="margin-top:0px"> 
             <div class="progressBarPercent" style="--width:${gPercent}" data-label="${gPercent}" id="pbarDetail">
@@ -605,10 +611,10 @@ function loadDetailGoal() {
       <ons-card>
         <div style="padding-top: 16px">
           <span style="margin-left: 20px; font-size: 30px; font-weight: bold; color: var(--detail-goal-content-color)">$ 
-            <span style="color: var(--detail-money-goal)" id="detailMoneyActualMoney">${gAMoney}</span>
+            <span style="color: var(--detail-money-goal)" id="detailMoneyActualMoney">${gAMoneyTS}</span>
           </span>
           <span style="position: absolute; right: 16px; margin-right: 20px;font-size: 16px; font-weight: 600; margin-top: 16px; color: var(--detail-goal-content-color)">$ 
-            <span style="color: var(--detail-money-goal)" id="detailMoneyGoalGoalMoney">${gMoney}</span>
+            <span style="color: var(--detail-money-goal)" id="detailMoneyGoalGoalMoney">${gMoneyTS}</span>
           </span>
           <div class="progressBarContainer percentBar" style="margin-top:0px"> 
             <div class="progressBarPercent" style="--width:${gPercent}" data-label="${gPercent}" id="pbarDetail">
