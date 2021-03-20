@@ -340,7 +340,7 @@ function loadOptions() {
   }
 
   if (totalMoney == 'true') {
-    let amount = getTotalMoney();
+    let amount = formatMoney(getTotalMoney());
     document.getElementById('totalMoneyMoney').innerHTML = amount;
   }
 
@@ -349,7 +349,7 @@ function loadOptions() {
   }
 
   if (savings == 'true') {
-    let amount = getTotalSavings();
+    let amount = formatMoney(getTotalSavings());
     document.getElementById('totalSavingsAmount').innerHTML = amount;
   }
 

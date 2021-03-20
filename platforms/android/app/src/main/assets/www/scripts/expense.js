@@ -281,9 +281,9 @@ function getExpenses() {
     return;
   }
 
-  let totalExpenses = getTotalExpenses();
-  let totalFDays = getAmountFDaysN();
-  let totalTDays = getAmountTDaysN();
+  let totalExpenses = formatMoney(getTotalExpenses());
+  let totalFDays = formatMoney(getAmountFDaysN());
+  let totalTDays = formatMoney(getAmountTDaysN());
 
   if (languaje == 'false') {
     expensesView.innerHTML += `<ons-card>
@@ -351,7 +351,7 @@ function getExpenses() {
     let eName = expenses[i].expenseName;
     let eicon = expenses[i].iconName;
     let eColor = expenses[i].expenseColor;
-    let eExpense = parseFloat(expenses[i].totalExpense).toFixed(2);
+    let eExpense = formatMoney(parseFloat(expenses[i].totalExpense).toFixed(2));
 
     if (languaje == 'false') {
       expensesView.innerHTML += `<ons-card>
@@ -794,6 +794,7 @@ function loadDetailExpense() {
 
   let eName = parseExpense.expenseName;
   let eTotal = parseFloat(parseExpense.totalExpense).toFixed(2);
+  let eTotalTS = formatMoney(eTotal);
   let mDate = parseExpense.mainDate;
 
   let lastFDays, lastTDays;
@@ -801,8 +802,8 @@ function loadDetailExpense() {
   if (eTotal == 0) {
     lastFDays = lastTDays = parseFloat(eTotal).toFixed(2);
   } else {
-    lastFDays = getAmountFDays(eName);
-    lastTDays = getAmountTDays(eName);
+    lastFDays = formatMoney(getAmountFDays(eName));
+    lastTDays = formatMoney(getAmountTDays(eName));
   }
 
   let expenseView = document.getElementById('detailExpenseContainer');
@@ -828,7 +829,7 @@ function loadDetailExpense() {
           >Total cost: 
           <div style="display: block; font-size: 30px; font-weight: bold;">$  
             <span id="totalExpenseDetail" class="labelInfoDetailExpense"
-              >${eTotal}</span
+              >${eTotalTS}</span
             >
           </div>
         </label>
@@ -890,7 +891,7 @@ function loadDetailExpense() {
           >Gasto total: 
           <div style="display: block; font-size: 30px; font-weight: bold;">$  
             <span id="totalExpenseDetail" class="labelInfoDetailExpense"
-              >${eTotal}</span
+              >${eTotalTS}</span
             >
           </div>
         </label>
@@ -966,7 +967,7 @@ function loadDetailExpense() {
     for (let i = 0; i < expensesDetail.length; i++) {
       if (expensesDetail[i].expenseName == eName) {
         let iName = expensesDetail[i].inName;
-        let iAmount = expensesDetail[i].inAmount;
+        let iAmount = formatMoney(expensesDetail[i].inAmount);
         let iDate = expensesDetail[i].inDate;
         let iD = expensesDetail[i].inID;
 
@@ -1020,7 +1021,9 @@ function loadDetailExpense() {
 
           detailDetailExpenseView.innerHTML += `<ons-list-item expandable style="margin-top: -16px;" modifier="nodivider">
             <div class="center">
-              <label class="list-item__title labelDetailExpense" style="text-align:center; font-size:22px">${iName} - $ <span class="labelInfoDetailExpense" style="font-size:22px">${iAmount}</span></label>
+              <label class="list-item__title labelDetailExpense" style="text-align:center; font-size:22px">
+                ${iName} - $ <span class="labelInfoDetailExpense" style="font-size:22px">${iAmount}</span>
+              </label>
               <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:center">${iDate}</label>
             </div>
             <div class="expandable-content" style="grid-template-columns: 1fr 1fr;">

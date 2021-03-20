@@ -395,7 +395,7 @@ function insertNewExpenseAmount(sendName) {
   }
 
   newAmount = parseFloat(newAmount).toFixed(2);
-  document.getElementById('totalExpenseDetail').innerHTML = newAmount;
+  document.getElementById('totalExpenseDetail').innerHTML = formatMoney(newAmount);
 
   let mainStorage = JSON.parse(localStorage.getItem('expenseStorage'));
   let index;
@@ -682,7 +682,7 @@ function deleteDetailExpense(idSend) {
 
           for (let i = 0; i < storage.length; i++) {
             if (storage[i].expenseName == loadName) {
-              document.getElementById('totalExpenseDetail').innerHTML = '' + storage[i].totalExpense;
+              document.getElementById('totalExpenseDetail').innerHTML = formatMoney(storage[i].totalExpense);
               break;
             }
           }
@@ -734,7 +734,7 @@ function deleteDetailExpense(idSend) {
 
           for (let i = 0; i < storage.length; i++) {
             if (storage[i].expenseName == loadName) {
-              document.getElementById('totalExpenseDetail').innerHTML = '' + storage[i].totalExpense;
+              document.getElementById('totalExpenseDetail').innerHTML = formatMoney(storage[i].totalExpense);
               break;
             }
           }
@@ -784,7 +784,7 @@ function reInsertExpenseDetail(sendName) {
     for (let i = 0; i < expensesDetail.length; i++) {
       if (expensesDetail[i].expenseName == sendName) {
         let iName = expensesDetail[i].inName;
-        let iAmount = expensesDetail[i].inAmount;
+        let iAmount = formatMoney(expensesDetail[i].inAmount);
         let iDate = expensesDetail[i].inDate;
         let iD = expensesDetail[i].inID;
 
@@ -849,6 +849,6 @@ function updateExpenseLastDays(sendName) {
   let days = document.getElementById('lastDaysDetail');
   let month = document.getElementById('lastMonthDetail');
 
-  days.innerHTML = getAmountFDays(sendName);
-  month.innerHTML = getAmountTDays(sendName);
+  days.innerHTML = formatMoney(getAmountFDays(sendName));
+  month.innerHTML = formatMoney(getAmountTDays(sendName));
 }

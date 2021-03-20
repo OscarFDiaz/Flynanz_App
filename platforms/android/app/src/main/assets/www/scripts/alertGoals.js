@@ -207,7 +207,7 @@ function makeSum() {
 
   let sumResult = parseFloat(parseFloat(actualAmount) + parseFloat(newAmount)).toFixed(2);
 
-  document.getElementById('editOnlyEndMoney').innerHTML = sumResult;
+  document.getElementById('editOnlyEndMoney').innerHTML = formatMoney(sumResult);
   sessionStorage.setItem('addNewMoney', sumResult);
 }
 
@@ -303,10 +303,10 @@ function hideAlertDialogMoney() {
 
       // Modifico los elementos para mostrar la cantidad de dinero actualizada
       document.getElementById('detailMoneyActualMoney').innerHTML = '';
-      document.getElementById('detailMoneyActualMoney').innerHTML = newMoney;
+      document.getElementById('detailMoneyActualMoney').innerHTML = formatMoney(newMoney);
 
       document.getElementById('detailMoneyGoalGoalMoney').innerHTML = '';
-      document.getElementById('detailMoneyGoalGoalMoney').innerHTML = updateGoalObject.goalMoney;
+      document.getElementById('detailMoneyGoalGoalMoney').innerHTML = formatMoney(updateGoalObject.goalMoney);
 
       if (localStorage.getItem('goalStorage') === null) {
         let goalsArray = [];
