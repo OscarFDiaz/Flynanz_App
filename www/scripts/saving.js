@@ -752,7 +752,9 @@ function endSavingDay() {
             let savingStorage = JSON.parse(localStorage.getItem('savingStorage'));
 
             savingStorage.daysLeft = parseInt(savingStorage.daysLeft) - 1;
-            savingStorage.moneyLeft = savingStorage.toExpend;
+            if (savingStorage.daysLeft > 0) {
+              savingStorage.moneyLeft = savingStorage.toExpend;
+            }
 
             localStorage.setItem('savingStorage', JSON.stringify(savingStorage));
             loadSaving();
@@ -828,7 +830,9 @@ function endSavingDay() {
             let savingStorage = JSON.parse(localStorage.getItem('savingStorage'));
 
             savingStorage.daysLeft = parseInt(savingStorage.daysLeft) - 1;
-            savingStorage.moneyLeft = savingStorage.toExpend;
+            if (savingStorage.daysLeft > 0) {
+              savingStorage.moneyLeft = savingStorage.toExpend;
+            }
 
             localStorage.setItem('savingStorage', JSON.stringify(savingStorage));
             loadSaving();
