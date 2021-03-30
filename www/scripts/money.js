@@ -81,8 +81,11 @@ function makeNewMoney() {
 function getMoneys() {
   let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
   let moneyView = document.getElementById('moneyContainer');
+  let totalMoneyContainer = document.getElementById('totalMoneyContainer');
 
   let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  let toInner = '';
 
   moneyView.innerHTML = '';
 
@@ -188,75 +191,80 @@ function getMoneys() {
   }
 
   let totalMoney = formatMoney(getTotalMoney());
-
+  // CARGA DEL DINERO TOTAL
   if (languaje == 'false') {
-    moneyView.innerHTML += `
+    totalMoneyContainer.innerHTML = `
     <ons-card>
       <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">YOUR TOTAL MONEY:</label>
       <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0;">$ 
         <span class="totalMoneyTitle" id="totalMoneyMoney">
-          ${totalMoney}
+        ${totalMoney}
         </span>
       </div>
     </ons-card>`;
   } else {
-    moneyView.innerHTML += `
+    totalMoneyContainer.innerHTML = `
     <ons-card>
       <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">TU DINERO TOTAL:</label>
       <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0;">$ 
         <span class="totalMoneyTitle" id="totalMoneyMoney">
-          ${totalMoney}
+        ${totalMoney}
         </span>
       </div>
     </ons-card>`;
   }
 
+  toInner += `<ons-carousel fullscreen swipeable auto-scroll overscrollable>`;
   for (let i = 0; i < moneys.length; i++) {
     let mName = moneys[i].moneyName;
     let mMoney = formatMoney(moneys[i].moneyCurrent);
+    let newItem = document.createElement('ons-carousel-item');
 
     if (languaje == 'false') {
-      moneyView.innerHTML += `
-        <ons-card>
-          <div class="title moneyTitle">
-            ${mName}
-          </div>
-          <div class="content">
-            <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 0px">$ 
-              <span class="moneyInfo" id="${mName}-money">
-                ${mMoney}
-              </span>
-            </div>
-          </div>
-          <ons-button class="moneyButtonAdd" style="margin-bottom: 16px;" onclick="addMoneyTo('${mName}')" > 
-            MODIFY MONEY
-          </ons-button>
-          <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteMoney('${mName}')" >
-            DELETE
-          </ons-button>
-        </ons-card>`;
-    } else {
-      moneyView.innerHTML += `
-      <ons-card>
+      toInner += `
+      <ons-carousel-item style="background-color: var(--card-back-color); padding: 16px; border-radius: 15px">
         <div class="title moneyTitle">
           ${mName}
         </div>
         <div class="content">
-          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 0px">$ 
+          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 16px">$ 
             <span class="moneyInfo" id="${mName}-money">
               ${mMoney}
             </span>
           </div>
         </div>
-        <ons-button class="moneyButtonAdd" style="margin-bottom: 16px;" onclick="addMoneyTo('${mName}')" > 
+        <ons-button class="moneyButtonAdd" style="margin-bottom: 16px; margin-left: 0px" onclick="addMoneyTo('${mName}')" > 
+          MODIFY MONEY
+        </ons-button>
+        <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteMoney('${mName}')" >
+          DELETE
+        </ons-button>
+      </ons-carousel-item>`;
+    } else {
+      toInner += `
+      <ons-carousel-item style="background-color: var(--card-back-color); padding: 16px; border-radius: 15px">
+        <div class="title moneyTitle">
+          ${mName}
+        </div>
+        <div class="content">
+          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 16px">$ 
+            <span class="moneyInfo" id="${mName}-money">
+              ${mMoney}
+            </span>
+          </div>
+        </div>
+        <ons-button class="moneyButtonAdd" style="margin-bottom: 16px; margin-left: 0px" onclick="addMoneyTo('${mName}')" > 
           MODIFICAR DINERO
         </ons-button>
         <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteMoney('${mName}')" >
           ELIMINAR
         </ons-button>
-      </ons-card>`;
+      </ons-carousel-item>`;
     }
   }
+  toInner += `</ons-carousel>`;
+  console.log(toInner);
+  moneyView.innerHTML = toInner;
 }
 
 function deleteMoney(sendMoneyName) {

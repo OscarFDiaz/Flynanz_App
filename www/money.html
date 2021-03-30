@@ -9,12 +9,32 @@
       MI DINERO
     </div>
   </ons-toolbar>
-
-
-  <!--<ons-carousel fullscreen swipeable auto-scroll overscrollable id="moneyContainer"></ons-carousel>-->
-  <div id="moneyContainer">
+  
+  <!--DINERO TOTAL-->
+  <div id="totalMoneyContainer">
   </div>
 
+  <!--CARRUSEL-->
+  <ons-card style="margin: 16px" id="moneyContainer">
+  </ons-card>
+
+  <label class="tutorialLabel" id="moneySwiperCarousel" style="padding-bottom: 16px;"> ← Desliza para cambiar de dinero → </label>
+
+  <!--GASTOS POR TARJETA-->
+  <ons-card>
+    <ons-list style="background: none;" id="expenseListOfExpensesContainer">
+      <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
+        <label class="iconExpenseLabel" style="margin-left: 50px;">
+          VER GASTOS
+        </label>
+        <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
+          <!-- AQUI SE CARGAN LOS GASTOS -->
+          PROXIMAMENTE
+        </div>
+      </ons-list-item>
+    </ons-list>
+  </ons-card>
+  
   <ons-fab position="bottom right" onclick="pushToNewMoney()">
     <i class="icon ion-md-add" style="font-size: 35px;"></i>
   </ons-fab>
@@ -83,6 +103,7 @@
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
               document.getElementById('moneyEditAlertCancel').innerHTML = 'CANCEL';
               document.getElementById('moneyEditAlertFinished').innerHTML = 'FINISHED!';
+              document.getElementById('moneySwiperCarousel').innerHTML = ' ← Swipe to change money → ';
             } else {
               document.getElementById('titleMoney').innerHTML = 'MI DINERO';
               document.getElementById('moneyEditAlertTitle').innerHTML = 'MODIFICAR MI DINERO';
@@ -95,6 +116,7 @@
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
               document.getElementById('moneyEditAlertCancel').innerHTML = 'CANCELAR';
               document.getElementById('moneyEditAlertFinished').innerHTML = 'LISTO!';
+              document.getElementById('moneySwiperCarousel').innerHTML = ' ← Desliza para cambiar de dinero → ';
             }
             getMoneys();
           });
