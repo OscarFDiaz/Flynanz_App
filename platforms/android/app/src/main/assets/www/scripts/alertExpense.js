@@ -805,12 +805,18 @@ function reInsertExpenseDetail(sendName) {
 
         if (languaje == 'false') {
           detailDetailExpenseView.innerHTML += `<ons-list-item expandable style="margin-top: -16px;" modifier="nodivider">
-            <div class="center">
-              <label class="list-item__title labelDetailExpense" style="text-align:center; font-size:22px">${iName} - $ <span class="labelInfoDetailExpense" style="font-size:22px">${iAmount}</span></label>
-              <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:center">${iDate}</label>
+            <div class="center" style="margin-right: 16px">
+              <div style="max-width: 50%;">
+                <label class="list-item__title labelDetailExpense" style="text-align:left; margin-left:16px; font-size:22px">${iName}</label> 
+                <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:left; margin-left:16px">${iDate}</label>
+              </div>
+              <div style="margin-left: auto; margin-right: 0px;">
+                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
+                <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
+              </div>
             </div>
-            <div class="expandable-content" style="grid-template-columns: 1fr 1fr;">
 
+            <div class="expandable-content" style="grid-template-columns: 1fr 1fr;">
               <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 32px; margin-right: 8px; background: var(--flat-button-color); color: var(--flat-button-color-text)" onclick="editDetailExpense('${iD}')" >
                 EDIT
               </ons-button>
@@ -818,17 +824,22 @@ function reInsertExpenseDetail(sendName) {
               <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 8px; margin-right: 32px; background: var(--flat-button-light-color); color: var(--flat-button-light-color-text)" onclick="deleteDetailExpense('${iD}')" >
                 DELETE
               </ons-button>
-
             </div>
           </ons-list-item>`;
         } else {
           detailDetailExpenseView.innerHTML += `<ons-list-item expandable style="margin-top: -16px;" modifier="nodivider">
-            <div class="center">
-              <label class="list-item__title labelDetailExpense" style="text-align:center; font-size:22px">${iName} - $ <span class="labelInfoDetailExpense" style="font-size:22px">${iAmount}</span></label>
-              <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:center">${iDate}</label>
+          <div class="center" style="margin-right: 16px">
+            <div style="max-width: 50%;">
+              <label class="list-item__title labelDetailExpense" style="text-align:left; margin-left:16px; font-size:22px">${iName}</label> 
+              <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:left; margin-left:16px">${iDate}</label>
             </div>
+            <div style="margin-left: auto; margin-right: 0px;">
+              <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
+              <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
+            </div>
+          </div>
+
             <div class="expandable-content" style="grid-template-columns: 1fr 1fr;">
-  
               <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 32px; margin-right: 8px; background: var(--flat-button-color); color: var(--flat-button-color-text)" onclick="editDetailExpense('${iD}')" >
                 EDITAR
               </ons-button>
@@ -836,7 +847,6 @@ function reInsertExpenseDetail(sendName) {
               <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 8px; margin-right: 32px; background: var(--flat-button-light-color); color: var(--flat-button-light-color-text)" onclick="deleteDetailExpense('${iD}')" >
                 ELIMINAR
               </ons-button>
-  
             </div>
           </ons-list-item>`;
         }

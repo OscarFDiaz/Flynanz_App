@@ -52,3 +52,12 @@
 .moneyButtonDe:active {
   background: var(--flat-button-light-active-color);
 }
+
+.cover-label {
+  text-align: center;
+  width: 100%;
+  color: var(--money-info);
+  font-size: 26px;
+  margin-top: -20px;
+  margin-bottom: 16px;
+}
