@@ -134,7 +134,7 @@
 
           // Se ejecuta siempre que el carusel se mueva, esto para setear el botón que permite personalizar el tema custom
           ons.ready(function () {
-            var carousel = document.addEventListener('postchange', function (event) {
+            var carousel = document.getElementById('carousel').addEventListener('postchange', function (event) {
               sessionStorage.setItem('themeIndex', event.activeIndex);
 
               if (event.activeIndex == '5') {

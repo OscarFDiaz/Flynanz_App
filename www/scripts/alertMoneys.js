@@ -114,6 +114,18 @@ function hideAlertMoneys() {
 
   sessionStorage.clear();
   getMoneys();
+
+  document.getElementById('carousel2').addEventListener('postchange', function (event) {
+    let cIndex = event.activeIndex;
+    let laIndex = event.lastActiveIndex;
+
+    localStorage.setItem('currentDot', cIndex);
+
+    document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
+    if (document.getElementById(`indicator${laIndex}`) != null) {
+      document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
+    }
+  });
 }
 
 function hideAlertNoChangeMoneys() {

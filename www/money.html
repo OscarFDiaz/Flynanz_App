@@ -14,18 +14,19 @@
   <div id="totalMoneyContainer">
   </div>
 
+  <div id="tutorialContainer">
+  </div>
+
   <!--CARRUSEL-->
   <ons-card style="margin: 16px" id="moneyContainer">
   </ons-card>
-
-  <label class="tutorialLabel" id="moneySwiperCarousel" style="padding-bottom: 16px;"> ← Desliza para cambiar de dinero → </label>
 
   <!--GASTOS POR TARJETA-->
   <ons-card>
     <ons-list style="background: none;" id="expenseListOfExpensesContainer">
       <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-        <label class="iconExpenseLabel" style="margin-left: 50px;">
-          VER GASTOS
+        <label class="iconExpenseLabel" style="margin-left: 16px;">
+          VER ACTIVIDAD
         </label>
         <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
           <!-- AQUI SE CARGAN LOS GASTOS -->
@@ -103,7 +104,6 @@
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
               document.getElementById('moneyEditAlertCancel').innerHTML = 'CANCEL';
               document.getElementById('moneyEditAlertFinished').innerHTML = 'FINISHED!';
-              document.getElementById('moneySwiperCarousel').innerHTML = ' ← Swipe to change money → ';
             } else {
               document.getElementById('titleMoney').innerHTML = 'MI DINERO';
               document.getElementById('moneyEditAlertTitle').innerHTML = 'MODIFICAR MI DINERO';
@@ -116,9 +116,25 @@
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
               document.getElementById('moneyEditAlertCancel').innerHTML = 'CANCELAR';
               document.getElementById('moneyEditAlertFinished').innerHTML = 'LISTO!';
-              document.getElementById('moneySwiperCarousel').innerHTML = ' ← Desliza para cambiar de dinero → ';
             }
             getMoneys();
+
+            // Se ejecuta siempre que el carusel se mueva, cambia el punto de lugar
+            if (document.getElementById('carousel2') != null) {
+              document.getElementById('carousel2').addEventListener('postchange', function (event) {
+  
+                let cIndex = event.activeIndex;
+                let laIndex = event.lastActiveIndex;
+                
+                localStorage.setItem('currentDot', cIndex);
+  
+                document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
+                if (document.getElementById(`indicator${laIndex}`) != null) {
+                  document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
+                }
+              });
+            }
+
           });
         }
       },
@@ -126,4 +142,5 @@
     );
   </script>
 </ons-page>
+
 

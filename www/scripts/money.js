@@ -73,15 +73,28 @@ function makeNewMoney() {
       animation: 'ascend',
     });
   }
-
+  localStorage.setItem('currentDot', 0);
   getMoneys();
   functionPopPage();
+
+  document.getElementById('carousel2').addEventListener('postchange', function (event) {
+    let cIndex = event.activeIndex;
+    let laIndex = event.lastActiveIndex;
+
+    localStorage.setItem('currentDot', cIndex);
+
+    document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
+    if (document.getElementById(`indicator${laIndex}`) != null) {
+      document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
+    }
+  });
 }
 
 function getMoneys() {
   let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
   let moneyView = document.getElementById('moneyContainer');
   let totalMoneyContainer = document.getElementById('totalMoneyContainer');
+  let tutorialView = document.getElementById('tutorialContainer');
 
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
@@ -179,15 +192,19 @@ function getMoneys() {
   if (moneys == null || moneys == 'null') {
     let tutorial = localStorage.getItem('storageSwitchTutorial');
     if (tutorial == true || tutorial == 'true') {
-      moneyView.innerHTML += `${moneyTutorial}`;
+      tutorialView.innerHTML = `${moneyTutorial}`;
     }
+    totalMoneyContainer.innerHTML = '';
     return;
   } else if (moneys.length == 0) {
     let tutorial = localStorage.getItem('storageSwitchTutorial');
     if (tutorial == true || tutorial == 'true') {
-      moneyView.innerHTML += `${moneyTutorial}`;
+      tutorialView.innerHTML = `${moneyTutorial}`;
     }
+    totalMoneyContainer.innerHTML = '';
     return;
+  } else {
+    tutorialView.innerHTML = '';
   }
 
   let totalMoney = formatMoney(getTotalMoney());
@@ -214,15 +231,21 @@ function getMoneys() {
     </ons-card>`;
   }
 
-  toInner += `<ons-carousel fullscreen swipeable auto-scroll overscrollable>`;
+  let currentIndexStorage = localStorage.getItem('currentDot');
+  if (currentIndexStorage == null) {
+    localStorage.setItem('currentDot', 0);
+    currentIndexStorage = 0;
+  }
+
+  toInner += `<ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel2" initial-index="${currentIndexStorage}">`;
+  let cardsCounter = 0;
   for (let i = 0; i < moneys.length; i++) {
     let mName = moneys[i].moneyName;
     let mMoney = formatMoney(moneys[i].moneyCurrent);
-    let newItem = document.createElement('ons-carousel-item');
 
     if (languaje == 'false') {
       toInner += `
-      <ons-carousel-item style="background-color: var(--card-back-color); padding: 16px; border-radius: 15px">
+      <ons-carousel-item style="background-color: var(--card-back-color); padding: 16px 16px 0px 16px; border-radius: 15px; margin-bottom: 10px">
         <div class="title moneyTitle">
           ${mName}
         </div>
@@ -240,9 +263,10 @@ function getMoneys() {
           DELETE
         </ons-button>
       </ons-carousel-item>`;
+      cardsCounter++;
     } else {
       toInner += `
-      <ons-carousel-item style="background-color: var(--card-back-color); padding: 16px; border-radius: 15px">
+      <ons-carousel-item style="background-color: var(--card-back-color); padding: 16px 16px 0px 16px; border-radius: 15px; margin-bottom: 10px">
         <div class="title moneyTitle">
           ${mName}
         </div>
@@ -260,10 +284,24 @@ function getMoneys() {
           ELIMINAR
         </ons-button>
       </ons-carousel-item>`;
+      cardsCounter++;
     }
   }
   toInner += `</ons-carousel>`;
-  console.log(toInner);
+
+  // Pongo los puntos
+  let indicatorsAmount = '';
+  toInner += `<div class="cover-label" id="dotsContainer">`;
+  for (let i = 0; i < cardsCounter; i++) {
+    if (i == localStorage.getItem('currentDot')) {
+      indicatorsAmount += `<span class="indicators" id="indicator${i}"> ● </span>`;
+    } else {
+      indicatorsAmount += `<span class="indicators" id="indicator${i}"> ○ </span>`;
+    }
+  }
+  toInner += `${indicatorsAmount} </div>`;
+
+  // INSERTO TODO
   moneyView.innerHTML = toInner;
 }
 
@@ -290,6 +328,20 @@ function deleteMoney(sendMoneyName) {
           localStorage.setItem('moneyStorage', JSON.stringify(moneys));
 
           getMoneys();
+
+          if (document.getElementById('carousel2') != null) {
+            document.getElementById('carousel2').addEventListener('postchange', function (event) {
+              let cIndex = event.activeIndex;
+              let laIndex = event.lastActiveIndex;
+
+              localStorage.setItem('currentDot', cIndex);
+
+              document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
+              if (document.getElementById(`indicator${laIndex}`) != null) {
+                document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
+              }
+            });
+          }
 
           ons.notification.toast('The selected money has been removed!', {
             title: 'Notice!',
@@ -325,7 +377,23 @@ function deleteMoney(sendMoneyName) {
           }
           localStorage.setItem('moneyStorage', JSON.stringify(moneys));
 
+          localStorage.setItem('currentDot', 0);
+
           getMoneys();
+
+          if (document.getElementById('carousel2') != null) {
+            document.getElementById('carousel2').addEventListener('postchange', function (event) {
+              let cIndex = event.activeIndex;
+              let laIndex = event.lastActiveIndex;
+
+              localStorage.setItem('currentDot', cIndex);
+
+              document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
+              if (document.getElementById(`indicator${laIndex}`) != null) {
+                document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
+              }
+            });
+          }
 
           ons.notification.toast('Se ha eliminado el dinero seleccionado!', {
             title: 'Aviso!',
