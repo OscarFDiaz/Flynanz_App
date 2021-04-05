@@ -87,6 +87,7 @@ function makeNewMoney() {
     if (document.getElementById(`indicator${laIndex}`) != null) {
       document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
     }
+    showExpensesPerWallet(searchWalletByIndex(cIndex));
   });
 }
 
@@ -471,5 +472,116 @@ function formatMoney(amount, decimalCount = 2, decimal = '.', thousands = ',') {
     );
   } catch (e) {
     console.log(e);
+  }
+}
+
+function searchWalletByIndex(index) {
+  let expensesDetail = JSON.parse(localStorage.getItem('expenseDetailStorage'));
+  if (expensesDetail == null || expensesDetail == 'null' || expensesDetail.length < 1) {
+    return;
+  }
+
+  if (expensesDetail[index].inWallet == null) {
+    return;
+  } else {
+    return expensesDetail[index].inWallet;
+  }
+}
+
+/* Muestra los gastos de cada cartera*/
+function showExpensesPerWallet(walletName) {
+  let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  let detailDetailExpenseView = document.getElementById('moneyListOfExpenses');
+  detailDetailExpenseView.innerHTML = '';
+
+  let expensesDetail = JSON.parse(localStorage.getItem('expenseDetailStorage'));
+
+  let actualEx = 0;
+  if (expensesDetail == null || expensesDetail == 'null') {
+  } else {
+    //for para ver si existe la wallet
+    for (let i = 0; i < expensesDetail.length; i++) {
+      if (expensesDetail[i].inWallet == walletName) {
+        actualEx = 1;
+        break;
+      }
+    }
+  }
+
+  if (actualEx == 0) {
+    if (languaje == 'false') {
+      detailDetailExpenseView.innerHTML = `<div style="margin-bottom: 30px;">
+        <label class="labelDetailExpense" style="text-align:center">Nothing to show, you are doing well with the savings...</label>
+      </div>`;
+    } else {
+      detailDetailExpenseView.innerHTML = `<div style="margin-bottom: 30px;">
+        <label class="labelDetailExpense" style="text-align:center">Nada por mostrar, vas bien con los ahorros...</label>
+      </div>`;
+    }
+  } else {
+    for (let i = 0; i < expensesDetail.length; i++) {
+      if (expensesDetail[i].inWallet == walletName) {
+        let iName = expensesDetail[i].inName;
+        let iAmount = formatMoney(expensesDetail[i].inAmount);
+        let iDate = expensesDetail[i].inDate;
+        let iD = expensesDetail[i].inID;
+
+        let today = new Date().toJSON().slice(0, 10);
+        let days = dateDiff(today, iDate);
+
+        if (languaje == 'false') {
+          if (iDate === '') {
+            iDate = 'NO DATE DATA';
+          } else {
+            if (Math.sign(days) == 1 || Math.sign(days) == '1') {
+              iDate = 'IN ' + days + ' DAYS';
+            } else if (Math.sign(days) == '-1' || Math.sign(days) == -1) {
+              iDate = Math.abs(days) + ' DAYS AGO';
+            } else if (Math.sign(days) == '0' || Math.sign(days) == 0) {
+              iDate = 'TODAY';
+            }
+          }
+
+          detailDetailExpenseView.innerHTML += `<ons-list-item style="margin-top: -16px;" modifier="nodivider">
+            <div class="center" style="margin-right: 16px">
+              <div style="max-width: 50%;">
+                <label class="list-item__title labelDetailExpense" style="text-align:left; margin-left:16px; font-size:22px">${iName}</label> 
+                <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:left; margin-left:16px">${iDate}</label>
+              </div>
+              <div style="margin-left: auto; margin-right: 0px;">
+                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
+                <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
+              </div>
+            </div>
+          </ons-list-item>`;
+        } else {
+          if (iDate === '') {
+            iDate = 'SIN DATOS DE FECHA';
+          } else {
+            if (Math.sign(days) == 1 || Math.sign(days) == '1') {
+              iDate = 'EN ' + days + ' DÍAS';
+            } else if (Math.sign(days) == '-1' || Math.sign(days) == -1) {
+              iDate = 'HACE ' + Math.abs(days) + ' DÍAS';
+            } else if (Math.sign(days) == '0' || Math.sign(days) == 0) {
+              iDate = 'HOY';
+            }
+          }
+
+          detailDetailExpenseView.innerHTML += `<ons-list-item style="margin-top: -16px;" modifier="nodivider">
+            <div class="center" style="margin-right: 16px">
+              <div style="max-width: 50%;">
+                <label class="list-item__title labelDetailExpense" style="text-align:left; margin-left:16px; font-size:22px">${iName}</label> 
+                <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:left; margin-left:16px">${iDate}</label>
+              </div>
+              <div style="margin-left: auto; margin-right: 0px;">
+                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
+                <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
+              </div>
+            </div>
+          </ons-list-item>`;
+        }
+      }
+    }
   }
 }

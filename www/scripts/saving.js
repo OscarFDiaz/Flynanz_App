@@ -1421,6 +1421,7 @@ function hideAlertAddExpenseSaving() {
     inAmount: eMoneyFixed,
     inDate: eDate,
     inID: eid,
+    inWallet: choseMoney,
   };
 
   /* Guardo los detalles del Expense*/

@@ -139,6 +139,7 @@ function hideAlertExpense() {
     inAmount: eMoney,
     inDate: eDate,
     inID: eid,
+    inWallet: selectedOption,
   };
 
   /* Guardo los detalles del Expense*/

@@ -28,7 +28,7 @@
         <label class="iconExpenseLabel" style="margin-left: 16px;">
           VER ACTIVIDAD
         </label>
-        <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
+        <div class="expandable-content" id="moneyListOfExpenses" style="grid-template-columns: 1fr;">
           <!-- AQUI SE CARGAN LOS GASTOS -->
           PROXIMAMENTE
         </div>
@@ -119,6 +119,8 @@
             }
             getMoneys();
 
+            let cIndex = localStorage.getItem('currentDot');
+            showExpensesPerWallet(searchWalletByIndex(cIndex));
             // Se ejecuta siempre que el carusel se mueva, cambia el punto de lugar
             if (document.getElementById('carousel2') != null) {
               document.getElementById('carousel2').addEventListener('postchange', function (event) {
@@ -132,6 +134,8 @@
                 if (document.getElementById(`indicator${laIndex}`) != null) {
                   document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
                 }
+
+                showExpensesPerWallet(searchWalletByIndex(cIndex));
               });
             }
 
