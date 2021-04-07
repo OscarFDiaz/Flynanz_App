@@ -30,11 +30,11 @@
         </label>
         <div class="expandable-content" id="moneyListOfExpenses" style="grid-template-columns: 1fr;">
           <!-- AQUI SE CARGAN LOS GASTOS -->
-          PROXIMAMENTE
         </div>
       </ons-list-item>
     </ons-list>
   </ons-card>
+  
   
   <ons-fab position="bottom right" onclick="pushToNewMoney()">
     <i class="icon ion-md-add" style="font-size: 35px;"></i>
@@ -117,6 +117,7 @@
               document.getElementById('moneyEditAlertCancel').innerHTML = 'CANCELAR';
               document.getElementById('moneyEditAlertFinished').innerHTML = 'LISTO!';
             }
+
             getMoneys();
 
             let cIndex = localStorage.getItem('currentDot');
@@ -131,6 +132,7 @@
                 localStorage.setItem('currentDot', cIndex);
   
                 document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
+                
                 if (document.getElementById(`indicator${laIndex}`) != null) {
                   document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
                 }

@@ -125,6 +125,8 @@ function hideAlertMoneys() {
     if (document.getElementById(`indicator${laIndex}`) != null) {
       document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
     }
+
+    showExpensesPerWallet(searchWalletByIndex(cIndex));
   });
 }
 

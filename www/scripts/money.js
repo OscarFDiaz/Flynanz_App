@@ -73,9 +73,12 @@ function makeNewMoney() {
       animation: 'ascend',
     });
   }
-  localStorage.setItem('currentDot', 0);
+
   getMoneys();
   functionPopPage();
+
+  let cIndex = localStorage.getItem('currentDot');
+  showExpensesPerWallet(searchWalletByIndex(cIndex));
 
   document.getElementById('carousel2').addEventListener('postchange', function (event) {
     let cIndex = event.activeIndex;
@@ -329,6 +332,8 @@ function deleteMoney(sendMoneyName) {
           localStorage.setItem('moneyStorage', JSON.stringify(moneys));
 
           getMoneys();
+          let cIndex = localStorage.getItem('currentDot');
+          showExpensesPerWallet(searchWalletByIndex(cIndex));
 
           if (document.getElementById('carousel2') != null) {
             document.getElementById('carousel2').addEventListener('postchange', function (event) {
@@ -341,6 +346,7 @@ function deleteMoney(sendMoneyName) {
               if (document.getElementById(`indicator${laIndex}`) != null) {
                 document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
               }
+              showExpensesPerWallet(searchWalletByIndex(cIndex));
             });
           }
 
@@ -381,6 +387,8 @@ function deleteMoney(sendMoneyName) {
           localStorage.setItem('currentDot', 0);
 
           getMoneys();
+          let cIndex = localStorage.getItem('currentDot');
+          showExpensesPerWallet(searchWalletByIndex(cIndex));
 
           if (document.getElementById('carousel2') != null) {
             document.getElementById('carousel2').addEventListener('postchange', function (event) {
@@ -393,6 +401,7 @@ function deleteMoney(sendMoneyName) {
               if (document.getElementById(`indicator${laIndex}`) != null) {
                 document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
               }
+              showExpensesPerWallet(searchWalletByIndex(cIndex));
             });
           }
 
@@ -476,15 +485,15 @@ function formatMoney(amount, decimalCount = 2, decimal = '.', thousands = ',') {
 }
 
 function searchWalletByIndex(index) {
-  let expensesDetail = JSON.parse(localStorage.getItem('expenseDetailStorage'));
+  let expensesDetail = JSON.parse(localStorage.getItem('moneyStorage'));
   if (expensesDetail == null || expensesDetail == 'null' || expensesDetail.length < 1) {
-    return;
+    return 'NO NAME';
   }
 
-  if (expensesDetail[index].inWallet == null) {
-    return;
+  if (expensesDetail[index].moneyName == null) {
+    return 'NO NAME';
   } else {
-    return expensesDetail[index].inWallet;
+    return expensesDetail[index].moneyName;
   }
 }
 

@@ -241,13 +241,14 @@ function editDetailExpense(idSend) {
   let expenses = JSON.parse(localStorage.getItem('expenseDetailStorage'));
   sessionStorage.setItem('editExpense', idSend);
 
-  let note, money, date;
+  let note, money, date, inWallet;
 
   for (let i = 0; i < expenses.length; i++) {
     if (expenses[i].inID == idSend) {
       note = expenses[i].inName;
       money = expenses[i].inAmount;
       date = expenses[i].inDate;
+      inWallet = expenses[i].inWallet;
       break;
     }
   }
@@ -271,7 +272,7 @@ function hideEditAlertExpense() {
   let note = document.getElementById('alertEditExpenseNote').value;
   let money = parseFloat(document.getElementById('alertEditExpenseMoney').value).toFixed(2);
   let date = document.getElementById('alertEditExpenseDate').value;
-  let mName, id, index;
+  let mName, id, index, inWallet;
 
   let idSend = sessionStorage.getItem('editExpense');
   let expenses = JSON.parse(localStorage.getItem('expenseDetailStorage'));
@@ -342,6 +343,7 @@ function hideEditAlertExpense() {
     if (expenses[i].inID == idSend) {
       mName = expenses[i].expenseName;
       id = expenses[i].inID;
+      inWallet = expenses[i].inWallet;
       index = i;
       break;
     }
@@ -353,6 +355,7 @@ function hideEditAlertExpense() {
     inAmount: money,
     inDate: date,
     inID: id,
+    inWallet: inWallet,
   };
 
   /* Guardo los detalles del Expense*/
