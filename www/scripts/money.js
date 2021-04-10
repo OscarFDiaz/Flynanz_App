@@ -98,6 +98,7 @@ function getMoneys() {
   let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
   let moneyView = document.getElementById('moneyContainer');
   let totalMoneyContainer = document.getElementById('totalMoneyContainer');
+  let cardExpenses = document.getElementById('cardExpensesContainer');
   let tutorialView = document.getElementById('tutorialContainer');
 
   let languaje = localStorage.getItem('storageSwitchLanguage');
@@ -223,6 +224,16 @@ function getMoneys() {
         </span>
       </div>
     </ons-card>`;
+    cardExpenses.innerHTML = `<ons-list style="background: none;" id="expenseListOfExpensesContainer">
+    <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
+      <label class="iconExpenseLabel" style="margin-left: 16px;">
+        SEE EXPENSES
+      </label>
+      <div class="expandable-content" id="moneyListOfExpenses" style="grid-template-columns: 1fr;">
+        <!-- AQUI SE CARGAN LOS GASTOS -->
+      </div>
+    </ons-list-item>
+  </ons-list>`;
   } else {
     totalMoneyContainer.innerHTML = `
     <ons-card>
@@ -233,6 +244,16 @@ function getMoneys() {
         </span>
       </div>
     </ons-card>`;
+    cardExpenses.innerHTML = `<ons-list style="background: none;" id="expenseListOfExpensesContainer">
+    <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
+      <label class="iconExpenseLabel" style="margin-left: 16px;">
+        VER GASTOS
+      </label>
+      <div class="expandable-content" id="moneyListOfExpenses" style="grid-template-columns: 1fr;">
+        <!-- AQUI SE CARGAN LOS GASTOS -->
+      </div>
+    </ons-list-item>
+  </ons-list>`;
   }
 
   let currentIndexStorage = localStorage.getItem('currentDot');
@@ -502,6 +523,9 @@ function showExpensesPerWallet(walletName) {
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
   let detailDetailExpenseView = document.getElementById('moneyListOfExpenses');
+  if (detailDetailExpenseView == null) {
+    return;
+  }
   detailDetailExpenseView.innerHTML = '';
 
   let expensesDetail = JSON.parse(localStorage.getItem('expenseDetailStorage'));
@@ -556,10 +580,10 @@ function showExpensesPerWallet(walletName) {
             <div class="center" style="margin-right: 16px">
               <div style="max-width: 50%;">
                 <label class="list-item__title labelDetailExpense" style="text-align:left; margin-left:16px; font-size:22px">${iName}</label> 
-                <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:left; margin-left:16px">${iDate}</label>
+                <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 16px; text-align:left; margin-left:16px">${iDate}</label>
               </div>
               <div style="margin-left: auto; margin-right: 0px;">
-                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
+                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">- $</span> 
                 <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
               </div>
             </div>
@@ -581,10 +605,10 @@ function showExpensesPerWallet(walletName) {
             <div class="center" style="margin-right: 16px">
               <div style="max-width: 50%;">
                 <label class="list-item__title labelDetailExpense" style="text-align:left; margin-left:16px; font-size:22px">${iName}</label> 
-                <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:left; margin-left:16px">${iDate}</label>
+                <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 16px; text-align:left; margin-left:16px">${iDate}</label>
               </div>
               <div style="margin-left: auto; margin-right: 0px;">
-                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
+                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">- $</span> 
                 <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
               </div>
             </div>
