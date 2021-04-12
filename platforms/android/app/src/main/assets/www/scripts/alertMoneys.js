@@ -114,6 +114,8 @@ function hideAlertMoneys() {
 
   sessionStorage.clear();
   getMoneys();
+  let cIndex = localStorage.getItem('currentDot');
+  showExpensesPerWallet(searchWalletByIndex(cIndex));
 
   document.getElementById('carousel2').addEventListener('postchange', function (event) {
     let cIndex = event.activeIndex;
@@ -125,6 +127,8 @@ function hideAlertMoneys() {
     if (document.getElementById(`indicator${laIndex}`) != null) {
       document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
     }
+
+    showExpensesPerWallet(searchWalletByIndex(cIndex));
   });
 }
 

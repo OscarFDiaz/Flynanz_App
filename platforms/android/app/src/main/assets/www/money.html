@@ -22,18 +22,7 @@
   </ons-card>
 
   <!--GASTOS POR TARJETA-->
-  <ons-card>
-    <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-      <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-        <label class="iconExpenseLabel" style="margin-left: 16px;">
-          VER ACTIVIDAD
-        </label>
-        <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
-          <!-- AQUI SE CARGAN LOS GASTOS -->
-          PROXIMAMENTE
-        </div>
-      </ons-list-item>
-    </ons-list>
+  <ons-card id="cardExpensesContainer">
   </ons-card>
   
   <ons-fab position="bottom right" onclick="pushToNewMoney()">
@@ -117,8 +106,11 @@
               document.getElementById('moneyEditAlertCancel').innerHTML = 'CANCELAR';
               document.getElementById('moneyEditAlertFinished').innerHTML = 'LISTO!';
             }
+
             getMoneys();
 
+            let cIndex = localStorage.getItem('currentDot');
+            showExpensesPerWallet(searchWalletByIndex(cIndex));
             // Se ejecuta siempre que el carusel se mueva, cambia el punto de lugar
             if (document.getElementById('carousel2') != null) {
               document.getElementById('carousel2').addEventListener('postchange', function (event) {
@@ -129,9 +121,12 @@
                 localStorage.setItem('currentDot', cIndex);
   
                 document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
+                
                 if (document.getElementById(`indicator${laIndex}`) != null) {
                   document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
                 }
+
+                showExpensesPerWallet(searchWalletByIndex(cIndex));
               });
             }
 
