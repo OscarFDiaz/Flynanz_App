@@ -1,6 +1,8 @@
 function createAlertDialogToEditMoneyMoney() {
   let retrievedMoney = sessionStorage.getItem('sessionFindMoney');
   let parseMoney = JSON.parse(retrievedMoney);
+  let optionsContainer = document.getElementById('alertEditMoneyMoneyOptionsAlert');
+  let languaje = localStorage.getItem('storageSwitchLanguage');
 
   //Guardo el nombre por si el usuario lo edita
   localStorage.setItem('nameSaved', parseMoney.moneyName);
@@ -8,7 +10,70 @@ function createAlertDialogToEditMoneyMoney() {
   var dialog = document.getElementById('alertEditMoneyMoney');
 
   if (dialog) {
-    document.getElementById('editOnlyMoneyMoney').value = '';
+    // document.getElementById('editOnlyMoneyMoney').value = '';
+
+    if (languaje == 'false') {
+      optionsContainer.innerHTML = `<ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditMoney('add')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%;"
+        id="newMoneyCancelButton"
+      >
+      <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px;"></i>
+        ADD MONEY
+      </ons-button>
+  
+      <ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditMoney('remove')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%;"
+        id="newMoneyCancelButton"
+      >
+      <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px;"></i>
+        REMOVE MONEY
+      </ons-button>
+  
+      <ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditMoney('transfer')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%;"
+        id="newMoneyCancelButton"
+      >
+      <i class="icon ion-md-swap" style="font-size: 14px; margin-right: 16px;"></i>
+        TRANSFER MONEY
+      </ons-button>`;
+    } else {
+      optionsContainer.innerHTML = `<ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditMoney('add')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%;"
+        id="newMoneyCancelButton"
+      >
+      <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px;"></i>
+        AÑADIR DINERO
+      </ons-button>
+  
+      <ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditMoney('remove')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%;"
+        id="newMoneyCancelButton"
+      >
+      <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px;"></i>
+        RESTAR DINERO
+      </ons-button>
+  
+      <ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditMoney('transfer')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%;"
+        id="newMoneyCancelButton"
+      >
+      <i class="icon ion-md-swap" style="font-size: 14px; margin-right: 16px;"></i>
+        TRANSFERIR DINERO
+      </ons-button>`;
+    }
+
     document.getElementById('editMoneyEndMoney').innerHTML = '';
     dialog.show();
     document.getElementById('editMoneyActualMoney').innerHTML = parseMoney.moneyCurrent;
@@ -22,9 +87,25 @@ function createAlertDialogToEditMoneyMoney() {
 }
 
 function hideAlertMoneys() {
-  let element = document.getElementById('editOnlyMoneyMoney').value;
-
   let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  if (document.getElementById('editOnlyMoneyMoney') === null) {
+    if (languaje == 'false') {
+      ons.notification.toast('Select what you want to do, please!', {
+        title: 'Notice!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('Selecciona que deseas hacer, por favor!', {
+        title: 'Aviso!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+  let element = document.getElementById('editOnlyMoneyMoney').value;
 
   if (element === null || element === '' || element == '') {
     if (languaje == 'false') {
@@ -149,4 +230,65 @@ function hideAlertNoChangeMoneys() {
   }
   sessionStorage.clear();
   document.getElementById('alertEditMoneyMoney').hide();
+}
+
+function insertActionEditMoney(option) {
+  let optionsContainer = document.getElementById('alertEditMoneyMoneyOptionsAlert');
+  let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  if (option === 'add') {
+    if (languaje == 'false') {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" id="moneyEditAlertWhat">I WANT TO ADD</p>
+      <ons-input
+        onchange="makeSumMoney()"
+        onkeypress="this.onchange()"
+        oninput="this.onchange()"
+        id="editOnlyMoneyMoney"
+        modifier="underbar"
+        placeholder=""
+        type="number"
+        style="display: block; margin: -10px auto 16px;"
+      ></ons-input>`;
+    } else {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" id="moneyEditAlertWhat">QUIERO AÑADIR</p>
+    <ons-input
+      onchange="makeSumMoney()"
+      onkeypress="this.onchange()"
+      oninput="this.onchange()"
+      id="editOnlyMoneyMoney"
+      modifier="underbar"
+      placeholder=""
+      type="number"
+      style="display: block; margin: -10px auto 16px;"
+    ></ons-input>`;
+    }
+  } else if (option === 'remove') {
+    if (languaje == 'false') {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" id="moneyEditAlertWhat">I WANT TO REMOVE</p>
+      <ons-input
+        onchange="makeResMoney()"
+        onkeypress="this.onchange()"
+        oninput="this.onchange()"
+        id="editOnlyMoneyMoney"
+        modifier="underbar"
+        placeholder=""
+        type="number"
+        style="display: block; margin: -10px auto 16px;"
+      ></ons-input>`;
+    } else {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" id="moneyEditAlertWhat">QUIERO QUITAR</p>
+    <ons-input
+      onchange="makeResMoney()"
+      onkeypress="this.onchange()"
+      oninput="this.onchange()"
+      id="editOnlyMoneyMoney"
+      modifier="underbar"
+      placeholder=""
+      type="number"
+      style="display: block; margin: -10px auto 16px;"
+    ></ons-input>`;
+    }
+  } else if (option === 'transfer') {
+    console.log('TRANSFER');
+  }
 }
