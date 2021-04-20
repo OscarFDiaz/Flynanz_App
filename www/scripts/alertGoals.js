@@ -205,7 +205,17 @@ function makeSum() {
   let actualAmount = document.getElementById('editOnlyMoneyActualMoney').textContent;
   let newAmount = document.getElementById('editOnlyGoalMoney').value;
 
-  let sumResult = parseFloat(parseFloat(actualAmount) + parseFloat(newAmount)).toFixed(2);
+  let sumResult = parseFloat(parseFloat(actualAmount) + Math.abs(parseFloat(newAmount))).toFixed(2);
+
+  document.getElementById('editOnlyEndMoney').innerHTML = formatMoney(sumResult);
+  sessionStorage.setItem('addNewMoney', sumResult);
+}
+
+function makeRes() {
+  let actualAmount = document.getElementById('editOnlyMoneyActualMoney').textContent;
+  let newAmount = document.getElementById('editOnlyGoalMoney').value;
+
+  let sumResult = parseFloat(parseFloat(actualAmount) - Math.abs(parseFloat(newAmount))).toFixed(2);
 
   document.getElementById('editOnlyEndMoney').innerHTML = formatMoney(sumResult);
   sessionStorage.setItem('addNewMoney', sumResult);
@@ -214,6 +224,8 @@ function makeSum() {
 function createAlertDialogToEditGoalMoney() {
   let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
   let parseGoal = JSON.parse(retrievedGoal);
+  let optionsContainer = document.getElementById('alertEditGoalMoneyOptionsAlert');
+  let languaje = localStorage.getItem('storageSwitchLanguage');
 
   //Guardo el nombre por si el usuario lo edita
   localStorage.setItem('nameSaved', parseGoal.name);
@@ -222,8 +234,50 @@ function createAlertDialogToEditGoalMoney() {
   var dialog = document.getElementById('alertEditGoalMoney');
 
   if (dialog) {
-    document.getElementById('editOnlyGoalMoney').value = '';
     document.getElementById('editOnlyEndMoney').innerHTML = '';
+
+    if (languaje == 'false') {
+      optionsContainer.innerHTML = `<ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditGoal('add')"
+        style="margin-bottom: 16px; margin-top: 16px; margin-left: 0px; width: 90%"
+        id="newMoneyCancelButton"
+      >
+        <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
+        ADD MONEY
+      </ons-button>
+    
+      <ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditGoal('remove')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+        id="newMoneyCancelButton"
+      >
+        <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
+        REMOVE MONEY
+      </ons-button>`;
+    } else {
+      optionsContainer.innerHTML = `<ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditGoal('add')"
+        style="margin-bottom: 16px; margin-top: 16px; margin-left: 0px; width: 90%"
+        id="newMoneyCancelButton"
+      >
+        <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
+        AÑADIR DINERO
+      </ons-button>
+    
+      <ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditGoal('remove')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+        id="newMoneyCancelButton"
+      >
+        <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
+        RESTAR DINERO
+      </ons-button>`;
+    }
+
     dialog.show();
   } else {
     ons.notification.toast('Ups! No se ha podido cargar la ventana para modificar!', {
@@ -235,8 +289,26 @@ function createAlertDialogToEditGoalMoney() {
 }
 
 function hideAlertDialogMoney() {
-  let element = document.getElementById('editOnlyGoalMoney').value;
   let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  if (document.getElementById('editOnlyGoalMoney') === null) {
+    if (languaje == 'false') {
+      ons.notification.toast('Please, select what you want to do!', {
+        title: 'Notice!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('Selecciona que deseas hacer, por favor!', {
+        title: 'Aviso!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+
+  let element = document.getElementById('editOnlyGoalMoney').value;
 
   let newMoney = sessionStorage.getItem('addNewMoney');
   let testMoney = Math.sign(newMoney);
@@ -402,4 +474,71 @@ function hideAlertNoChangeMoney() {
   }
   sessionStorage.clear();
   document.getElementById('alertEditGoalMoney').hide();
+}
+
+function insertActionEditGoal(option) {
+  let optionsContainer = document.getElementById('alertEditGoalMoneyOptionsAlert');
+  let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  if (option === 'add') {
+    if (languaje == 'false') {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px" >
+      I WANT TO ADD
+    </p>
+    <ons-input
+      onchange="makeSum()"
+      onkeypress="this.onchange()"
+      oninput="this.onchange()"
+      id="editOnlyGoalMoney"
+      modifier="underbar"
+      placeholder=""
+      type="number"
+      style="display: block; margin: -10px auto 16px"
+    ></ons-input>`;
+    } else {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px">
+      QUIERO AÑADIR
+    </p>
+    <ons-input
+      onchange="makeSum()"
+      onkeypress="this.onchange()"
+      oninput="this.onchange()"
+      id="editOnlyGoalMoney"
+      modifier="underbar"
+      placeholder=""
+      type="number"
+      style="display: block; margin: -10px auto 16px"
+    ></ons-input>`;
+    }
+  } else if (option === 'remove') {
+    if (languaje == 'false') {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px" >
+      I WANT TO REMOVE
+    </p>
+    <ons-input
+      onchange="makeRes()"
+      onkeypress="this.onchange()"
+      oninput="this.onchange()"
+      id="editOnlyGoalMoney"
+      modifier="underbar"
+      placeholder=""
+      type="number"
+      style="display: block; margin: -10px auto 16px"
+    ></ons-input>`;
+    } else {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px">
+      QUIERO QUITAR
+    </p>
+    <ons-input
+      onchange="makeRes()"
+      onkeypress="this.onchange()"
+      oninput="this.onchange()"
+      id="editOnlyGoalMoney"
+      modifier="underbar"
+      placeholder=""
+      type="number"
+      style="display: block; margin: -10px auto 16px"
+    ></ons-input>`;
+    }
+  }
 }

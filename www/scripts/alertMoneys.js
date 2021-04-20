@@ -91,7 +91,7 @@ function hideAlertMoneys() {
 
   if (document.getElementById('editOnlyMoneyMoney') === null) {
     if (languaje == 'false') {
-      ons.notification.toast('Select what you want to do, please!', {
+      ons.notification.toast('Please, select what you want to do!', {
         title: 'Notice!',
         timeout: 2000,
         animation: 'ascend',
@@ -238,7 +238,7 @@ function insertActionEditMoney(option) {
 
   if (option === 'add') {
     if (languaje == 'false') {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" id="moneyEditAlertWhat">I WANT TO ADD</p>
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" >I WANT TO ADD</p>
       <ons-input
         onchange="makeSumMoney()"
         onkeypress="this.onchange()"
@@ -250,7 +250,7 @@ function insertActionEditMoney(option) {
         style="display: block; margin: -10px auto 16px;"
       ></ons-input>`;
     } else {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" id="moneyEditAlertWhat">QUIERO AÑADIR</p>
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">QUIERO AÑADIR</p>
     <ons-input
       onchange="makeSumMoney()"
       onkeypress="this.onchange()"
@@ -264,7 +264,7 @@ function insertActionEditMoney(option) {
     }
   } else if (option === 'remove') {
     if (languaje == 'false') {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" id="moneyEditAlertWhat">I WANT TO REMOVE</p>
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">I WANT TO REMOVE</p>
       <ons-input
         onchange="makeResMoney()"
         onkeypress="this.onchange()"
@@ -276,7 +276,7 @@ function insertActionEditMoney(option) {
         style="display: block; margin: -10px auto 16px;"
       ></ons-input>`;
     } else {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" id="moneyEditAlertWhat">QUIERO QUITAR</p>
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">QUIERO QUITAR</p>
     <ons-input
       onchange="makeResMoney()"
       onkeypress="this.onchange()"
@@ -289,6 +289,73 @@ function insertActionEditMoney(option) {
     ></ons-input>`;
     }
   } else if (option === 'transfer') {
-    console.log('TRANSFER');
+    if (languaje == 'false') {
+      optionsContainer.innerHTML = `
+      <p style="margin: 0px auto -16px 0px; text-align: center;">AMOUNT TO TRANSFER</p>
+        <ons-input
+          onchange="makeResMoney()"
+          onkeypress="this.onchange()"
+          oninput="this.onchange()"
+          id="editOnlyMoneyMoney"
+          modifier="underbar"
+          placeholder=""
+          type="number"
+          style="display: block; margin: -10px auto 16px;"
+        ></ons-input>
+
+      <p style="margin: 0px auto 0px 0px; text-align: center;">TRANSFER TO</p>
+      <select id="selectOptioToTransferMoney" style="margin-bottom: 16px">
+        <!--AQUI SE CARGAN LOS POSIBLES GASTOS-->
+      </select>`;
+      loadOptionsToTransferMoney();
+    } else {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">TRANSFERIR A</p>
+        <ons-input
+          onchange="makeResMoney()"
+          onkeypress="this.onchange()"
+          oninput="this.onchange()"
+          id="editOnlyMoneyMoney"
+          modifier="underbar"
+          placeholder=""
+          type="number"
+          style="display: block; margin: -10px auto 16px;"
+        ></ons-input>
+        
+        <p style="margin: 0px auto 0px 0px; text-align: center;">TRANSFERIR A</p>
+        <select id="selectOptioToTransferMoney" style="margin-bottom: 16px">
+          <!--AQUI SE CARGAN LOS POSIBLES GASTOS-->
+        </select>`;
+      loadOptionsToTransferMoney();
+    }
+  }
+}
+
+function loadOptionsToTransferMoney() {
+  let moneyStorage = JSON.parse(localStorage.getItem('moneyStorage'));
+  let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  let container = document.getElementById('selectOptioToTransferMoney');
+  container.innerHTML = '';
+
+  const option = document.createElement('option');
+
+  let text;
+  if (languaje == 'false') {
+    text = 'DO NOT SUBTRACT';
+  } else {
+    text = 'NO RESTAR';
+  }
+  option.innerText = text;
+
+  container.appendChild(option);
+  if (moneyStorage == null || moneyStorage == 'null') {
+  } else {
+    for (let i = 0; i < moneyStorage.length; i++) {
+      const option = document.createElement('option');
+      let text = moneyStorage[i].moneyName;
+      option.innerText = text;
+
+      container.appendChild(option);
+    }
   }
 }
