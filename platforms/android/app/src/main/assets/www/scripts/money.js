@@ -352,6 +352,8 @@ function deleteMoney(sendMoneyName) {
           }
           localStorage.setItem('moneyStorage', JSON.stringify(moneys));
 
+          localStorage.setItem('currentDot', 0);
+
           getMoneys();
           let cIndex = localStorage.getItem('currentDot');
           showExpensesPerWallet(searchWalletByIndex(cIndex));
@@ -511,7 +513,7 @@ function searchWalletByIndex(index) {
     return 'NO NAME';
   }
 
-  if (expensesDetail[index].moneyName == null) {
+  if (expensesDetail[index].moneyName == null || expensesDetail[index].moneyName == '') {
     return 'NO NAME';
   } else {
     return expensesDetail[index].moneyName;
