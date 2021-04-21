@@ -109,7 +109,7 @@ function hideAlertMoneys() {
 
   if (element === null || element === '' || element == '') {
     if (languaje == 'false') {
-      ons.notification.toast('Enter how much money you want to add / remove, please!', {
+      ons.notification.toast('Enter how much money you want to add/remove, please!', {
         title: 'Notice!',
         timeout: 2000,
         animation: 'ascend',
@@ -129,7 +129,135 @@ function hideAlertMoneys() {
   let testMoney = Math.sign(newMoney);
   if (testMoney == '-1' || testMoney === '-0') {
     if (languaje == 'false') {
-      ons.notification.toast('You cannot leave a wallet in negative numbers, sorry ...', {
+      ons.notification.toast('You cannot leave a wallet in negative numbers, sorry...', {
+        title: 'Aviso!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('No puedes dejar una cartera en numeros negativos, lo siento...', {
+        title: 'Aviso!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+
+  let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
+
+  let indexGoal;
+
+  let sName = localStorage.getItem('nameSaved');
+
+  for (let i = 0; i < moneys.length; i++) {
+    if (moneys[i].moneyName == sName) {
+      indexGoal = i; //Pongo la posición donde esta mi objeto que modificare
+
+      updateMoneyObject = {
+        moneyName: moneys[i].moneyName,
+        moneyCurrent: newMoney,
+      };
+
+      // Modifico los elementos para mostrar la cantidad de dinero actualizada
+      document.getElementById(sName + '-money').innerHTML = '';
+      document.getElementById(sName + '-money').innerHTML = '$ ' + newMoney;
+
+      if (localStorage.getItem('moneyStorage') === null) {
+        let moneysArray = [];
+        moneysArray.push(updateMoneyObject);
+        localStorage.setItem('moneyStorage', JSON.stringify(moneysArray));
+      } else {
+        moneys[indexGoal] = updateMoneyObject;
+        localStorage.setItem('moneyStorage', JSON.stringify(moneys));
+      }
+      localStorage.removeItem('nameSaved');
+      break;
+    }
+  }
+
+  document.getElementById('editOnlyMoneyMoney').value = null;
+  document.getElementById('alertEditMoneyMoney').hide();
+
+  if (languaje == 'false') {
+    ons.notification.toast('Money modified successfully!', {
+      title: 'Notice!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
+  } else {
+    ons.notification.toast('Dinero modificado satisfactoriamente!', {
+      title: 'Aviso!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
+  }
+
+  sessionStorage.clear();
+  getMoneys();
+  let cIndex = localStorage.getItem('currentDot');
+  showExpensesPerWallet(searchWalletByIndex(cIndex));
+
+  document.getElementById('carousel2').addEventListener('postchange', function (event) {
+    let cIndex = event.activeIndex;
+    let laIndex = event.lastActiveIndex;
+
+    localStorage.setItem('currentDot', cIndex);
+
+    document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
+    if (document.getElementById(`indicator${laIndex}`) != null) {
+      document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
+    }
+
+    showExpensesPerWallet(searchWalletByIndex(cIndex));
+  });
+}
+
+// Boton para cuando se hace una transferencia
+function hideAlertMoneysOnTransfer() {
+  let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  if (document.getElementById('editOnlyMoneyMoney') === null) {
+    if (languaje == 'false') {
+      ons.notification.toast('Please, select what you want to do!', {
+        title: 'Notice!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('Selecciona que deseas hacer, por favor!', {
+        title: 'Aviso!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+  let element = document.getElementById('editOnlyMoneyMoney').value;
+
+  if (element === null || element === '' || element == '') {
+    if (languaje == 'false') {
+      ons.notification.toast('Enter how much money you want to add/remove, please!', {
+        title: 'Notice!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('Ingresa cuanto dinero deseas añadir/quitar, por favor!', {
+        title: 'Aviso!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+
+  let newMoney = sessionStorage.getItem('addNewMoney'); // Se hace la suma del dinero en cuanto se ingresan datos
+
+  let testMoney = Math.sign(newMoney);
+  if (testMoney == '-1' || testMoney === '-0') {
+    if (languaje == 'false') {
+      ons.notification.toast('You cannot leave a wallet in negative numbers, sorry...', {
         title: 'Aviso!',
         timeout: 2000,
         animation: 'ascend',
@@ -289,6 +417,7 @@ function insertActionEditMoney(option) {
     ></ons-input>`;
     }
   } else if (option === 'transfer') {
+    let buttonOptions = document.getElementById('hideAlertMoneyButtons');
     if (languaje == 'false') {
       optionsContainer.innerHTML = `
       <p style="margin: 0px auto -16px 0px; text-align: center;">AMOUNT TO TRANSFER</p>
@@ -308,6 +437,12 @@ function insertActionEditMoney(option) {
         <!--AQUI SE CARGAN LOS POSIBLES GASTOS-->
       </select>`;
       loadOptionsToTransferMoney();
+      buttonOptions.innerHTML = `<ons-alert-dialog-button onclick="hideAlertNoChangeMoneys()" id="moneyEditAlertCancel">
+          CANCELAR
+        </ons-alert-dialog-button>
+        <ons-alert-dialog-button onclick="hideAlertMoneysOnTransfer()" id="moneyEditAlertFinished">
+          LISTO!
+        </ons-alert-dialog-button>`;
     } else {
       optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">TRANSFERIR A</p>
         <ons-input
@@ -326,6 +461,12 @@ function insertActionEditMoney(option) {
           <!--AQUI SE CARGAN LOS POSIBLES GASTOS-->
         </select>`;
       loadOptionsToTransferMoney();
+      buttonOptions.innerHTML = `<ons-alert-dialog-button onclick="hideAlertNoChangeMoneys()" id="moneyEditAlertCancel">
+          CANCELAR
+        </ons-alert-dialog-button>
+        <ons-alert-dialog-button onclick="hideAlertMoneysOnTransfer()" id="moneyEditAlertFinished">
+          LISTO!
+        </ons-alert-dialog-button>`;
     }
   }
 }
