@@ -74,6 +74,15 @@ function createAlertDialogToEditMoneyMoney() {
       </ons-button>`;
     }
 
+    document.getElementById(
+      'hideAlertMoneyButtons'
+    ).innerHTML = `<ons-alert-dialog-button onclick="hideAlertNoChangeMoneys()" id="moneyEditAlertCancel"
+        >CANCELAR</ons-alert-dialog-button
+      >
+      <ons-alert-dialog-button onclick="hideAlertMoneys()" id="moneyEditAlertFinished"
+        >LISTO!</ons-alert-dialog-button
+      >`;
+
     document.getElementById('editMoneyEndMoney').innerHTML = '';
     dialog.show();
     document.getElementById('editMoneyActualMoney').innerHTML = parseMoney.moneyCurrent;
@@ -217,33 +226,17 @@ function hideAlertMoneys() {
 function hideAlertMoneysOnTransfer() {
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
-  if (document.getElementById('editOnlyMoneyMoney') === null) {
-    if (languaje == 'false') {
-      ons.notification.toast('Please, select what you want to do!', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-    } else {
-      ons.notification.toast('Selecciona que deseas hacer, por favor!', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-    }
-    return;
-  }
   let element = document.getElementById('editOnlyMoneyMoney').value;
 
   if (element === null || element === '' || element == '') {
     if (languaje == 'false') {
-      ons.notification.toast('Enter how much money you want to add/remove, please!', {
+      ons.notification.toast('Enter how much money you want to transfer, please!', {
         title: 'Notice!',
         timeout: 2000,
         animation: 'ascend',
       });
     } else {
-      ons.notification.toast('Ingresa cuanto dinero deseas añadir/quitar, por favor!', {
+      ons.notification.toast('Ingresa cuanto dinero deseas transferir, por favor!', {
         title: 'Aviso!',
         timeout: 2000,
         animation: 'ascend',
@@ -253,6 +246,7 @@ function hideAlertMoneysOnTransfer() {
   }
 
   let newMoney = sessionStorage.getItem('addNewMoney'); // Se hace la suma del dinero en cuanto se ingresan datos
+  let moneyToTransfer = element;
 
   let testMoney = Math.sign(newMoney);
   if (testMoney == '-1' || testMoney === '-0') {
@@ -276,8 +270,70 @@ function hideAlertMoneysOnTransfer() {
 
   let indexGoal;
 
-  let sName = localStorage.getItem('nameSaved');
+  const selectTag = document.getElementById('selectOptioToTransferMoney');
+  const options = selectTag.options;
+  let destName = options[selectTag.selectedIndex].value;
 
+  let sName = localStorage.getItem('nameSaved'); // Nombre de la cartera
+
+  if (sName == destName) {
+    if (languaje == 'false') {
+      ons.notification.toast('I cannot transfer money to the same wallet!', {
+        title: 'Notice!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('No puedo transferir dinero a la misma cartera!', {
+        title: 'Aviso!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+
+  if (destName == 'SELECT THE DESTINATION' || destName == 'SELECCIONA EL DESTINO') {
+    if (languaje == 'false') {
+      ons.notification.toast('Select where you want to transfer the money!', {
+        title: 'Notice!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('Selecciona a donde deseas transferir el dinero!', {
+        title: 'Aviso!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+
+  // Busco la cartera a donde voy a transferir el dinero
+  for (let i = 0; i < moneys.length; i++) {
+    if (moneys[i].moneyName == destName) {
+      indexGoal = i; //Pongo la posición donde esta mi objeto que modificare
+
+      let transferredMoney = parseFloat(parseFloat(moneys[i].moneyCurrent) + parseFloat(moneyToTransfer)).toFixed(2);
+      updateMoneyObject = {
+        moneyName: moneys[i].moneyName,
+        moneyCurrent: transferredMoney,
+      };
+
+      if (localStorage.getItem('moneyStorage') === null) {
+        let moneysArray = [];
+        moneysArray.push(updateMoneyObject);
+        localStorage.setItem('moneyStorage', JSON.stringify(moneysArray));
+      } else {
+        moneys[indexGoal] = updateMoneyObject;
+        localStorage.setItem('moneyStorage', JSON.stringify(moneys));
+      }
+      break;
+    }
+  }
+
+  // Busco la cartera en el arreglo y modifico el dinero
   for (let i = 0; i < moneys.length; i++) {
     if (moneys[i].moneyName == sName) {
       indexGoal = i; //Pongo la posición donde esta mi objeto que modificare
@@ -308,13 +364,13 @@ function hideAlertMoneysOnTransfer() {
   document.getElementById('alertEditMoneyMoney').hide();
 
   if (languaje == 'false') {
-    ons.notification.toast('Money modified successfully!', {
+    ons.notification.toast(`Money transferred successfully from ${sName} to ${destName}!`, {
       title: 'Notice!',
       timeout: 2000,
       animation: 'ascend',
     });
   } else {
-    ons.notification.toast('Dinero modificado satisfactoriamente!', {
+    ons.notification.toast(`Dinero transferido satisfactoriamente de ${sName} a ${destName}!`, {
       title: 'Aviso!',
       timeout: 2000,
       animation: 'ascend',
@@ -323,6 +379,8 @@ function hideAlertMoneysOnTransfer() {
 
   sessionStorage.clear();
   getMoneys();
+
+  // Actualizo el carrusel
   let cIndex = localStorage.getItem('currentDot');
   showExpensesPerWallet(searchWalletByIndex(cIndex));
 
@@ -444,7 +502,7 @@ function insertActionEditMoney(option) {
           LISTO!
         </ons-alert-dialog-button>`;
     } else {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">TRANSFERIR A</p>
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">CANTIDAD A TRANSFERIR</p>
         <ons-input
           onchange="makeResMoney()"
           onkeypress="this.onchange()"
@@ -482,9 +540,9 @@ function loadOptionsToTransferMoney() {
 
   let text;
   if (languaje == 'false') {
-    text = 'DO NOT SUBTRACT';
+    text = 'SELECT THE DESTINATION';
   } else {
-    text = 'NO RESTAR';
+    text = 'SELECCIONA EL DESTINO';
   }
   option.innerText = text;
 
