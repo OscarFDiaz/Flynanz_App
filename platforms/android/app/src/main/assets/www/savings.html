@@ -92,18 +92,26 @@
             <!--dinero actual-->
           </label>
 
-          <div>
-            <p style="margin: 0px auto -16px 12px; text-align: left;" id="modifyMoneyAlertSavingWhat">QUIERO AÑADIR / QUITAR</p>
-            <ons-input
-              onchange="makeSavingOperation()"
-              onkeypress="this.onchange()"
-              oninput="this.onchange()"
-              id="alertInputSaving"
-              modifier="underbar"
-              placeholder=""
-              type="number"
-              style="display: block; margin: -10px auto 16px"
-            ></ons-input>
+          <div id="alertEditSavingMoneyOptionsAlert">
+            <ons-button
+              class="moneyButtonAdd"
+              onclick="insertActionEditFund('add')"
+              style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+              id="newMoneyCancelButton"
+            >
+              <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
+              AÑADIR DINERO
+            </ons-button>
+  
+            <ons-button
+              class="moneyButtonAdd"
+              onclick="insertActionEditFund('remove')"
+              style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+              id="newMoneyCancelButton"
+            >
+              <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
+              RESTAR DINERO
+            </ons-button>
           </div>
 
           <label style="color: var(--alert-custom-label)" id="modifyMoneyAlertSavingNew">
@@ -200,7 +208,6 @@
               style="color: var(--alert-custom-label-money)"
               >0</label
             >`;
-            document.getElementById('modifyMoneyAlertSavingWhat').innerHTML = 'I WANT TO ADD / REMOVE';
             document.getElementById('modifyMoneyAlertSavingNew').innerHTML = 
             `NEW QUANTITY: $
             <label
@@ -240,7 +247,6 @@
               style="color: var(--alert-custom-label-money)"
               >0</label
             >`;
-            document.getElementById('modifyMoneyAlertSavingWhat').innerHTML = 'QUIERO AÑADIR / QUITAR';
             document.getElementById('modifyMoneyAlertSavingNew').innerHTML = 
             `CANTIDAD NUEVA: $
             <label

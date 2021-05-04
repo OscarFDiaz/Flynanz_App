@@ -40,18 +40,36 @@
             <!--dinero actual-->
           </label>
 
-          <div>
-            <p style="margin: 0px auto -16px 12px; text-align: left;" id="moneyEditAlertWhat">QUIERO AÑADIR / QUITAR</p>
-            <ons-input
-              onchange="makeSumMoney()"
-              onkeypress="this.onchange()"
-              oninput="this.onchange()"
-              id="editOnlyMoneyMoney"
-              modifier="underbar"
-              placeholder=""
-              type="number"
-              style="display: block; margin: -10px auto 16px;"
-            ></ons-input>
+          <div id="alertEditMoneyMoneyOptionsAlert">
+            <ons-button
+              class="moneyButtonAdd"
+              onclick="insertActionEditMoney('add')"
+              style="margin-bottom: 16px; margin-left: 0px; width: 90%;"
+              id="newMoneyCancelButton"
+            >
+            <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px;"></i>
+              AÑADIR DINERO
+            </ons-button>
+
+            <ons-button
+              class="moneyButtonAdd"
+              onclick="insertActionEditMoney('remove')"
+              style="margin-bottom: 16px; margin-left: 0px; width: 90%;"
+              id="newMoneyCancelButton"
+            >
+            <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px;"></i>
+              RESTAR DINERO
+            </ons-button>
+
+            <ons-button
+              class="moneyButtonAdd"
+              onclick="insertActionEditMoney('transfer')"
+              style="margin-bottom: 16px; margin-left: 0px; width: 90%;"
+              id="newMoneyCancelButton"
+            >
+            <i class="icon ion-md-swap" style="font-size: 14px; margin-right: 16px;"></i>
+              TRANSFERIR DINERO
+            </ons-button>
           </div>
 
           <label style="color: var(--alert-custom-label);" id="moneyEditAlertNewMoney">
@@ -61,7 +79,7 @@
       </div>
     </div>
 
-    <div class="alert-dialog-footer">
+    <div class="alert-dialog-footer" id="hideAlertMoneyButtons">
       <ons-alert-dialog-button onclick="hideAlertNoChangeMoneys()" id="moneyEditAlertCancel"
         >CANCELAR</ons-alert-dialog-button
       >
@@ -87,7 +105,7 @@
               document.getElementById('moneyEditAlertActualMoney').innerHTML = 
               `CURRENT MONEY: $ 
               <label id="editMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertWhat').innerHTML = 'I WANT TO ADD / REMOVE';
+             // document.getElementById('moneyEditAlertWhat').innerHTML = 'I WANT TO ADD / REMOVE';
               document.getElementById('moneyEditAlertNewMoney').innerHTML = 
               `NEW AMOUNT: $ 
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
@@ -99,7 +117,7 @@
               document.getElementById('moneyEditAlertActualMoney').innerHTML = 
               `DINERO ACTUAL: $ 
               <label id="editMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertWhat').innerHTML = 'QUIERO AÑADIR / QUITAR';
+             // document.getElementById('moneyEditAlertWhat').innerHTML = 'QUIERO AÑADIR / QUITAR';
               document.getElementById('moneyEditAlertNewMoney').innerHTML = 
               `CANTIDAD NUEVA: $ 
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;

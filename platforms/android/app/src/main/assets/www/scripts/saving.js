@@ -859,12 +859,55 @@ function endSavingDay() {
 function editMoneySaving() {
   var dialog = document.getElementById('alertEditSavingMoney');
   let storage = JSON.parse(localStorage.getItem('savingStorage'));
+  let optionsContainer = document.getElementById('alertEditSavingMoneyOptionsAlert');
+  let languaje = localStorage.getItem('storageSwitchLanguage');
 
   document.getElementById('alertAddSaving').innerHTML = storage.moneyLeft;
-  document.getElementById('alertInputSaving').value = '';
   document.getElementById('alertAddSavingEnd').innerHTML = '';
 
   if (dialog) {
+    if (languaje == 'false') {
+      optionsContainer.innerHTML = `<ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditFund('add')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+        id="newMoneyCancelButton"
+      >
+        <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
+        ADD MONEY
+      </ons-button>
+    
+      <ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditFund('remove')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+        id="newMoneyCancelButton"
+      >
+        <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
+        REMOVE MONEY
+      </ons-button>`;
+    } else {
+      optionsContainer.innerHTML = `<ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditFund('add')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+        id="newMoneyCancelButton"
+      >
+        <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
+        AÑADIR DINERO
+      </ons-button>
+    
+      <ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditFund('remove')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+        id="newMoneyCancelButton"
+      >
+        <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
+        RESTAR DINERO
+      </ons-button>`;
+    }
+
     dialog.show();
   } else {
     ons.notification.toast('Ups! No se ha podido cargar la ventana para modificar!', {
@@ -1093,22 +1136,26 @@ function cancelAddLeftMoney() {
   }
 }
 
+// Suma
 function makeSavingOperation() {
   let actualMoney = document.getElementById('alertAddSaving').textContent;
   let inputMoney = document.getElementById('alertInputSaving').value;
   let endMoney = document.getElementById('alertAddSavingEnd');
 
-  let testAmoney = Math.sign(parseFloat(actualMoney));
-  let result;
+  let result = parseFloat(parseFloat(actualMoney) + Math.abs(parseFloat(inputMoney))).toFixed(2);
 
-  // Si el dinero actual es negativo
-  if (testAmoney == '-1' || testAmoney === '-0') {
-    result = parseFloat(actualMoney) - parseFloat(inputMoney);
-    endMoney.innerHTML = result.toFixed(2);
-  } else {
-    result = parseFloat(actualMoney) + parseFloat(inputMoney);
-    endMoney.innerHTML = result.toFixed(2);
-  }
+  endMoney.innerHTML = result;
+}
+
+//Resta
+function makeSavingResOperation() {
+  let actualMoney = document.getElementById('alertAddSaving').textContent;
+  let inputMoney = document.getElementById('alertInputSaving').value;
+  let endMoney = document.getElementById('alertAddSavingEnd');
+
+  let result = parseFloat(parseFloat(actualMoney) - Math.abs(parseFloat(inputMoney))).toFixed(2);
+
+  endMoney.innerHTML = result;
 }
 
 function closeAlertSavingNoChange() {
@@ -1134,9 +1181,26 @@ function closeAlertSavingNoChange() {
 
 /* ALERT PRINCIPAL */
 function closeAlertSaving() {
-  let element = document.getElementById('alertInputSaving').value;
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
+  if (document.getElementById('alertInputSaving') === null) {
+    if (languaje == 'false') {
+      ons.notification.toast('Please, select what you want to do!', {
+        title: 'Notice!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('Selecciona que deseas hacer, por favor!', {
+        title: 'Aviso!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+
+  let element = document.getElementById('alertInputSaving').value;
   if (languaje == 'false') {
     if (element === null || element === '' || element == '') {
       ons.notification.toast('Enter how much money you want to add / remove, please!', {
@@ -1301,7 +1365,14 @@ function loadDialogCategoryAndMoney() {
   catContainer.innerHTML = '';
 
   const nOption = document.createElement('option');
-  let ntext = 'NINGUNA CATEGORÍA';
+
+  let languaje = localStorage.getItem('storageSwitchLanguage');
+  let ntext;
+  if (languaje == 'false') {
+    ntext = 'NO CATEGORY';
+  } else {
+    ntext = 'NINGUNA CATEGORÍA';
+  }
   nOption.innerText = ntext;
 
   catContainer.appendChild(nOption);
@@ -1323,7 +1394,13 @@ function loadDialogCategoryAndMoney() {
   container.innerHTML = '';
 
   const option = document.createElement('option');
-  let text = 'NO RESTAR';
+
+  let text;
+  if (languaje == 'false') {
+    text = 'DO NOT SUBTRACT';
+  } else {
+    text = 'NO RESTAR';
+  }
   option.innerText = text;
 
   container.appendChild(option);
@@ -1389,7 +1466,7 @@ function hideAlertAddExpenseSaving() {
     eDate = new Date().toJSON().slice(0, 10);
   }
 
-  if (choseCategory == 'NINGUNA CATEGORÍA') {
+  if (choseCategory == 'NINGUNA CATEGORÍA' || choseCategory == 'NO CATEGORY') {
     if (languaje == 'false') {
       ons.notification.toast("You must select a category, if not, you must create one in 'EXPENSES'", {
         title: 'Notice!',
@@ -1406,7 +1483,7 @@ function hideAlertAddExpenseSaving() {
     return;
   }
 
-  if (choseMoney == 'NO RESTAR') {
+  if (choseMoney == 'NO RESTAR' || choseMoney == 'DO NOT SUBTRACT') {
   } else {
     // Resto el dinero de donde se selecciono, me regreso sino se puede restar
     if (updateMoneyStorage(choseMoney, eMoney)) {
@@ -1505,5 +1582,72 @@ function updateExpenseTotalMoneySaving(sendName, amountSend) {
     let expenseArray = JSON.parse(localStorage.getItem('expenseStorage'));
     expenseArray[index] = expense;
     localStorage.setItem('expenseStorage', JSON.stringify(expenseArray));
+  }
+}
+
+function insertActionEditFund(option) {
+  let optionsContainer = document.getElementById('alertEditSavingMoneyOptionsAlert');
+  let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  if (option === 'add') {
+    if (languaje == 'false') {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" >
+      I WANT TO ADD
+    </p>
+    <ons-input
+      onchange="makeSavingOperation()"
+      onkeypress="this.onchange()"
+      oninput="this.onchange()"
+      id="alertInputSaving"
+      modifier="underbar"
+      placeholder=""
+      type="number"
+      style="display: block; margin: -10px auto 16px"
+    ></ons-input>`;
+    } else {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">
+      QUIERO AÑADIR
+    </p>
+    <ons-input
+      onchange="makeSavingOperation()"
+      onkeypress="this.onchange()"
+      oninput="this.onchange()"
+      id="alertInputSaving"
+      modifier="underbar"
+      placeholder=""
+      type="number"
+      style="display: block; margin: -10px auto 16px"
+    ></ons-input>`;
+    }
+  } else if (option === 'remove') {
+    if (languaje == 'false') {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">
+      I WANT TO REMOVE
+    </p>
+    <ons-input
+      onchange="makeSavingResOperation()"
+      onkeypress="this.onchange()"
+      oninput="this.onchange()"
+      id="alertInputSaving"
+      modifier="underbar"
+      placeholder=""
+      type="number"
+      style="display: block; margin: -10px auto 16px"
+    ></ons-input>`;
+    } else {
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">
+      QUIERO QUITAR
+    </p>
+    <ons-input
+      onchange="makeSavingResOperation()"
+      onkeypress="this.onchange()"
+      oninput="this.onchange()"
+      id="alertInputSaving"
+      modifier="underbar"
+      placeholder=""
+      type="number"
+      style="display: block; margin: -10px auto 16px"
+    ></ons-input>`;
+    }
   }
 }

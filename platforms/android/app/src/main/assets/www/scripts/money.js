@@ -475,7 +475,17 @@ function makeSumMoney() {
   let actualAmount = document.getElementById('editMoneyActualMoney').textContent;
   let newAmount = document.getElementById('editOnlyMoneyMoney').value;
 
-  let sumResult = parseFloat(parseFloat(actualAmount) + parseFloat(newAmount)).toFixed(2);
+  let sumResult = parseFloat(parseFloat(actualAmount) + Math.abs(parseFloat(newAmount))).toFixed(2);
+
+  document.getElementById('editMoneyEndMoney').innerHTML = formatMoney(sumResult);
+  sessionStorage.setItem('addNewMoney', sumResult);
+}
+
+function makeResMoney() {
+  let actualAmount = document.getElementById('editMoneyActualMoney').textContent;
+  let newAmount = document.getElementById('editOnlyMoneyMoney').value;
+
+  let sumResult = parseFloat(parseFloat(actualAmount) - Math.abs(parseFloat(newAmount))).toFixed(2);
 
   document.getElementById('editMoneyEndMoney').innerHTML = formatMoney(sumResult);
   sessionStorage.setItem('addNewMoney', sumResult);

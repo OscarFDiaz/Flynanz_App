@@ -57,20 +57,26 @@
           <!--SE INSERTA EN EL LISTENER-->
         </label>
 
-        <div>
-          <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalLabelWhatWantsAlertEdit">
-            QUIERO AÑADIR / QUITAR
-          </p>
-          <ons-input
-            onchange="makeSum()"
-            onkeypress="this.onchange()"
-            oninput="this.onchange()"
-            id="editOnlyGoalMoney"
-            modifier="underbar"
-            placeholder=""
-            type="number"
-            style="display: block; margin: -10px auto 16px"
-          ></ons-input>
+        <div id="alertEditGoalMoneyOptionsAlert">
+          <ons-button
+            class="moneyButtonAdd"
+            onclick="insertActionEditGoal('add')"
+            style="margin-bottom: 16px; margin-top: 16px; margin-left: 0px; width: 90%"
+            id="newMoneyCancelButton"
+          >
+            <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
+            AÑADIR DINERO
+          </ons-button>
+
+          <ons-button
+            class="moneyButtonAdd"
+            onclick="insertActionEditGoal('remove')"
+            style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+            id="newMoneyCancelButton"
+          >
+            <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
+            RESTAR DINERO
+          </ons-button>
         </div>
 
         <label style="color: var(--alert-custom-label)" id="goalNewMoneyAlertEdit">
@@ -112,7 +118,6 @@
             document.getElementById('modifyGoalTitleMoney').innerHTML = 'MODIFY MONEY';
             document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `CURRENT MONEY: $
             <label id="editOnlyMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-            document.getElementById('goalLabelWhatWantsAlertEdit').innerHTML = 'I WANT TO ADD / SUBTRACT';
             document.getElementById('goalNewMoneyAlertEdit').innerHTML = `NEW AMOUNT: $
             <label id="editOnlyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
             document.getElementById('goalCancelButtonMoneyAlertEdit').innerHTML = 'CANCEL';
@@ -132,7 +137,6 @@
             document.getElementById('modifyGoalTitleMoney').innerHTML = 'MODIFICAR DINERO';
             document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `DINERO ACTUAL: $
             <label id="editOnlyMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-            document.getElementById('goalLabelWhatWantsAlertEdit').innerHTML = 'QUIERO AÑADIR / QUITAR';
             document.getElementById('goalNewMoneyAlertEdit').innerHTML = `CANTIDAD NUEVA: $
             <label id="editOnlyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
             document.getElementById('goalCancelButtonMoneyAlertEdit').innerHTML = 'CANCELAR';

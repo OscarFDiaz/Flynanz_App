@@ -16,12 +16,19 @@ function createAlertDialogToAddExpense() {
 
 function loadSelectOptions() {
   let moneyStorage = JSON.parse(localStorage.getItem('moneyStorage'));
+  let languaje = localStorage.getItem('storageSwitchLanguage');
 
   let container = document.getElementById('selectOptio');
   container.innerHTML = '';
 
   const option = document.createElement('option');
-  let text = 'NO RESTAR';
+
+  let text;
+  if (languaje == 'false') {
+    text = 'DO NOT SUBTRACT';
+  } else {
+    text = 'NO RESTAR';
+  }
   option.innerText = text;
 
   container.appendChild(option);
@@ -122,7 +129,7 @@ function hideAlertExpense() {
     }
   }
 
-  if (selectedOption == 'NO RESTAR') {
+  if (selectedOption == 'NO RESTAR' || selectedOption == 'DO NOT SUBTRACT') {
   } else {
     // Resto el dinero de donde se selecciono, me regreso sino se puede restar
     if (updateMoneyStorage(selectedOption, eMoney)) {
