@@ -44,4 +44,6 @@
 .moneyDetailGoal {
   font-size: 20px;
   color: var(--detail-goal-title-color);
+  max-width: 250px;
 }
+
