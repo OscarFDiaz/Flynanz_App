@@ -600,7 +600,7 @@ function loadDetailGoal() {
     let goalsView = document.getElementById('goalDetailContainer');
     goalsView.innerHTML = '';
 
-    goalsView.innerHTML += `<label class="cardHomeTitle" style="margin-top: 0px">DESCRIPCIÓN</label>
+    goalsView.innerHTML += `<label class="cardHomeTitle">DESCRIPCIÓN</label>
       <ons-card style="padding-top:16px">
         <div class="content detailInfo">
             ${gDescription}
@@ -618,7 +618,7 @@ function loadDetailGoal() {
           </span>
           <div class="progressBarContainer percentBar" style="margin-top:0px"> 
             <div class="progressBarPercent" style="--width:${gPercent}" data-label="${gPercent}" id="pbarDetail">
-              <span style="white-space: nowrap; margin-left: 47%; color: var(--progressbar-back-color); font-weight: bold; position: relative; top: -5px; font-size:20px" id="${gName}-pnumber">${gPercent} %</span>
+              <span style="white-space: nowrap; margin-left: 47%; color: var(--progressbar-back-color); font-weight: bold; position: relative; top: -2px; font-size:20px" id="${gName}-pnumber">${gPercent} %</span>
             </div> 
           </div> 
         </div>
