@@ -1,5 +1,10 @@
 * {
   box-sizing: border-box;
+ /*
+  @font-face {
+    font-family: "Roboto";
+    src: url("./assets/myfontname.ttf") format("truetype");
+  };*/
 }
 
 .theme-custom {

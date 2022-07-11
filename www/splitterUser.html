@@ -4,27 +4,32 @@
       <ons-page style="border-top-right-radius: 50px; border-bottom-right-radius: 50px">
         <ons-list id="userSplitterList" class="menuList">
           <ons-list-item onclick="fn.load('userHome.html')" tappable modifier="nodivider" class="menuItem">
-            <i class="menuIcon iconHome ion-md-home"></i>
+            <ion-icon name="home" class="menuIcon iconHome"></ion-icon>
+            <!--<i class="menuIcon iconHome ion-md-home"></i>-->
             <label class="labelMenu" id="menuLabelHome">INICIO</label>
           </ons-list-item>
 
           <ons-list-item onclick="fn.load('goals.html')" tappable modifier="nodivider" class="menuItem">
-            <i class="menuIcon iconGoals ion-md-flag"></i>
+            <ion-icon name="flag" class="menuIcon iconGoals"></ion-icon>
+            <!--<i class="menuIcon iconGoals ion-md-flag"></i>-->
             <label class="labelMenu" style="margin-left: 8px" id="menuLabelGoals">METAS</label>
           </ons-list-item>
 
           <ons-list-item onclick="fn.load('savings.html')" tappable modifier="nodivider" class="menuItem">
-            <i class="menuIcon iconSavings ion-ios-card"></i>
+            <ion-icon name="card" class="menuIcon iconSavings"></ion-icon>
+            <!--<i class="menuIcon iconSavings ion-ios-card"></i>-->
             <label class="labelMenu" id="menuLabelSaved">FONDO</label>
           </ons-list-item>
 
           <ons-list-item onclick="fn.load('expenses.html')" tappable modifier="nodivider" class="menuItem">
-            <i class="menuIcon iconExpenses ion-ios-list"></i>
+            <ion-icon name="stats-chart" class="menuIcon iconExpenses"></ion-icon>
+            <!--<i class="menuIcon iconExpenses ion-ios-list"></i>-->
             <label class="labelMenu" style="margin-left: 5px" id="menuLabelExpenses">GASTOS</label>
           </ons-list-item>
 
           <ons-list-item id="closeSesionItem" onclick="fn.load('money.html')" tappable modifier="nodivider" class="menuItem">
-            <i class="menuIcon iconMoney ion-ios-wallet"></i>
+            <ion-icon name="wallet" class="menuIcon iconMoney"></ion-icon>
+            <!--<i class="menuIcon iconMoney ion-ios-wallet"></i>-->
             <label class="labelMenu" style="margin-left: 3px" id="menuLabelMoney">MI DINERO</label>
           </ons-list-item>
 
@@ -35,7 +40,8 @@
             modifier="nodivider"
             class="menuItem"
           >
-            <i class="menuIcon iconConfiguration ion-md-settings"></i>
+            <ion-icon name="settings" class="menuIcon iconConfiguration"></ion-icon>
+            <!--<i class="menuIcon iconConfiguration ion-md-settings"></i>-->
             <label class="labelMenu" style="margin-left: 3px" id="menuLabelConfiguration">CONFIGURACIÓN</label>
           </ons-list-item>
         </ons-list>
