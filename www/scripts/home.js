@@ -1,3 +1,4 @@
+//Inicializo el chart que estara en el menú inicio
 function makeChart() {
   var config = {
     labels: [],
@@ -132,7 +133,9 @@ function loadChartData(expenseData) {
 
   pieChart.update();
 }
+///////////////////////////////////////////////////
 
+// Tema seleccionado por el usuario
 function changeTheme() {
   let actualThemeIndex = sessionStorage.getItem('themeIndex');
   let language = localStorage.getItem('storageSwitchLanguage');
@@ -148,38 +151,6 @@ function changeTheme() {
   } else if (actualThemeIndex == '1') {
     deleteProperty();
     setTheme('theme-dark');
-    if (language == 'false') {
-      document.getElementById('buttonSelectTheme').innerHTML = 'CURRENT THEME';
-    } else {
-      document.getElementById('buttonSelectTheme').innerHTML = 'TEMA ACTUAL';
-    }
-  } else if (actualThemeIndex == '2') {
-    deleteProperty();
-    setTheme('theme-light');
-    if (language == 'false') {
-      document.getElementById('buttonSelectTheme').innerHTML = 'CURRENT THEME';
-    } else {
-      document.getElementById('buttonSelectTheme').innerHTML = 'TEMA ACTUAL';
-    }
-  } else if (actualThemeIndex == '3') {
-    deleteProperty();
-    setTheme('theme-yuri');
-    if (language == 'false') {
-      document.getElementById('buttonSelectTheme').innerHTML = 'CURRENT THEME';
-    } else {
-      document.getElementById('buttonSelectTheme').innerHTML = 'TEMA ACTUAL';
-    }
-  } else if (actualThemeIndex == '4') {
-    deleteProperty();
-    setTheme('theme-pink');
-    if (language == 'false') {
-      document.getElementById('buttonSelectTheme').innerHTML = 'CURRENT THEME';
-    } else {
-      document.getElementById('buttonSelectTheme').innerHTML = 'TEMA ACTUAL';
-    }
-  } else if (actualThemeIndex == '5') {
-    initColors();
-    setTheme('theme-custom');
     if (language == 'false') {
       document.getElementById('buttonSelectTheme').innerHTML = 'CURRENT THEME';
     } else {
@@ -235,7 +206,9 @@ function setTheme(themeName) {
     }
   }
 }
+/////////////////////////////////////
 
+//Compruebo las opciones del menú en el storage
 function checkOptions() {
   let totalMoney = localStorage.getItem('storageSwitchTotalMoney');
   if (totalMoney == 'null' || totalMoney == null) {
@@ -262,37 +235,74 @@ function checkOptions() {
     localStorage.setItem('storageSwitchTutorial', true);
   }
 
+  //Nueva: Wallets
+  let wallet = localStorage.getItem('storageSwitchWallet');
+  if (wallet == 'null' || wallet == null) {
+    localStorage.setItem('storageSwitchWallet', true);
+  }
+
   loadOptions();
 }
 
+//Cargo la página principal con las opcines que el usuario selecciona
 function loadOptions() {
   let userHomeView = document.getElementById('homeOptionsContainer');
   let language = localStorage.getItem('storageSwitchLanguage');
 
   userHomeView.innerHTML = '';
 
+  // DINERO TOTAL EN LAS CUENTAS
   let totalMoney = localStorage.getItem('storageSwitchTotalMoney');
   if (totalMoney == true || totalMoney == 'true') {
-    /* */
     if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">TOTAL MONEY</label>`;
-    } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">DINERO TOTAL</label>`;
-    }
-    userHomeView.innerHTML += `<ons-card onclick="fn.load('money.html')">
-      <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block">$ 
-        <span class="totalMoneyTitle" id="totalMoneyMoney">
+      userHomeView.innerHTML += `
+      <div onclick="fn.load('money.html')" class="divTotalBalance">
+      <label class="cardHomeTitle cardHomeTitleBalance" style="margin-left: 0px">Total balance</label>
+      <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block;">$ 
+        <span class="totalMoneyTitle" id="totalMoneyMoney" style="margin-left: 0px">
         </span>
       </div>
+    </div>`;
+    } else {
+      userHomeView.innerHTML += `
+      <div onclick="fn.load('money.html')" class="divTotalBalance">
+      <label class="cardHomeTitle cardHomeTitleBalance" style="margin-left: 0px">Dinero total</label>
+      <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block">$ 
+        <span class="totalMoneyTitle" id="totalMoneyMoney" style="margin-left: 0px">
+        </span>
+      </div>
+    </div>`;
+    }
+  }
+
+  // CARTERAS
+  let wallet = localStorage.getItem('storageSwitchWallet');
+  if (wallet == true || wallet == 'true') {
+    if (language == 'false') {
+      userHomeView.innerHTML += `<label class="cardHomeTitle">Wallets</label>`;
+    } else {
+      userHomeView.innerHTML += `<label class="cardHomeTitle">Mi dinero</label>`;
+    }
+    userHomeView.innerHTML += `<ons-card onclick="fn.load('money.html')">
+    <div style="display: flex; align-items: center;">
+      <div class="iconSavedMoney">
+      <ion-icon name="wallet" class="iconMoney" style="font-size: 32px"></ion-icon>
+      </div>
+      <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
+        <span class="totalMoneyTitle" id="" style="margin-left:0">
+      </span>
+      </div>
+    </div>
     </ons-card>`;
   }
 
+  // DONA CON LOS GASTOS EN LAS DIFERENTES CATEGORIAS
   let expenses = localStorage.getItem('storageSwitchExpenses');
   if (expenses == true || expenses == 'true') {
     if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">EXPENSES</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle">Expenses</label>`;
     } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">GASTOS</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle">Gastos</label>`;
     }
     userHomeView.innerHTML += `<ons-card onclick="fn.load('expenses.html')" style="padding-top: 16px;">
       <div class="content">
@@ -301,27 +311,34 @@ function loadOptions() {
     </ons-card>`;
   }
 
+  // DINERO AHORRADO
   let savings = localStorage.getItem('storageSwitchSavings');
   if (savings == true || savings == 'true') {
     if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">SAVED MONEY</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle">Saved money</label>`;
     } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">FONDO AHORRADO</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle">Dinero ahorrado</label>`;
     }
     userHomeView.innerHTML += `<ons-card onclick="fn.load('savings.html')">
-      <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block">$
-        <span class="totalMoneyTitle" id="totalSavingsAmount">
-        </span>
+    <div style="display: flex; align-items: center;">
+      <div class="iconSavedMoney">
+      <ion-icon name="wallet" class="iconMoney" style="font-size: 32px"></ion-icon>
       </div>
+      <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
+        <span class="totalMoneyTitle" id="totalSavingsAmount" style="margin-left:0">
+      </span>
+      </div>
+    </div>
     </ons-card>`;
   }
 
+  // METAS DEL USUARIO
   let goals = localStorage.getItem('storageSwitchGoals');
   if (goals == true || goals == 'true') {
     if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">GOALS</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle">Goals</label>`;
     } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">METAS</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle">Metas</label>`;
     }
     userHomeView.innerHTML += `<ons-card onclick="fn.load('goals.html')">
       <div class="content" id="homeGoalsContainer"> 
@@ -329,36 +346,43 @@ function loadOptions() {
     </ons-card>`;
   }
 
+  // SI EL USUARIO NO DECIDE MOSTRAR NADA
   if (totalMoney == 'false' && expenses == 'false' && savings == 'false' && goals == 'false') {
     userHomeView.innerHTML = '';
 
+    // ******* AÑADIR IMAGEN DE QUE NO HAY NADA Y BOTON PARA IR A LOS AJUSTES
     if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">NOTHING HERE...</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle">Nothing here...</label>`;
     } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">NADA POR AQUÍ...</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle">Nada por aquí...</label>`;
     }
   }
 
+  // FORMATO AL DINERO TOTAL
   if (totalMoney == 'true') {
     let amount = formatMoney(getTotalMoney());
     document.getElementById('totalMoneyMoney').innerHTML = amount;
   }
 
+  // CREO LA DONA
   if (expenses == 'true') {
     makeChart();
   }
 
+  // FORMATO AL DINERO AHORRADO
   if (savings == 'true') {
     let amount = formatMoney(getTotalSavings());
     document.getElementById('totalSavingsAmount').innerHTML = amount;
   }
 
+  // CARGO LAS METAS UNA VEZ BUSCADAS
   if (goals == 'true') {
     let goals = getTotalGoals();
     document.getElementById('homeGoalsContainer').innerHTML = goals;
   }
 }
 
+// SUMO EL DINERO DE TODAS LAS CARTERAS
 function getTotalMoney() {
   let arrayMoney = JSON.parse(localStorage.getItem('moneyStorage'));
   let amount = 0;
@@ -371,6 +395,7 @@ function getTotalMoney() {
   return amount.toFixed(2);
 }
 
+// CONSIGO LA CANTIDAD AHORRADA DEL STORAGE
 function getTotalSavings() {
   let storage = localStorage.getItem('savedMoneySaving');
   if (storage == null || storage == '') {
@@ -379,26 +404,18 @@ function getTotalSavings() {
   return storage;
 }
 
+// FUNCION DESCONOCIDA
 function getTotalExpenses() {
   return true;
 }
 
+// CONSIGO LAS METAS DEL USUARIO Y LAS HAGO UNA STRINGLIST
 function getTotalGoals() {
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
   let language = localStorage.getItem('storageSwitchLanguage');
   let goalsView = '';
 
-  if (goals == null || goals == 'null') {
-    if (language == 'false') {
-      goalsView += `<p class="homeGoalLabel" style="text-align:center; margin-bottom:0px">Nothing here...</p>`;
-    } else {
-      goalsView += `<p class="homeGoalLabel" style="text-align:center; margin-bottom:0px">Nada por aquí...</p>`;
-    }
-
-    return goalsView;
-  }
-
-  if (goals.length == 0 || goals.length < 1) {
+  if (goals == null || goals == 'null' || goals.length == 0 || goals.length < 1) {
     if (language == 'false') {
       goalsView += `<p class="homeGoalLabel" style="text-align:center; margin-bottom:0px">Nothing here...</p>`;
     } else {
@@ -424,6 +441,7 @@ function getTotalGoals() {
   return goalsView;
 }
 
+//Borra todos los datos, se accede por la configuración
 function deleteAllData() {
   let language = localStorage.getItem('storageSwitchLanguage');
   if (language == 'false') {

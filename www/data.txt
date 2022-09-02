@@ -1,0 +1,40 @@
+moneyStorage
+    moneyName
+    moneyCurrent
+
+savingStorage
+    mainAmount
+    rangeDays
+    rangePercent
+    equivalentAmount
+    toExpend
+    daysLeft
+    moneyLeft
+
+goalStorage
+    goalName
+    goalDescription
+    goalActualMoney
+    goalMoney
+    goalDate
+
+expenseStorage
+    expenseName
+    totalExpense
+    mainDate
+    iconName
+    expenseColor
+    toShow
+
+expenseDetailStorage
+    expenseName
+    inName
+    inAmount
+    inDate
+    inID
+    inWallet
+
+
+DESCONOCIDO
+
+function getTotalExpenses() - home.js - 387

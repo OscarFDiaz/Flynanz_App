@@ -1,28 +1,51 @@
+.divTotalBalance {
+ width: 100%;
+ background-color: var(--gradient-1);
+
+ position: sticky;
+ top: 0px;
+
+ margin-bottom: 32px;
+ margin-left: 20px;
+
+ z-index: 99;
+}
+
+.iconSavedMoney {
+  width: 50px;
+  height: 50px;
+
+  display: inline-block;
+  background: #E5E7ED;
+
+  margin: 25px 16px 25px 16px;
+  padding: 8px;
+  border-radius: 15px;
+}
+
 .cardHomeTitle {
   display: block;
-  margin: 32px auto 0px auto;
-  text-align: center;
+  margin: 0px auto 0px 20px;
+  text-align: left;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-without-card);
 }
 
-.totalMoneyTitle {
-  text-align: center;
-  padding-bottom: 16px;
-  font-size: 50px;
-  font-weight: 500;
-  color: var(--home-total-money);
+.cardHomeTitleBalance {
+  color: var(--text-without-card-balance);
+  padding-top: 16px;
 }
 
-/*SIN USO*/
-.homeExpenseLabel {
-  display: block;
-  padding-top: 16px;
+.totalMoneyTitle {
+
   text-align: left;
-  font-size: 28px;
-  color: var(--text-color-4);
-  font-weight: 500;
+  font-size: 50px;
+  font-weight: bold;
+
+  display: inline-block;
+
+  color: var(--home-total-money);
 }
 
 .homeGoalLabel {
