@@ -1,36 +1,36 @@
 <ons-page id="splitterUser">
   <ons-splitter>
     <ons-splitter-side id="menu" side="left" width="85%" height="100%" swipeable collapse>
-      <ons-page style="border-top-right-radius: 50px; border-bottom-right-radius: 50px">
+      <ons-page style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-top: -16px">
         <ons-list id="userSplitterList" class="menuList">
           <ons-list-item onclick="fn.load('userHome.html')" tappable modifier="nodivider" class="menuItem">
             <ion-icon name="home" class="menuIcon iconHome"></ion-icon>
             <!--<i class="menuIcon iconHome ion-md-home"></i>-->
-            <label class="labelMenu" id="menuLabelHome">INICIO</label>
+            <label class="labelMenu" id="menuLabelHome">Inicio</label>
           </ons-list-item>
 
           <ons-list-item onclick="fn.load('goals.html')" tappable modifier="nodivider" class="menuItem">
             <ion-icon name="flag" class="menuIcon iconGoals"></ion-icon>
             <!--<i class="menuIcon iconGoals ion-md-flag"></i>-->
-            <label class="labelMenu" style="margin-left: 8px" id="menuLabelGoals">METAS</label>
+            <label class="labelMenu" style="margin-left: 8px" id="menuLabelGoals">Metas</label>
           </ons-list-item>
 
           <ons-list-item onclick="fn.load('savings.html')" tappable modifier="nodivider" class="menuItem">
             <ion-icon name="card" class="menuIcon iconSavings"></ion-icon>
             <!--<i class="menuIcon iconSavings ion-ios-card"></i>-->
-            <label class="labelMenu" id="menuLabelSaved">FONDO</label>
+            <label class="labelMenu" id="menuLabelSaved">Ahorro</label>
           </ons-list-item>
 
           <ons-list-item onclick="fn.load('expenses.html')" tappable modifier="nodivider" class="menuItem">
             <ion-icon name="stats-chart" class="menuIcon iconExpenses"></ion-icon>
             <!--<i class="menuIcon iconExpenses ion-ios-list"></i>-->
-            <label class="labelMenu" style="margin-left: 5px" id="menuLabelExpenses">GASTOS</label>
+            <label class="labelMenu" style="margin-left: 5px" id="menuLabelExpenses">Gastos</label>
           </ons-list-item>
 
           <ons-list-item id="closeSesionItem" onclick="fn.load('money.html')" tappable modifier="nodivider" class="menuItem">
             <ion-icon name="wallet" class="menuIcon iconMoney"></ion-icon>
             <!--<i class="menuIcon iconMoney ion-ios-wallet"></i>-->
-            <label class="labelMenu" style="margin-left: 3px" id="menuLabelMoney">MI DINERO</label>
+            <label class="labelMenu" style="margin-left: 3px" id="menuLabelMoney">Mi dinero</label>
           </ons-list-item>
 
           <ons-list-item
@@ -56,19 +56,19 @@
         if (event.target.matches('#splitterUser')) {
           let language = localStorage.getItem('storageSwitchLanguage');
           if (language == 'false') {
-            document.getElementById('menuLabelHome').innerHTML = 'HOME';
-            document.getElementById('menuLabelGoals').innerHTML = 'GOALS';
-            document.getElementById('menuLabelSaved').innerHTML = 'SAVED';
-            document.getElementById('menuLabelExpenses').innerHTML = 'EXPENSES';
-            document.getElementById('menuLabelMoney').innerHTML = 'MY MONEY';
-            document.getElementById('menuLabelConfiguration').innerHTML = 'CONFIGURATION';
+            document.getElementById('menuLabelHome').innerHTML = 'Home';
+            document.getElementById('menuLabelGoals').innerHTML = 'Goals';
+            document.getElementById('menuLabelSaved').innerHTML = 'Saved';
+            document.getElementById('menuLabelExpenses').innerHTML = 'Expenses';
+            document.getElementById('menuLabelMoney').innerHTML = 'My money';
+            document.getElementById('menuLabelConfiguration').innerHTML = 'Settings';
           } else {
-            document.getElementById('menuLabelHome').innerHTML = 'INICIO';
-            document.getElementById('menuLabelGoals').innerHTML = 'METAS';
-            document.getElementById('menuLabelSaved').innerHTML = 'FONDO';
-            document.getElementById('menuLabelExpenses').innerHTML = 'GASTOS';
-            document.getElementById('menuLabelMoney').innerHTML = 'MI DINERO';
-            document.getElementById('menuLabelConfiguration').innerHTML = 'CONFIGURACIÓN';
+            document.getElementById('menuLabelHome').innerHTML = 'Inicio';
+            document.getElementById('menuLabelGoals').innerHTML = 'Metas';
+            document.getElementById('menuLabelSaved').innerHTML = 'Ahorro';
+            document.getElementById('menuLabelExpenses').innerHTML = 'Gastos';
+            document.getElementById('menuLabelMoney').innerHTML = 'Mi dinero';
+            document.getElementById('menuLabelConfiguration').innerHTML = 'Configuración';
           }
         }
       },

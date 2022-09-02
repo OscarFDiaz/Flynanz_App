@@ -78,6 +78,7 @@ function loadChartData(expenseData) {
       var ctx = this.chart.ctx;
       var easingDecimal = ease || 1;
       var arcs = this.getMeta().data;
+
       Chart.helpers.each(arcs, function (arc, i) {
         arc.transition(easingDecimal).draw();
 
@@ -112,7 +113,7 @@ function loadChartData(expenseData) {
     type: 'RoundedDoughnut',
     data: expenseData,
     options: {
-      cutoutPercentage: 65,
+      cutoutPercentage: 75,
       legend: {
         labels: {
           usePointStyle: true,
@@ -283,6 +284,7 @@ function loadOptions() {
     } else {
       userHomeView.innerHTML += `<label class="cardHomeTitle">Mi dinero</label>`;
     }
+    /*
     userHomeView.innerHTML += `<ons-card onclick="fn.load('money.html')">
     <div style="display: flex; align-items: center;">
       <div class="iconSavedMoney">
@@ -293,6 +295,9 @@ function loadOptions() {
       </span>
       </div>
     </div>
+    </ons-card>`;*/
+
+    userHomeView.innerHTML += `<ons-card style="margin: 16px" id="moneyContainer">
     </ons-card>`;
   }
 

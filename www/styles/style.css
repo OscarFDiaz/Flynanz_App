@@ -1,9 +1,36 @@
 @font-face {
   font-family: PoppinsFont;
-  src: url('../assets/fonts/Poppins-Regular.ttf') format('truetype'),
-       url('../assets/fonts/poppins-regular-webfont.woff2') format('woff2'),
-       url('../assets/fonts/poppins-regular-webfont.woff') format('woff'); 
-  font-weight: normal;
+  src: url('../assets/fonts/normal/Poppins-Regular.ttf') format('truetype'),
+       url('../assets/fonts/normal/poppins-regular-webfont.woff2') format('woff2'),
+       url('../assets/fonts/normal/poppins-regular-webfont.woff') format('woff'); 
+  font-weight: 400;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: PoppinsFont;
+  src: url('../assets/fonts/light/Poppins-Light.ttf') format('truetype'),
+       url('../assets/fonts/light/poppins-light-webfont.woff2') format('woff2'),
+       url('../assets/fonts/light/poppins-light-webfont.woff') format('woff'); 
+  font-weight: 100;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: PoppinsFont;
+  src: url('../assets/fonts/bold/Poppins-Bold.ttf') format('truetype'),
+       url('../assets/fonts/bold/poppins-bold-webfont.woff2') format('woff2'),
+       url('../assets/fonts/bold/poppins-bold-webfont.woff') format('woff'); 
+  font-weight: 800;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: PoppinsFont;
+  src: url('../assets/fonts/semiBold/poppins-semibold-webfont.woff') format('truetype'),
+       url('../assets/fonts/semiBold/poppins-semibold-webfont.woff2') format('woff2'),
+       url('../assets/fonts/semiBold/poppins-semibold-webfont.woff') format('woff'); 
+  font-weight: 600;
   font-style: normal;
 } 
 
@@ -157,7 +184,7 @@
   background: linear-gradient(180deg, var(--gradient-1) 0%, var(--gradient-2) 100%);
   background-position: center top;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; 
 }
 
 
@@ -165,7 +192,7 @@
   font-family: 'PoppinsFont';
   color: var(--label-toolbar-color);
   font-size: 25px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .menuButtonIcon {

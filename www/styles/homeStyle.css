@@ -1,5 +1,4 @@
 .divTotalBalance {
- width: 100%;
  background-color: var(--gradient-1);
 
  position: sticky;
@@ -25,10 +24,10 @@
 
 .cardHomeTitle {
   display: block;
-  margin: 0px auto 0px 20px;
+  margin: 32px auto 0px 20px;
   text-align: left;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
   color: var(--text-without-card);
 }
 
@@ -41,7 +40,7 @@
 
   text-align: left;
   font-size: 50px;
-  font-weight: bold;
+  font-weight: 700;
 
   display: inline-block;
 
