@@ -17,9 +17,9 @@
         let languaje = localStorage.getItem('storageSwitchLanguage');
         if (event.target.matches('#userHome')) {
           if (languaje == 'false') {
-            document.getElementById('titleSplitterUser').innerHTML = 'HOME';
+            document.getElementById('titleSplitterUser').innerHTML = 'Home';
           } else {
-            document.getElementById('titleSplitterUser').innerHTML = 'INICIO';
+            document.getElementById('titleSplitterUser').innerHTML = 'Inicio';
           }
           localStorage.setItem('actuaPage', 'userHome.html');
           checkOptions();

@@ -284,21 +284,28 @@ function loadOptions() {
     } else {
       userHomeView.innerHTML += `<label class="cardHomeTitle">Mi dinero</label>`;
     }
-    /*
-    userHomeView.innerHTML += `<ons-card onclick="fn.load('money.html')">
-    <div style="display: flex; align-items: center;">
-      <div class="iconSavedMoney">
-      <ion-icon name="wallet" class="iconMoney" style="font-size: 32px"></ion-icon>
-      </div>
-      <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
-        <span class="totalMoneyTitle" id="" style="margin-left:0">
-      </span>
-      </div>
-    </div>
-    </ons-card>`;*/
 
-    userHomeView.innerHTML += `<ons-card style="margin: 16px" id="moneyContainer">
-    </ons-card>`;
+    // CONSIGO LAS CARTERAS CREADAS
+    let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
+    let toInner = '';
+    toInner += `<div class="walletsContainer" onclick="fn.load('money.html')">`;
+    for (let i = 0; i < moneys.length; i++) {
+      let mName = moneys[i].moneyName;
+      let mMoney = formatMoney(moneys[i].moneyCurrent);
+      toInner += `
+        <div class="wallet">
+          <div class="tittleWallet">
+            ${mName}
+          </div>
+          <div class="walletMoneyAmount">$ 
+            <span id="${mName}-money">
+              ${mMoney}
+            </span>
+          </div>
+        </div>`;
+    }
+    toInner += `</div>`;
+    userHomeView.innerHTML += toInner;
   }
 
   // DONA CON LOS GASTOS EN LAS DIFERENTES CATEGORIAS

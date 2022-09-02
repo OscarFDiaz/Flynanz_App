@@ -54,6 +54,10 @@
       'show',
       function (event) {
         if (event.target.matches('#splitterUser')) {
+          // PERMITO QUE EL MENU SE DESLICE
+          let menuSlider = document.getElementById('menu');
+          menuSlider.setAttribute('swipeable');
+
           let language = localStorage.getItem('storageSwitchLanguage');
           if (language == 'false') {
             document.getElementById('menuLabelHome').innerHTML = 'Home';

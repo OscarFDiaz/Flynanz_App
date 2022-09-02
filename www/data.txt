@@ -1,6 +1,7 @@
 moneyStorage
     moneyName
     moneyCurrent
+    **Gradient
 
 savingStorage
     mainAmount
