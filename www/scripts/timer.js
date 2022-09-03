@@ -27,6 +27,8 @@ function startTime() {
      * Comprobar los datos nuevos para evitar errores
      *   - Añadir los nuevos datos en su defecto, de data.txt
      */
+
+    // A todas las carteras les añado un degradado de fondo.
   } else {
     // Sino entra, la aplicación es posterior a la actualización
     localStorage.setItem('appVersion', `${currentVersion}`); // Actualizo la versión del storage

@@ -5,7 +5,7 @@
         <i class="menuButtonIcon ion-md-menu"></i>
       </ons-toolbar-button>
     </div>
-    <div class="center labelToolbar" id="titleConfigurarion">CONFIGURACIÓN</div>
+    <div class="center labelToolbar" id="titleConfigurarion">Configuración</div>
   </ons-toolbar>
 
   <ons-list class="listConfiguration">
@@ -38,7 +38,7 @@
 
           let language = localStorage.getItem('storageSwitchLanguage');
           if (language == 'false') {
-            document.getElementById('titleConfigurarion').innerHTML = 'CONFIGURATION';
+            document.getElementById('titleConfigurarion').innerHTML = 'Settings';
             document.getElementById('itemHomeScreen').innerHTML = 'HOME SCREEN';
             document.getElementById('itemThemeScreen').innerHTML = 'THEME';
             document.getElementById('itemTutorialScreen').innerHTML = 'TUTORIALS';
@@ -46,7 +46,7 @@
             document.getElementById('itemDeleteScreen').innerHTML = 'DELETE DATA';
             document.getElementById('itemAboutScreen').innerHTML = 'ABOUT';
           } else {
-            document.getElementById('titleConfigurarion').innerHTML = 'CONFIGURACIÓN';
+            document.getElementById('titleConfigurarion').innerHTML = 'Configuración';
             document.getElementById('itemHomeScreen').innerHTML = 'PANTALLA INICIO';
             document.getElementById('itemThemeScreen').innerHTML = 'TEMA';
             document.getElementById('itemTutorialScreen').innerHTML = 'TUTORIALES';

@@ -279,33 +279,41 @@ function loadOptions() {
   // CARTERAS
   let wallet = localStorage.getItem('storageSwitchWallet');
   if (wallet == true || wallet == 'true') {
-    if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">Wallets</label>`;
-    } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">Mi dinero</label>`;
-    }
-
     // CONSIGO LAS CARTERAS CREADAS
     let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
-    let toInner = '';
-    toInner += `<div class="walletsContainer" onclick="fn.load('money.html')">`;
-    for (let i = 0; i < moneys.length; i++) {
-      let mName = moneys[i].moneyName;
-      let mMoney = formatMoney(moneys[i].moneyCurrent);
-      toInner += `
-        <div class="wallet">
-          <div class="tittleWallet">
-            ${mName}
-          </div>
-          <div class="walletMoneyAmount">$ 
-            <span id="${mName}-money">
-              ${mMoney}
-            </span>
-          </div>
-        </div>`;
+    if (moneys != null) {
+      if (language == 'false') {
+        userHomeView.innerHTML += `<label class="cardHomeTitle">Wallets</label>`;
+      } else {
+        userHomeView.innerHTML += `<label class="cardHomeTitle">Mi dinero</label>`;
+      }
+
+      let toInner = '';
+      toInner += `<div class="walletsContainer" onclick="fn.load('money.html')">`;
+
+      // TODO
+      /**
+       * Crear botón para que el usuario haga una nueva cartera Punteado
+       */
+
+      for (let i = 0; i < moneys.length; i++) {
+        let mName = moneys[i].moneyName;
+        let mMoney = formatMoney(moneys[i].moneyCurrent);
+        toInner += `
+          <div class="wallet">
+            <div class="tittleWallet">
+              ${mName}
+            </div>
+            <div class="walletMoneyAmount">$ 
+              <span id="${mName}-money">
+                ${mMoney}
+              </span>
+            </div>
+          </div>`;
+      }
+      toInner += `</div>`;
+      userHomeView.innerHTML += toInner;
     }
-    toInner += `</div>`;
-    userHomeView.innerHTML += toInner;
   }
 
   // DONA CON LOS GASTOS EN LAS DIFERENTES CATEGORIAS
