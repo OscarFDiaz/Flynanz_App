@@ -175,21 +175,6 @@ function getGoals() {
         </ons-list-item>
       </ons-list>
     </ons-card>
-
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            SEE TUTORIAL (REQUIRES INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/ibpGxxoBlik">
-          </iframe>
-          </div>
-        </ons-list-item>
-      </ons-list>
-    </ons-card>
   `;
   } else {
     goalsTutorial = `<ons-card>
@@ -214,21 +199,6 @@ function getGoals() {
             <p class="paraTutorial">
               Para crear una nueva meta pulsa el botón "+".
             </p>
-          </div>
-        </ons-list-item>
-      </ons-list>
-    </ons-card>
-    
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            VER TUTORIAL (REQUIERE INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/OlNvllJ7wi0">
-          </iframe>
           </div>
         </ons-list-item>
       </ons-list>

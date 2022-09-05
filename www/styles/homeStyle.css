@@ -63,9 +63,13 @@
   display: block;
   margin: 32px auto 0px 20px;
   text-align: left;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   color: var(--text-without-card);
+}
+
+.cardHomeTitleBolder {
+  font-weight: 600;
 }
 
 .cardHomeTitleBalance {

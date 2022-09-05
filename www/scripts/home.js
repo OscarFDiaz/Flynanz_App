@@ -283,9 +283,9 @@ function loadOptions() {
     let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
     if (moneys != null) {
       if (language == 'false') {
-        userHomeView.innerHTML += `<label class="cardHomeTitle">Wallets</label>`;
+        userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Wallets</label>`;
       } else {
-        userHomeView.innerHTML += `<label class="cardHomeTitle">Mi dinero</label>`;
+        userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Mi dinero</label>`;
       }
 
       let toInner = '';
@@ -320,9 +320,9 @@ function loadOptions() {
   let expenses = localStorage.getItem('storageSwitchExpenses');
   if (expenses == true || expenses == 'true') {
     if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">Expenses</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Expenses</label>`;
     } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">Gastos</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Gastos</label>`;
     }
     userHomeView.innerHTML += `<ons-card onclick="fn.load('expenses.html')" style="padding-top: 16px;">
       <div class="content">
@@ -335,9 +335,9 @@ function loadOptions() {
   let savings = localStorage.getItem('storageSwitchSavings');
   if (savings == true || savings == 'true') {
     if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">Saved money</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Saved money</label>`;
     } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">Dinero ahorrado</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Dinero ahorrado</label>`;
     }
     userHomeView.innerHTML += `<ons-card onclick="fn.load('savings.html')">
     <div style="display: flex; align-items: center;">
@@ -356,9 +356,9 @@ function loadOptions() {
   let goals = localStorage.getItem('storageSwitchGoals');
   if (goals == true || goals == 'true') {
     if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">Goals</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Goals</label>`;
     } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">Metas</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Metas</label>`;
     }
     userHomeView.innerHTML += `<ons-card onclick="fn.load('goals.html')">
       <div class="content" id="homeGoalsContainer"> 
@@ -372,9 +372,9 @@ function loadOptions() {
 
     // ******* AÑADIR IMAGEN DE QUE NO HAY NADA Y BOTON PARA IR A LOS AJUSTES
     if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">Nothing here...</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Nothing here...</label>`;
     } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle">Nada por aquí...</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Nada por aquí...</label>`;
     }
   }
 
