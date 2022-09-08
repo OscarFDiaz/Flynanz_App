@@ -90,6 +90,11 @@
   --detail-goal-content-color: #9cd9ce;
   --detail-money-goal: #f5a11b;
 
+  --goal-title-color: #272443;
+  --goal-money-color: #272443;
+  --goal-icon-color: #272443;
+  --goal-info-color: #272443;
+
   --home-total-money: #272443;
   --home-goal-label: #9cd9ce;
   --para-home-options: #9cd9ce;
@@ -140,8 +145,8 @@
   --toast-message-color: #ffffff;
 
   /* PROGRESSBAR */
-  --progressbar-back-color: #0d2840;
-  --progressbar-main-color: #f5a11b;
+  --progressbar-back-color: #68667B;
+  --progressbar-main-color: #272443;
 
   /* CARDS */
   --card-back-color: #FFFFFF;

@@ -259,21 +259,21 @@ function getGoals() {
       }
     }
 
-    goalsView.innerHTML += `<ons-card onclick="findGoal('${gName}')">
-        <div class="title" id="titleGoal">
-          ${gName}
-        </div>
+    goalsView.innerHTML += `<div onclick="findGoal('${gName}')" class="goalCard">
         <div class="content">
-          <label id="goalInfo">${gDate}</label>
-          <div>
+            <span style="font-weight: 900; font-size: 24px">$ ${gAMoneyTS} <span style="font-weight: 500; font-size: 16px">/ $ ${gMoneyTS}</span></span>
             <div class="progressBarContainer"> 
-              <div class="progressBarPercent" style="--width: ${gPercent}" id="${gName}-pbar"></div> 
-            </div> 
-            <span style="font-weight: 600">$ ${gAMoneyTS}</span>
-            <span style="font-weight: 600; position: absolute; right: 16px; margin-right: 16px;">$ ${gMoneyTS}</span>
+            <div class="progressBarPercent" style="--width: ${gPercent}" id="${gName}-pbar"></div> 
+          </div> 
+          <div class="goalInfo">
+            <ion-icon name="wallet" class="goalIcon" style="font-size: 32px"></ion-icon>
+            <div class="title goalTitle" id="titleGoal">
+              ${gName}
+              <label id="goalInfo" class="goalDate">${gDate}</label>
+            </div>
           </div>
         </div>
-      </ons-card>`;
+      </div>`;
   }
 }
 

@@ -390,21 +390,6 @@ function loadSaving() {
           </div>
         </ons-list-item>
       </ons-list>
-    </ons-card>
-
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            SEE TUTORIAL (REQUIRES INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/0LAKMfvSSKU">
-          </iframe>
-          </div>
-        </ons-list-item>
-      </ons-list>
     </ons-card>`;
   } else {
     savingTutorial = `<ons-card>
@@ -444,21 +429,6 @@ function loadSaving() {
             <p class="paraTutorial">
               Para modificar/ingresar un nuevo fondo da click en “Modificar”.
             </p>
-          </div>
-        </ons-list-item>
-      </ons-list>
-    </ons-card>
-    
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            VER TUTORIAL (REQUIERE INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/rE4JM89tnd0">
-          </iframe>
           </div>
         </ons-list-item>
       </ons-list>
@@ -658,7 +628,7 @@ function returnDays(days) {
   } else if (dd > 39 && dd < 43) {
     return 14;
   } else if (dd > 42 && dd < 48) {
-    return 15; ////
+    return 15;
   } else if (dd > 47 && dd < 51) {
     return 16;
   } else if (dd > 50 && dd < 54) {
@@ -688,9 +658,9 @@ function returnDays(days) {
   } else if (dd > 86 && dd < 90) {
     return 29;
   } else if (dd > 89 && dd < 95) {
-    return 30; ///
+    return 30;
   } else if (dd > 94 && dd < 101) {
-    return 31; ///
+    return 31;
   }
 }
 

@@ -57,6 +57,7 @@ function loadChartData(expenseData) {
   }
 
   let expenseCanvas = document.getElementById('oilChart');
+
   Chart.defaults.global.defaultFontColor = getComputedStyle(document.documentElement).getPropertyValue('--card-text-title-color');
   Chart.defaults.global.defaultFontSize = 16;
   Chart.defaults.RoundedDoughnut = Chart.helpers.clone(Chart.defaults.doughnut);
@@ -360,10 +361,9 @@ function loadOptions() {
     } else {
       userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Metas</label>`;
     }
-    userHomeView.innerHTML += `<ons-card onclick="fn.load('goals.html')">
-      <div class="content" id="homeGoalsContainer"> 
-      </div>
-    </ons-card>`;
+    userHomeView.innerHTML += `
+      <div class="content" id="homeGoalsContainer" onclick="fn.load('goals.html')" style="margin-bottom: 40px"> 
+      </div>`;
   }
 
   // SI EL USUARIO NO DECIDE MOSTRAR NADA
@@ -450,12 +450,25 @@ function getTotalGoals() {
     let gMoney = goals[i].goalMoney;
     let gAMoney = goals[i].goalActualMoney;
 
+    let gMoneyTS = formatMoney(gMoney);
+    let gAMoneyTS = formatMoney(gAMoney);
+
     let gPercent = getPercent(gMoney, gAMoney);
 
-    goalsView += `<label class="homeGoalLabel">${gName}</label>
-    <div class="progressBarContainer">
-      <div class="progressBarPercent" style="--width: ${gPercent};"></div>
-    </div>`;
+    goalsView += `<div onclick="findGoal('${gName}')" class="goalCard">
+    <div class="content">
+        <span style="font-weight: 900; font-size: 24px">$ ${gAMoneyTS} <span style="font-weight: 500; font-size: 16px">/ $ ${gMoneyTS}</span></span>
+        <div class="progressBarContainer"> 
+        <div class="progressBarPercent" style="--width: ${gPercent}" id="${gName}-pbar"></div> 
+      </div> 
+      <div class="goalInfo">
+        <ion-icon name="wallet" class="goalIcon" style="font-size: 32px"></ion-icon>
+        <div class="title goalTitle" id="titleGoal">
+          ${gName}
+        </div>
+      </div>
+    </div>
+  </div>`;
   }
 
   return goalsView;

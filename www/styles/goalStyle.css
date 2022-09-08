@@ -1,3 +1,43 @@
+.goalInfo {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+
+  color: var(--goal-info-color);
+}
+
+.goalIcon {
+  display: inline-block;
+  color: var(--goal-icon-color);
+
+}
+
+.goalCard {
+  min-height: 107px;
+  
+  margin: 16px 20px 0px 20px;
+  padding: 16px;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #C3DBF3 0%, #E2DCEF 100%);
+  box-shadow: 0px 2px 4px 0px rgba(112, 144, 176, 0.2);
+}
+
+.goalTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 16px;
+  color: var(--goal-title-color);
+}
+
+.goalDate {
+  position: absolute;
+  right: 36px;
+  font-size: 14px;
+  text-transform: lowercase;
+  font-weight: 500;
+}
+
 .detailTitle {
   font-size: 24px;
   color: var(--detail-goal-title-color);
@@ -27,9 +67,9 @@
 
 .progressBarContainer {
   background-color: var(--progressbar-back-color);
-  border-radius: 15px;
-  padding: 1px;
-  margin-top: 15px;
+  border-radius: 10px;
+  padding: 0px;
+  margin-top: 16px;
 }
 
 .progressBarPercent {
@@ -37,8 +77,8 @@
   width: calc(var(--width, 0) * 1%);
   min-width: 10px;
   max-width: calc(100% - 1px);
-  height: 17px;
-  border-radius: 15px;
+  height: 3px;
+  border-radius: 10px;
 }
 
 .moneyDetailGoal {

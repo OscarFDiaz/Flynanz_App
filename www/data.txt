@@ -18,6 +18,8 @@ goalStorage
     goalActualMoney
     goalMoney
     goalDate
+    **Gradient
+    **Icon
 
 expenseStorage
     expenseName
