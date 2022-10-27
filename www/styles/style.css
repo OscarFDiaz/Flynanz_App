@@ -270,6 +270,7 @@ ons-fab.fab--bottom__right {
   font-size: 18px;
   font-weight: 400;
   text-align: center;
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
 
   line-height: 50px;
   min-height: 50px;
@@ -295,6 +296,7 @@ ons-fab.fab--bottom__right {
   font-size: 18px;
   font-weight: 400;
   text-align: center;
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
 
   line-height: 45px;
   min-height: 45px;
@@ -319,6 +321,7 @@ ons-fab.fab--bottom__right {
   font-size: 18px;
   color: var(--color-input-text);
   top: 0px;
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
 }
 
 .text-input--material {
