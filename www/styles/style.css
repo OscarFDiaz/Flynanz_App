@@ -74,7 +74,7 @@
   --menu-button-color: #272443;
 
   /* CHEVRON */
-  --chevron-color: #f5a11b;
+  --chevron-color: #272443;
 
   /* TEXTOS */
   --item-list-config: #9cd9ce;
@@ -84,11 +84,11 @@
   --expense-title: #ffffff;
   --expense-info: #9cd9ce;
   --expense-detail: #9cd9ce;
-  --expense-detail-money: #f5a11b;
+  --expense-detail-money: #272443;
 
   --detail-goal-title-color: #ffffff;
   --detail-goal-content-color: #9cd9ce;
-  --detail-money-goal: #f5a11b;
+  --detail-money-goal: #272443;
 
   --goal-title-color: #272443;
   --goal-money-color: #272443;
@@ -101,34 +101,34 @@
   --home-options-labels: #9cd9ce;
 
   --money-title: #ffffff;
-  --money-info: #f5a11b;
+  --money-info: #272443;
   --money-delete-button: crimson;
 
   --saving-main-title: #9cd9ce;
-  --saving-info: #f5a11b;
+  --saving-info: #272443;
   --saving-title: #9cd9ce;
-  --saving-daily: #f5a11b;
+  --saving-daily: #272443;
   --saving-days-title: #9cd9ce;
-  --saving-days-left: #f5a11b;
+  --saving-days-left: #272443;
 
   --saving-edit-label-range: #9cd9ce;
   --saving-edit-range-selected: #9cd9ce;
-  --saving-edit-selected-range: #f5a11b;
+  --saving-edit-selected-range: #272443;
   --entry-amount-text: #9cd9ce;
-  --entry-amount-detail: #f5a11b;
+  --entry-amount-detail: #272443;
 
   /* SWITCH */
-  --switch-button-round: #f5a11b;
+  --switch-button-round: #272443;
   --switch-back-off: #ffffff;
   --switch-back-on: #0596a6;
 
   /* INPUT */
-  --color-input: #f5a11b;
-  --color-input-text: #9cd9ce;
+  --color-input: #E5E7ED;
+  --color-input-text: #272443;
 
   /* TEXT AREA */
-  --text-area-border-color: #f5a11b;
-  --text-area-text-color: #9cd9ce;
+  --text-area-border-color: #272443;
+  --text-area-text-color: #272443;
 
   /* ALERT DIALOG */
   --alert-tile-color: #ffffff;
@@ -138,10 +138,10 @@
   --alert-button-color-text: #ffffff;
 
   --alert-custom-label: #9cd9ce;
-  --alert-custom-label-money: #f5a11b;
+  --alert-custom-label-money: #272443;
 
   /* TOAST */
-  --toast-back-color: #f5a11b;
+  --toast-back-color: #272443;
   --toast-message-color: #ffffff;
 
   /* PROGRESSBAR */
@@ -155,12 +155,12 @@
   --card-border-color: #E5E7ED;
 
   /* BUTTONS */
-  --flat-button-color: #f5a11b;
+  --flat-button-color: #272443;
   --flat-button-color-text: #ffffff;
-  --flat-button-active-color: #cc7e00;
+  --flat-button-active-color: #272443;
 
-  --flat-button-light-color: #0596a6;
-  --flat-button-light-color-text: #ffffff;
+  --flat-button-light-color: #ffffff;
+  --flat-button-light-color-text: #272443;
   --flat-button-light-active-color: #05565f;
 }
 
@@ -267,7 +267,7 @@ ons-fab.fab--bottom__right {
   border-radius: 10px;
   box-shadow: none;
 
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 400;
   text-align: center;
 
@@ -287,16 +287,17 @@ ons-fab.fab--bottom__right {
 
   background: var(--flat-button-light-color);
   color: var(--flat-button-light-color-text);
+  border: 1px solid var(--text-area-border-color);
 
   border-radius: 10px;
   box-shadow: none;
 
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 400;
   text-align: center;
 
-  line-height: 50px;
-  min-height: 50px;
+  line-height: 45px;
+  min-height: 45px;
   width: auto;
 }
 
@@ -322,15 +323,20 @@ ons-fab.fab--bottom__right {
 
 .text-input--material {
   margin-top: 16px;
+  padding: 16px;
   color: var(--color-input-text);
   font-size: 18px;
   text-align: center;
 
   border-radius: 10px;
-  border: 2px solid var(--color-input);
   height: 48px;
 
-  background-image: linear-gradient(to top, var(--color-input) 1px, var(--color-input) 1px);
+  background: var(--color-input);
+}
+
+.text-input--material:focus {
+  background: var(--color-input);
+  border: 1px solid var(--text-area-border-color);
 }
 
 select {
@@ -361,13 +367,19 @@ option {
 }
 
 .textarea {
-  background: none;
+  background: var(--color-input);;
   font-size: 18px;
   border-radius: 10px;
-  border: 2px solid var(--text-area-border-color);
   color: var(--text-area-text-color);
   width: 100%;
   margin: 0px auto;
+  border: none;
+  padding: 16px;
+}
+
+.textarea:focus{
+  background: var(--color-input);
+  border: 1px solid var(--text-area-border-color);
 }
 
 .alert-dialog,

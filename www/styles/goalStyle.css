@@ -87,3 +87,12 @@
   max-width: 250px;
 }
 
+.buttonContainer {
+  width: 100%;
+  top: auto;
+  bottom: 20px;
+  right: auto;
+  left: auto;
+  position: absolute;
+}
+
