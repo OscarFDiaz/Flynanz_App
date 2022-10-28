@@ -22,7 +22,9 @@
   border-radius: 10px;
   font-size: 14px;
   text-align: center;
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
 }
+
 .moneyButtonAdd:active {
   background: var(--flat-button-active-color);
 }
@@ -48,6 +50,7 @@
   border-radius: 10px;
   font-size: 14px;
   text-align: center;
+  border: 1px solid var(--text-area-border-color);
 }
 .moneyButtonDe:active {
   background: var(--flat-button-light-active-color);

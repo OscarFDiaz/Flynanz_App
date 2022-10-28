@@ -122,7 +122,7 @@ function hideAlertDialog() {
     }
 
     if (goalDate === '') {
-      goalDate = 'SIN DATOS DE FECHA';
+      goalDate = 'Sin datos de fecha';
     }
   }
 
@@ -244,7 +244,7 @@ function createAlertDialogToEditGoalMoney() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
-        ADD MONEY
+        Add money
       </ons-button>
     
       <ons-button
@@ -254,7 +254,7 @@ function createAlertDialogToEditGoalMoney() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-        REMOVE MONEY
+        Remove money
       </ons-button>`;
     } else {
       optionsContainer.innerHTML = `<ons-button
@@ -264,7 +264,7 @@ function createAlertDialogToEditGoalMoney() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
-        AÑADIR DINERO
+        Añadir dinero
       </ons-button>
     
       <ons-button
@@ -274,7 +274,7 @@ function createAlertDialogToEditGoalMoney() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-        RESTAR DINERO
+        Restar dinero
       </ons-button>`;
     }
 
@@ -482,8 +482,8 @@ function insertActionEditGoal(option) {
 
   if (option === 'add') {
     if (languaje == 'false') {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px" >
-      I WANT TO ADD
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);" >
+      I want to add
     </p>
     <ons-input
       onchange="makeSum()"
@@ -496,8 +496,8 @@ function insertActionEditGoal(option) {
       style="display: block; margin: -10px auto 16px"
     ></ons-input>`;
     } else {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px">
-      QUIERO AÑADIR
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);">
+      Quiero añadir
     </p>
     <ons-input
       onchange="makeSum()"
@@ -512,8 +512,8 @@ function insertActionEditGoal(option) {
     }
   } else if (option === 'remove') {
     if (languaje == 'false') {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px" >
-      I WANT TO REMOVE
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);" >
+      I want to remove
     </p>
     <ons-input
       onchange="makeRes()"
@@ -526,8 +526,8 @@ function insertActionEditGoal(option) {
       style="display: block; margin: -10px auto 16px"
     ></ons-input>`;
     } else {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px">
-      QUIERO QUITAR
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);">
+      Quiero quitar
     </p>
     <ons-input
       onchange="makeRes()"

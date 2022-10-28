@@ -192,80 +192,80 @@
           let languaje = localStorage.getItem("storageSwitchLanguage");
           if (languaje == 'false') {
             document.getElementById('titleSavings').innerHTML = 'Saved';
-            document.getElementById('addExpenseSavingAlertTitle').innerHTML = 'ADD EXPENSES TO THE FUND';
-            document.getElementById('addExpenseSavingAlertCat').innerHTML = 'CATEGORY:';
-            document.getElementById('addExpenseSavingAlertNote').innerHTML = 'EXPENDITURE NOTE';
-            document.getElementById('addExpenseSavingAlertExpensed').innerHTML = 'SPENT MONEY';
-            document.getElementById('addExpenseSavingAlertDate').innerHTML = 'DATE OF EXPENDITURE';
-            document.getElementById('addExpenseSavingAlertWhere').innerHTML = 'SUBTRACT TO:';
-            document.getElementById('addExpenseSavingAlertCancel').innerHTML = 'CANCEL';
-            document.getElementById('addExpenseSavingAlertFinished').innerHTML = 'FINISHED!';
+            document.getElementById('addExpenseSavingAlertTitle').innerHTML = 'Add expenses to the fund';
+            document.getElementById('addExpenseSavingAlertCat').innerHTML = 'Category:';
+            document.getElementById('addExpenseSavingAlertNote').innerHTML = 'Expenditure note';
+            document.getElementById('addExpenseSavingAlertExpensed').innerHTML = 'Spent money';
+            document.getElementById('addExpenseSavingAlertDate').innerHTML = 'Date of expenditure';
+            document.getElementById('addExpenseSavingAlertWhere').innerHTML = 'Subtract to:';
+            document.getElementById('addExpenseSavingAlertCancel').innerHTML = 'Cancel';
+            document.getElementById('addExpenseSavingAlertFinished').innerHTML = 'Finished!';
             
-            document.getElementById('modifyMoneyAlertSavingTitle').innerHTML = 'MODIFY MONEY TO THE FUND';
+            document.getElementById('modifyMoneyAlertSavingTitle').innerHTML = 'Modify money to the fund';
             document.getElementById('modifyMoneyAlertSavingActual').innerHTML = 
-            `CURRENT MONEY: $
+            `Current money: $
             <label
               id="alertAddSaving"
               style="color: var(--alert-custom-label-money)"
               >0</label
             >`;
             document.getElementById('modifyMoneyAlertSavingNew').innerHTML = 
-            `NEW QUANTITY: $
+            `New quantity: $
             <label
               id="alertAddSavingEnd"
               style="color: var(--alert-custom-label-money)"
               >0</label
             >`;
-            document.getElementById('modifyMoneyAlertSavingCancel').innerHTML = 'CANCEL';
-            document.getElementById('modifyMoneyAlertSavingFinished').innerHTML = 'FINISHED!';
+            document.getElementById('modifyMoneyAlertSavingCancel').innerHTML = 'Cancel';
+            document.getElementById('modifyMoneyAlertSavingFinished').innerHTML = 'Finished!';
 
             document.getElementById('leftSavingAlertTitle').innerHTML = 'Money was available, what do you want to do with it?';
             document.getElementById('leftSavingAlertMoneyLeft').innerHTML = 
-            `REMAINING MONEY: $ 
+            `Remaining money: $ 
             <span id="leftMoneyToAlert" style="color: var(--alert-custom-label-money)"></span>`;
             document.getElementById('leftSavingAlertAddTo').innerHTML = 'Add the next day';
             document.getElementById('leftSavingAlertToMoney').innerHTML = `Add to 'MY MONEY'`;
-            document.getElementById('leftSavingAlertCancel').innerHTML = 'CANCEL';
-            document.getElementById('leftSavingAlertFinished').innerHTML = 'FINISHED!';
+            document.getElementById('leftSavingAlertCancel').innerHTML = 'Cancel';
+            document.getElementById('leftSavingAlertFinished').innerHTML = 'Finished!';
 
           } else {
 
             document.getElementById('titleSavings').innerHTML = 'Fondo';
-            document.getElementById('addExpenseSavingAlertTitle').innerHTML = 'AÑADIR GASTO AL FONDO';
-            document.getElementById('addExpenseSavingAlertCat').innerHTML = 'CATEGORÍA:';
-            document.getElementById('addExpenseSavingAlertNote').innerHTML = 'NOTA DEL GASTO';
-            document.getElementById('addExpenseSavingAlertExpensed').innerHTML = 'DINERO GASTADO';
-            document.getElementById('addExpenseSavingAlertDate').innerHTML = 'FECHA DEL GASTO';
-            document.getElementById('addExpenseSavingAlertWhere').innerHTML = 'RESTAR A:';
-            document.getElementById('addExpenseSavingAlertCancel').innerHTML = 'CANCELAR';
-            document.getElementById('addExpenseSavingAlertFinished').innerHTML = 'LISTO!';
+            document.getElementById('addExpenseSavingAlertTitle').innerHTML = 'Añadir gasto al fonfo';
+            document.getElementById('addExpenseSavingAlertCat').innerHTML = 'Categoría:';
+            document.getElementById('addExpenseSavingAlertNote').innerHTML = 'Nota del gasto';
+            document.getElementById('addExpenseSavingAlertExpensed').innerHTML = 'Dinero gastado';
+            document.getElementById('addExpenseSavingAlertDate').innerHTML = 'Fecha del gasto';
+            document.getElementById('addExpenseSavingAlertWhere').innerHTML = 'Restar a:';
+            document.getElementById('addExpenseSavingAlertCancel').innerHTML = 'Cancelar';
+            document.getElementById('addExpenseSavingAlertFinished').innerHTML = 'Listo!';
             
-            document.getElementById('modifyMoneyAlertSavingTitle').innerHTML = 'MODIFICAR DINERO AL FONDO';
+            document.getElementById('modifyMoneyAlertSavingTitle').innerHTML = 'Modificar dinero al fondo';
             document.getElementById('modifyMoneyAlertSavingActual').innerHTML = 
-            `DINERO ACTUAL: $
+            `Dinero actual: $
             <label
               id="alertAddSaving"
               style="color: var(--alert-custom-label-money)"
               >0</label
             >`;
             document.getElementById('modifyMoneyAlertSavingNew').innerHTML = 
-            `CANTIDAD NUEVA: $
+            `Cantidad nueva: $
             <label
               id="alertAddSavingEnd"
               style="color: var(--alert-custom-label-money)"
               >0</label
             >`;
-            document.getElementById('modifyMoneyAlertSavingCancel').innerHTML = 'CANCELAR';
-            document.getElementById('modifyMoneyAlertSavingFinished').innerHTML = 'LISTO!';
+            document.getElementById('modifyMoneyAlertSavingCancel').innerHTML = 'Cancelar';
+            document.getElementById('modifyMoneyAlertSavingFinished').innerHTML = 'Listo!';
 
             document.getElementById('leftSavingAlertTitle').innerHTML = 'Quedó dinero disponible, ¿qué quieres hacer con el?';
             document.getElementById('leftSavingAlertMoneyLeft').innerHTML = 
-            `DINERO RESTANTE: $ 
+            `Dinero restante: $ 
             <span id="leftMoneyToAlert" style="color: var(--alert-custom-label-money)"></span>`;
             document.getElementById('leftSavingAlertAddTo').innerHTML = 'Añadir al día siguiente';
             document.getElementById('leftSavingAlertToMoney').innerHTML = `Añadir a 'MI DINERO'`;
-            document.getElementById('leftSavingAlertCancel').innerHTML = 'CANCEL';
-            document.getElementById('leftSavingAlertFinished').innerHTML = 'LISTO!';
+            document.getElementById('leftSavingAlertCancel').innerHTML = 'Cancelar';
+            document.getElementById('leftSavingAlertFinished').innerHTML = 'Listo!';
           }
           loadSaving();
         }

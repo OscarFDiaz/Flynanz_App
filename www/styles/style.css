@@ -77,17 +77,17 @@
   --chevron-color: #272443;
 
   /* TEXTOS */
-  --item-list-config: #9cd9ce;
+  --item-list-config: #68667B;
   --text-without-card: #272443;
   --text-without-card-balance: #68667B;
 
-  --expense-title: #ffffff;
-  --expense-info: #9cd9ce;
-  --expense-detail: #9cd9ce;
+  --expense-title: #272443;
+  --expense-info: #68667B;
+  --expense-detail: #68667B;
   --expense-detail-money: #272443;
 
-  --detail-goal-title-color: #ffffff;
-  --detail-goal-content-color: #9cd9ce;
+  --detail-goal-title-color: #272443;
+  --detail-goal-content-color: #272443;
   --detail-money-goal: #272443;
 
   --goal-title-color: #272443;
@@ -96,25 +96,25 @@
   --goal-info-color: #272443;
 
   --home-total-money: #272443;
-  --home-goal-label: #9cd9ce;
-  --para-home-options: #9cd9ce;
-  --home-options-labels: #9cd9ce;
+  --home-goal-label: #68667B;
+  --para-home-options: #68667B;
+  --home-options-labels: #68667B;
 
   --money-title: #ffffff;
   --money-info: #272443;
-  --money-delete-button: crimson;
+  --money-delete-button: #ffffff;
 
-  --saving-main-title: #9cd9ce;
+  --saving-main-title: #68667B;
   --saving-info: #272443;
-  --saving-title: #9cd9ce;
+  --saving-title: #68667B;
   --saving-daily: #272443;
-  --saving-days-title: #9cd9ce;
+  --saving-days-title: #68667B;
   --saving-days-left: #272443;
 
-  --saving-edit-label-range: #9cd9ce;
-  --saving-edit-range-selected: #9cd9ce;
+  --saving-edit-label-range: #68667B;
+  --saving-edit-range-selected: #68667B;
   --saving-edit-selected-range: #272443;
-  --entry-amount-text: #9cd9ce;
+  --entry-amount-text: #68667B;
   --entry-amount-detail: #272443;
 
   /* SWITCH */
@@ -131,13 +131,13 @@
   --text-area-text-color: #272443;
 
   /* ALERT DIALOG */
-  --alert-tile-color: #ffffff;
-  --alert-container-color: #0d2840;
-  --alert-footer-color: #0e5259;
-  --alert-content-text-color: #ffffff;
+  --alert-tile-color: #272443;
+  --alert-container-color: #ffffff;
+  --alert-footer-color: #272443;
+  --alert-content-text-color: #272443;
   --alert-button-color-text: #ffffff;
 
-  --alert-custom-label: #9cd9ce;
+  --alert-custom-label: #68667B;
   --alert-custom-label-money: #272443;
 
   /* TOAST */
@@ -151,7 +151,7 @@
   /* CARDS */
   --card-back-color: #FFFFFF;
   --card-text-title-color: #272443;
-  --card-content-text-color: #0596a6;
+  --card-content-text-color: #272443;
   --card-border-color: #E5E7ED;
 
   /* BUTTONS */
@@ -378,6 +378,7 @@ option {
   margin: 0px auto;
   border: none;
   padding: 16px;
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
 }
 
 .textarea:focus{
@@ -386,25 +387,34 @@ option {
 }
 
 .alert-dialog,
+.alert-dialog--material{
+ width: 85%;
+}
+
 .alert-dialog-container,
 .alert-dialog--material,
 .alert-dialog-container--material {
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   background-color: var(--alert-container-color);
   border-radius: 10px;
 }
 
+.alert-dialog,
 .alert-dialog-title,
 .alert-dialog-title--material {
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   color: var(--alert-tile-color);
 }
 
 .alert-dialog-footer,
 .alert-dialog-footer--material {
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   background-color: var(--alert-footer-color);
 }
 
 .alert-dialog-content,
 .alert-dialog-content--material {
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   background-color: none;
   color: var(--alert-content-text-color);
   margin: 16px 0 16px;
@@ -412,21 +422,25 @@ option {
 
 .alert-dialog-button,
 .alert-dialog-button--material {
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   color: var(--alert-button-color-text);
 }
 
 .ons-toast .toast {
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   border-radius: 10px 10px 0px 0px;
 }
 
 .toast,
 .toast--material {
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   background-color: var(--toast-back-color);
   border-radius: 10px 10px 0px 0px;
 }
 
 .toast__message,
 .toast--material__message {
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   color: var(--toast-message-color);
   margin: 0px;
   font-size: 18px;

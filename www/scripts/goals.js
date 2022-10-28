@@ -21,7 +21,7 @@ function makeNewGoal() {
     }
 
     if (goalDate === '') {
-      goalDate = 'NO DATE GOAL';
+      goalDate = 'No date goal';
     }
 
     if (goalName === '') {
@@ -64,7 +64,7 @@ function makeNewGoal() {
     }
 
     if (goalDate === '') {
-      goalDate = 'SIN DATOS DE FECHA';
+      goalDate = 'Sin datos de fecha';
     }
 
     if (goalName === '') {
@@ -154,7 +154,7 @@ function getGoals() {
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
           <label class="iconExpenseLabel" style="margin-left: 50px;">
-            READ TUTORIAL
+            Read tutorial
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <p class="paraTutorial">
@@ -235,26 +235,26 @@ function getGoals() {
 
     if (languaje == 'false') {
       if (gDate === '') {
-        gDate = 'NO DATE DATA';
+        gDate = 'No date data';
       } else {
         if (Math.sign(days) == 1 || Math.sign(days) == '1') {
-          gDate = days + ' DAYS REMAINING';
+          gDate = days + ' days remaining';
         } else if (Math.sign(days) == '-1' || Math.sign(days) == -1) {
-          gDate = 'EXPIRED ' + Math.abs(days) + ' DAYS AGO';
+          gDate = 'Expired ' + Math.abs(days) + ' days ago';
         } else if (Math.sign(days) == '0' || Math.sign(days) == 0) {
-          gDate = 'TODAY IS THE LAST DAY';
+          gDate = 'Today is the last day';
         }
       }
     } else {
       if (gDate === '') {
-        gDate = 'SIN DATOS DE FECHA';
+        gDate = 'Sin datos de fecha';
       } else {
         if (Math.sign(days) == 1 || Math.sign(days) == '1') {
-          gDate = days + ' DÍAS RESTANTES';
+          gDate = days + ' días restantes';
         } else if (Math.sign(days) == '-1' || Math.sign(days) == -1) {
-          gDate = 'VENCIÓ HACE ' + Math.abs(days) + ' DÍAS';
+          gDate = 'Venció hace ' + Math.abs(days) + ' días';
         } else if (Math.sign(days) == '0' || Math.sign(days) == 0) {
-          gDate = 'HOY ES EL ÚLTIMO DÍA';
+          gDate = 'Hoy es el último día';
         }
       }
     }
@@ -317,7 +317,7 @@ function deleteGoal(sendGoalName) {
     ons.notification.confirm({
       message: 'Are you sure you delete the goal?',
       title: 'Notice!',
-      buttonLabels: ['YES', 'CANCEL'],
+      buttonLabels: ['Yes, delete', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -354,7 +354,7 @@ function deleteGoal(sendGoalName) {
     ons.notification.confirm({
       message: 'Estas seguro de borrar la meta?',
       title: 'Aviso!',
-      buttonLabels: ['SÍ', 'CANCELAR'],
+      buttonLabels: ['Sí, borrar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -490,11 +490,11 @@ function loadDetailGoal() {
 
   if (languaje == 'false') {
     if (Math.sign(days) == 1 || Math.sign(days) == '1') {
-      gDate = days + ' DAYS REMAINING';
+      gDate = days + ' days remaining';
     } else if (Math.sign(days) == '-1' || Math.sign(days) == -1) {
-      gDate = 'EXPIRED ' + Math.abs(days) + ' DAYS AGO';
+      gDate = 'Expired ' + Math.abs(days) + ' days ago';
     } else if (Math.sign(days) == '0' || Math.sign(days) == 0) {
-      gDate = 'TODAY IS THE LAST DAY';
+      gDate = 'Today is the last day';
     }
 
     if (gDescription === '') {
@@ -506,14 +506,14 @@ function loadDetailGoal() {
     let goalsView = document.getElementById('goalDetailContainer');
     goalsView.innerHTML = '';
 
-    goalsView.innerHTML += `<label class="cardHomeTitle" style="margin-top: 0px">DESCRIPTION</label>
+    goalsView.innerHTML += `<label class="cardHomeTitle" style="margin-top: 0px">Description</label>
       <ons-card style="padding-top:16px">
         <div class="content detailInfo">
             ${gDescription}
         </div>
       </ons-card>
 
-      <label class="cardHomeTitle">PROGRESS</label>
+      <label class="cardHomeTitle">Progress</label>
       <ons-card>
         <div style="padding-top: 16px">
           <span style="margin-left: 20px; font-size: 30px; font-weight: bold; color: var(--detail-goal-content-color)">$ 
@@ -524,7 +524,7 @@ function loadDetailGoal() {
           </span>
           <div class="progressBarContainer percentBar" style="margin-top:0px"> 
             <div class="progressBarPercent" style="--width:${gPercent}" data-label="${gPercent}" id="pbarDetail">
-              <span style="white-space: nowrap; margin-left: 47%; color: var(--progressbar-back-color); font-weight: bold; position: relative; top: -5px; font-size:20px" id="${gName}-pnumber">${gPercent} %</span>
+              <span style="white-space: nowrap; display: table; margin: 0 auto; color: var(--progressbar-back-color); font-weight: bold; position: relative; top: -5px; font-size:20px" id="${gName}-pnumber">${gPercent} %</span>
             </div> 
           </div> 
         </div>
@@ -540,13 +540,13 @@ function loadDetailGoal() {
             </label>
           </div>
           <ons-button class="flatButton" style="margin-top: 16px; margin-left: 0px; margin-right: 0px" onclick="addMoneyGoal('${gName}')">
-            MODIFY MONEY
+            Modify money
           </ons-button>
         </div>
       </ons-card>
       
       <ons-button class="flatButtonLight" style="margin-top: 16px; margin-bottom: 16px" onclick="deleteGoal('${gName}')">
-        DELETE GOAL
+        Delete goal
       </ons-button>
       
       <ons-fab position="bottom right" onclick="editGoal('${gName}')">
@@ -554,11 +554,11 @@ function loadDetailGoal() {
       </ons-fab>`;
   } else {
     if (Math.sign(days) == 1 || Math.sign(days) == '1') {
-      gDate = days + ' DÍAS RESTANTES';
+      gDate = days + ' días restantes';
     } else if (Math.sign(days) == '-1' || Math.sign(days) == -1) {
-      gDate = 'VENCIÓ HACE ' + Math.abs(days) + ' DÍAS';
+      gDate = 'Venció hace ' + Math.abs(days) + ' días';
     } else if (Math.sign(days) == '0' || Math.sign(days) == 0) {
-      gDate = 'HOY ES EL ÚLTIMO DÍA';
+      gDate = 'Hoy es el último día';
     }
 
     if (gDescription === '') {
@@ -570,14 +570,14 @@ function loadDetailGoal() {
     let goalsView = document.getElementById('goalDetailContainer');
     goalsView.innerHTML = '';
 
-    goalsView.innerHTML += `<label class="cardHomeTitle">DESCRIPCIÓN</label>
+    goalsView.innerHTML += `<label class="cardHomeTitle">Descripción</label>
       <ons-card style="padding-top:16px">
         <div class="content detailInfo">
             ${gDescription}
         </div>
       </ons-card>
 
-      <label class="cardHomeTitle">PROGRESO</label>
+      <label class="cardHomeTitle">Progreso</label>
       <ons-card>
         <div style="padding-top: 16px">
           <span style="margin-left: 20px; font-size: 30px; font-weight: bold; color: var(--detail-goal-content-color)">$ 
@@ -588,7 +588,7 @@ function loadDetailGoal() {
           </span>
           <div class="progressBarContainer percentBar" style="margin-top:0px"> 
             <div class="progressBarPercent" style="--width:${gPercent}" data-label="${gPercent}" id="pbarDetail">
-              <span style="white-space: nowrap; margin-left: 47%; color: var(--progressbar-back-color); font-weight: bold; position: relative; top: -2px; font-size:20px" id="${gName}-pnumber">${gPercent} %</span>
+              <span style="white-space: nowrap; display: table; margin: 0 auto; color: var(--progressbar-back-color); font-weight: bold; position: relative; top: -2px; font-size:20px" id="${gName}-pnumber">${gPercent} %</span>
             </div> 
           </div> 
         </div>
@@ -604,13 +604,13 @@ function loadDetailGoal() {
             </label>
           </div>
           <ons-button class="flatButton" style="margin-top: 16px; margin-left: 0px; margin-right: 0px" onclick="addMoneyGoal('${gName}')">
-            MODIFICAR DINERO
+            Modificar dinero
           </ons-button>
         </div>
       </ons-card>
       
       <ons-button class="flatButtonLight" style="margin-top: 16px; margin-bottom: 16px" onclick="deleteGoal('${gName}')">
-        ELIMINAR META
+        Eliminar meta
       </ons-button>
       
       <ons-fab position="bottom right" onclick="editGoal('${gName}')">

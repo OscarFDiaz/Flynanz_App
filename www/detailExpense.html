@@ -58,19 +58,19 @@
           ons.ready(function () {
             let languaje = localStorage.getItem('storageSwitchLanguage');
             if (languaje == 'false') {
-              document.getElementById('detailExpenseEditTitle').innerHTML = 'EDIT EXPENDITURE';
-              document.getElementById('detailExpenseEditNote').innerHTML = 'EXPENDITURE NOTE';
-              document.getElementById('detailExpenseEditAmount').innerHTML = 'SPENT MONEY';
-              document.getElementById('detailExpenseEditDate').innerHTML = 'DATE OF EXPENDITURE';
-              document.getElementById('detailExpenseEditCancel').innerHTML = 'CANCEL';
-              document.getElementById('detailExpenseEditFinished').innerHTML = 'FINISHED!';
+              document.getElementById('detailExpenseEditTitle').innerHTML = 'Edit expenditure';
+              document.getElementById('detailExpenseEditNote').innerHTML = 'Expenditure note';
+              document.getElementById('detailExpenseEditAmount').innerHTML = 'Spent money';
+              document.getElementById('detailExpenseEditDate').innerHTML = 'Date of expenditure';
+              document.getElementById('detailExpenseEditCancel').innerHTML = 'Cancel';
+              document.getElementById('detailExpenseEditFinished').innerHTML = 'Finished!';
             } else {
-              document.getElementById('detailExpenseEditTitle').innerHTML = 'EDITAR GASTO';
-              document.getElementById('detailExpenseEditNote').innerHTML = 'NOTA DEL GASTO';
-              document.getElementById('detailExpenseEditAmount').innerHTML = 'DINERO GASTADO';
-              document.getElementById('detailExpenseEditDate').innerHTML = 'FECHA DEL GASTO';
-              document.getElementById('detailExpenseEditCancel').innerHTML = 'CANCELAR';
-              document.getElementById('detailExpenseEditFinished').innerHTML = 'LISTO!';
+              document.getElementById('detailExpenseEditTitle').innerHTML = 'Editar gasto';
+              document.getElementById('detailExpenseEditNote').innerHTML = 'Nota del gasto';
+              document.getElementById('detailExpenseEditAmount').innerHTML = 'Dinero gastado';
+              document.getElementById('detailExpenseEditDate').innerHTML = 'Fecha del gasto';
+              document.getElementById('detailExpenseEditCancel').innerHTML = 'Cancelar';
+              document.getElementById('detailExpenseEditFinished').innerHTML = 'Listo!';
             }
             loadDetailExpense();
           });

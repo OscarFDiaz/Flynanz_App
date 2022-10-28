@@ -130,90 +130,90 @@
         if (event.target.matches('#detailSaving')) {
           let languaje = localStorage.getItem('storageSwitchLanguage');
           if (languaje == 'false') {
-            document.getElementById('titleDetailSaving').innerHTML = 'MODIFY FUND';
-            document.getElementById('modifyFundAmount').innerHTML = 'AMOUNT';
-            document.getElementById('modifyFundDays').innerHTML = `DAYS: 
+            document.getElementById('titleDetailSaving').innerHTML = 'Modify fund';
+            document.getElementById('modifyFundAmount').innerHTML = 'Amount';
+            document.getElementById('modifyFundDays').innerHTML = `Days: 
             <span id="rangeSelectDays" class="selectedRange">16</span>`;
-            document.getElementById('modifyFundPercentage').innerHTML = `PERCENTAGE TO USE: 
+            document.getElementById('modifyFundPercentage').innerHTML = `Percentage to use: 
             <span id="rangeSelectPercent" class="selectedRange">50%</span>`;
-            document.getElementById('modifyFundAddFund').innerHTML = 'FINISHED!';
+            document.getElementById('modifyFundAddFund').innerHTML = 'Finished!';
 
-            document.getElementById('modifyFundPrevText').innerHTML = 'PREVIEW';
-            document.getElementById('modifyFundPrevAmount').innerHTML = `ENTERED AMOUNT:
+            document.getElementById('modifyFundPrevText').innerHTML = 'Preview';
+            document.getElementById('modifyFundPrevAmount').innerHTML = `Entered amount:
             <div style="display: block">
               <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
               <span id="entryAmount" class="entryAmountDetail">0</span>
             </div>`;
-            document.getElementById('modifyFundPrevDays').innerHTML = `DAYS:
+            document.getElementById('modifyFundPrevDays').innerHTML = `Days:
             <div style="display: block">
               <span id="entryDays" class="entryAmountDetail"></span>
             </div>`;
-            document.getElementById('modifyFundPrevPercentage').innerHTML = `PERCENTAGE:
+            document.getElementById('modifyFundPrevPercentage').innerHTML = `Percentage:
             <div style="display: block">
               <span id="entryPercent" class="entryAmountDetail"></span>
             </div>`;
-            document.getElementById('modifyFundPrevToExpend').innerHTML = `TO SPEND:
+            document.getElementById('modifyFundPrevToExpend').innerHTML = `To spend:
             <div style="display: block">
               <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
               <span id="entryExpend" class="entryAmountDetail">0</span>
             </div>`;
 
-            document.getElementById('modifyFundActualTitle').innerHTML = 'CURRENT FUND';
-            document.getElementById('modifyFundActualAmount').innerHTML = `ENTERED AMOUNT: 
+            document.getElementById('modifyFundActualTitle').innerHTML = 'Current fund';
+            document.getElementById('modifyFundActualAmount').innerHTML = `Entered amount: 
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentAmount" class="entryAmountDetail">0</span>`;
-            document.getElementById('modifyFundActualDays').innerHTML = `DAYS: 
+            document.getElementById('modifyFundActualDays').innerHTML = `Days: 
             <span id="entryCurrentDays" class="entryAmountDetail"></span>`;
-            document.getElementById('modifyFundActualPercentage').innerHTML = `PERCENTAGE: 
+            document.getElementById('modifyFundActualPercentage').innerHTML = `Percentage: 
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>`;
-            document.getElementById('modifyFundActualToExpend').innerHTML = `TO SPEND:
+            document.getElementById('modifyFundActualToExpend').innerHTML = `To spend:
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpend" class="entryAmountDetail">0</span>`;
 
-            document.getElementById('modifyFundSavedTitle').innerHTML = 'FUND SAVED';
-            document.getElementById('modifyFundSavedButton').innerHTML = 'RESET';
+            document.getElementById('modifyFundSavedTitle').innerHTML = 'Fund saved';
+            document.getElementById('modifyFundSavedButton').innerHTML = 'Reset';
           } else {
-            document.getElementById('titleDetailSaving').innerHTML = 'MODIFICAR FONDO';
-            document.getElementById('modifyFundAmount').innerHTML = 'CANTIDAD';
-            document.getElementById('modifyFundDays').innerHTML = `DÍAS: 
+            document.getElementById('titleDetailSaving').innerHTML = 'Modificar fondo';
+            document.getElementById('modifyFundAmount').innerHTML = 'Cantidad';
+            document.getElementById('modifyFundDays').innerHTML = `Días: 
             <span id="rangeSelectDays" class="selectedRange">16</span>`;
-            document.getElementById('modifyFundPercentage').innerHTML = `PORCENTAJE A USAR: 
+            document.getElementById('modifyFundPercentage').innerHTML = `Porcentaje a usar: 
             <span id="rangeSelectPercent" class="selectedRange">50%</span>`;
-            document.getElementById('modifyFundAddFund').innerHTML = 'INGRESAR';
+            document.getElementById('modifyFundAddFund').innerHTML = 'Ingresar';
 
-            document.getElementById('modifyFundPrevText').innerHTML = 'PREVISUALIZACIÓN';
-            document.getElementById('modifyFundPrevAmount').innerHTML = `CANTIDAD INGRESADA:
+            document.getElementById('modifyFundPrevText').innerHTML = 'Previsualización';
+            document.getElementById('modifyFundPrevAmount').innerHTML = `Cantidad ingresada:
             <div style="display: block">
               <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
               <span id="entryAmount" class="entryAmountDetail">0</span>
             </div>`;
-            document.getElementById('modifyFundPrevDays').innerHTML = `DÍAS:
+            document.getElementById('modifyFundPrevDays').innerHTML = `Días:
             <div style="display: block">
               <span id="entryDays" class="entryAmountDetail"></span>
             </div>`;
-            document.getElementById('modifyFundPrevPercentage').innerHTML = `PORCENTAJE:
+            document.getElementById('modifyFundPrevPercentage').innerHTML = `Porcentaje:
             <div style="display: block">
               <span id="entryPercent" class="entryAmountDetail"></span>
             </div>`;
-            document.getElementById('modifyFundPrevToExpend').innerHTML = `PARA GASTAR:
+            document.getElementById('modifyFundPrevToExpend').innerHTML = `Para gastar:
             <div style="display: block">
               <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
               <span id="entryExpend" class="entryAmountDetail">0</span>
             </div>`;
 
-            document.getElementById('modifyFundActualTitle').innerHTML = 'FONDO ACTUAL';
-            document.getElementById('modifyFundActualAmount').innerHTML = `CANTIDAD INGRESADA: 
+            document.getElementById('modifyFundActualTitle').innerHTML = 'Fondo actual';
+            document.getElementById('modifyFundActualAmount').innerHTML = `Cantidad ingresada: 
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentAmount" class="entryAmountDetail">0</span>`;
-            document.getElementById('modifyFundActualDays').innerHTML = `DÍAS: 
+            document.getElementById('modifyFundActualDays').innerHTML = `Días: 
             <span id="entryCurrentDays" class="entryAmountDetail"></span>`;
-            document.getElementById('modifyFundActualPercentage').innerHTML = `PORCENTAJE: 
+            document.getElementById('modifyFundActualPercentage').innerHTML = `Porcentaje: 
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>`;
-            document.getElementById('modifyFundActualToExpend').innerHTML = `PARA GASTAR: 
+            document.getElementById('modifyFundActualToExpend').innerHTML = `Para gastar: 
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpend" class="entryAmountDetail">0</span>`;
-            document.getElementById('modifyFundSavedTitle').innerHTML = 'FONDO AHORRADO';
-            document.getElementById('modifyFundSavedButton').innerHTML = 'REINICIAR';
+            document.getElementById('modifyFundSavedTitle').innerHTML = 'Fondo ahorrado';
+            document.getElementById('modifyFundSavedButton').innerHTML = 'Reiniciar';
           }
 
           loadDetailSaving();

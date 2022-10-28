@@ -18,7 +18,7 @@
 .savingTitle {
   text-align: center;
 
-  font-size: 38px;
+  font-size: 20px;
   font-weight: normal;
   color: var(--saving-title);
 }
@@ -78,6 +78,7 @@
   text-align: left;
   font-size: 14px;
   color: var(--entry-amount-text);
+  margin-bottom: 16px;
 }
 
 .entryAmountDetail {

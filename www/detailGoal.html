@@ -1,7 +1,7 @@
 <ons-page id="detailGoal">
   <ons-toolbar id="toolbar" class="toolbar" modifier="transparent">
     <ons-back-button></ons-back-button>
-    <div class="center labelToolbar" id="titleDetailGoal">AQUI SE CARGA EL NOMBRE DE LA META</div>
+    <div class="center labelToolbar" id="titleDetailGoal">Aquí se carga el nombre de la meta</div>
   </ons-toolbar>
 
   <!--SE CARGA LOS DETALLES DE LA META-->
@@ -9,7 +9,7 @@
 
   <!-- ALERT DIALOG PARA EDITAR TODA LA META-->
   <ons-alert-dialog id="my-alert-dialog" modifier="material">
-    <div class="alert-dialog-title" style="text-align: center" id="modifyGoalTitle">MODIFICAR META</div>
+    <div class="alert-dialog-title" style="text-align: center" id="modifyGoalTitle">Modificar meta</div>
     <div class="alert-dialog-content">
       <div style="text-align: center; margin-top: 16px">
         <div>
@@ -49,7 +49,7 @@
 
   <!--ALERT PARA EDITAR UNICAMENTE EL DINERO-->
   <ons-alert-dialog id="alertEditGoalMoney" modifier="material">
-    <div class="alert-dialog-title" style="text-align: center" id="modifyGoalTitleMoney">MODIFICAR DINERO</div>
+    <div class="alert-dialog-title" style="text-align: center" id="modifyGoalTitleMoney">Modificar dinero</div>
 
     <div class="alert-dialog-content">
       <div style="text-align: center; margin-top: 16px">
@@ -65,7 +65,7 @@
             id="newMoneyCancelButton"
           >
             <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
-            AÑADIR DINERO
+            Añadir dinero
           </ons-button>
 
           <ons-button
@@ -75,7 +75,7 @@
             id="newMoneyCancelButton"
           >
             <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-            RESTAR DINERO
+            Restar dinero
           </ons-button>
         </div>
 
@@ -105,42 +105,42 @@
           let languaje = localStorage.getItem('storageSwitchLanguage');
           if (languaje == 'false') {
             /* ALERT QUE MODIFICA TODO */
-            document.getElementById('modifyGoalTitle').innerHTML = 'MODIFY GOAL';
-            document.getElementById('goalNameAlertEdit').innerHTML = 'NAME OF THE GOAL';
-            document.getElementById('goalDescriptionAlertEdit').innerHTML = 'DESCRIPTION';
-            document.getElementById('goalMoneyAlertEdit').innerHTML = 'MONEY NEEDED';
-            document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'CURRENT MONEY';
-            document.getElementById('goalDateAlertEdit').innerHTML = 'GOAL DATE';
-            document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'CANCEL';
-            document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'FINISHED!';
+            document.getElementById('modifyGoalTitle').innerHTML = 'Modify goal';
+            document.getElementById('goalNameAlertEdit').innerHTML = 'Name of the goal';
+            document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Description';
+            document.getElementById('goalMoneyAlertEdit').innerHTML = 'Money needed';
+            document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Current money';
+            document.getElementById('goalDateAlertEdit').innerHTML = 'Goal date';
+            document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancel';
+            document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Finished!';
 
             /* ALERT QUE MODIFICA DINERO */
-            document.getElementById('modifyGoalTitleMoney').innerHTML = 'MODIFY MONEY';
-            document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `CURRENT MONEY: $
+            document.getElementById('modifyGoalTitleMoney').innerHTML = 'Modify money';
+            document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `Current money: $
             <label id="editOnlyMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-            document.getElementById('goalNewMoneyAlertEdit').innerHTML = `NEW AMOUNT: $
+            document.getElementById('goalNewMoneyAlertEdit').innerHTML = `New amount: $
             <label id="editOnlyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-            document.getElementById('goalCancelButtonMoneyAlertEdit').innerHTML = 'CANCEL';
-            document.getElementById('goalFinishedButtonMoneyAlertEdit').innerHTML = 'FINISHED!';
+            document.getElementById('goalCancelButtonMoneyAlertEdit').innerHTML = 'Cancel';
+            document.getElementById('goalFinishedButtonMoneyAlertEdit').innerHTML = 'Finished!';
           } else {
             /* ALERT QUE MODIFICA TODO */
-            document.getElementById('modifyGoalTitle').innerHTML = 'MODIFICAR META';
-            document.getElementById('goalNameAlertEdit').innerHTML = 'NOMBRE DE LA META';
-            document.getElementById('goalDescriptionAlertEdit').innerHTML = 'DESCRIPCIÓN';
-            document.getElementById('goalMoneyAlertEdit').innerHTML = 'DINERO NECESARIO';
-            document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'DINERO ACTUAL';
-            document.getElementById('goalDateAlertEdit').innerHTML = 'FECHA META';
-            document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'CANCELAR';
-            document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'LISTO!';
+            document.getElementById('modifyGoalTitle').innerHTML = 'Modificar meta';
+            document.getElementById('goalNameAlertEdit').innerHTML = 'Nombre de la meta';
+            document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Descripción';
+            document.getElementById('goalMoneyAlertEdit').innerHTML = 'Dinero necesario';
+            document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Dinero actual';
+            document.getElementById('goalDateAlertEdit').innerHTML = 'Fecha meta';
+            document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancelar';
+            document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Listo!';
 
             /* ALERT QUE MODIFICA DINERO */
-            document.getElementById('modifyGoalTitleMoney').innerHTML = 'MODIFICAR DINERO';
-            document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `DINERO ACTUAL: $
+            document.getElementById('modifyGoalTitleMoney').innerHTML = 'Modificar dinero';
+            document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `Dinero actual: $
             <label id="editOnlyMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-            document.getElementById('goalNewMoneyAlertEdit').innerHTML = `CANTIDAD NUEVA: $
+            document.getElementById('goalNewMoneyAlertEdit').innerHTML = `Cantidad nueva: $
             <label id="editOnlyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-            document.getElementById('goalCancelButtonMoneyAlertEdit').innerHTML = 'CANCELAR';
-            document.getElementById('goalFinishedButtonMoneyAlertEdit').innerHTML = 'LISTO!';
+            document.getElementById('goalCancelButtonMoneyAlertEdit').innerHTML = 'Cancelar';
+            document.getElementById('goalFinishedButtonMoneyAlertEdit').innerHTML = 'Listo!';
           }
         }
       },

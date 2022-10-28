@@ -52,7 +52,7 @@ function makeSaving() {
       ons.notification.confirm({
         message: 'A fund already exists, do you want to delete the current one and enter this new one?',
         title: 'Notice!',
-        buttonLabels: ['Yes', 'Cancel'],
+        buttonLabels: ['Yes, delete', 'Cancel'],
         animation: 'default',
         primaryButtonIndex: 1,
         cancelable: true,
@@ -97,7 +97,7 @@ function makeSaving() {
       ons.notification.confirm({
         message: 'Ya existe un fondo, ¿quieres borrar el actual e ingresar este nuevo?',
         title: 'Aviso!',
-        buttonLabels: ['Sí', 'Cancelar'],
+        buttonLabels: ['Sí, borrar', 'Cancelar'],
         animation: 'default',
         primaryButtonIndex: 1,
         cancelable: true,
@@ -222,15 +222,15 @@ function updateLastSaving() {
 
   if (savingStorage == null || savingStorage == 'null') {
     if (languaje == 'false') {
-      cSavingView.innerHTML = `<label class="cardHomeTitle" style="margin-top: 0px">THERE IS NO ACTIVE FUND...</label>`;
+      cSavingView.innerHTML = `<label class="cardHomeTitle" style="margin-top: 0px">There is no active fund...</label>`;
     } else {
-      cSavingView.innerHTML = `<label class="cardHomeTitle" style="margin-top: 0px">NO HAY UN FONDO ACTIVO...</label>`;
+      cSavingView.innerHTML = `<label class="cardHomeTitle" style="margin-top: 0px">No hay un fondo activo...</label>`;
     }
     return;
   } else {
     if (languaje == 'false') {
       cSavingView.innerHTML = `<label class="entryAmountText"
-        >ENTERED AMOUNT: 
+        >Entered amount: 
         <div style="display: block;">
           <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
           <span id="entryCurrentAmount" class="entryAmountDetail">0</span>
@@ -238,7 +238,7 @@ function updateLastSaving() {
       </label>
 
         <label class="entryAmountText"
-        >SELECTED DAYS:
+        >Selected days:
           <div style="display: block;">
             <span id="entryCurrentDays" class="entryAmountDetail"></span>
           </div>
@@ -246,21 +246,21 @@ function updateLastSaving() {
         >
 
         <label class="entryAmountText"
-        >REMAINING DAYS:
+        >Remaining days:
           <div style="display: block;">
             <span id="entryCurrentDaysLeft" class="entryAmountDetail"></span>
           </div>
         </label>
 
         <label class="entryAmountText"
-        >PERCENTAGE:
+        >Percentage:
           <div style="display: block;">
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>
           </div>
         </label>
 
         <label class="entryAmountText"
-        >TO SPEND: 
+        >To spend: 
           <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpend" class="entryAmountDetail">0</span>
@@ -268,7 +268,7 @@ function updateLastSaving() {
         </label>
         
         <label class="entryAmountText" style="margin-bottom: 0px;"
-        >CURRENT AVAILABLE: 
+        >Current available: 
           <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpendLeft" class="entryAmountDetail">0</span>
@@ -276,7 +276,7 @@ function updateLastSaving() {
         </label>`;
     } else {
       cSavingView.innerHTML = `<label class="entryAmountText"
-        >CANTIDAD INGRESADA: 
+        >Cantidad ingresada: 
         <div style="display: block;">
           <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
           <span id="entryCurrentAmount" class="entryAmountDetail">0</span>
@@ -284,7 +284,7 @@ function updateLastSaving() {
       </label>
 
         <label class="entryAmountText"
-        >DÍAS SELECCIONADOS:
+        >Días seleccionados:
           <div style="display: block;">
             <span id="entryCurrentDays" class="entryAmountDetail"></span>
           </div>
@@ -292,21 +292,21 @@ function updateLastSaving() {
         >
 
         <label class="entryAmountText"
-        >DÍAS RESTANTES:
+        >Días restantes:
           <div style="display: block;">
             <span id="entryCurrentDaysLeft" class="entryAmountDetail"></span>
           </div>
         </label>
 
         <label class="entryAmountText"
-        >PORCENTAJE:
+        >Porcentaje:
           <div style="display: block;">
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>
           </div>
         </label>
 
         <label class="entryAmountText"
-        >PARA GASTAR: 
+        >Para gastar: 
           <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpend" class="entryAmountDetail">0</span>
@@ -314,7 +314,7 @@ function updateLastSaving() {
         </label>
         
         <label class="entryAmountText" style="margin-bottom: 0px;"
-        >DISPONIBLE ACTUAL: 
+        >Disponible actual: 
           <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpendLeft" class="entryAmountDetail">0</span>
@@ -353,8 +353,8 @@ function loadSaving() {
     savingTutorial = `<ons-card>
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            SEE TUTORIAL
+          <label class="iconExpenseLabel" style="margin-left: 32px;">
+            See tutorial
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <p class="paraTutorial">
@@ -395,8 +395,8 @@ function loadSaving() {
     savingTutorial = `<ons-card>
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            LEER TUTORIAL
+          <label class="iconExpenseLabel" style="margin-left: 32px;">
+            Leer tutorial
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <p class="paraTutorial">
@@ -451,7 +451,7 @@ function loadSaving() {
   if (languaje == 'false') {
     sView.innerHTML = `<ons-card>
       <div class="title mainTitle">
-          SAVED
+          Saved
       </div>
       <div class="content">
           <label id="savingsInfo" class="savingInfo">
@@ -462,29 +462,29 @@ function loadSaving() {
 
     <ons-card>
       <div class="title savingTitle">
-        AVAILABLE
+        Available
       </div>
       <div class="content">
           <label id="savingsDailyInfo" class="savingDaily">
             <span style="color: var(--card-text-title-color)">$</span> 
             ${sMoneyDayLeft}
           </label>
-          <ons-button class="flatButton" onclick="editMoneySaving()" style="margin-left: 0px; margin-right: 0px">MODIFY MONEY</ons-button>
+          <ons-button class="flatButton" onclick="editMoneySaving()" style="margin-left: 0px; margin-right: 0px">Modify money</ons-button>
       </div>
     </ons-card>
 
     <ons-card>
       <div class="title daysTitle">
-        REMAINING DAYS | <span id="savingsDays" class="leftDays">${sDaysLeft}</span>
+        Remaining days | <span id="savingsDays" class="leftDays">${sDaysLeft}</span>
       </div>
       <div class="content">
-          <ons-button class="flatButtonLight" onclick="endSavingDay()" style="margin-left: 0px; margin-right: 0px">END DAY</ons-button>
+          <ons-button class="flatButtonLight" onclick="endSavingDay()" style="margin-left: 0px; margin-right: 0px">End day</ons-button>
       </div>
     </ons-card>`;
   } else {
     sView.innerHTML = `<ons-card>
         <div class="title mainTitle">
-            FONDO
+            Fondo
         </div>
         <div class="content">
             <label id="savingsInfo" class="savingInfo">
@@ -495,23 +495,23 @@ function loadSaving() {
   
       <ons-card>
         <div class="title savingTitle">
-            DISPONIBLE
+            Disponible
         </div>
         <div class="content">
             <label id="savingsDailyInfo" class="savingDaily">
               <span style="color: var(--card-text-title-color)">$</span> 
               ${sMoneyDayLeft}
             </label>
-            <ons-button class="flatButton" onclick="editMoneySaving()" style="margin-left: 0px; margin-right: 0px">MODIFICAR DINERO</ons-button>
+            <ons-button class="flatButton" onclick="editMoneySaving()" style="margin-left: 0px; margin-right: 0px">Modificar dinero</ons-button>
         </div>
       </ons-card>
   
       <ons-card>
         <div class="title daysTitle">
-            DÍAS RESTANTES | <span id="savingsDays" class="leftDays">${sDaysLeft}</span>
+            Días restantes | <span id="savingsDays" class="leftDays">${sDaysLeft}</span>
         </div>
         <div class="content">
-            <ons-button class="flatButtonLight" onclick="endSavingDay()" style="margin-left: 0px; margin-right: 0px">TERMINAR DÍA</ons-button>
+            <ons-button class="flatButtonLight" onclick="endSavingDay()" style="margin-left: 0px; margin-right: 0px">Terminar día</ons-button>
         </div>
       </ons-card>`;
   }
@@ -528,7 +528,7 @@ function resetSavingMoney() {
     ons.notification.confirm({
       message: 'Are you sure to reset the saved fund?',
       title: 'Notice!',
-      buttonLabels: ['Yes', 'Cancel'],
+      buttonLabels: ['Yes, reset', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -563,7 +563,7 @@ function resetSavingMoney() {
     ons.notification.confirm({
       message: '¿Estas seguro de reiniciar el fondo ahorrado?',
       title: 'Aviso!',
-      buttonLabels: ['Sí', 'Cancelar'],
+      buttonLabels: ['Sí, reiniciar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -671,7 +671,7 @@ function endSavingDay() {
     ons.notification.confirm({
       message: 'Are you sure to finish the day?',
       title: 'Notice!',
-      buttonLabels: ['YES', 'CANCEL'],
+      buttonLabels: ['Yes, finish', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -748,7 +748,7 @@ function endSavingDay() {
     ons.notification.confirm({
       message: '¿Estas seguro de terminar el día?',
       title: 'Aviso!',
-      buttonLabels: ['SÍ', 'CANCELAR'],
+      buttonLabels: ['Sí, terminar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -844,7 +844,7 @@ function editMoneySaving() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
-        ADD MONEY
+        Add money
       </ons-button>
     
       <ons-button
@@ -854,7 +854,7 @@ function editMoneySaving() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-        REMOVE MONEY
+        Remove money
       </ons-button>`;
     } else {
       optionsContainer.innerHTML = `<ons-button
@@ -864,7 +864,7 @@ function editMoneySaving() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
-        AÑADIR DINERO
+        Añadir dinero
       </ons-button>
     
       <ons-button
@@ -874,7 +874,7 @@ function editMoneySaving() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-        RESTAR DINERO
+        Restar dinero
       </ons-button>`;
     }
 
@@ -898,13 +898,13 @@ function checkRadioSelect(id) {
   if (id == 'radio-2') {
     if (languaje == 'false') {
       container.innerHTML = `
-      <label style="color: var(--alert-tile-color)">ADD TO: </label>
+      <label style="color: var(--alert-tile-color)">Add to: </label>
       <select id="selectOptionAddMoney">
         <!--AQUI SE CARGAN LOS POSIBLES GASTOS-->
       </select>`;
     } else {
       container.innerHTML = `
-      <label style="color: var(--alert-tile-color)">AÑADIR A: </label>
+      <label style="color: var(--alert-tile-color)">Añadir a: </label>
       <select id="selectOptionAddMoney">
         <!--AQUI SE CARGAN LOS POSIBLES GASTOS-->
       </select>`;
@@ -1226,7 +1226,7 @@ function closeAlertSaving() {
       ons.notification.confirm({
         message: 'You have reduced the money available. Do you want to add an expense?',
         title: 'Notice!',
-        buttonLabels: ['Yes', 'No'],
+        buttonLabels: ['Yes, add', 'No'],
         animation: 'default',
         primaryButtonIndex: 1,
         cancelable: true,
@@ -1265,7 +1265,7 @@ function closeAlertSaving() {
       ons.notification.confirm({
         message: 'Has reducido el dinero disponible. ¿Quieres añadir un gasto?',
         title: 'Aviso!',
-        buttonLabels: ['Sí', 'No'],
+        buttonLabels: ['Sí, añadir', 'No'],
         animation: 'default',
         primaryButtonIndex: 1,
         cancelable: true,
@@ -1485,7 +1485,7 @@ function hideAlertAddExpenseSaving() {
   updateExpenseTotalMoneySaving(choseCategory, eMoney);
 
   if (languaje == 'false') {
-    ons.notification.toast('New added expense!', {
+    ons.notification.toast('New expense added!', {
       title: 'Notice!',
       timeout: 2000,
       animation: 'ascend',
@@ -1562,7 +1562,7 @@ function insertActionEditFund(option) {
   if (option === 'add') {
     if (languaje == 'false') {
       optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" >
-      I WANT TO ADD
+      I want to add
     </p>
     <ons-input
       onchange="makeSavingOperation()"
@@ -1576,7 +1576,7 @@ function insertActionEditFund(option) {
     ></ons-input>`;
     } else {
       optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">
-      QUIERO AÑADIR
+      Quiero añadir
     </p>
     <ons-input
       onchange="makeSavingOperation()"
@@ -1592,7 +1592,7 @@ function insertActionEditFund(option) {
   } else if (option === 'remove') {
     if (languaje == 'false') {
       optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">
-      I WANT TO REMOVE
+      I want to remove
     </p>
     <ons-input
       onchange="makeSavingResOperation()"
@@ -1606,7 +1606,7 @@ function insertActionEditFund(option) {
     ></ons-input>`;
     } else {
       optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">
-      QUIERO QUITAR
+      Quiero quitar
     </p>
     <ons-input
       onchange="makeSavingResOperation()"

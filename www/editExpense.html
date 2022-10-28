@@ -110,35 +110,35 @@
           ons.ready(function () {
             let languaje = localStorage.getItem('storageSwitchLanguage');
             if (languaje == 'false') {
-              document.getElementById('titleExpensesEdit').innerHTML = 'EDIT EXPENDITURE';
-              document.getElementById('editExpenseName').innerHTML = 'NAME OF EXPENDITURE';
-              document.getElementById('editExpenseColor').innerHTML = 'SELECT A COLOR';
-              document.getElementById('editExpenseIcon').innerHTML = 'SELECT AN ICON';
-              document.getElementById('editExpenseIconLabel').innerHTML = 'CLICK TO CHANGE';
-              document.getElementById('editExpenseSwitch').innerHTML = 'SHOW IN HOME';
-              document.getElementById('editExpenseFinishedButton').innerHTML = 'FINISHED!';
-              document.getElementById('editExpenseCancelButton').innerHTML = 'CANCEL';
+              document.getElementById('titleExpensesEdit').innerHTML = 'Edit expenditure';
+              document.getElementById('editExpenseName').innerHTML = 'Name of expenditure';
+              document.getElementById('editExpenseColor').innerHTML = 'Select a color';
+              document.getElementById('editExpenseIcon').innerHTML = 'Select an icon';
+              document.getElementById('editExpenseIconLabel').innerHTML = 'Click to change';
+              document.getElementById('editExpenseSwitch').innerHTML = 'Show in home';
+              document.getElementById('editExpenseFinishedButton').innerHTML = 'Finished!';
+              document.getElementById('editExpenseCancelButton').innerHTML = 'Cancel';
 
-              document.getElementById('editExpensePrevTitle').innerHTML = 'PREVIEW';
-              document.getElementById('expensePrevTitleEdit').innerHTML = 'NEW NAME';
-              document.getElementById('expenseInfoInsert').innerHTML = '$ TOTALLY SPENT';
-              document.getElementById('editExpensePrevAddButton').innerHTML = ' ADD EXPENSE ';
-              document.getElementById('editExpensePrevAddButton').innerHTML = ' DELETE ';
+              document.getElementById('editExpensePrevTitle').innerHTML = 'Preview';
+              document.getElementById('expensePrevTitleEdit').innerHTML = 'New name';
+              document.getElementById('expenseInfoInsert').innerHTML = '$ totally spent';
+              document.getElementById('editExpensePrevAddButton').innerHTML = ' Add expense ';
+              document.getElementById('editExpensePrevAddButton').innerHTML = ' Delete ';
             } else {
-              document.getElementById('titleExpensesEdit').innerHTML = 'EDITAR GASTO';
-              document.getElementById('editExpenseName').innerHTML = 'NOMBRE DEL GASTO';
-              document.getElementById('editExpenseColor').innerHTML = 'SELECCIONA UN COLOR';
-              document.getElementById('editExpenseIcon').innerHTML = 'SELECCIONA UN ICONO';
-              document.getElementById('editExpenseIconLabel').innerHTML = 'CLICK PARA CAMBIAR';
-              document.getElementById('editExpenseSwitch').innerHTML = 'MOSTRAR EN INICIO';
-              document.getElementById('editExpenseFinishedButton').innerHTML = 'LISTO!';
-              document.getElementById('editExpenseCancelButton').innerHTML = 'CANCELAR';
+              document.getElementById('titleExpensesEdit').innerHTML = 'Editar gasto';
+              document.getElementById('editExpenseName').innerHTML = 'Nombre del gasto';
+              document.getElementById('editExpenseColor').innerHTML = 'Selecciona un color';
+              document.getElementById('editExpenseIcon').innerHTML = 'Selecciona un icono';
+              document.getElementById('editExpenseIconLabel').innerHTML = 'Click para cambiar';
+              document.getElementById('editExpenseSwitch').innerHTML = 'Mostrar en inicio';
+              document.getElementById('editExpenseFinishedButton').innerHTML = 'Listo!';
+              document.getElementById('editExpenseCancelButton').innerHTML = 'Cancelar';
 
-              document.getElementById('editExpensePrevTitle').innerHTML = 'PREVISUALIZACIÓN';
-              document.getElementById('expensePrevTitleEdit').innerHTML = 'NUEVO NOMBRE';
-              document.getElementById('expenseInfoInsert').innerHTML = '$ GASTADOS TOTALMENTE';
-              document.getElementById('editExpensePrevAddButton').innerHTML = ' AÑADIR GASTO ';
-              document.getElementById('editExpensePrevAddButton').innerHTML = ' ELIMINAR ';
+              document.getElementById('editExpensePrevTitle').innerHTML = 'Previsualización';
+              document.getElementById('expensePrevTitleEdit').innerHTML = 'Nuevo nombre';
+              document.getElementById('expenseInfoInsert').innerHTML = '$ gastados totalmente';
+              document.getElementById('editExpensePrevAddButton').innerHTML = ' Añadir gasto ';
+              document.getElementById('editExpensePrevAddButton').innerHTML = ' Eliminar ';
             }
 
             loadIconsEdit();
@@ -157,9 +157,9 @@
                 expenseColor = expenseS[i].expenseColor;
 
                 if (languaje == 'false') {
-                  expenseInfoInsert.innerHTML = '$ ' + expenseS[i].totalExpense + ' SPENT';
+                  expenseInfoInsert.innerHTML = '$ ' + expenseS[i].totalExpense + ' spent';
                 } else {
-                  expenseInfoInsert.innerHTML = '$ ' + expenseS[i].totalExpense + ' GASTADOS';
+                  expenseInfoInsert.innerHTML = '$ ' + expenseS[i].totalExpense + ' gastados';
                 }
                 //Seteo el switch
                 isChecked = expenseS[i].toShow;

@@ -69,9 +69,9 @@ function changeTitlePreview() {
 
   if (newTitle == '' || newTitle == null) {
     if (languaje == 'false') {
-      oldTitle.innerHTML = `NAME <i class="expenseIcon ion-md-laptop"></i>`;
+      oldTitle.innerHTML = `Name <i class="expenseIcon ion-md-laptop"></i>`;
     } else {
-      oldTitle.innerHTML = `NOMBRE <i class="expenseIcon ion-md-laptop"></i>`;
+      oldTitle.innerHTML = `Nombre <i class="expenseIcon ion-md-laptop"></i>`;
     }
   } else {
     oldTitle.innerHTML = '';
@@ -174,8 +174,8 @@ function getExpenses() {
     expenseTutorial = `<ons-card>
     <ons-list style="background: none;" id="expenseListOfExpensesContainer">
       <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-        <label class="iconExpenseLabel" style="margin-left: 50px;">
-          SEE TUTORIAL
+        <label class="iconExpenseLabel" style="margin-left: 32px;">
+         See tutorial
         </label>
         <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
           <p class="paraTutorial">
@@ -201,29 +201,14 @@ function getExpenses() {
         </div>
       </ons-list-item>
     </ons-list>
-  </ons-card>
-
-  <ons-card>
-    <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-      <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-        <label class="iconExpenseLabel" style="margin-left: 50px;">
-          SEE TUTORIAL (REQUIRES INTERNET)
-        </label>
-        <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-        <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-          src="https://www.youtube.com/embed/464_GWmiHHo">
-        </iframe>
-        </div>
-      </ons-list-item>
-    </ons-list>
   </ons-card>`;
   } else {
     expenseTutorial = `
     <ons-card>
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            VER TUTORIAL
+          <label class="iconExpenseLabel" style="margin-left: 32px;">
+            Ver tutorial
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <p class="paraTutorial">
@@ -246,21 +231,6 @@ function getExpenses() {
             <p class="paraTutorial">
               Para crear un nuevo gasto pulsa "+".
             </p>
-          </div>
-        </ons-list-item>
-      </ons-list>
-    </ons-card>
-    
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            VER TUTORIAL (REQUIERE INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/6B99bHXdrYE">
-          </iframe>
           </div>
         </ons-list-item>
       </ons-list>
@@ -362,13 +332,13 @@ function getExpenses() {
           <i class="expenseIcon ${eicon}" style="--expenseIconColorPrev: ${eColor}; display: block; font-size: 80px;text-align: center;vertical-align: middle;line-height: 70px;"></i>
         </div>
         <div class="content">
-          <label class="expenseInfo">$ ${eExpense} EXPENDED</label>
+          <label class="expenseInfo">$ ${eExpense} expended</label>
         </div>
         <ons-button class="moneyButtonAdd" style="margin-bottom: 16px;" onclick="addExpenseToExpense('${eName}')" > 
-          ADD EXPENSE
+          Add expense
         </ons-button>
         <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteExpense('${eName}')" >
-          DELETE
+          Delete
         </ons-button>
       </ons-card>`;
     } else {
@@ -380,7 +350,7 @@ function getExpenses() {
           <i class="expenseIcon ${eicon}" style="--expenseIconColorPrev: ${eColor}; display: block; font-size: 80px;text-align: center;vertical-align: middle;line-height: 70px;"></i>
         </div>
         <div class="content">
-          <label class="expenseInfo">$ ${eExpense} GASTADOS</label>
+          <label class="expenseInfo">$ ${eExpense} gastados</label>
         </div>
         <ons-button class="moneyButtonAdd" style="margin-bottom: 16px;" onclick="addExpenseToExpense('${eName}')" > 
           AÑADIR GASTO
@@ -443,7 +413,7 @@ function resetExpense(sendName) {
     ons.notification.confirm({
       message: 'Are you sure to delete all the expenses made? The creation date will not be modified.',
       title: 'Notice!',
-      buttonLabels: ['YES', 'CANCEL'],
+      buttonLabels: ['Yes, delete', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -527,7 +497,7 @@ function resetExpense(sendName) {
     ons.notification.confirm({
       message: 'Estas seguro de borrar todos los gastos realizados?, la fecha de creación no se modificara.',
       title: 'Aviso!',
-      buttonLabels: ['SÍ', 'CANCELAR'],
+      buttonLabels: ['Sí, borrar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -616,7 +586,7 @@ function deleteExpense(sendName) {
     ons.notification.confirm({
       message: 'Are you sure to erase the expense completely?',
       title: 'Notice!',
-      buttonLabels: ['YES', 'CANCEL'],
+      buttonLabels: ['Yes, erase', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -664,7 +634,7 @@ function deleteExpense(sendName) {
     ons.notification.confirm({
       message: 'Estas seguro de borrar el gasto totalmente?',
       title: 'Aviso!',
-      buttonLabels: ['SÍ', 'CANCELAR'],
+      buttonLabels: ['Sí, borrar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -858,7 +828,7 @@ function loadDetailExpense() {
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
           <label class="iconExpenseLabel" style="margin-left: 16px;">
-            SEE EXPENSES
+            See expenses
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <!-- AQUI SE CARGAN LOS GASTOS -->
@@ -868,7 +838,7 @@ function loadDetailExpense() {
     </ons-card>
     
     <ons-button class="flatButtonLight" style="margin-bottom: 16px;"
-    onclick="resetExpense('${eName}')">RESET</ons-button>
+    onclick="resetExpense('${eName}')">Reset</ons-button>
   
     <ons-fab position="bottom right" onclick="editExpense('${eName}')">
       <i class="icon ion-md-create" style="font-size: 35px;"></i>
@@ -920,7 +890,7 @@ function loadDetailExpense() {
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
           <label class="iconExpenseLabel" style="margin-left: 16px;">
-            VER GASTOS
+            Ver gastos
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <!-- AQUI SE CARGAN LOS GASTOS -->
@@ -930,7 +900,7 @@ function loadDetailExpense() {
     </ons-card>
     
     <ons-button class="flatButtonLight" style="margin-bottom: 16px;"
-    onclick="resetExpense('${eName}')">REINICIAR</ons-button>
+    onclick="resetExpense('${eName}')">Reiniciar</ons-button>
   
     <ons-fab position="bottom right" onclick="editExpense('${eName}')">
       <i class="icon ion-md-create" style="font-size: 35px;"></i>
@@ -976,14 +946,14 @@ function loadDetailExpense() {
 
         if (languaje == 'false') {
           if (iDate === '') {
-            iDate = 'NO DATE DATA';
+            iDate = 'No date data';
           } else {
             if (Math.sign(days) == 1 || Math.sign(days) == '1') {
-              iDate = 'IN ' + days + ' DAYS';
+              iDate = 'In ' + days + ' days';
             } else if (Math.sign(days) == '-1' || Math.sign(days) == -1) {
-              iDate = Math.abs(days) + ' DAYS AGO';
+              iDate = Math.abs(days) + ' days ago';
             } else if (Math.sign(days) == '0' || Math.sign(days) == 0) {
-              iDate = 'TODAY';
+              iDate = 'Today';
             }
           }
 
@@ -1011,14 +981,14 @@ function loadDetailExpense() {
           </ons-list-item>`;
         } else {
           if (iDate === '') {
-            iDate = 'SIN DATOS DE FECHA';
+            iDate = 'Sin datos de fecha';
           } else {
             if (Math.sign(days) == 1 || Math.sign(days) == '1') {
-              iDate = 'EN ' + days + ' DÍAS';
+              iDate = 'En ' + days + ' días';
             } else if (Math.sign(days) == '-1' || Math.sign(days) == -1) {
-              iDate = 'HACE ' + Math.abs(days) + ' DÍAS';
+              iDate = 'Hace ' + Math.abs(days) + ' Días';
             } else if (Math.sign(days) == '0' || Math.sign(days) == 0) {
-              iDate = 'HOY';
+              iDate = 'Hoy';
             }
           }
 
