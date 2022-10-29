@@ -19,15 +19,15 @@
         if (event.target.matches('#deleteOptions')) {
           let languaje = localStorage.getItem('storageSwitchLanguage');
           if (languaje == 'false') {
-            document.getElementById('titleConfigurarionDelete').innerHTML = 'DELETE DATA';
+            document.getElementById('titleConfigurarionDelete').innerHTML = 'Delete data';
             document.getElementById('paraTutorialDelete').innerHTML =
               "Clicking 'Yes' will erase all the data contained in the application, absolutely all of it, it will be like starting over in the application.";
-            document.getElementById('deleteButton').innerHTML = 'DELETE ALL';
+            document.getElementById('deleteButton').innerHTML = 'Delete all';
           } else {
-            document.getElementById('titleConfigurarionDelete').innerHTML = 'BORRAR DATOS';
+            document.getElementById('titleConfigurarionDelete').innerHTML = 'Borrar datos';
             document.getElementById('paraTutorialDelete').innerHTML =
               "Al dar click en 'Sí' se borrarán todos los datos contenidos en la aplicación, absolutamente todos, será como comenzar de nuevo en la aplicación.";
-            document.getElementById('deleteButton').innerHTML = 'BORRAR TODO';
+            document.getElementById('deleteButton').innerHTML = 'Borrar todo';
           }
         }
       },

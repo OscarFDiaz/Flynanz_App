@@ -101,29 +101,27 @@
 
             let languaje = localStorage.getItem("storageSwitchLanguage");
             if (languaje == 'false') {
-              document.getElementById('titleMoney').innerHTML = 'MY MONEY';
-              document.getElementById('moneyEditAlertTitle').innerHTML = 'MODIFY MY MONEY';
+              document.getElementById('titleMoney').innerHTML = 'My money';
+              document.getElementById('moneyEditAlertTitle').innerHTML = 'Modify my money';
               document.getElementById('moneyEditAlertActualMoney').innerHTML = 
-              `CURRENT MONEY: $ 
+              `Current money: $ 
               <label id="editMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-             // document.getElementById('moneyEditAlertWhat').innerHTML = 'I WANT TO ADD / REMOVE';
               document.getElementById('moneyEditAlertNewMoney').innerHTML = 
-              `NEW AMOUNT: $ 
+              `New amount: $ 
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertCancel').innerHTML = 'CANCEL';
-              document.getElementById('moneyEditAlertFinished').innerHTML = 'FINISHED!';
+              document.getElementById('moneyEditAlertCancel').innerHTML = 'Cancel';
+              document.getElementById('moneyEditAlertFinished').innerHTML = 'Finished!';
             } else {
-              document.getElementById('titleMoney').innerHTML = 'MI DINERO';
-              document.getElementById('moneyEditAlertTitle').innerHTML = 'MODIFICAR MI DINERO';
+              document.getElementById('titleMoney').innerHTML = 'Mi dinero';
+              document.getElementById('moneyEditAlertTitle').innerHTML = 'Modificar mi dinero';
               document.getElementById('moneyEditAlertActualMoney').innerHTML = 
-              `DINERO ACTUAL: $ 
+              `Dinero actual: $ 
               <label id="editMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-             // document.getElementById('moneyEditAlertWhat').innerHTML = 'QUIERO AÑADIR / QUITAR';
               document.getElementById('moneyEditAlertNewMoney').innerHTML = 
-              `CANTIDAD NUEVA: $ 
+              `Cantidad nueva: $ 
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertCancel').innerHTML = 'CANCELAR';
-              document.getElementById('moneyEditAlertFinished').innerHTML = 'LISTO!';
+              document.getElementById('moneyEditAlertCancel').innerHTML = 'Cancelar';
+              document.getElementById('moneyEditAlertFinished').innerHTML = 'Listo!';
             }
 
             getMoneys();

@@ -5,24 +5,23 @@
     <div class="center labelToolbar" id="titleNewMoney">NUEVO MI DINERO</div>
   </ons-toolbar>
 
-  <ons-card>
-    <div class="content">
-      <div style="text-align: center; margin-top: 16px">
-        <div>
-          <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="newMoneyMoneyNameInput">
-            NOMBRE DEL DINERO
-          </p>
-          <ons-input id="newMoneyName" modifier="underbar" placeholder="" type="text" style="display: block"></ons-input>
-        </div>
-
-        <div>
-          <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="newMoneyMoneyActualInput">
-            DINERO ACTUAL
-          </p>
-          <ons-input id="newMoneyMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
-        </div>
+  <div class="content" style="margin: 0px 20px 0px 20px">
+    <div style="text-align: center; margin-top: 16px">
+      <div>
+        <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="newMoneyMoneyNameInput">
+          NOMBRE DEL DINERO
+        </p>
+        <ons-input id="newMoneyName" modifier="underbar" placeholder="" type="text" style="display: block"></ons-input>
       </div>
 
+      <div>
+        <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="newMoneyMoneyActualInput">
+          DINERO ACTUAL
+        </p>
+        <ons-input id="newMoneyMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
+      </div>
+    </div>
+    <div id="buttons-container" class="buttonContainer">
       <ons-button
         class="flatButton"
         onclick="makeNewMoney()"
@@ -40,7 +39,7 @@
         CANCELAR
       </ons-button>
     </div>
-  </ons-card>
+  </div>
 
   <script>
     document.addEventListener(
@@ -51,17 +50,17 @@
             let languaje = localStorage.getItem('storageSwitchLanguage');
 
             if (languaje == 'false') {
-              document.getElementById('titleNewMoney').innerHTML = 'NEW MY MONEY';
-              document.getElementById('newMoneyMoneyNameInput').innerHTML = 'MONEY NAME';
-              document.getElementById('newMoneyMoneyActualInput').innerHTML = 'CURRENT MONEY';
-              document.getElementById('newMoneyFinishedButton').innerHTML = 'FINISHED!';
-              document.getElementById('newMoneyCancelButton').innerHTML = 'CANCEL';
+              document.getElementById('titleNewMoney').innerHTML = 'New my money';
+              document.getElementById('newMoneyMoneyNameInput').innerHTML = 'Money name';
+              document.getElementById('newMoneyMoneyActualInput').innerHTML = 'Current money';
+              document.getElementById('newMoneyFinishedButton').innerHTML = 'Finished!';
+              document.getElementById('newMoneyCancelButton').innerHTML = 'Cancel';
             } else {
-              document.getElementById('titleNewMoney').innerHTML = 'NUEVO MI DINERO';
-              document.getElementById('newMoneyMoneyNameInput').innerHTML = 'NOMBRE DEL DINERO';
-              document.getElementById('newMoneyMoneyActualInput').innerHTML = 'DINERO ACTUAL';
-              document.getElementById('newMoneyFinishedButton').innerHTML = 'LISTO!';
-              document.getElementById('newMoneyCancelButton').innerHTML = 'CANCELAR';
+              document.getElementById('titleNewMoney').innerHTML = 'Nuevo mi dinero';
+              document.getElementById('newMoneyMoneyNameInput').innerHTML = 'Nombre del dinero';
+              document.getElementById('newMoneyMoneyActualInput').innerHTML = 'Dinero actual';
+              document.getElementById('newMoneyFinishedButton').innerHTML = 'Listo!';
+              document.getElementById('newMoneyCancelButton').innerHTML = 'Cancelar';
             }
           });
         }

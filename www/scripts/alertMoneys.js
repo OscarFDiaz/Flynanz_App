@@ -10,8 +10,6 @@ function createAlertDialogToEditMoneyMoney() {
   var dialog = document.getElementById('alertEditMoneyMoney');
 
   if (dialog) {
-    // document.getElementById('editOnlyMoneyMoney').value = '';
-
     if (languaje == 'false') {
       optionsContainer.innerHTML = `<ons-button
         class="moneyButtonAdd"
@@ -20,7 +18,7 @@ function createAlertDialogToEditMoneyMoney() {
         id="newMoneyCancelButton"
       >
       <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px;"></i>
-        ADD MONEY
+        Add money
       </ons-button>
   
       <ons-button
@@ -30,7 +28,7 @@ function createAlertDialogToEditMoneyMoney() {
         id="newMoneyCancelButton"
       >
       <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px;"></i>
-        REMOVE MONEY
+        Remove money
       </ons-button>
   
       <ons-button
@@ -40,7 +38,7 @@ function createAlertDialogToEditMoneyMoney() {
         id="newMoneyCancelButton"
       >
       <i class="icon ion-md-swap" style="font-size: 14px; margin-right: 16px;"></i>
-        TRANSFER MONEY
+        Transfer money
       </ons-button>`;
     } else {
       optionsContainer.innerHTML = `<ons-button
@@ -50,7 +48,7 @@ function createAlertDialogToEditMoneyMoney() {
         id="newMoneyCancelButton"
       >
       <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px;"></i>
-        AÑADIR DINERO
+        Añadir dinero
       </ons-button>
   
       <ons-button
@@ -60,7 +58,7 @@ function createAlertDialogToEditMoneyMoney() {
         id="newMoneyCancelButton"
       >
       <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px;"></i>
-        RESTAR DINERO
+        Restar dinero
       </ons-button>
   
       <ons-button
@@ -70,17 +68,17 @@ function createAlertDialogToEditMoneyMoney() {
         id="newMoneyCancelButton"
       >
       <i class="icon ion-md-swap" style="font-size: 14px; margin-right: 16px;"></i>
-        TRANSFERIR DINERO
+        Transferir dinero
       </ons-button>`;
     }
 
     document.getElementById(
       'hideAlertMoneyButtons'
     ).innerHTML = `<ons-alert-dialog-button onclick="hideAlertNoChangeMoneys()" id="moneyEditAlertCancel"
-        >CANCELAR</ons-alert-dialog-button
+        >Cancelar</ons-alert-dialog-button
       >
       <ons-alert-dialog-button onclick="hideAlertMoneys()" id="moneyEditAlertFinished"
-        >LISTO!</ons-alert-dialog-button
+        >Listo!</ons-alert-dialog-button
       >`;
 
     document.getElementById('editMoneyEndMoney').innerHTML = '';
@@ -424,7 +422,7 @@ function insertActionEditMoney(option) {
 
   if (option === 'add') {
     if (languaje == 'false') {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" >I WANT TO ADD</p>
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" >I want to add</p>
       <ons-input
         onchange="makeSumMoney()"
         onkeypress="this.onchange()"
@@ -436,7 +434,7 @@ function insertActionEditMoney(option) {
         style="display: block; margin: -10px auto 16px;"
       ></ons-input>`;
     } else {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">QUIERO AÑADIR</p>
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">Quiero añadir</p>
     <ons-input
       onchange="makeSumMoney()"
       onkeypress="this.onchange()"
@@ -450,7 +448,7 @@ function insertActionEditMoney(option) {
     }
   } else if (option === 'remove') {
     if (languaje == 'false') {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">I WANT TO REMOVE</p>
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">I want to remove</p>
       <ons-input
         onchange="makeResMoney()"
         onkeypress="this.onchange()"
@@ -462,7 +460,7 @@ function insertActionEditMoney(option) {
         style="display: block; margin: -10px auto 16px;"
       ></ons-input>`;
     } else {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">QUIERO QUITAR</p>
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">Quiero quitar</p>
     <ons-input
       onchange="makeResMoney()"
       onkeypress="this.onchange()"
@@ -478,7 +476,7 @@ function insertActionEditMoney(option) {
     let buttonOptions = document.getElementById('hideAlertMoneyButtons');
     if (languaje == 'false') {
       optionsContainer.innerHTML = `
-      <p style="margin: 0px auto -16px 0px; text-align: center;">AMOUNT TO TRANSFER</p>
+      <p style="margin: 0px auto -16px 0px; text-align: center;">Amount to transfer</p>
         <ons-input
           onchange="makeResMoney()"
           onkeypress="this.onchange()"
@@ -490,19 +488,19 @@ function insertActionEditMoney(option) {
           style="display: block; margin: -10px auto 16px;"
         ></ons-input>
 
-      <p style="margin: 0px auto 0px 0px; text-align: center;">TRANSFER TO</p>
+      <p style="margin: 0px auto 0px 0px; text-align: center;">Transfer to</p>
       <select id="selectOptioToTransferMoney" style="margin-bottom: 16px">
         <!--AQUI SE CARGAN LOS POSIBLES GASTOS-->
       </select>`;
       loadOptionsToTransferMoney();
       buttonOptions.innerHTML = `<ons-alert-dialog-button onclick="hideAlertNoChangeMoneys()" id="moneyEditAlertCancel">
-          CANCELAR
+          Cancel
         </ons-alert-dialog-button>
         <ons-alert-dialog-button onclick="hideAlertMoneysOnTransfer()" id="moneyEditAlertFinished">
-          LISTO!
+          Finish!
         </ons-alert-dialog-button>`;
     } else {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">CANTIDAD A TRANSFERIR</p>
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">Cantidad a transferir</p>
         <ons-input
           onchange="makeResMoney()"
           onkeypress="this.onchange()"
@@ -514,16 +512,16 @@ function insertActionEditMoney(option) {
           style="display: block; margin: -10px auto 16px;"
         ></ons-input>
         
-        <p style="margin: 0px auto 0px 0px; text-align: center;">TRANSFERIR A</p>
+        <p style="margin: 0px auto 0px 0px; text-align: center;">Transferir a</p>
         <select id="selectOptioToTransferMoney" style="margin-bottom: 16px">
           <!--AQUI SE CARGAN LOS POSIBLES GASTOS-->
         </select>`;
       loadOptionsToTransferMoney();
       buttonOptions.innerHTML = `<ons-alert-dialog-button onclick="hideAlertNoChangeMoneys()" id="moneyEditAlertCancel">
-          CANCELAR
+          Cancelar
         </ons-alert-dialog-button>
         <ons-alert-dialog-button onclick="hideAlertMoneysOnTransfer()" id="moneyEditAlertFinished">
-          LISTO!
+          Listo!
         </ons-alert-dialog-button>`;
     }
   }

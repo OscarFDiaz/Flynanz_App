@@ -1,7 +1,7 @@
 moneyStorage
     moneyName
     moneyCurrent
-    **Gradient
+    **** Gradient
 
 savingStorage
     mainAmount
@@ -18,8 +18,8 @@ goalStorage
     goalActualMoney
     goalMoney
     goalDate
-    **Gradient
-    **Icon
+    **** Gradient
+    **** Icon
 
 expenseStorage
     expenseName

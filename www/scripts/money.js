@@ -112,8 +112,8 @@ function getMoneys() {
     moneyTutorial = `<ons-card>
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            SEE TUTORIAL
+          <label class="iconExpenseLabel" style="margin-left: 32px;">
+            See tutorial
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <p class="paraTutorial">
@@ -134,28 +134,13 @@ function getMoneys() {
           </div>
         </ons-list-item>
       </ons-list>
-    </ons-card>
-    
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            SEE TUTORIAL (REQUIRES INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/5qdrtKrzpUE">
-          </iframe>
-          </div>
-        </ons-list-item>
-      </ons-list>
     </ons-card>`;
   } else {
     moneyTutorial = `<ons-card>
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            LEER TUTORIAL
+          <label class="iconExpenseLabel" style="margin-left: 32px;">
+            Leer tutorial
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <p class="paraTutorial">
@@ -173,21 +158,6 @@ function getMoneys() {
             <p class="paraTutorial">
               Para crear una pulsa "+".
             </p>
-          </div>
-        </ons-list-item>
-      </ons-list>
-    </ons-card>
-    
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            VER TUTORIAL (REQUIERE INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/RowmPiWl_OU">
-          </iframe>
           </div>
         </ons-list-item>
       </ons-list>
@@ -227,7 +197,7 @@ function getMoneys() {
     cardExpenses.innerHTML = `<ons-list style="background: none;" id="expenseListOfExpensesContainer">
     <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
       <label class="iconExpenseLabel" style="margin-left: 16px;">
-        SEE EXPENSES
+        See expenses
       </label>
       <div class="expandable-content" id="moneyListOfExpenses" style="grid-template-columns: 1fr;">
         <!-- AQUI SE CARGAN LOS GASTOS -->
@@ -247,7 +217,7 @@ function getMoneys() {
     cardExpenses.innerHTML = `<ons-list style="background: none;" id="expenseListOfExpensesContainer">
     <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
       <label class="iconExpenseLabel" style="margin-left: 16px;">
-        VER GASTOS
+        Ver gastos
       </label>
       <div class="expandable-content" id="moneyListOfExpenses" style="grid-template-columns: 1fr;">
         <!-- AQUI SE CARGAN LOS GASTOS -->
@@ -336,7 +306,7 @@ function deleteMoney(sendMoneyName) {
     ons.notification.confirm({
       message: 'Are you sure to erase that money?',
       title: 'Notice!',
-      buttonLabels: ['YES', 'CANCEL'],
+      buttonLabels: ['Yes, erase', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -391,7 +361,7 @@ function deleteMoney(sendMoneyName) {
     ons.notification.confirm({
       message: 'Estas seguro de borrar ese dinero?',
       title: 'Aviso!',
-      buttonLabels: ['Sí', 'Cancelar'],
+      buttonLabels: ['Sí, borrar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,

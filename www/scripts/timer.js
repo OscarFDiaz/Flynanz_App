@@ -1,14 +1,16 @@
 function startTime() {
   let themeSelected = localStorage.getItem('userTheme');
 
+  if (themeSelected != 'theme-default' || themeSelected != 'theme-dark') {
+    localStorage.setItem('userTheme', 'theme-default');
+    document.documentElement.className = 'theme-default';
+  }
+
   if (themeSelected == null || themeSelected == '') {
     localStorage.setItem('userTheme', 'theme-default');
     document.documentElement.className = 'theme-default';
   } else {
     document.documentElement.className = themeSelected;
-    if (themeSelected == 'theme-custom') {
-      initColors();
-    }
   }
 
   /**
@@ -18,6 +20,7 @@ function startTime() {
    */
   let currentVersion = 1; // Versión actual de la app
   let appVersion = localStorage.getItem('appVersion');
+
   if (appVersion == null || appVersion == '') {
     // Si entra la aplicación es posterior a la nueva actualización
     localStorage.setItem('appVersion', '1');

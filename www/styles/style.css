@@ -100,7 +100,7 @@
   --para-home-options: #68667B;
   --home-options-labels: #68667B;
 
-  --money-title: #ffffff;
+  --money-title: #68667B;
   --money-info: #272443;
   --money-delete-button: #ffffff;
 
@@ -119,8 +119,8 @@
 
   /* SWITCH */
   --switch-button-round: #272443;
-  --switch-back-off: #ffffff;
-  --switch-back-on: #0596a6;
+  --switch-back-off: #E5E7ED;
+  --switch-back-on: #68667B;
 
   /* INPUT */
   --color-input: #E5E7ED;
@@ -239,6 +239,7 @@
   margin: 0px;
 
   text-align: left;
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
 }
 
 .card__content,

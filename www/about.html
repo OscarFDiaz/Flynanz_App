@@ -17,7 +17,7 @@
     <p class="paraTutorial" id="aboutTech">Tecnologías utilizadas:</p>
     <p class="paraTutorial" style="text-align: left">● HTML5, CSS3, JS</p>
     <p class="paraTutorial" style="text-align: left">● Ionicons</p>
-    <p class="paraTutorial" style="text-align: left">● PhoneGap</p>
+    <p class="paraTutorial" style="text-align: left">● Cordova</p>
     <p class="paraTutorial" style="text-align: left">● OnsenUI</p>
     <p class="paraTutorial" style="text-align: left">● IONIC</p>
   </ons-card>
@@ -39,7 +39,7 @@
         if (event.target.matches('#about')) {
           let languaje = localStorage.getItem('storageSwitchLanguage');
           if (languaje == 'false') {
-            document.getElementById('titleConfigurationAbout').innerHTML = 'ABOUT';
+            document.getElementById('titleConfigurationAbout').innerHTML = 'About';
             document.getElementById('aboutAppDesc').innerHTML = 'Simple application to control expenses and personal finances.';
             document.getElementById('aboutTech').innerHTML = 'Used technology:';
 
@@ -50,7 +50,7 @@
             document.getElementById('aboutCode').innerHTML = `Source code:
             <a href="https://github.com/OscarFDiaz/Flynanz_App" style="color: var(--home-total-money)">Press here!</a>`;
           } else {
-            document.getElementById('titleConfigurationAbout').innerHTML = 'ACERCA DE';
+            document.getElementById('titleConfigurationAbout').innerHTML = 'Acerca de';
             document.getElementById('aboutAppDesc').innerHTML =
               'Aplicación sencilla para el control de gastos y finanzas personales.';
             document.getElementById('aboutTech').innerHTML = 'Tecnologías utilizadas:';

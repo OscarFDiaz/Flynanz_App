@@ -37,6 +37,7 @@
   border-radius: 10px;
   font-size: 14px;
   text-align: center;
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
 }
 .moneyButtonRe:active {
   background: var(--flat-button-light-active-color);
@@ -51,6 +52,7 @@
   font-size: 14px;
   text-align: center;
   border: 1px solid var(--text-area-border-color);
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
 }
 .moneyButtonDe:active {
   background: var(--flat-button-light-active-color);

@@ -18,11 +18,6 @@ function pushToNewExpense() {
   navigator.pushPage('newExpense.html');
 }
 
-function pushToThemeSelector() {
-  const navigator = document.querySelector('#navigator');
-  navigator.pushPage('themeSelector.html');
-}
-
 function pushToHomeOptions() {
   const navigator = document.querySelector('#navigator');
   navigator.pushPage('homeOptions.html');
