@@ -481,7 +481,7 @@ function deleteAllData() {
     ons.notification.confirm({
       message: 'Are you sure to delete EVERYTHING?',
       title: 'Notice!',
-      buttonLabels: ['Yes', 'Cancel'],
+      buttonLabels: ['Yes, delete', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -507,7 +507,7 @@ function deleteAllData() {
     ons.notification.confirm({
       message: '¿Estas seguro de borrar TODO?',
       title: 'Aviso!',
-      buttonLabels: ['Sí', 'Cancelar'],
+      buttonLabels: ['Sí, borrar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
