@@ -17,6 +17,8 @@ function loadChartData(expenseData) {
   let expenses = JSON.parse(localStorage.getItem('expenseStorage'));
   let language = localStorage.getItem('storageSwitchLanguage');
   let entry = false;
+  let expenseCanvas = document.getElementById('oilChart');
+
   if (expenseData.datasets.length > 0) {
     if (expenses == null || expenses == '') {
       if (language == 'false') {
@@ -33,12 +35,21 @@ function loadChartData(expenseData) {
         if (expenses[i].toShow == true) {
           // Si el usuario decide que se muestre en la dona
           let eName = expenses[i].expenseName;
-          let eColor = expenses[i].expenseColor;
           let eExpense = expenses[i].totalExpense;
+          let eColor = expenses[i].expenseColor;
+          //TODO
+          //let eColor2 = expenses[i].expenseColor2;
+
+          let ctx = expenseCanvas.getContext('2d');
+          let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+          gradient.addColorStop(0, eColor);
+          gradient.addColorStop(1, 'rgba(229, 239, 255, 1)');
+          //TODO
+          //gradient.addColorStop(1, eColor2);
 
           expenseData.labels.push(eName);
           expenseData.datasets[0].data.push(eExpense);
-          expenseData.datasets[0].backgroundColor.push(eColor);
+          expenseData.datasets[0].backgroundColor.push(gradient);
           entry = true;
         }
       }
@@ -55,8 +66,6 @@ function loadChartData(expenseData) {
       }
     }
   }
-
-  let expenseCanvas = document.getElementById('oilChart');
 
   Chart.defaults.global.defaultFontColor = getComputedStyle(document.documentElement).getPropertyValue('--card-text-title-color');
   Chart.defaults.global.defaultFontSize = 16;
@@ -342,8 +351,8 @@ function loadOptions() {
     }
     userHomeView.innerHTML += `<ons-card onclick="fn.load('savings.html')">
     <div style="display: flex; align-items: center;">
-      <div class="iconSavedMoney">
-      <ion-icon name="wallet" class="iconMoney" style="font-size: 32px"></ion-icon>
+      <div class="iconSavedMoney" style="display: flex; justify-content: space-around;">
+        <img src="/www/assets/icons/savingOption.svg" alt="saving icon" style="width: 24px">
       </div>
       <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
         <span class="totalMoneyTitle" id="totalSavingsAmount" style="margin-left:0">

@@ -205,14 +205,6 @@ function updateSavingPreview() {
   document.getElementById('rangeSelectDays').innerHTML = rangeDays;
   document.getElementById('rangeSelectPercent').innerHTML =
     rangePercent + ` <span style="color: var(--card-text-title-color)">%</span>`;
-
-  /*Fondo ahorrado*/
-  let amountSaved = localStorage.getItem('savedMoneySaving');
-  if (amountSaved == null || amountSaved == '') {
-    amountSaved = 0;
-  }
-  document.getElementById('totalSavingAmount').innerHTML =
-    `<span style="color: var(--card-text-title-color)">$</span> ` + amountSaved;
 }
 
 function updateLastSaving() {
@@ -229,7 +221,7 @@ function updateLastSaving() {
     return;
   } else {
     if (languaje == 'false') {
-      cSavingView.innerHTML = `<label class="entryAmountText"
+      cSavingView.innerHTML = `<label class="entryAmountText" id="modifyFundActualAmount"
         >Entered amount: 
         <div style="display: block;">
           <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
@@ -237,7 +229,7 @@ function updateLastSaving() {
         </div>
       </label>
 
-        <label class="entryAmountText"
+        <label class="entryAmountText" id="modifyFundActualDays"
         >Selected days:
           <div style="display: block;">
             <span id="entryCurrentDays" class="entryAmountDetail"></span>
@@ -252,14 +244,14 @@ function updateLastSaving() {
           </div>
         </label>
 
-        <label class="entryAmountText"
+        <label class="entryAmountText" id="modifyFundActualPercentage"
         >Percentage:
           <div style="display: block;">
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>
           </div>
         </label>
 
-        <label class="entryAmountText"
+        <label class="entryAmountText" id="modifyFundActualToExpend"
         >To spend: 
           <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
@@ -275,7 +267,7 @@ function updateLastSaving() {
           </div>
         </label>`;
     } else {
-      cSavingView.innerHTML = `<label class="entryAmountText"
+      cSavingView.innerHTML = `<label class="entryAmountText" id="modifyFundActualAmount"
         >Cantidad ingresada: 
         <div style="display: block;">
           <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
@@ -283,7 +275,7 @@ function updateLastSaving() {
         </div>
       </label>
 
-        <label class="entryAmountText"
+        <label class="entryAmountText" id="modifyFundActualDays"
         >Días seleccionados:
           <div style="display: block;">
             <span id="entryCurrentDays" class="entryAmountDetail"></span>
@@ -298,14 +290,14 @@ function updateLastSaving() {
           </div>
         </label>
 
-        <label class="entryAmountText"
+        <label class="entryAmountText" id="modifyFundActualPercentage"
         >Porcentaje:
           <div style="display: block;">
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>
           </div>
         </label>
 
-        <label class="entryAmountText"
+        <label class="entryAmountText" id="modifyFundActualToExpend"
         >Para gastar: 
           <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
@@ -447,18 +439,20 @@ function loadSaving() {
   let sMoneyDay = formatMoney(savingStorage.toExpend);
   let sDaysLeft = savingStorage.daysLeft;
   let sMoneyDayLeft = formatMoney(savingStorage.moneyLeft);
+  let savedMoney = localStorage.getItem('savedMoneySaving');
 
   if (languaje == 'false') {
-    sView.innerHTML = `<ons-card>
+    sView.innerHTML = `<div style="margin: 20px">
       <div class="title mainTitle">
           Saved
       </div>
       <div class="content">
           <label id="savingsInfo" class="savingInfo">
-            <span style="color: var(--card-text-title-color)">$</span> ${sTakedAmount} / 
-            <span style="color: var(--card-text-title-color)">$</span> ${sMoneyDay}</label>
+            <span style="color: var(--card-text-title-color)">$</span> ${sTakedAmount} 
+            <span style="color: var(--saving-title); font-size: 20px; font-weight: normal"> / $ ${sMoneyDay}</span> 
+          </label>
       </div>
-    </ons-card>
+    </div>
 
     <ons-card>
       <div class="title savingTitle">
@@ -480,18 +474,32 @@ function loadSaving() {
       <div class="content">
           <ons-button class="flatButtonLight" onclick="endSavingDay()" style="margin-left: 0px; margin-right: 0px">End day</ons-button>
       </div>
-    </ons-card>`;
+    </ons-card>
+    
+    <ons-card>
+        <label class="cardHomeTitle" style="margin-top: 16px; text-align: left; color: var(--saving-title);">Saved money</label> 
+        <div style="display: flex; align-items: center;">
+          <div class="iconSavedMoney" style="display: flex; justify-content: space-around;">
+            <img src="/www/assets/icons/savingOption.svg" alt="saving icon" style="width: 24px">
+          </div>
+          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
+            <span class="totalMoneyTitle" style="margin-left:0" id="savingMainAmount"> ${savedMoney} </span>
+          </div>
+        </div>
+        <ons-button class="flatButton" onclick="resetSavingMoney()" style="margin-bottom:16px">RESET</ons-button>
+      </ons-card>`;
   } else {
-    sView.innerHTML = `<ons-card>
+    sView.innerHTML = `<div style="margin: 20px">
         <div class="title mainTitle">
             Fondo
         </div>
         <div class="content">
             <label id="savingsInfo" class="savingInfo">
-              <span style="color: var(--card-text-title-color)">$</span> ${sTakedAmount} / 
-              <span style="color: var(--card-text-title-color)">$</span> ${sMoneyDay}</label>
+              <span style="color: var(--card-text-title-color)">$</span> ${sTakedAmount}
+              <span style="color: var(--saving-title); font-size: 20px; font-weight: normal"> / $ ${sMoneyDay}</span> 
+            </label>
         </div>
-      </ons-card>
+      </div>
   
       <ons-card>
         <div class="title savingTitle">
@@ -513,6 +521,20 @@ function loadSaving() {
         <div class="content">
             <ons-button class="flatButtonLight" onclick="endSavingDay()" style="margin-left: 0px; margin-right: 0px">Terminar día</ons-button>
         </div>
+      </ons-card>
+
+
+      <ons-card>
+        <label class="cardHomeTitle" style="margin-top: 16px; text-align: left; color: var(--saving-title);">Dinero ahorrado</label> 
+        <div style="display: flex; align-items: center;">
+          <div class="iconSavedMoney" style="display: flex; justify-content: space-around;">
+            <img src="/www/assets/icons/savingOption.svg" alt="saving icon" style="width: 24px">
+          </div>
+          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
+            <span class="totalMoneyTitle" style="margin-left:0" id="savingMainAmountCard"> ${savedMoney} </span>
+          </div>
+        </div>
+        <ons-button class="flatButton" onclick="resetSavingMoney()" style="margin-bottom:16px">REINICIAR</ons-button>
       </ons-card>`;
   }
 }
@@ -524,6 +546,7 @@ function loadDetailSaving() {
 
 function resetSavingMoney() {
   let languaje = localStorage.getItem('storageSwitchLanguage');
+  let savedMoney = document.getElementById('savingMainAmountCard');
   if (languaje == 'false') {
     ons.notification.confirm({
       message: 'Are you sure to reset the saved fund?',
@@ -537,12 +560,12 @@ function resetSavingMoney() {
           let storageS = localStorage.getItem('savedMoneySaving');
           if (storageS) {
             localStorage.setItem('savedMoneySaving', 0);
+            savedMoney.innerHTML = 0;
             ons.notification.toast('The saved fund has been reset!', {
               title: 'Notice!',
               timeout: 1000,
               animation: 'ascend',
             });
-            loadDetailSaving();
           } else {
             ons.notification.toast(`You don't have a fund saved to eliminate.`, {
               title: 'Notice!',
@@ -572,12 +595,12 @@ function resetSavingMoney() {
           let storageS = localStorage.getItem('savedMoneySaving');
           if (storageS) {
             localStorage.setItem('savedMoneySaving', 0);
+            savedMoney.innerHTML = 0;
             ons.notification.toast('El fondo ahorrado se ha reiniciado!', {
               title: 'Aviso!',
               timeout: 1000,
               animation: 'ascend',
             });
-            loadDetailSaving();
           } else {
             ons.notification.toast('No tienes un fondo ahorrado para eliminar.', {
               title: 'Aviso!',

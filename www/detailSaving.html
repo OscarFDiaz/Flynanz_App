@@ -117,12 +117,6 @@
     </div>
   </ons-card>
 
-  <label class="cardHomeTitle" id="modifyFundSavedTitle">FONDO AHORRADO</label>
-  <ons-card style="padding-bottom: 16px">
-    <div class="title totalMoneyTitle" id="totalSavingAmount"></div>
-    <ons-button class="flatButton" onclick="resetSavingMoney()" id="modifyFundSavedButton">REINICIAR</ons-button>
-  </ons-card>
-
   <script>
     document.addEventListener(
       'show',
@@ -160,18 +154,17 @@
 
             document.getElementById('modifyFundActualTitle').innerHTML = 'Current fund';
             document.getElementById('modifyFundActualAmount').innerHTML = `Entered amount: 
+            <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
-            <span id="entryCurrentAmount" class="entryAmountDetail">0</span>`;
-            document.getElementById('modifyFundActualDays').innerHTML = `Days: 
+            <span id="entryCurrentAmount" class="entryAmountDetail">0</span>
+            </div>`;
+            document.getElementById('modifyFundActualDays').innerHTML = `Selected days: 
             <span id="entryCurrentDays" class="entryAmountDetail"></span>`;
             document.getElementById('modifyFundActualPercentage').innerHTML = `Percentage: 
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>`;
             document.getElementById('modifyFundActualToExpend').innerHTML = `To spend:
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpend" class="entryAmountDetail">0</span>`;
-
-            document.getElementById('modifyFundSavedTitle').innerHTML = 'Fund saved';
-            document.getElementById('modifyFundSavedButton').innerHTML = 'Reset';
           } else {
             document.getElementById('titleDetailSaving').innerHTML = 'Modificar fondo';
             document.getElementById('modifyFundAmount').innerHTML = 'Cantidad';
@@ -181,6 +174,7 @@
             <span id="rangeSelectPercent" class="selectedRange">50%</span>`;
             document.getElementById('modifyFundAddFund').innerHTML = 'Ingresar';
 
+            // Previsualización del fondo
             document.getElementById('modifyFundPrevText').innerHTML = 'Previsualización';
             document.getElementById('modifyFundPrevAmount').innerHTML = `Cantidad ingresada:
             <div style="display: block">
@@ -201,19 +195,18 @@
               <span id="entryExpend" class="entryAmountDetail">0</span>
             </div>`;
 
+            // Fondo actual
             document.getElementById('modifyFundActualTitle').innerHTML = 'Fondo actual';
             document.getElementById('modifyFundActualAmount').innerHTML = `Cantidad ingresada: 
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentAmount" class="entryAmountDetail">0</span>`;
-            document.getElementById('modifyFundActualDays').innerHTML = `Días: 
+            document.getElementById('modifyFundActualDays').innerHTML = `Días seleccionados: 
             <span id="entryCurrentDays" class="entryAmountDetail"></span>`;
             document.getElementById('modifyFundActualPercentage').innerHTML = `Porcentaje: 
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>`;
             document.getElementById('modifyFundActualToExpend').innerHTML = `Para gastar: 
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpend" class="entryAmountDetail">0</span>`;
-            document.getElementById('modifyFundSavedTitle').innerHTML = 'Fondo ahorrado';
-            document.getElementById('modifyFundSavedButton').innerHTML = 'Reiniciar';
           }
 
           loadDetailSaving();

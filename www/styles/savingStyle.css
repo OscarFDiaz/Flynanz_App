@@ -1,5 +1,5 @@
 .mainTitle {
-  text-align: center;
+  text-align: left;
 
   font-size: 20px;
   font-weight: normal;
@@ -7,7 +7,7 @@
 }
 
 .savingInfo {
-  text-align: center;
+  text-align: left;
   display: block;
 
   font-size: 38px;
@@ -26,7 +26,7 @@
 .savingDaily {
   text-align: center;
   display: block;
-  font-size: 80px;
+  font-size: clamp(1rem, 16vw, 15rem);
   font-weight: bold;
   color: var(--saving-daily);
   white-space: nowrap;

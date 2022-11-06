@@ -27,6 +27,7 @@ expenseStorage
     mainDate
     iconName
     expenseColor
+    **** expenseColor2
     toShow
 
 expenseDetailStorage
