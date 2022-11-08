@@ -839,9 +839,9 @@ function loadDetailExpense() {
     
     <ons-button class="flatButtonLight" style="margin-bottom: 16px;"
     onclick="resetExpense('${eName}')">Reset</ons-button>
-  
-    <ons-fab position="bottom right" onclick="editExpense('${eName}')">
-      <i class="icon ion-md-create" style="font-size: 35px;"></i>
+
+    <ons-fab position="bottom right"  onclick="editExpense('${eName}')" style="display: flex; justify-content: space-around">
+      <img src="/www/assets/icons/editButton.svg" alt="saving icon" style="width: 32px; margin-top: 30%" />
     </ons-fab>`;
   } else {
     expenseView.innerHTML += `<ons-card style="padding-bottom:16px">
@@ -901,10 +901,11 @@ function loadDetailExpense() {
     
     <ons-button class="flatButtonLight" style="margin-bottom: 16px;"
     onclick="resetExpense('${eName}')">Reiniciar</ons-button>
-  
-    <ons-fab position="bottom right" onclick="editExpense('${eName}')">
-      <i class="icon ion-md-create" style="font-size: 35px;"></i>
-    </ons-fab>`;
+    
+    <ons-fab position="bottom right" onclick="editExpense('${eName}')" style="display: flex; justify-content: space-around">
+      <img src="/www/assets/icons/editButton.svg" alt="saving icon" style="width: 32px; margin-top: 30%" />
+    </ons-fab>
+    `;
   }
 
   let detailDetailExpenseView = document.getElementById('expenseListOfExpenses');

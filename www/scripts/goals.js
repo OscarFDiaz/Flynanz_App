@@ -506,40 +506,45 @@ function loadDetailGoal() {
     let goalsView = document.getElementById('goalDetailContainer');
     goalsView.innerHTML = '';
 
-    goalsView.innerHTML += `<label class="cardHomeTitle" style="margin-top: 0px">Description</label>
-      <ons-card style="padding-top:16px">
-        <div class="content detailInfo">
-            ${gDescription}
-        </div>
-      </ons-card>
-
-      <label class="cardHomeTitle">Progress</label>
-      <ons-card>
-        <div style="padding-top: 16px">
-          <span style="margin-left: 20px; font-size: 30px; font-weight: bold; color: var(--detail-goal-content-color)">$ 
-            <span style="color: var(--detail-money-goal)" id="detailMoneyActualMoney">${gAMoneyTS}</span>
-          </span>
-          <span style="position: absolute; right: 16px; margin-right: 20px;font-size: 16px; font-weight: 600; margin-top: 16px; color: var(--detail-goal-content-color)">$ 
-            <span style="color: var(--detail-money-goal)" id="detailMoneyGoalGoalMoney">${gMoneyTS}</span>
-          </span>
-          <div class="progressBarContainer percentBar" style="margin-top:0px"> 
-            <div class="progressBarPercent" style="--width:${gPercent}" data-label="${gPercent}" id="pbarDetail">
-              <span style="white-space: nowrap; display: table; margin: 0 auto; color: var(--progressbar-back-color); font-weight: bold; position: relative; top: -5px; font-size:20px" id="${gName}-pnumber">${gPercent} %</span>
-            </div> 
+    goalsView.innerHTML += `
+      <ons-card style="padding: 16px 0px 0px 0px" class="goalCard">
+        
+        <!--ProgressBar-->
+        <!--ActualMoney-->
+        <span style="margin-left: 20px; font-size: 30px; font-weight: 700; color: var(--detail-goal-content-color)">$ 
+          <span style="color: var(--detail-money-goal)" id="detailMoneyActualMoney">${gAMoneyTS}</span>
+        </span>
+        <!--GoalMoney-->
+        <span style="position: absolute; right: 20px; margin-right: 20px;font-size: 16px; font-weight: 600; margin-top: 16px; color: var(--detail-goal-content-color)">$ 
+          <span style="color: var(--detail-money-goal)" id="detailMoneyGoalGoalMoney">${gMoneyTS}</span>
+        </span>
+        <!--ProgressBar-->
+        <div class="progressBarContainer percentBar" style="margin-top:0px"> 
+          <div class="progressBarPercent" style="--width:${gPercent}" data-label="${gPercent}" id="pbarDetail">
+            <span style="white-space: nowrap; display: table; margin: 0 auto; color: var(--progressbar-back-color); font-weight: 500; position: relative; top: 5px; font-size:20px" id="${gName}-pnumber">${gPercent} %</span>
           </div> 
         </div>
 
+        <!--Description-->
+        <div class="content detailInfo" style="margin-top:64px">
+            ${gDescription}
+        </div>
+
+        <!--GoalDate-->
         <div class="content">
-          <div style="height: 95px">
-            <i class="menuIcon ion-md-calendar" style="font-size: 70px; margin-left: 6px; display: inline-block;color: var(--detail-goal-title-color);"></i>
-            <label class="moneyDetailGoal" style="display: block; position: relative; top: -68px; left: 76px; font-size: 14px;">
+          <div style="height: 80px;">
+
+            <div class="iconSavedMoney" style="display: flex; justify-content: space-around;  margin-left:0px; background: #272443" >
+              <img src="/www/assets/icons/calendarIcon.svg" alt="saving icon" style="width: 24px">
+            </div>
+            <label class="moneyDetailGoal" style="display: block; position: relative; top: -75px; left: 76px; font-size: 14px;">
               ${nModifyDate}
             </label>
-            <label class="moneyDetailGoal" style="display: block; position: relative;top: -66px; left: 76px; font-weight:500">
+            <label class="moneyDetailGoal" style="display: block; position: relative;top: -70px; left: 76px; font-weight: 500">
               ${gDate}
             </label>
           </div>
-          <ons-button class="flatButton" style="margin-top: 16px; margin-left: 0px; margin-right: 0px" onclick="addMoneyGoal('${gName}')">
+          <ons-button class="flatButton" style="margin-left: 0px; margin-right: 0px" onclick="addMoneyGoal('${gName}')">
             Modify money
           </ons-button>
         </div>
@@ -549,8 +554,8 @@ function loadDetailGoal() {
         Delete goal
       </ons-button>
       
-      <ons-fab position="bottom right" onclick="editGoal('${gName}')">
-        <i class="icon ion-md-create" style="font-size: 35px;"></i>
+      <ons-fab position="bottom right" onclick="editGoal('${gName}')" style="display: flex; justify-content: space-around">
+        <img src="/www/assets/icons/editButton.svg" alt="saving icon" style="width: 32px; margin-top: 30%;">
       </ons-fab>`;
   } else {
     if (Math.sign(days) == 1 || Math.sign(days) == '1') {
@@ -570,40 +575,45 @@ function loadDetailGoal() {
     let goalsView = document.getElementById('goalDetailContainer');
     goalsView.innerHTML = '';
 
-    goalsView.innerHTML += `<label class="cardHomeTitle">Descripción</label>
-      <ons-card style="padding-top:16px">
-        <div class="content detailInfo">
-            ${gDescription}
-        </div>
-      </ons-card>
-
-      <label class="cardHomeTitle">Progreso</label>
-      <ons-card>
-        <div style="padding-top: 16px">
-          <span style="margin-left: 20px; font-size: 30px; font-weight: bold; color: var(--detail-goal-content-color)">$ 
-            <span style="color: var(--detail-money-goal)" id="detailMoneyActualMoney">${gAMoneyTS}</span>
-          </span>
-          <span style="position: absolute; right: 16px; margin-right: 20px;font-size: 16px; font-weight: 600; margin-top: 16px; color: var(--detail-goal-content-color)">$ 
-            <span style="color: var(--detail-money-goal)" id="detailMoneyGoalGoalMoney">${gMoneyTS}</span>
-          </span>
-          <div class="progressBarContainer percentBar" style="margin-top:0px"> 
-            <div class="progressBarPercent" style="--width:${gPercent}" data-label="${gPercent}" id="pbarDetail">
-              <span style="white-space: nowrap; display: table; margin: 0 auto; color: var(--progressbar-back-color); font-weight: bold; position: relative; top: -2px; font-size:20px" id="${gName}-pnumber">${gPercent} %</span>
-            </div> 
+    goalsView.innerHTML += `
+      <ons-card style="padding: 16px 0px 0px 0px" class="goalCard">
+        
+        <!--ProgressBar-->
+        <!--ActualMoney-->
+        <span style="margin-left: 20px; font-size: 30px; font-weight: 700; color: var(--detail-goal-content-color)">$ 
+          <span style="color: var(--detail-money-goal)" id="detailMoneyActualMoney">${gAMoneyTS}</span>
+        </span>
+        <!--GoalMoney-->
+        <span style="position: absolute; right: 20px; margin-right: 20px;font-size: 16px; font-weight: 600; margin-top: 16px; color: var(--detail-goal-content-color)">$ 
+          <span style="color: var(--detail-money-goal)" id="detailMoneyGoalGoalMoney">${gMoneyTS}</span>
+        </span>
+        <!--ProgressBar-->
+        <div class="progressBarContainer percentBar" style="margin-top:0px"> 
+          <div class="progressBarPercent" style="--width:${gPercent}" data-label="${gPercent}" id="pbarDetail">
+            <span style="white-space: nowrap; display: table; margin: 0 auto; color: var(--progressbar-back-color); font-weight: 500; position: relative; top: 5px; font-size:20px" id="${gName}-pnumber">${gPercent} %</span>
           </div> 
         </div>
 
+        <!--Description-->
+        <div class="content detailInfo" style="margin-top:64px">
+            ${gDescription}
+        </div>
+
+        <!--GoalDate-->
         <div class="content">
-          <div style="height: 95px">
-            <i class="menuIcon ion-md-calendar" style="font-size: 70px; margin-left: 6px; display: inline-block;color: var(--detail-goal-title-color);"></i>
-            <label class="moneyDetailGoal" style="display: block; position: relative; top: -68px; left: 76px; font-size: 14px;">
+          <div style="height: 80px;">
+
+            <div class="iconSavedMoney" style="display: flex; justify-content: space-around;  margin-left:0px; background: #272443" >
+              <img src="/www/assets/icons/calendarIcon.svg" alt="saving icon" style="width: 24px">
+            </div>
+            <label class="moneyDetailGoal" style="display: block; position: relative; top: -75px; left: 76px; font-size: 14px;">
               ${nModifyDate}
             </label>
-            <label class="moneyDetailGoal" style="display: block; position: relative;top: -66px; left: 76px; font-weight:500">
+            <label class="moneyDetailGoal" style="display: block; position: relative;top: -70px; left: 76px; font-weight: 500">
               ${gDate}
             </label>
           </div>
-          <ons-button class="flatButton" style="margin-top: 16px; margin-left: 0px; margin-right: 0px" onclick="addMoneyGoal('${gName}')">
+          <ons-button class="flatButton" style="margin-left: 0px; margin-right: 0px" onclick="addMoneyGoal('${gName}')">
             Modificar dinero
           </ons-button>
         </div>
@@ -613,8 +623,8 @@ function loadDetailGoal() {
         Eliminar meta
       </ons-button>
       
-      <ons-fab position="bottom right" onclick="editGoal('${gName}')">
-        <i class="icon ion-md-create" style="font-size: 35px;"></i>
+      <ons-fab position="bottom right" onclick="editGoal('${gName}')" style="display: flex; justify-content: space-around">
+        <img src="/www/assets/icons/editButton.svg" alt="saving icon" style="width: 32px; margin-top: 30%;">
       </ons-fab>`;
   }
 }
