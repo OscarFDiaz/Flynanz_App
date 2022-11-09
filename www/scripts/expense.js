@@ -255,6 +255,7 @@ function getExpenses() {
   let totalFDays = formatMoney(getAmountFDaysN());
   let totalTDays = formatMoney(getAmountTDaysN());
 
+  // Datos de los gastos totales
   if (languaje == 'false') {
     expensesView.innerHTML += `<ons-card>
       <div class="content">
@@ -324,8 +325,8 @@ function getExpenses() {
     let eExpense = formatMoney(parseFloat(expenses[i].totalExpense).toFixed(2));
 
     if (languaje == 'false') {
-      expensesView.innerHTML += `<ons-card>
-        <div class="title expenseTitle" onclick="findExpense('${eName}')" style="padding-top: 16px; padding-left: 16px;">
+      expensesView.innerHTML += `<ons-card class="expenseCard">
+        <div class="title expenseTitle" onclick="findExpense('${eName}')" style="padding: 16px 16px 0px 16px">
           ${eName}
         </div>
         <div style="position: relative;float: right;top: 50%; height: 70px; width: 70px;margin: -40px 16px 0px 0px;">
@@ -337,13 +338,13 @@ function getExpenses() {
         <ons-button class="moneyButtonAdd" style="margin-bottom: 16px;" onclick="addExpenseToExpense('${eName}')" > 
           Add expense
         </ons-button>
-        <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteExpense('${eName}')" >
+        <ons-button class="moneyButtonDe" style="margin-bottom: 16px; background: none" onclick="deleteExpense('${eName}')" >
           Delete
         </ons-button>
       </ons-card>`;
     } else {
-      expensesView.innerHTML += `<ons-card>
-        <div class="title expenseTitle" onclick="findExpense('${eName}')" style="padding-top: 16px; padding-left: 16px;">
+      expensesView.innerHTML += `<ons-card class="expenseCard">
+        <div class="title expenseTitle" onclick="findExpense('${eName}')" style="padding: 16px 16px 0px 16px">
           ${eName}
         </div>
         <div style="position: relative;float: right;top: 50%; height: 70px; width: 70px;margin: -40px 16px 0px 0px;">
@@ -355,7 +356,7 @@ function getExpenses() {
         <ons-button class="moneyButtonAdd" style="margin-bottom: 16px;" onclick="addExpenseToExpense('${eName}')" > 
           AÑADIR GASTO
         </ons-button>
-        <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteExpense('${eName}')" >
+        <ons-button class="moneyButtonDe" style="margin-bottom: 16px; background: none" onclick="deleteExpense('${eName}')" >
           ELIMINAR
         </ons-button>
       </ons-card>`;
@@ -782,21 +783,11 @@ function loadDetailExpense() {
   document.getElementById('titleDetailExpense').innerHTML = eName;
 
   if (languaje == 'false') {
-    expenseView.innerHTML += `<ons-card style="padding-bottom:16px">
-      <div class="content" style="padding:0px;">
-        <label class="labelDetailExpense" style="text-align:center; font-size: 20px"
-          >Creation date:
-          <span id="expenseCreationDate" class="labelInfoDetailExpense" style="font-size: 20px"
-            >${mDate}</span
-          ></label
-        >
-      </div>
-    </ons-card>
-  
+    expenseView.innerHTML += `
     <ons-card>
       <div class="content">
         <label class="labelDetailExpense"
-          >Total cost: 
+          >Total cost since ${mDate}: 
           <div style="display: block; font-size: 30px; font-weight: bold;">$  
             <span id="totalExpenseDetail" class="labelInfoDetailExpense"
               >${eTotalTS}</span
@@ -844,21 +835,11 @@ function loadDetailExpense() {
       <img src="/www/assets/icons/editButton.svg" alt="saving icon" style="width: 32px; margin-top: 30%" />
     </ons-fab>`;
   } else {
-    expenseView.innerHTML += `<ons-card style="padding-bottom:16px">
-      <div class="content" style="padding:0px;">
-        <label class="labelDetailExpense" style="text-align:center; font-size: 20px"
-          >Fecha creación:
-          <span id="expenseCreationDate" class="labelInfoDetailExpense" style="font-size: 20px"
-            >${mDate}</span
-          ></label
-        >
-      </div>
-    </ons-card>
-  
+    expenseView.innerHTML += `
     <ons-card>
       <div class="content">
         <label class="labelDetailExpense"
-          >Gasto total: 
+          >Gasto total desde ${mDate}:
           <div style="display: block; font-size: 30px; font-weight: bold;">$  
             <span id="totalExpenseDetail" class="labelInfoDetailExpense"
               >${eTotalTS}</span
@@ -971,11 +952,11 @@ function loadDetailExpense() {
             </div>
             
             <div class="expandable-content" style="grid-template-columns: 1fr 1fr;">
-              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 32px; margin-right: 8px; background: var(--flat-button-color); color: var(--flat-button-color-text)" onclick="editDetailExpense('${iD}')" >
+              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 20px; margin-right: 8px; background: var(--flat-button-color); color: var(--flat-button-color-text)" onclick="editDetailExpense('${iD}')" >
                 EDIT
               </ons-button>
   
-              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 8px; margin-right: 32px; background: var(--flat-button-light-color); color: var(--flat-button-light-color-text)" onclick="deleteDetailExpense('${iD}')" >
+              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 8px; margin-right: 20px; background: var(--flat-button-light-color); color: var(--flat-button-light-color-text)" onclick="deleteDetailExpense('${iD}')" >
                 DELETE
               </ons-button>
             </div>
@@ -1006,11 +987,11 @@ function loadDetailExpense() {
             </div>
 
             <div class="expandable-content" style="grid-template-columns: 1fr 1fr;">
-              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 32px; margin-right: 8px; background: var(--flat-button-color); color: var(--flat-button-color-text)" onclick="editDetailExpense('${iD}')" >
+              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 20px; margin-right: 8px; background: var(--flat-button-color); color: var(--flat-button-color-text)" onclick="editDetailExpense('${iD}')" >
                 EDITAR
               </ons-button>
   
-              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 8px; margin-right: 32px; background: var(--flat-button-light-color); color: var(--flat-button-light-color-text)" onclick="deleteDetailExpense('${iD}')" >
+              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 8px; margin-right: 20px; background: var(--flat-button-light-color); color: var(--flat-button-light-color-text)" onclick="deleteDetailExpense('${iD}')" >
                 ELIMINAR
               </ons-button>
             </div>

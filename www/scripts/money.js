@@ -187,7 +187,7 @@ function getMoneys() {
   if (languaje == 'false') {
     totalMoneyContainer.innerHTML = `
     <ons-card>
-      <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">YOUR TOTAL MONEY:</label>
+      <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">Your total money:</label>
       <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0;">$ 
         <span class="totalMoneyTitle" id="totalMoneyMoney">
         ${totalMoney}
@@ -207,7 +207,7 @@ function getMoneys() {
   } else {
     totalMoneyContainer.innerHTML = `
     <ons-card>
-      <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">TU DINERO TOTAL:</label>
+      <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">Tu dinero total:</label>
       <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0;">$ 
         <span class="totalMoneyTitle" id="totalMoneyMoney">
         ${totalMoney}
@@ -240,12 +240,12 @@ function getMoneys() {
 
     if (languaje == 'false') {
       toInner += `
-      <ons-carousel-item style="background-color: var(--card-back-color); padding: 16px 16px 0px 16px; border-radius: 15px; margin-bottom: 10px">
+      <ons-carousel-item  class="moneyCard">
         <div class="title moneyTitle">
           ${mName}
         </div>
         <div class="content">
-          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 16px">$ 
+          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 16px; font-weight: 500;">$ 
             <span class="moneyInfo" id="${mName}-money">
               ${mMoney}
             </span>
@@ -254,19 +254,19 @@ function getMoneys() {
         <ons-button class="moneyButtonAdd" style="margin-bottom: 16px; margin-left: 0px" onclick="addMoneyTo('${mName}')" > 
           MODIFY MONEY
         </ons-button>
-        <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteMoney('${mName}')" >
+        <ons-button class="moneyButtonDe" style="margin-bottom: 16px; background: none" onclick="deleteMoney('${mName}')" >
           DELETE
         </ons-button>
       </ons-carousel-item>`;
       cardsCounter++;
     } else {
       toInner += `
-      <ons-carousel-item style="background-color: var(--card-back-color); padding: 16px 16px 0px 16px; border-radius: 15px; margin-bottom: 10px">
+      <ons-carousel-item  class="moneyCard">
         <div class="title moneyTitle">
           ${mName}
         </div>
         <div class="content">
-          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 16px">$ 
+          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 16px; font-weight: 500;">$ 
             <span class="moneyInfo" id="${mName}-money">
               ${mMoney}
             </span>
@@ -275,7 +275,7 @@ function getMoneys() {
         <ons-button class="moneyButtonAdd" style="margin-bottom: 16px; margin-left: 0px" onclick="addMoneyTo('${mName}')" > 
           MODIFICAR DINERO
         </ons-button>
-        <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteMoney('${mName}')" >
+        <ons-button class="moneyButtonDe" style="margin-bottom: 16px; background: none" onclick="deleteMoney('${mName}')" >
           ELIMINAR
         </ons-button>
       </ons-carousel-item>`;
@@ -565,7 +565,7 @@ function showExpensesPerWallet(walletName) {
                 <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 16px; text-align:left; margin-left:16px">${iDate}</label>
               </div>
               <div style="margin-left: auto; margin-right: 0px;">
-                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">- $</span> 
+                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
                 <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
               </div>
             </div>
@@ -590,7 +590,7 @@ function showExpensesPerWallet(walletName) {
                 <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 16px; text-align:left; margin-left:16px">${iDate}</label>
               </div>
               <div style="margin-left: auto; margin-right: 0px;">
-                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">- $</span> 
+                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
                 <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
               </div>
             </div>
