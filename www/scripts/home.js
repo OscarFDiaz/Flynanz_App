@@ -313,11 +313,6 @@ function loadOptions() {
       let toInner = '';
       toInner += `<div class="walletsContainer" onclick="fn.load('money.html')">`;
 
-      // TODO
-      /**
-       * Crear botón para que el usuario haga una nueva cartera Punteado
-       */
-
       for (let i = 0; i < moneys.length; i++) {
         let mName = moneys[i].moneyName;
         let mMoney = formatMoney(moneys[i].moneyCurrent);
@@ -374,7 +369,7 @@ function loadOptions() {
     </ons-card>`;
   }
 
-  // METAS DEL USUARIO
+  // GOALS DEL USUARIO
   let goals = localStorage.getItem('storageSwitchGoals');
   if (goals == true || goals == 'true') {
     if (language == 'false') {
@@ -482,13 +477,14 @@ function getTotalGoals() {
     let gName = goals[i].goalName;
     let gMoney = goals[i].goalMoney;
     let gAMoney = goals[i].goalActualMoney;
+    let gGradient = goals[i].goalGradient;
 
     let gMoneyTS = formatMoney(gMoney);
     let gAMoneyTS = formatMoney(gAMoney);
 
     let gPercent = getPercent(gMoney, gAMoney);
 
-    goalsView += `<div onclick="findGoal('${gName}')" class="goalCard">
+    goalsView += `<div onclick="findGoal('${gName}')" class="goalCard" style="background: var(${gGradient})">
     <div class="content">
         <span style="font-weight: 900; font-size: 24px">$ ${gAMoneyTS} <span style="font-weight: 500; font-size: 16px">/ $ ${gMoneyTS}</span></span>
         <div class="progressBarContainer"> 

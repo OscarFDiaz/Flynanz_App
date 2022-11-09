@@ -5,12 +5,19 @@
   - Mando update al usuario
   - Lo regreso a la pantalla
 */
+
+function gradientButtonClick(gradient) {
+  // Defino el gradiento al que le da click
+  sessionStorage.setItem('tempGradient', gradient);
+}
+
 function makeNewGoal() {
   let goalName = document.getElementById('newGoalName').value;
   let goalDescription = document.getElementById('newGoalDescription').value;
   let goalMoney = document.getElementById('newGoalMoney').value;
   let goalActualMoney = 0.0;
   let goalDate = document.getElementById('newGoalDate').value;
+  let goalGradient = sessionStorage.getItem('tempGradient');
 
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
@@ -42,6 +49,15 @@ function makeNewGoal() {
       return;
     } else {
       goalMoney = parseFloat(goalMoney).toFixed(2);
+    }
+
+    if (goalGradient == null || goalGradient == '') {
+      ons.notification.toast('Wait, you have to select a color for the goal!', {
+        title: 'Error!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+      return;
     }
 
     let goalTest = Math.sign(goalMoney);
@@ -87,6 +103,15 @@ function makeNewGoal() {
       goalMoney = parseFloat(goalMoney).toFixed(2);
     }
 
+    if (goalGradient == null || goalGradient == '') {
+      ons.notification.toast('Un momento, debes seleccionar un color!', {
+        title: 'Error!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+      return;
+    }
+
     let goalTest = Math.sign(goalMoney);
     if (goalTest == '-1' || goalTest == '-0' || goalTest == '0') {
       ons.notification.toast('Un momento, no es posible añadir una meta en negativo, seria imposible de lograr.', {
@@ -104,6 +129,7 @@ function makeNewGoal() {
     goalMoney,
     goalActualMoney,
     goalDate,
+    goalGradient,
   };
 
   if (localStorage.getItem('goalStorage') === null) {
@@ -129,6 +155,8 @@ function makeNewGoal() {
       animation: 'ascend',
     });
   }
+
+  sessionStorage.removeItem('tempGradient');
   try {
     getGoals();
     functionPopPage();
@@ -227,6 +255,7 @@ function getGoals() {
     let gMoney = goals[i].goalMoney;
     let gAMoney = goals[i].goalActualMoney;
     let gDate = goals[i].goalDate;
+    let gGradient = goals[i].goalGradient;
 
     let gMoneyTS = formatMoney(gMoney);
     let gAMoneyTS = formatMoney(gAMoney);
@@ -262,7 +291,7 @@ function getGoals() {
       }
     }
 
-    goalsView.innerHTML += `<div onclick="findGoal('${gName}')" class="goalCard">
+    goalsView.innerHTML += `<div onclick="findGoal('${gName}')" class="goalCard" style="background: var(${gGradient})">
         <div class="content">
             <span style="font-weight: 900; font-size: 24px">$ ${gAMoneyTS} <span style="font-weight: 500; font-size: 16px">/ $ ${gMoneyTS}</span></span>
             <div class="progressBarContainer"> 
@@ -291,6 +320,7 @@ function findGoal(sendGoalName) {
       let gAMoney = goals[i].goalActualMoney;
       let gMoney = goals[i].goalMoney;
       let gDate = goals[i].goalDate;
+      let gGradient = goals[i].goalGradient;
 
       let findGoalObject = {
         name: gName,
@@ -298,6 +328,7 @@ function findGoal(sendGoalName) {
         actualMoney: gAMoney,
         goalMoney: gMoney,
         date: gDate,
+        gradient: gGradient,
       };
 
       if (sessionStorage.getItem('sessionFindGoal') === null) {
@@ -416,6 +447,7 @@ function editGoal(sendGoalName) {
       let gAMoney = goals[i].goalActualMoney;
       let gMoney = goals[i].goalMoney;
       let gDate = goals[i].goalDate;
+      let gGradient = goals[i].goalGradient;
 
       let findGoalObject = {
         name: gName,
@@ -423,6 +455,7 @@ function editGoal(sendGoalName) {
         actualMoney: gAMoney,
         goalMoney: gMoney,
         date: gDate,
+        gradient: gGradient,
       };
 
       if (sessionStorage.getItem('sessionFindGoal') === null) {
@@ -448,6 +481,7 @@ function addMoneyGoal(sendGoalName) {
       let gAMoney = goals[i].goalActualMoney;
       let gMoney = goals[i].goalMoney;
       let gDate = goals[i].goalDate;
+      let gGradient = goals[i].goalGradient;
 
       let findGoalObject = {
         name: gName,
@@ -455,6 +489,7 @@ function addMoneyGoal(sendGoalName) {
         actualMoney: gAMoney,
         goalMoney: gMoney,
         date: gDate,
+        gradient: gGradient,
       };
 
       if (sessionStorage.getItem('sessionFindGoal') === null) {
@@ -482,6 +517,7 @@ function loadDetailGoal() {
   let gMoney = parseGoal.goalMoney;
   let nModifyDate = parseGoal.date;
   let gDate = parseGoal.date;
+  let gGradient = parseGoal.gradient;
 
   let gAMoneyTS = formatMoney(gAMoney);
   let gMoneyTS = formatMoney(gMoney);
@@ -510,7 +546,7 @@ function loadDetailGoal() {
     goalsView.innerHTML = '';
 
     goalsView.innerHTML += `
-      <ons-card style="padding: 16px 0px 0px 0px" class="goalCard">
+      <ons-card style="padding: 16px 0px 0px 0px; background: var(${gGradient})" class="goalCard">
         
         <!--ProgressBar-->
         <!--ActualMoney-->
@@ -579,7 +615,7 @@ function loadDetailGoal() {
     goalsView.innerHTML = '';
 
     goalsView.innerHTML += `
-      <ons-card style="padding: 16px 0px 0px 0px" class="goalCard">
+      <ons-card style="padding: 16px 0px 0px 0px; background: var(${gGradient})" class="goalCard">
         
         <!--ProgressBar-->
         <!--ActualMoney-->

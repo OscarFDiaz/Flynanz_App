@@ -34,6 +34,8 @@ function hideAlertDialog() {
   let goalMoney = parseFloat(document.getElementById('editGoalMoney').value).toFixed(2);
   let goalDate = document.getElementById('editGoalDate').value;
 
+  let goalGradient = sessionStorage.getItem('tempGradient');
+
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
 
   let languaje = localStorage.getItem('storageSwitchLanguage');
@@ -86,7 +88,7 @@ function hideAlertDialog() {
     }
   } else {
     if (name === '') {
-      ons.notification.toast('Wait, a goal needs a good name!', {
+      ons.notification.toast('Espera, la meta necesita un nombre!', {
         title: 'Error!',
         timeout: 2000,
         animation: 'ascend',
@@ -130,6 +132,10 @@ function hideAlertDialog() {
     actualMoney = '0.00';
   }
 
+  if (goalGradient == null || goalGradient == '') {
+    goalGradient = '--gradient_1';
+  }
+
   for (let i = 0; i < goals.length; i++) {
     if (goals[i].goalName == sName) {
       indexGoal = i; //Pongo la posición donde esta mi objeto que modificare
@@ -140,6 +146,7 @@ function hideAlertDialog() {
         goalActualMoney: actualMoney,
         goalMoney: goalMoney,
         goalDate: goalDate,
+        goalGradient: goalGradient,
       };
 
       if (localStorage.getItem('goalStorage') === null) {
@@ -364,6 +371,7 @@ function hideAlertDialogMoney() {
         goalActualMoney: newMoney,
         goalMoney: goals[i].goalMoney,
         goalDate: goals[i].goalDate,
+        goalGradient: goals[i].goalGradient,
       };
 
       // Modifico los elementos para actualizar el dinero y % mostrado

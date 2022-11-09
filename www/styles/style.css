@@ -47,6 +47,18 @@
   --color-3: #9cd9ce;
   --color-4: #f5a11b;
   --color-5: #ffffff;
+
+  /* DEGRADADOS SELECCIONABLES */
+  --gradient_0: linear-gradient(90deg, #bfdff8 0%, #f4dcf5 100%);
+  --gradient_1: linear-gradient(90deg, #e1f0e1 0%, #aadfda 100%);
+  --gradient_2: linear-gradient(90deg, #b3dbf1 0%, #beedf5 100%);
+  --gradient_3: linear-gradient(90deg, #f6e6cf 0%, #f3ccc4 100%);
+  --gradient_4: linear-gradient(90deg, #ff8abe 0%, #fce9d0 100%);
+  --gradient_5: linear-gradient(90deg, #96c1dc 0%, #d9d4ed 100%);
+  --gradient_6: linear-gradient(90deg, #74f2ce 0%, #7cffcb 100%);
+  --gradient_7: linear-gradient(90deg, #7ee8fa 0%, #eec0c6 100%);
+  --gradient_8: linear-gradient(90deg, #b0f3f1 0%, #ffcfdf 100%);
+  --gradient_9: linear-gradient(90deg, #fb8085 0%, #f9c1b1 100%);
  
   /* DEGRADADO */
   --gradient-1: #FFFFFF;
