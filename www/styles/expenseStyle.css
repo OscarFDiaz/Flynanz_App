@@ -20,11 +20,20 @@
   color: var(--expenseIconColorPrev, var(--menu-icon-color));
 }
 
+.expenseIconContainer {
+  position: relative;
+  float: right;
+  top: 50%;
+  height: 70px;
+  width: 70px;
+  margin: -40px 16px 0px 0px;
+  background: var(--flat-button-color);
+}
+
 .expenseCard {
   min-height: 107px;
   margin: 16px 20px 0px 20px;
   border-radius: 10px;
-  background: linear-gradient(90deg, #C3DBF3 0%, #E2DCEF 100%);
   box-shadow: 0px 2px 4px 0px rgb(112 144 176 / 20%);
 }
 

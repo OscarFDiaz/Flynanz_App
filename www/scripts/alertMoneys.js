@@ -164,6 +164,7 @@ function hideAlertMoneys() {
       updateMoneyObject = {
         moneyName: moneys[i].moneyName,
         moneyCurrent: newMoney,
+        moneyGradient: moneys[i].moneyGradient,
       };
 
       // Modifico los elementos para mostrar la cantidad de dinero actualizada
@@ -317,6 +318,7 @@ function hideAlertMoneysOnTransfer() {
       updateMoneyObject = {
         moneyName: moneys[i].moneyName,
         moneyCurrent: transferredMoney,
+        moneyGradient: moneys[i].moneyGradient,
       };
 
       if (localStorage.getItem('moneyStorage') === null) {
@@ -339,6 +341,7 @@ function hideAlertMoneysOnTransfer() {
       updateMoneyObject = {
         moneyName: moneys[i].moneyName,
         moneyCurrent: newMoney,
+        moneyGradient: moneys[i].moneyGradient,
       };
 
       // Modifico los elementos para mostrar la cantidad de dinero actualizada

@@ -26,14 +26,14 @@ function startTime() {
     localStorage.setItem('appVersion', '1');
 
     updateGolsOnUpdate();
+    updateMoneyOnUpdate();
+    updateExpensesOnUpdate();
 
-    // TODO
-    /**
-     * Comprobar los datos nuevos para evitar errores
-     *   - Añadir los nuevos datos en su defecto, de data.txt
-     */
+  } else if(currentVersion > appVersion)  {
+    localStorage.setItem('appVersion', '1');
 
-    // A todas las carteras les añado un degradado de fondo.
+    updateGolsOnUpdate();
+    updateMoneyOnUpdate();
   } else {
     // Sino entra, la aplicación es posterior a la actualización
     localStorage.setItem('appVersion', `${currentVersion}`); // Actualizo la versión del storage
@@ -57,7 +57,44 @@ function updateGolsOnUpdate() {
 
     if (gGradient == null || gGradient == '') {
       goals[i].goalGradient = '--gradient_0';
+      //TODO ICONO
       localStorage.setItem('goalStorage', JSON.stringify(goals));
+    }
+  }
+}
+
+function updateMoneyOnUpdate() {
+  let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
+
+  if (moneys == null || moneys == 'null' || moneys.length == 0 || moneys.length < 1) {
+    return;
+  }
+
+  for (let i = 0; i < moneys.length; i++) {
+    let mGradient = moneys[i].moneyGradient;
+
+    if (mGradient == null || mGradient == '') {
+      moneys[i].moneyGradient = '--gradient_0';
+      localStorage.setItem('moneyStorage', JSON.stringify(moneys));
+    }
+  }
+}
+
+function updateExpensesOnUpdate() {
+  let expenses = JSON.parse(localStorage.getItem('expenseStorage'));
+
+  if (expenses == null || expenses == 'null' || expenses.length == 0 || expenses.length < 1) {
+    return;
+  }
+  for (let i = 0; i < expenses.length; i++) {
+    let mGradient = expenses[i].expenseGradient;
+
+    if (mGradient == null || mGradient == '') {
+      expenses[i].moneyGradient = '--gradient_0';
+      expenses[i].expenseColor = '#bfdff8';
+      expenses[i].expenseColor1 = '#f4dcf5';
+      //TODO ICONO
+      localStorage.setItem('expenseStorage', JSON.stringify(expenses));
     }
   }
 }

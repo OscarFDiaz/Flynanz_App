@@ -1,8 +1,15 @@
+function gradientButtonExpenseClick(gradient, color, color1){
+  // Defino el gradiento al que le da click
+  sessionStorage.setItem('tempGradient', gradient);
+  sessionStorage.setItem('colorExpense', color);
+  sessionStorage.setItem('colorExpense1', color1);
+}
+
 function loadIcons() {
   let iconsView = document.getElementById('expenseIconListOfIcons');
   iconsView.innerHTML = '';
 
-  let iconColor = document.getElementById('newExpenseColor').value;
+  let iconColor = '#0e5259';
 
   iconsView.innerHTML = `<i class="expenseIconList ion-md-airplane" style="--expenseIconColor: ${iconColor}" onclick="selectIcon('ion-md-airplane', '${iconColor}')"></i>
     <i class="expenseIconList ion-md-alarm" style="--expenseIconColor: ${iconColor}" onclick="selectIcon('ion-md-alarm', '${iconColor}')"></i>
@@ -61,36 +68,11 @@ function loadIcons() {
     <i class="expenseIconList ion-md-wine" style="--expenseIconColor: ${iconColor}" onclick="selectIcon('ion-md-wine', '${iconColor}')"></i>`;
 }
 
-function changeTitlePreview() {
-  let languaje = localStorage.getItem('storageSwitchLanguage');
-
-  let newTitle = document.getElementById('newExpenseName').value;
-  let oldTitle = document.getElementById('expensePrevTitle');
-
-  if (newTitle == '' || newTitle == null) {
-    if (languaje == 'false') {
-      oldTitle.innerHTML = `Name <i class="expenseIcon ion-md-laptop"></i>`;
-    } else {
-      oldTitle.innerHTML = `Nombre <i class="expenseIcon ion-md-laptop"></i>`;
-    }
-  } else {
-    oldTitle.innerHTML = '';
-    oldTitle.innerHTML = newTitle;
-  }
-}
 
 function selectIcon(iconName, iconColor) {
   sessionStorage.setItem('expenseIconName', iconName);
   // Oculto los iconos, ya tengo uno seleccionado
   document.getElementById('expandableListContainer').hideExpansion();
-
-  // Añado el icono seleccionado
-  let iconElement = document.getElementById('expensePrevIcon');
-  iconElement.className = '';
-  iconElement.classList.add('expenseIcon');
-  iconElement.classList.add(iconName);
-  // Añado el color
-  iconElement.style.cssText = `--expenseIconColorPrev: ${iconColor}`;
 }
 
 function makeNewExpense() {
@@ -98,8 +80,11 @@ function makeNewExpense() {
   let totalExpense = 0.0;
   let mainDate = new Date().toJSON().slice(0, 10);
   let iconName = sessionStorage.getItem('expenseIconName');
-  let expenseColor = document.getElementById('newExpenseColor').value;
   let toShow = document.getElementById('switchNewGoal').checked;
+
+  let expenseGradient = sessionStorage.getItem('tempGradient');
+  let expenseColor = sessionStorage.getItem('colorExpense');
+  let expenseColor1 = sessionStorage.getItem('colorExpense1');
 
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
@@ -129,8 +114,10 @@ function makeNewExpense() {
     totalExpense,
     mainDate,
     iconName,
-    expenseColor,
     toShow,
+    expenseGradient,  
+    expenseColor,
+    expenseColor1,
   };
 
   /* Guardo el expense original*/
@@ -160,6 +147,8 @@ function makeNewExpense() {
 
   getExpenses();
   functionPopPage();
+
+  sessionStorage.clear();
 }
 
 function getExpenses() {
@@ -321,17 +310,25 @@ function getExpenses() {
   for (let i = 0; i < expenses.length; i++) {
     let eName = expenses[i].expenseName;
     let eicon = expenses[i].iconName;
-    let eColor = expenses[i].expenseColor;
     let eExpense = formatMoney(parseFloat(expenses[i].totalExpense).toFixed(2));
+    
+    let eColor = expenses[i].expenseColor; //Innecesarios, se necesitan en la donut unicamente
+    //let eColor1 = expenses[i].expenseColor1;
+    let eGradient = expenses[i].expenseGradient;
 
     if (languaje == 'false') {
-      expensesView.innerHTML += `<ons-card class="expenseCard">
+      expensesView.innerHTML += `<ons-card class="expenseCard" style="background: var(${eGradient})">
         <div class="title expenseTitle" onclick="findExpense('${eName}')" style="padding: 16px 16px 0px 16px">
           ${eName}
         </div>
-        <div style="position: relative;float: right;top: 50%; height: 70px; width: 70px;margin: -40px 16px 0px 0px;">
+        <div class="iconSavedMoney expenseIconContainer">
+            <img src="/www/assets/icons/calendarIcon.svg" alt="saving icon" style="width: 100%">
+        </div>
+        <!--
+        <div class="expenseIconContainer">
           <i class="expenseIcon ${eicon}" style="--expenseIconColorPrev: ${eColor}; display: block; font-size: 80px;text-align: center;vertical-align: middle;line-height: 70px;"></i>
         </div>
+        -->
         <div class="content">
           <label class="expenseInfo">$ ${eExpense} expended</label>
         </div>
@@ -343,13 +340,18 @@ function getExpenses() {
         </ons-button>
       </ons-card>`;
     } else {
-      expensesView.innerHTML += `<ons-card class="expenseCard">
+      expensesView.innerHTML += `<ons-card class="expenseCard" style="background: var(${eGradient})">
         <div class="title expenseTitle" onclick="findExpense('${eName}')" style="padding: 16px 16px 0px 16px">
-          ${eName}
+          ${eName}  
         </div>
-        <div style="position: relative;float: right;top: 50%; height: 70px; width: 70px;margin: -40px 16px 0px 0px;">
+        <div class="iconSavedMoney expenseIconContainer">
+            <img src="/www/assets/icons/calendarIcon.svg" alt="saving icon" style="width: 100%">
+        </div>
+        <!--
+        <div class="expenseIconContainer">
           <i class="expenseIcon ${eicon}" style="--expenseIconColorPrev: ${eColor}; display: block; font-size: 80px;text-align: center;vertical-align: middle;line-height: 70px;"></i>
         </div>
+        -->
         <div class="content">
           <label class="expenseInfo">$ ${eExpense} gastados</label>
         </div>

@@ -1,31 +1,3 @@
-/*********************************************************/
-// ALERT DIALOG PARA EDITAR UNA META COMPLETAMENTE
-function createAlertDialogToEditGoal() {
-  let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
-  let parseGoal = JSON.parse(retrievedGoal);
-
-  //Guardo el nombre por si el usuario lo edita
-  localStorage.setItem('nameSaved', parseGoal.name);
-
-  document.getElementById('editGoalName').value = parseGoal.name;
-  document.getElementById('editGoalDescription').value = parseGoal.description;
-  document.getElementById('editGoalMoney').value = parseGoal.goalMoney;
-  document.getElementById('editActualGoalMoney').value = parseGoal.actualMoney;
-  document.getElementById('editGoalDate').value = parseGoal.date;
-
-  let dialog = document.getElementById('my-alert-dialog');
-
-  if (dialog) {
-    dialog.show();
-  } else {
-    ons.notification.toast('No se ha podido cargar la ventana para modificar!', {
-      title: 'Error!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  }
-}
-
 /* CUANDO SE FINALIZA DE MODIFICAR UNA META*/
 function hideAlertDialog() {
   let name = document.getElementById('editGoalName').value;
@@ -163,8 +135,6 @@ function hideAlertDialog() {
     }
   }
 
-  document.getElementById('my-alert-dialog').hide();
-
   if (languaje == 'false') {
     ons.notification.toast(`Goal ${name} sucecessfully modified!`, {
       title: 'Notice!',
@@ -179,13 +149,13 @@ function hideAlertDialog() {
     });
   }
 
-  functionPopPage();
+  functionPopPage(2);
   getGoals();
 }
 
 /* SE INTENTA MODIFICAR UNA META PERO SE CANCELA */
 function hideAlertNoChange() {
-  document.getElementById('my-alert-dialog').hide();
+  functionPopPage(2);
   let languaje = localStorage.getItem('storageSwitchLanguage');
   if (languaje == 'false') {
     ons.notification.toast('Goal has not been changed!', {

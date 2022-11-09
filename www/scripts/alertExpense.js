@@ -49,7 +49,6 @@ function hideAlertExpense() {
   let eMoney = document.getElementById('alertExpenseMoney').value;
   let eDate = document.getElementById('alertExpenseDate').value;
   let eid = localStorage.getItem('detailExpenseCount');
-
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
   const selectTag = document.getElementById('selectOptio');
@@ -136,6 +135,7 @@ function hideAlertExpense() {
       return;
     }
   }
+
 
   // Obtengo el nombre del item, pero es necesario modificar el contador
   let expenseObject = sessionStorage.getItem('sessionFindExpense');
@@ -419,8 +419,10 @@ function insertNewExpenseAmount(sendName) {
         totalExpense: newAmount,
         mainDate: mainStorage[i].mainDate,
         iconName: mainStorage[i].iconName,
-        expenseColor: mainStorage[i].expenseColor,
         toShow: mainStorage[i].toShow,
+        expenseColor: mainStorage[i].expenseColor,
+        expenseColor1: mainStorage[i].expenseColor1,
+        expenseGradient: mainStorage[i].expenseGradient,
       };
       mainStorage[index] = expense;
       localStorage.setItem('expenseStorage', JSON.stringify(mainStorage));
@@ -458,7 +460,6 @@ function editExpense(sendName) {
 
 function hideAlertExpenseEditNoChange() {
   document.getElementById('newExpenseNameEdit').value = null;
-  document.getElementById('newExpenseColorEdit').value = '#ffffff';
 
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
@@ -482,11 +483,21 @@ function hideAlertExpenseEditNoChange() {
 function hideAlertExpenseEdit() {
   let oldName = sessionStorage.getItem('expenseNameEdit');
   let newName = document.getElementById('newExpenseNameEdit').value;
-  let newColor = document.getElementById('newExpenseColorEdit').value;
   let newIcon = sessionStorage.getItem('expenseIconName');
   let toShowN = document.getElementById('switchNewGoalEdit').checked;
 
+  let expenseGradient = sessionStorage.getItem('tempGradient');
+  let expenseColor = sessionStorage.getItem('colorExpense');
+  let expenseColor1 = sessionStorage.getItem('colorExpense1');
+
   let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  if(expenseGradient == null || expenseGradient == '') {
+    expenseGradient = '--gradient_0';
+    expenseColor = '#bfdff8';
+    expenseColor1 = '#f4dcf5';
+
+  }
 
   if (newName == null || newName == 'null' || newName == '') {
     if (languaje == 'false') {
@@ -506,8 +517,7 @@ function hideAlertExpenseEdit() {
   }
 
   if (newIcon == null || newIcon == 'null' || newIcon == '') {
-    newIcon = sessionStorage.getItem('oldIcon');
-    sessionStorage.removeItem('oldIcon');
+    newIcon = 'ion-md-airplane';
   }
 
   let expenseStorage = JSON.parse(localStorage.getItem('expenseStorage'));
@@ -522,8 +532,10 @@ function hideAlertExpenseEdit() {
         totalExpense: expenseStorage[i].totalExpense,
         mainDate: expenseStorage[i].mainDate,
         iconName: newIcon,
-        expenseColor: newColor,
         toShow: toShowN,
+        expenseColor: expenseColor,
+        expenseColor1: expenseColor1,
+        expenseGradient: expenseGradient,
       };
 
       expenseStorage[index] = expense;
@@ -561,7 +573,7 @@ function loadIconsEdit() {
   let iconsView = document.getElementById('expenseIconListOfIconsEdit');
   iconsView.innerHTML = '';
 
-  let iconColor = document.getElementById('newExpenseColorEdit').value;
+  let iconColor = '#68667B';
 
   iconsView.innerHTML = `<i class="expenseIconList ion-md-airplane" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-airplane', '${iconColor}')"></i>
       <i class="expenseIconList ion-md-alarm" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-alarm', '${iconColor}')"></i>
@@ -624,32 +636,6 @@ function selectIconEdit(iconName, iconColor) {
   sessionStorage.setItem('expenseIconName', iconName);
   // Oculto los iconos, ya tengo uno seleccionado
   document.getElementById('expandableListContainerEdit').hideExpansion();
-
-  // Añado el icono seleccionado
-  let iconElement = document.getElementById('expensePrevIconEdit');
-  iconElement.className = '';
-  iconElement.classList.add('expenseIcon');
-  iconElement.classList.add(iconName);
-  // Añado el color
-  iconElement.style.cssText = `--expenseIconColorPrev: ${iconColor}`;
-}
-
-function changeTitlePreviewEdit() {
-  let newTitle = document.getElementById('newExpenseNameEdit').value;
-  let oldTitle = document.getElementById('expensePrevTitleEdit');
-
-  let languaje = localStorage.getItem('storageSwitchLanguage');
-
-  if (newTitle == '' || newTitle == null) {
-    if (languaje == 'false') {
-      oldTitle.innerHTML = `NAME <i class="expenseIcon ion-md-laptop"></i>`;
-    } else {
-      oldTitle.innerHTML = `NOMBRE <i class="expenseIcon ion-md-laptop"></i>`;
-    }
-  } else {
-    oldTitle.innerHTML = '';
-    oldTitle.innerHTML = newTitle;
-  }
 }
 
 function deleteDetailExpense(idSend) {
@@ -710,7 +696,7 @@ function deleteDetailExpense(idSend) {
     ons.notification.confirm({
       message: '¿Estas seguro de borrar el gasto?',
       title: 'Aviso!',
-      buttonLabels: ['SÍ', 'CANCELAR'],
+      buttonLabels: ['Sí, borrar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,

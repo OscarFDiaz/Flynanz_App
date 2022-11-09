@@ -1,7 +1,8 @@
 moneyStorage
     moneyName
     moneyCurrent
-    **** Gradient
+    **** Gradient //Called: moneyGradient
+    
 
 savingStorage
     mainAmount
@@ -27,7 +28,8 @@ expenseStorage
     mainDate
     iconName
     expenseColor
-    **** expenseColor2
+    **** expenseColor2 //Called: expenseColor1
+    **** expenseGradient //Called: expenseGradient
     toShow
 
 expenseDetailStorage

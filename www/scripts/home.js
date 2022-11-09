@@ -37,15 +37,12 @@ function loadChartData(expenseData) {
           let eName = expenses[i].expenseName;
           let eExpense = expenses[i].totalExpense;
           let eColor = expenses[i].expenseColor;
-          //TODO
-          //let eColor2 = expenses[i].expenseColor2;
+          let eColor1 = expenses[i].expenseColor1;
 
           let ctx = expenseCanvas.getContext('2d');
           let gradient = ctx.createLinearGradient(0, 0, 0, 400);
           gradient.addColorStop(0, eColor);
-          gradient.addColorStop(1, 'rgba(229, 239, 255, 1)');
-          //TODO
-          //gradient.addColorStop(1, eColor2);
+          gradient.addColorStop(1, eColor1);
 
           expenseData.labels.push(eName);
           expenseData.datasets[0].data.push(eExpense);
@@ -316,8 +313,9 @@ function loadOptions() {
       for (let i = 0; i < moneys.length; i++) {
         let mName = moneys[i].moneyName;
         let mMoney = formatMoney(moneys[i].moneyCurrent);
+        let mGradient = moneys[i].moneyGradient;
         toInner += `
-          <div class="wallet">
+          <div class="wallet" style="background: var(${mGradient})">
             <div class="tittleWallet">
               ${mName}
             </div>

@@ -436,40 +436,6 @@ function deleteGoalInsta(sendGoalName) {
   localStorage.setItem('goalStorage', JSON.stringify(goals));
 }
 
-function editGoal(sendGoalName) {
-  let goals = JSON.parse(localStorage.getItem('goalStorage'));
-
-  for (let i = 0; i < goals.length; i++) {
-    let gName = goals[i].goalName;
-
-    if (gName == sendGoalName) {
-      let gDescription = goals[i].goalDescription;
-      let gAMoney = goals[i].goalActualMoney;
-      let gMoney = goals[i].goalMoney;
-      let gDate = goals[i].goalDate;
-      let gGradient = goals[i].goalGradient;
-
-      let findGoalObject = {
-        name: gName,
-        description: gDescription,
-        actualMoney: gAMoney,
-        goalMoney: gMoney,
-        date: gDate,
-        gradient: gGradient,
-      };
-
-      if (sessionStorage.getItem('sessionFindGoal') === null) {
-        sessionStorage.setItem('sessionFindGoal', JSON.stringify(findGoalObject));
-      } else {
-        sessionStorage.removeItem('sessionFindGoal');
-        sessionStorage.setItem('sessionFindGoal', JSON.stringify(findGoalObject));
-      }
-      createAlertDialogToEditGoal();
-      break;
-    }
-  }
-}
-
 function addMoneyGoal(sendGoalName) {
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
 
@@ -573,7 +539,7 @@ function loadDetailGoal() {
         <div class="content">
           <div style="height: 80px;">
 
-            <div class="iconSavedMoney" style="display: flex; justify-content: space-around;  margin-left:0px; background: #272443" >
+            <div class="iconSavedMoney" style="display: flex; justify-content: space-around;  margin-left:0px; background: var(--flat-button-color)" >
               <img src="/www/assets/icons/calendarIcon.svg" alt="saving icon" style="width: 24px">
             </div>
             <label class="moneyDetailGoal" style="display: block; position: relative; top: -75px; left: 76px; font-size: 14px;">
@@ -642,7 +608,7 @@ function loadDetailGoal() {
         <div class="content">
           <div style="height: 80px;">
 
-            <div class="iconSavedMoney" style="display: flex; justify-content: space-around;  margin-left:0px; background: #272443" >
+            <div class="iconSavedMoney" style="display: flex; justify-content: space-around;  margin-left:0px; background: var(--flat-button-color)" >
               <img src="/www/assets/icons/calendarIcon.svg" alt="saving icon" style="width: 24px">
             </div>
             <label class="moneyDetailGoal" style="display: block; position: relative; top: -75px; left: 76px; font-size: 14px;">

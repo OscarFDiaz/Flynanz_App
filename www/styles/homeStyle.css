@@ -5,7 +5,7 @@
  top: 0px;
 
  margin-bottom: 32px;
- margin-left: 20px;
+ padding-left: 20px;
 
  z-index: 99;
 }
@@ -42,7 +42,6 @@
   margin-bottom: 8px;
   padding: 16px;
 
-  background: linear-gradient(90deg, #C3DBF3 0%, #E2DCEF 100%);
   box-shadow: 0px 2px 4px 0px rgba(112, 144, 176, 0.2);
 }
 

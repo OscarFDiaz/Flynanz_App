@@ -3,6 +3,7 @@ function makeNewMoney() {
 
   let moneyName = document.getElementById('newMoneyName').value;
   let moneyCurrent = document.getElementById('newMoneyMoney').value;
+  let moneyGradient = sessionStorage.getItem('tempGradient');
 
   if (moneyName === '') {
     if (languaje == 'false') {
@@ -45,9 +46,27 @@ function makeNewMoney() {
     moneyCurrent = '0.00';
   }
 
+  if (moneyGradient == null || moneyGradient == '') {
+    if (languaje == 'false') {
+      ons.notification.toast('The money need a color, please choose one!', {
+        title: 'Error!',
+        timeout: 3000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('Añade un color a tu dinero para poder continuar!', {
+        title: 'Error!',
+        timeout: 3000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+
   let money = {
     moneyName,
     moneyCurrent,
+    moneyGradient
   };
 
   if (localStorage.getItem('moneyStorage') === null) {
@@ -242,10 +261,11 @@ function getMoneys() {
   for (let i = 0; i < moneys.length; i++) {
     let mName = moneys[i].moneyName;
     let mMoney = formatMoney(moneys[i].moneyCurrent);
+    let mGradient = moneys[i].moneyGradient;
 
     if (languaje == 'false') {
       toInner += `
-      <ons-carousel-item  class="moneyCard">
+      <ons-carousel-item  class="moneyCard" style="background: var(${mGradient})">
         <div class="title moneyTitle">
           ${mName}
         </div>
@@ -266,7 +286,7 @@ function getMoneys() {
       cardsCounter++;
     } else {
       toInner += `
-      <ons-carousel-item  class="moneyCard">
+      <ons-carousel-item  class="moneyCard" style="background: var(${mGradient})">
         <div class="title moneyTitle">
           ${mName}
         </div>
@@ -303,6 +323,8 @@ function getMoneys() {
 
   // INSERTO TODO
   moneyView.innerHTML = toInner;
+
+  sessionStorage.clear();
 }
 
 function deleteMoney(sendMoneyName) {
@@ -428,10 +450,12 @@ function addMoneyTo(sendMoneyName) {
 
     if (mName == sendMoneyName) {
       let mMoney = moneys[i].moneyCurrent;
+      let mGradient = moneys[i].moneyGradient;
 
       let findMoneyObject = {
         moneyName: mName,
         moneyCurrent: mMoney,
+        moneyGradient: mGradient
       };
 
       if (sessionStorage.getItem('sessionFindMoney') === null) {
