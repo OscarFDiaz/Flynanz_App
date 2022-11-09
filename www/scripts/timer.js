@@ -25,6 +25,8 @@ function startTime() {
     // Si entra la aplicación es posterior a la nueva actualización
     localStorage.setItem('appVersion', '1');
 
+    updateGolsOnUpdate();
+
     // TODO
     /**
      * Comprobar los datos nuevos para evitar errores
@@ -41,4 +43,21 @@ function startTime() {
     const navigator = document.querySelector('#navigator');
     navigator.resetToPage('splitterUser.html');
   }, 1000);
+}
+
+function updateGolsOnUpdate() {
+  let goals = JSON.parse(localStorage.getItem('goalStorage'));
+
+  if (goals == null || goals == 'null' || goals.length == 0 || goals.length < 1) {
+    return;
+  }
+
+  for (let i = 0; i < goals.length; i++) {
+    let gGradient = goals[i].goalGradient;
+
+    if (gGradient == null || gGradient == '') {
+      goals[i].goalGradient = '--gradient_0';
+      localStorage.setItem('goalStorage', JSON.stringify(goals));
+    }
+  }
 }
