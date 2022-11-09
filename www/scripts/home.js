@@ -293,9 +293,21 @@ function loadOptions() {
     let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
     if (moneys != null) {
       if (language == 'false') {
-        userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Wallets</label>`;
+        userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Wallets
+        <span onclick="pushToNewMoney()" style="right: 20px;
+          position: absolute;
+          font-size: 14px;
+          color: var(--money-title);
+          font-weight: 500;">Add wallet +</span>
+          </label>`;
       } else {
-        userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Mi dinero</label>`;
+        userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Mi dinero 
+          <span onclick="pushToNewMoney()" style="right: 20px;
+          position: absolute;
+          font-size: 14px;
+          color: var(--money-title);
+          font-weight: 500;">Añadir +</span>
+        </label>`;
       }
 
       let toInner = '';
@@ -366,9 +378,21 @@ function loadOptions() {
   let goals = localStorage.getItem('storageSwitchGoals');
   if (goals == true || goals == 'true') {
     if (language == 'false') {
-      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Goals</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Goals
+      <span onclick="pushToNewGoal()" style="right: 20px;
+          position: absolute;
+          font-size: 14px;
+          color: var(--money-title);
+          font-weight: 500;">Add goal +</span>
+      </label>`;
     } else {
-      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Metas</label>`;
+      userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Metas
+      <span onclick="pushToNewGoal()" style="right: 20px;
+          position: absolute;
+          font-size: 14px;
+          color: var(--money-title);
+          font-weight: 500;">Añadir +</span>
+      </label>`;
     }
     userHomeView.innerHTML += `
       <div class="content" id="homeGoalsContainer" onclick="fn.load('goals.html')" style="margin-bottom: 40px"> 

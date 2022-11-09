@@ -74,8 +74,13 @@ function makeNewMoney() {
     });
   }
 
-  getMoneys();
-  functionPopPage();
+  try {
+    getMoneys();
+    functionPopPage();
+  } catch (error) {
+    functionPopPage();
+    return;
+  }
 
   let cIndex = localStorage.getItem('currentDot');
   showExpensesPerWallet(searchWalletByIndex(cIndex));

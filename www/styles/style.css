@@ -180,10 +180,6 @@
   }
 }
 
-.page--material {
-  margin-top: 16px;
-}
-
 .page__background {
   background: rgb(0, 0, 0);
   background: linear-gradient(180deg, var(--gradient-1) 0%, var(--gradient-2) 100%);

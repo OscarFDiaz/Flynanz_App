@@ -129,9 +129,12 @@ function makeNewGoal() {
       animation: 'ascend',
     });
   }
-
-  getGoals();
-  functionPopPage();
+  try {
+    getGoals();
+    functionPopPage();
+  } catch (error) {
+    functionPopPage();
+  }
 }
 
 /*
