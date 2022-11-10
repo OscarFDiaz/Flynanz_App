@@ -28,12 +28,12 @@ function startTime() {
     updateGolsOnUpdate();
     updateMoneyOnUpdate();
     updateExpensesOnUpdate();
-
-  } else if(currentVersion > appVersion)  {
+  } else if (currentVersion > appVersion) {
     localStorage.setItem('appVersion', '1');
 
     updateGolsOnUpdate();
     updateMoneyOnUpdate();
+    updateExpensesOnUpdate();
   } else {
     // Sino entra, la aplicación es posterior a la actualización
     localStorage.setItem('appVersion', `${currentVersion}`); // Actualizo la versión del storage
@@ -86,15 +86,17 @@ function updateExpensesOnUpdate() {
   if (expenses == null || expenses == 'null' || expenses.length == 0 || expenses.length < 1) {
     return;
   }
-  for (let i = 0; i < expenses.length; i++) {
-    let mGradient = expenses[i].expenseGradient;
 
-    if (mGradient == null || mGradient == '') {
-      expenses[i].moneyGradient = '--gradient_0';
-      expenses[i].expenseColor = '#bfdff8';
-      expenses[i].expenseColor1 = '#f4dcf5';
-      //TODO ICONO
-      localStorage.setItem('expenseStorage', JSON.stringify(expenses));
-    }
+  for (let i = 0; i < expenses.length; i++) {
+    //Gradient and color donut
+    expenses[i].expenseGradient = '--gradient_0';
+    expenses[i].expenseColor = '#bfdff8';
+    expenses[i].expenseColor1 = '#f4dcf5';
+
+    //Icon
+    expenses[i].iconName = 'construction.svg';
+    expenses[i].iconUrl = '/www/assets/icons/icons_list/fix/';
+
+    localStorage.setItem('expenseStorage', JSON.stringify(expenses));
   }
 }

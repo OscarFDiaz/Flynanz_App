@@ -27,7 +27,7 @@
   height: 70px;
   width: 70px;
   margin: -40px 16px 0px 0px;
-  background: var(--flat-button-color);
+  background: var(--icon-holder);
 }
 
 .expenseCard {
@@ -64,8 +64,7 @@
   display: grid;
   height: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  text-align: center;
+  text-align: left;
 }
 
 /* DETAIL EXPENSE */

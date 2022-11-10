@@ -1,158 +1,157 @@
 <ons-page id="editGoal">
-    <ons-toolbar id="toolbar" class="toolbar" modifier="transparent">
-      <div class="left">
-        <ons-back-button onclick="hideAlertNoChange()"></ons-back-button>
+  <ons-toolbar id="toolbar" class="toolbar" modifier="transparent">
+    <div class="left">
+      <ons-back-button onclick="hideAlertNoChange()"></ons-back-button>
+    </div>
+    <div class="center labelToolbar" id="modifyGoalTitle">EDITAR GASTO</div>
+  </ons-toolbar>
+
+  <div style="margin: 20px">
+    <div style="text-align: center; margin-top: 0px">
+      <div>
+        <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalNameAlertEdit">NOMBRE DE LA META</p>
+        <ons-input id="editGoalName" modifier="underbar" placeholder="" type="text" style="display: block"></ons-input>
       </div>
-      <div class="center labelToolbar" id="modifyGoalTitle">EDITAR GASTO</div>
-    </ons-toolbar>
 
-    <div style="margin: 20px">
-        <div style="text-align: center; margin-top: 0px">
-        <div>
-            <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalNameAlertEdit">NOMBRE DE LA META</p>
-            <ons-input id="editGoalName" modifier="underbar" placeholder="" type="text" style="display: block"></ons-input>
-        </div>
+      <div>
+        <p style="margin: 0px auto 0px 12px; text-align: left; padding-top: 16px" id="goalDescriptionAlertEdit">DESCRIPCIÓN</p>
+        <textarea id="editGoalDescription" class="textarea" rows="5" placeholder=""></textarea>
+      </div>
 
-        <div>
-            <p style="margin: 0px auto 0px 12px; text-align: left; padding-top: 16px" id="goalDescriptionAlertEdit">DESCRIPCIÓN</p>
-            <textarea id="editGoalDescription" class="textarea" rows="5" placeholder=""></textarea>
-        </div>
+      <div>
+        <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalMoneyAlertEdit">DINERO NECESARIO</p>
+        <ons-input id="editGoalMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
+      </div>
 
-        <div>
-            <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalMoneyAlertEdit">DINERO NECESARIO</p>
-            <ons-input id="editGoalMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
-        </div>
+      <div>
+        <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalMoneyActualAlertEdit">
+          DINERO ACTUAL
+        </p>
+        <ons-input id="editActualGoalMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
+      </div>
 
-        <div>
-            <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalMoneyActualAlertEdit">
-            DINERO ACTUAL
-            </p>
-            <ons-input id="editActualGoalMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
-        </div>
-
-        <div>
-            <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalDateAlertEdit">FECHA META</p>
-            <ons-input id="editGoalDate" modifier="underbar" placeholder="" type="date" style="display: block"></ons-input>
-        </div>
-        </div>
-        <div id="gradients-container">
-        <p style="margin: 16px auto 0px 12px; text-align: left" id="newMoneyGradientInput">Color</p>
-        <div class="option">
-            <ons-button
-            id="gd-0"
-            class="gradientButton"
-            style="background: var(--gradient_0)"
-            onclick="gradientButtonClick('--gradient_0')"
-            ></ons-button>
-            <ons-button
-            id="gd-1"
-            class="gradientButton"
-            style="background: var(--gradient_1)"
-            onclick="gradientButtonClick('--gradient_1')"
-            ></ons-button>
-            <ons-button
-            id="gd-2"
-            class="gradientButton"
-            style="background: var(--gradient_2)"
-            onclick="gradientButtonClick('--gradient_2')"
-            ></ons-button>
-            <ons-button
-            id="gd-3"
-            class="gradientButton"
-            style="background: var(--gradient_3)"
-            onclick="gradientButtonClick('--gradient_3')"
-            ></ons-button>
-            <ons-button
-            id="gd-4"
-            class="gradientButton"
-            style="background: var(--gradient_4)"
-            onclick="gradientButtonClick('--gradient_4')"
-            ></ons-button>
-            <ons-button
-            id="gd-5"
-            class="gradientButton"
-            style="background: var(--gradient_5)"
-            onclick="gradientButtonClick('--gradient_5')"
-            ></ons-button>
-            <ons-button
-            id="gd-6"
-            class="gradientButton"
-            style="background: var(--gradient_6)"
-            onclick="gradientButtonClick('--gradient_6')"
-            ></ons-button>
-            <ons-button
-            id="gd-7"
-            class="gradientButton"
-            style="background: var(--gradient_7)"
-            onclick="gradientButtonClick('--gradient_7')"
-            ></ons-button>
-            <ons-button
-            id="gd-9"
-            class="gradientButton"
-            style="background: var(--gradient_8)"
-            onclick="gradientButtonClick('--gradient_8')"
-            ></ons-button>
-            <ons-button
-            id="gd-8"
-            class="gradientButton"
-            style="background: var(--gradient_9)"
-            onclick="gradientButtonClick('--gradient_9')"
-            ></ons-button>
-        </div>
-        </div>
+      <div>
+        <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalDateAlertEdit">FECHA META</p>
+        <ons-input id="editGoalDate" modifier="underbar" placeholder="" type="date" style="display: block"></ons-input>
+      </div>
     </div>
-    
-    <div style="margin: 20px">
+    <div id="gradients-container">
+      <p style="margin: 16px auto 0px 12px; text-align: left" id="newMoneyGradientInput">Color</p>
+      <div class="option">
         <ons-button
-            class="flatButton"
-            style="margin-top: 16px; margin-left: 0px; margin-right: 0px"
-            onclick="hideAlertDialog()"
-            id="goalFinishedButtonAlertEdit"
-            >LISTO!</ons-button
-          >
-          <ons-button
-            class="flatButtonLight"
-            style="margin-top: 16px; margin-left: 0px; margin-right: 0px"
-            onclick="hideAlertNoChange()"
-            id="goalCancelButtonAlertEdit"
-            >CANCELAR</ons-button
-          >
+          id="gd-0"
+          class="gradientButton"
+          style="background: var(--gradient_0)"
+          onclick="gradientButtonClick('--gradient_0')"
+        ></ons-button>
+        <ons-button
+          id="gd-1"
+          class="gradientButton"
+          style="background: var(--gradient_1)"
+          onclick="gradientButtonClick('--gradient_1')"
+        ></ons-button>
+        <ons-button
+          id="gd-2"
+          class="gradientButton"
+          style="background: var(--gradient_2)"
+          onclick="gradientButtonClick('--gradient_2')"
+        ></ons-button>
+        <ons-button
+          id="gd-3"
+          class="gradientButton"
+          style="background: var(--gradient_3)"
+          onclick="gradientButtonClick('--gradient_3')"
+        ></ons-button>
+        <ons-button
+          id="gd-4"
+          class="gradientButton"
+          style="background: var(--gradient_4)"
+          onclick="gradientButtonClick('--gradient_4')"
+        ></ons-button>
+        <ons-button
+          id="gd-5"
+          class="gradientButton"
+          style="background: var(--gradient_5)"
+          onclick="gradientButtonClick('--gradient_5')"
+        ></ons-button>
+        <ons-button
+          id="gd-6"
+          class="gradientButton"
+          style="background: var(--gradient_6)"
+          onclick="gradientButtonClick('--gradient_6')"
+        ></ons-button>
+        <ons-button
+          id="gd-7"
+          class="gradientButton"
+          style="background: var(--gradient_7)"
+          onclick="gradientButtonClick('--gradient_7')"
+        ></ons-button>
+        <ons-button
+          id="gd-9"
+          class="gradientButton"
+          style="background: var(--gradient_8)"
+          onclick="gradientButtonClick('--gradient_8')"
+        ></ons-button>
+        <ons-button
+          id="gd-8"
+          class="gradientButton"
+          style="background: var(--gradient_9)"
+          onclick="gradientButtonClick('--gradient_9')"
+        ></ons-button>
+      </div>
     </div>
+  </div>
 
-    <script>
-        document.addEventListener(
-            'init',
-            function (event) {
-            if (event.target.matches('#editGoal')) {
-                createAlertDialogToEditGoal();
-                loadDetailGoal();
-    
-                let languaje = localStorage.getItem('storageSwitchLanguage');
-                if (languaje == 'false') {
-                    /* ALERT QUE MODIFICA TODO */
-                    document.getElementById('modifyGoalTitle').innerHTML = 'Modify goal';
-                    document.getElementById('goalNameAlertEdit').innerHTML = 'Name of the goal';
-                    document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Description';
-                    document.getElementById('goalMoneyAlertEdit').innerHTML = 'Money needed';
-                    document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Current money';
-                    document.getElementById('goalDateAlertEdit').innerHTML = 'Goal date';
-                    document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancel';
-                    document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Finished!';
-                } else {
-                    /* ALERT QUE MODIFICA TODO */
-                    document.getElementById('modifyGoalTitle').innerHTML = 'Modificar meta';
-                    document.getElementById('goalNameAlertEdit').innerHTML = 'Nombre de la meta';
-                    document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Descripción';
-                    document.getElementById('goalMoneyAlertEdit').innerHTML = 'Dinero necesario';
-                    document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Dinero actual';
-                    document.getElementById('goalDateAlertEdit').innerHTML = 'Fecha meta';
-                    document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancelar';
-                    document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Listo!';
-        
-                }
-            }
-        },
-            false
+  <div style="margin: 32px 20px">
+    <ons-button
+      class="flatButton"
+      style="margin-top: 16px; margin-left: 0px; margin-right: 0px"
+      onclick="hideAlertDialog()"
+      id="goalFinishedButtonAlertEdit"
+      >LISTO!</ons-button
+    >
+    <ons-button
+      class="flatButtonLight"
+      style="margin-top: 16px; margin-left: 0px; margin-right: 0px"
+      onclick="hideAlertNoChange()"
+      id="goalCancelButtonAlertEdit"
+      >CANCELAR</ons-button
+    >
+  </div>
+
+  <script>
+    document.addEventListener(
+      'init',
+      function (event) {
+        if (event.target.matches('#editGoal')) {
+          createAlertDialogToEditGoal();
+          loadDetailGoal();
+
+          let languaje = localStorage.getItem('storageSwitchLanguage');
+          if (languaje == 'false') {
+            /* ALERT QUE MODIFICA TODO */
+            document.getElementById('modifyGoalTitle').innerHTML = 'Modify goal';
+            document.getElementById('goalNameAlertEdit').innerHTML = 'Name of the goal';
+            document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Description';
+            document.getElementById('goalMoneyAlertEdit').innerHTML = 'Money needed';
+            document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Current money';
+            document.getElementById('goalDateAlertEdit').innerHTML = 'Goal date';
+            document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancel';
+            document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Finished!';
+          } else {
+            /* ALERT QUE MODIFICA TODO */
+            document.getElementById('modifyGoalTitle').innerHTML = 'Modificar meta';
+            document.getElementById('goalNameAlertEdit').innerHTML = 'Nombre de la meta';
+            document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Descripción';
+            document.getElementById('goalMoneyAlertEdit').innerHTML = 'Dinero necesario';
+            document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Dinero actual';
+            document.getElementById('goalDateAlertEdit').innerHTML = 'Fecha meta';
+            document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancelar';
+            document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Listo!';
+          }
+        }
+      },
+      false
     );
-    </script>
+  </script>
 </ons-page>

@@ -136,7 +136,6 @@ function hideAlertExpense() {
     }
   }
 
-
   // Obtengo el nombre del item, pero es necesario modificar el contador
   let expenseObject = sessionStorage.getItem('sessionFindExpense');
 
@@ -419,6 +418,7 @@ function insertNewExpenseAmount(sendName) {
         totalExpense: newAmount,
         mainDate: mainStorage[i].mainDate,
         iconName: mainStorage[i].iconName,
+        iconUrl: mainStorage[i].iconUrl,
         toShow: mainStorage[i].toShow,
         expenseColor: mainStorage[i].expenseColor,
         expenseColor1: mainStorage[i].expenseColor1,
@@ -454,6 +454,21 @@ function hideEditAlertExpenseNoChange() {
 function editExpense(sendName) {
   sessionStorage.setItem('expenseNameEdit', sendName);
 
+  let expenseStorage = JSON.parse(localStorage.getItem('expenseStorage'));
+
+  // Busco el expense y guardo cosas que pueden omitirse
+  // Icono, iconourl, icono gradient, iconoc1 y c2
+  for (let i = 0; i < expenseStorage.length; i++) {
+    if (expenseStorage[i].expenseName == sendName) {
+      sessionStorage.setItem('expenseIconName', expenseStorage[i].iconName);
+      sessionStorage.setItem('expenseIconUrl', expenseStorage[i].iconUrl);
+      sessionStorage.setItem('tempGradient', expenseStorage[i].expenseGradient);
+      sessionStorage.setItem('colorExpense', expenseStorage[i].expenseColor);
+      sessionStorage.setItem('colorExpense1', expenseStorage[i].expenseColor1);
+      break;
+    }
+  }
+
   const navigator = document.querySelector('#navigator');
   navigator.pushPage('editExpense.html');
 }
@@ -480,11 +495,14 @@ function hideAlertExpenseEditNoChange() {
   }
 }
 
+// MODIFICA TODO EL EXPENSE
 function hideAlertExpenseEdit() {
   let oldName = sessionStorage.getItem('expenseNameEdit');
   let newName = document.getElementById('newExpenseNameEdit').value;
-  let newIcon = sessionStorage.getItem('expenseIconName');
   let toShowN = document.getElementById('switchNewGoalEdit').checked;
+
+  let newIcon = sessionStorage.getItem('expenseIconName');
+  let iconUrl = sessionStorage.getItem('expenseIconUrl');
 
   let expenseGradient = sessionStorage.getItem('tempGradient');
   let expenseColor = sessionStorage.getItem('colorExpense');
@@ -492,11 +510,10 @@ function hideAlertExpenseEdit() {
 
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
-  if(expenseGradient == null || expenseGradient == '') {
+  if (expenseGradient == null || expenseGradient == '') {
     expenseGradient = '--gradient_0';
     expenseColor = '#bfdff8';
     expenseColor1 = '#f4dcf5';
-
   }
 
   if (newName == null || newName == 'null' || newName == '') {
@@ -517,7 +534,11 @@ function hideAlertExpenseEdit() {
   }
 
   if (newIcon == null || newIcon == 'null' || newIcon == '') {
-    newIcon = 'ion-md-airplane';
+    newIcon = 'construction.svg';
+  }
+
+  if (iconUrl == '' || iconUrl == null) {
+    iconUrl = '/www/assets/icons/icons_list/fix/';
   }
 
   let expenseStorage = JSON.parse(localStorage.getItem('expenseStorage'));
@@ -532,6 +553,7 @@ function hideAlertExpenseEdit() {
         totalExpense: expenseStorage[i].totalExpense,
         mainDate: expenseStorage[i].mainDate,
         iconName: newIcon,
+        iconUrl: iconUrl,
         toShow: toShowN,
         expenseColor: expenseColor,
         expenseColor1: expenseColor1,
@@ -573,67 +595,288 @@ function loadIconsEdit() {
   let iconsView = document.getElementById('expenseIconListOfIconsEdit');
   iconsView.innerHTML = '';
 
-  let iconColor = '#68667B';
+  let art = `/www/assets/icons/icons_list/art/`;
+  let artNames = ['brush.svg', 'format_color_fill.svg', 'format_paint.svg', 'imagesearch_roller.svg', 'palette.svg'];
 
-  iconsView.innerHTML = `<i class="expenseIconList ion-md-airplane" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-airplane', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-alarm" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-alarm', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-flame" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-flame', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-aperture" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-aperture', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-baseball" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-baseball', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-basket" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-basket', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-basketball" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-basketball', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-beaker" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-beaker', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-beer" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-beer', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-bicycle" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-bicycle', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-boat" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-boat', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-body" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-body', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-book" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-book', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-brush" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-brush', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-build" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-build', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-bus" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-bus', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-cafe" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-cafe', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-car" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-car', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-cart" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-cart', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-cash" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-cash', '${iconColor}')"></i>
-      <i class="expenseIconList ion-ios-paper" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-ios-paper', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-construct" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-construct', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-desktop" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-desktop', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-eye" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-eye', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-film" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-film', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-fitness" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-fitness', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-flask" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-flask', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-football" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-football', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-gift" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-gift', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-glasses" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-glasses', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-happy" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-happy', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-headset" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-headset', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-heart" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-heart', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-home" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-home', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-pricetags" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-pricetags', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-images" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-images', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-jet" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-jet', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-laptop" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-laptop', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-man" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-man', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-map" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-map', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-medkit" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-medkit', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-microphone" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-microphone', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-bookmarks" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-bookmarks', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-compass" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-compass', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-pin" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-pin', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-pizza" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-pizza', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-print" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-print', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-rose" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-rose', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-school" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-school', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-shirt" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-shirt', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-subway" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-subway', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-umbrella" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-umbrella', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-wallet" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-wallet', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-woman" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-woman', '${iconColor}')"></i>
-      <i class="expenseIconList ion-md-wine" style="--expenseIconColor: ${iconColor}" onclick="selectIconEdit('ion-md-wine', '${iconColor}')"></i>`;
+  let book = `/www/assets/icons/icons_list/books/`;
+  let bookNames = [
+    'play_lesson.svg',
+    'photo_album.svg',
+    'menu_book.svg',
+    'library_books.svg',
+    'import_contacts.svg',
+    'book.svg',
+    'auto_stories.svg',
+  ];
+
+  let builds = `/www/assets/icons/icons_list/builds/`;
+  let buildsNames = [
+    'apartment.svg',
+    'cabin.svg',
+    'cottage.svg',
+    'gite.svg',
+    'home.svg',
+    'home_work.svg',
+    'house.svg',
+    'location_city.svg',
+    'names.txt',
+    'villa.svg',
+  ];
+
+  let camera = `/www/assets/icons/icons_list/camera/`;
+  let cameraNames = ['camera.svg', 'photo_camera.svg', 'video_camera_back.svg', 'videocam.svg'];
+
+  let fix = `/www/assets/icons/icons_list/fix/`;
+  let fixNames = [
+    'build.svg',
+    'construction.svg',
+    'engineering.svg',
+    'filenames.txt',
+    'handyman.svg',
+    'healing.svg',
+    'home_repair_service.svg',
+    'plumbing.svg',
+  ];
+
+  let food = `/www/assets/icons/icons_list/food/`;
+  let foodNames = [
+    'bakery_dining.svg',
+    'brunch_dining.svg',
+    'cake.svg',
+    'coffee.svg',
+    'coffee_maker.svg',
+    'emoji_food_beverage.svg',
+    'fastfood.svg',
+    'filenames.txt',
+    'icecream.svg',
+    'kebab_dining.svg',
+    'liquor.svg',
+    'local_bar.svg',
+    'local_cafe.svg',
+    'local_drink.svg',
+    'local_pizza.svg',
+    'lunch_dining.svg',
+    'ramen_dining.svg',
+    'restaurant.svg',
+    'sports_bar.svg',
+    'takeout_dining.svg',
+  ];
+
+  let fun = `/www/assets/icons/icons_list/fun/`;
+  let funNames = ['attractions.svg', 'celebration.svg', 'festival.svg', 'stadia_controller.svg', 'theater_comedy.svg'];
+
+  let money = `/www/assets/icons/icons_list/money/`;
+  let moneyNames = [
+    'account_balance_wallet.svg',
+    'credit_card.svg',
+    'filenames.txt',
+    'footprint.svg',
+    'local_mall.svg',
+    'monetization_on.svg',
+    'payments.svg',
+    'redeem.svg',
+    'savings.svg',
+    'sell.svg',
+    'shopping_bag.svg',
+    'shopping_cart.svg',
+    'store.svg',
+    'storefront.svg',
+    'styler.svg',
+    'wallet.svg',
+  ];
+
+  let music = `/www/assets/icons/icons_list/music/`;
+  let musicNames = [
+    'audio_file.svg',
+    'auto_detect_voice.svg',
+    'filenames.txt',
+    'headphones.svg',
+    'headset_mic.svg',
+    'music_note.svg',
+    'piano.svg',
+    'settings_voice.svg',
+    'speaker.svg',
+    'volume_up.svg',
+  ];
+
+  let pc = `/www/assets/icons/icons_list/pc/`;
+  let pcNames = ['computer.svg', 'desktop_windows.svg', 'devices.svg', 'mouse.svg', 'print.svg'];
+
+  let sport = `/www/assets/icons/icons_list/sport/`;
+  let sportNames = [
+    'directions_run.svg',
+    'fitness_center.svg',
+    'golf_course.svg',
+    'names.txt',
+    'sports_baseball.svg',
+    'sports_basketball.svg',
+    'sports_cricket.svg',
+    'sports_football.svg',
+    'sports_golf.svg',
+    'sports_handball.svg',
+    'sports_rugby-1.svg',
+    'sports_rugby.svg',
+    'sports_soccer.svg',
+    'sports_tennis.svg',
+    'sports_volleyball.svg',
+  ];
+
+  let time = `/www/assets/icons/icons_list/time/`;
+  let timeNames = ['alarm.svg', 'date_range.svg', 'hourglass_empty.svg', 'schedule.svg', 'watch.svg'];
+
+  let transport = `/www/assets/icons/icons_list/transport/`;
+  let transportNames = [
+    'airport_shuttle.svg',
+    'bike_scooter.svg',
+    'directions_bike.svg',
+    'directions_boat.svg',
+    'directions_bus.svg',
+    'directions_car.svg',
+    'directions_railway.svg',
+    'ev_station.svg',
+    'local_gas_station.svg',
+    'local_shipping.svg',
+    'motorcycle.svg',
+    'names.txt',
+    'sailing.svg',
+    'snowmobile.svg',
+    'tire_repair.svg',
+    'tram.svg',
+  ];
+
+  let travel = `/www/assets/icons/icons_list/travel/`;
+  let travelNames = ['airplane_ticket.svg', 'connecting_airports.svg', 'flight_takeoff.svg', 'luggage.svg', 'map.svg'];
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Arte</p>`;
+  for (let i = 0; i < artNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${art}${artNames[i]}" style="width: 50%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${artNames[i]}', '${art}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${art}${artNames[i]}" style="width: 50%; margin: auto auto;" onclick="selectIconEdit('${artNames[i]}', '${art}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Books</p>`;
+  for (let i = 0; i < bookNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${book}${bookNames[i]}" style="width: 50%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${bookNames[i]}', '${book}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${book}${bookNames[i]}" style="width: 50%; margin: auto auto;" onclick="selectIconEdit('${bookNames[i]}', '${book}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Builds</p>`;
+  for (let i = 0; i < buildsNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${builds}${buildsNames[i]}" style="width: 50%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${buildsNames[i]}', '${builds}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${builds}${buildsNames[i]}" style="width: 50%; margin: auto auto;" onclick="selectIconEdit('${buildsNames[i]}', '${builds}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Camera</p>`;
+  for (let i = 0; i < cameraNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${camera}${cameraNames[i]}" style="width: 50%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${cameraNames[i]}', '${camera}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${camera}${cameraNames[i]}" style="width: 50%; margin: auto auto;" onclick="selectIconEdit('${cameraNames[i]}', '${camera}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Fix</p>`;
+  for (let i = 0; i < fixNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${fix}${fixNames[i]}" style="width: 50%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${fixNames[i]}', '${fix}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${fix}${fixNames[i]}" style="width: 50%; margin: auto auto;" onclick="selectIconEdit('${fixNames[i]}', '${fix}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Food</p>`;
+  for (let i = 0; i < foodNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${food}${foodNames[i]}" style="width: 55%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${foodNames[i]}', '${food}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${food}${foodNames[i]}" style="width: 55%; margin: auto auto;" onclick="selectIconEdit('${foodNames[i]}', '${food}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Fun</p>`;
+  for (let i = 0; i < funNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${fun}${funNames[i]}" style="width: 55%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${funNames[i]}', '${fun}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${fun}${funNames[i]}" style="width: 55%; margin: auto auto;" onclick="selectIconEdit('${funNames[i]}', '${fun}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Money</p>`;
+  for (let i = 0; i < moneyNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${money}${moneyNames[i]}" style="width: 55%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${moneyNames[i]}', '${money}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${money}${moneyNames[i]}" style="width: 55%; margin: auto auto;" onclick="selectIconEdit('${moneyNames[i]}', '${money}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Music</p>`;
+  for (let i = 0; i < musicNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${music}${musicNames[i]}" style="width: 55%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${musicNames[i]}', '${music}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${music}${musicNames[i]}" style="width: 55%; margin: auto auto;" onclick="selectIconEdit('${musicNames[i]}', '${music}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">PC</p>`;
+  for (let i = 0; i < pcNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${pc}${pcNames[i]}" style="width: 55%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${pcNames[i]}', '${pc}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${pc}${pcNames[i]}" style="width: 55%; margin: auto auto;" onclick="selectIconEdit('${pcNames[i]}', '${pc}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Sport</p>`;
+  for (let i = 0; i < sportNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${sport}${sportNames[i]}" style="width: 55%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${sportNames[i]}', '${sport}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${sport}${sportNames[i]}" style="width: 55%; margin: auto auto;" onclick="selectIconEdit('${sportNames[i]}', '${sport}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Time</p>`;
+  for (let i = 0; i < timeNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${time}${timeNames[i]}" style="width: 55%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${timeNames[i]}', '${time}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${time}${timeNames[i]}" style="width: 55%; margin: auto auto;" onclick="selectIconEdit('${timeNames[i]}', '${time}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Transport</p>`;
+  for (let i = 0; i < transportNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${transport}${transportNames[i]}" style="width: 55%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${transportNames[i]}', '${transport}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${transport}${transportNames[i]}" style="width: 55%; margin: auto auto;" onclick="selectIconEdit('${transportNames[i]}', '${transport}')"></img>`;
+    }
+  }
+
+  iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Travel</p>`;
+  for (let i = 0; i < travelNames.length; i++) {
+    if (i == 0) {
+      iconsView.innerHTML += `<img src="${travel}${travelNames[i]}" style="width: 55%; margin: auto auto; grid-column: 1;" onclick="selectIconEdit('${travelNames[i]}', '${travel}')"></img>`;
+    } else {
+      iconsView.innerHTML += `<img src="${travel}${travelNames[i]}" style="width: 55%; margin: auto auto;" onclick="selectIconEdit('${travelNames[i]}', '${travel}')"></img>`;
+    }
+  }
 }
 
-function selectIconEdit(iconName, iconColor) {
+function selectIconEdit(iconName, url) {
   sessionStorage.setItem('expenseIconName', iconName);
+  sessionStorage.setItem('expenseIconUrl', url);
   // Oculto los iconos, ya tengo uno seleccionado
   document.getElementById('expandableListContainerEdit').hideExpansion();
 }
@@ -644,7 +887,7 @@ function deleteDetailExpense(idSend) {
     ons.notification.confirm({
       message: 'Are you sure to erase the expense?',
       title: 'Notice!',
-      buttonLabels: ['YES', 'CANCEL'],
+      buttonLabels: ['Yes, erase', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,

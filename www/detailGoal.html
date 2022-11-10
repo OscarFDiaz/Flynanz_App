@@ -7,9 +7,6 @@
   <!--SE CARGA LOS DETALLES DE LA META-->
   <div id="goalDetailContainer"></div>
 
-  <!-- ALERT DIALOG PARA EDITAR TODA LA META-->
-  
-
   <!--ALERT PARA EDITAR UNICAMENTE EL DINERO-->
   <ons-alert-dialog id="alertEditGoalMoney" modifier="material">
     <div class="alert-dialog-title" style="text-align: center" id="modifyGoalTitleMoney">Modificar dinero</div>
@@ -67,7 +64,6 @@
 
           let languaje = localStorage.getItem('storageSwitchLanguage');
           if (languaje == 'false') {
-
             /* ALERT QUE MODIFICA DINERO */
             document.getElementById('modifyGoalTitleMoney').innerHTML = 'Modify money';
             document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `Current money: $
@@ -77,7 +73,6 @@
             document.getElementById('goalCancelButtonMoneyAlertEdit').innerHTML = 'Cancel';
             document.getElementById('goalFinishedButtonMoneyAlertEdit').innerHTML = 'Finished!';
           } else {
-
             /* ALERT QUE MODIFICA DINERO */
             document.getElementById('modifyGoalTitleMoney').innerHTML = 'Modificar dinero';
             document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `Dinero actual: $

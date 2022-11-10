@@ -153,12 +153,13 @@
             document.getElementById('newExpenseNameEdit').value = expenseNameEdit;
 
             let expenseS = JSON.parse(localStorage.getItem('expenseStorage'));
-            let expenseIcon, expenseColor, isChecked;
+            let expenseIcon, iconUrl, expenseColor, isChecked;
             let expenseInfoInsert = document.getElementById('expenseInfoInsert');
 
             for (let i = 0; i < expenseS.length; i++) {
               if (expenseS[i].expenseName == expenseNameEdit) {
                 expenseIcon = expenseS[i].iconName;
+                iconUrl = expenseS[i].iconUrl;
                 expenseColor = expenseS[i].expenseColor;
                 //Seteo el switch
                 isChecked = expenseS[i].toShow;
