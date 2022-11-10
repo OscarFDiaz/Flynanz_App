@@ -33,7 +33,6 @@ function loadIcons() {
     'home_work.svg',
     'house.svg',
     'location_city.svg',
-    'names.txt',
     'villa.svg',
   ];
 
@@ -45,7 +44,6 @@ function loadIcons() {
     'build.svg',
     'construction.svg',
     'engineering.svg',
-    'filenames.txt',
     'handyman.svg',
     'healing.svg',
     'home_repair_service.svg',
@@ -61,7 +59,6 @@ function loadIcons() {
     'coffee_maker.svg',
     'emoji_food_beverage.svg',
     'fastfood.svg',
-    'filenames.txt',
     'icecream.svg',
     'kebab_dining.svg',
     'liquor.svg',
@@ -83,7 +80,6 @@ function loadIcons() {
   let moneyNames = [
     'account_balance_wallet.svg',
     'credit_card.svg',
-    'filenames.txt',
     'footprint.svg',
     'local_mall.svg',
     'monetization_on.svg',
@@ -103,7 +99,6 @@ function loadIcons() {
   let musicNames = [
     'audio_file.svg',
     'auto_detect_voice.svg',
-    'filenames.txt',
     'headphones.svg',
     'headset_mic.svg',
     'music_note.svg',
@@ -121,14 +116,12 @@ function loadIcons() {
     'directions_run.svg',
     'fitness_center.svg',
     'golf_course.svg',
-    'names.txt',
     'sports_baseball.svg',
     'sports_basketball.svg',
     'sports_cricket.svg',
     'sports_football.svg',
     'sports_golf.svg',
     'sports_handball.svg',
-    'sports_rugby-1.svg',
     'sports_rugby.svg',
     'sports_soccer.svg',
     'sports_tennis.svg',
@@ -151,7 +144,6 @@ function loadIcons() {
     'local_gas_station.svg',
     'local_shipping.svg',
     'motorcycle.svg',
-    'names.txt',
     'sailing.svg',
     'snowmobile.svg',
     'tire_repair.svg',
@@ -334,7 +326,7 @@ function makeNewExpense() {
   }
 
   if (iconUrl == '' || iconUrl == null) {
-    iconName = '/www/assets/icons/icons_list/fix/';
+    iconUrl = '/www/assets/icons/icons_list/fix/';
   }
 
   let expense = {

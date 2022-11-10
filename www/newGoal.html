@@ -46,6 +46,27 @@
       </div>
     </div>
 
+    <!--Seleccion de icono-->
+    <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--card-content-text-color)" id="newGoalIcon">
+      SELECCIONA UN ICONO
+    </p>
+    <div style="border: 2px solid var(--color-input); border-radius: 15px; margin-bottom: 16px">
+      <ons-list style="background: none; margin-top: -16px">
+        <ons-list-item id="expandableListContainerGoal" expandable>
+          <p
+            style="margin: 0px auto 0px 12px; text-align: left; color: var(--card-content-text-color)"
+            id="newExpenseIconLabelGoal"
+          >
+            CLICK PARA CAMBIAR
+          </p>
+          <div class="expandable-content" id="expenseIconListOfIconsGoal">
+            <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
+          </div>
+        </ons-list-item>
+      </ons-list>
+    </div>
+
+    <!--Seleccion de degradado-->
     <div id="gradients-container">
       <p style="margin: 0px auto 0px 12px; text-align: left" id="newMoneyGradientInput">Color</p>
       <div class="option">
@@ -146,6 +167,8 @@
               document.getElementById('newGoalDescInput').innerHTML = 'Goal description';
               document.getElementById('newGoalMoneyInput').innerHTML = 'Money needed';
               document.getElementById('newMoneyDateInput').innerHTML = 'Goal Date';
+              document.getElementById('newGoalIcon').innerHTML = 'Select an icon';
+              document.getElementById('newExpenseIconLabelGoal').innerHTML = 'Click to change';
               document.getElementById('newGoalFinishedButton').innerHTML = 'Finished!';
               document.getElementById('newGoalCancelButton').innerHTML = 'Cancel';
             } else {
@@ -154,9 +177,14 @@
               document.getElementById('newGoalDescInput').innerHTML = 'Descripción de la meta';
               document.getElementById('newGoalMoneyInput').innerHTML = 'Dinero necesario';
               document.getElementById('newMoneyDateInput').innerHTML = 'Fecha de la meta';
+              document.getElementById('newGoalIcon').innerHTML = 'Selecciona un icono';
+              document.getElementById('newExpenseIconLabelGoal').innerHTML = 'Click para cambiar';
               document.getElementById('newGoalFinishedButton').innerHTML = 'Listo!';
-              document.getElementById('newGoalCancelButton').innerHTML = 'Cancelar';
+              document.getElementById('newGoalCancelButton').innerHTML = 'Cancelar'; newGoalIcon
             }
+
+            //Cargo los iconos
+            loadIconsGoal();
           });
         }
       },

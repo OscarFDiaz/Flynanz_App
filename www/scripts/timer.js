@@ -54,13 +54,19 @@ function updateGolsOnUpdate() {
 
   for (let i = 0; i < goals.length; i++) {
     let gGradient = goals[i].goalGradient;
+    let gIconName = goals[i].iconName;
 
     if (gGradient == null || gGradient == '') {
       goals[i].goalGradient = '--gradient_0';
-      //TODO ICONO
-      localStorage.setItem('goalStorage', JSON.stringify(goals));
+    }
+    
+    if(gIconName == null || gIconName == '') {
+      goals[i].iconName = 'format_paint.svg';
+      goals[i].iconUrl = '/www/assets/icons/icons_list/art/';
     }
   }
+  
+  localStorage.setItem('goalStorage', JSON.stringify(goals));
 }
 
 function updateMoneyOnUpdate() {

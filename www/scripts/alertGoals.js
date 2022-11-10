@@ -7,6 +7,9 @@ function hideAlertDialog() {
   let goalDate = document.getElementById('editGoalDate').value;
 
   let goalGradient = sessionStorage.getItem('tempGradient');
+  //Nombre de expense para reciclar memoria
+  let iconUrl = sessionStorage.getItem('expenseIconUrl');
+  let iconName = sessionStorage.getItem('expenseIconName');
 
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
 
@@ -108,6 +111,14 @@ function hideAlertDialog() {
     goalGradient = '--gradient_1';
   }
 
+  if (iconName == '' || iconName == null) {
+    iconName = 'format_paint.svg';
+  }
+
+  if (iconUrl == '' || iconUrl == null) {
+    iconUrl = '/www/assets/icons/icons_list/art/';
+  }
+
   for (let i = 0; i < goals.length; i++) {
     if (goals[i].goalName == sName) {
       indexGoal = i; //Pongo la posición donde esta mi objeto que modificare
@@ -119,6 +130,8 @@ function hideAlertDialog() {
         goalMoney: goalMoney,
         goalDate: goalDate,
         goalGradient: goalGradient,
+        iconName: iconName,
+        iconUrl: iconUrl,
       };
 
       if (localStorage.getItem('goalStorage') === null) {
@@ -342,6 +355,8 @@ function hideAlertDialogMoney() {
         goalMoney: goals[i].goalMoney,
         goalDate: goals[i].goalDate,
         goalGradient: goals[i].goalGradient,
+        iconName: goals[i].iconName,
+        iconUrl: goals[i].iconUrl,
       };
 
       // Modifico los elementos para actualizar el dinero y % mostrado

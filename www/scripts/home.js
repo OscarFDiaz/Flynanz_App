@@ -477,6 +477,9 @@ function getTotalGoals() {
     let gAMoney = goals[i].goalActualMoney;
     let gGradient = goals[i].goalGradient;
 
+    let eicon = goals[i].iconName;
+    let eiconUrl = goals[i].iconUrl;
+
     let gMoneyTS = formatMoney(gMoney);
     let gAMoneyTS = formatMoney(gAMoney);
 
@@ -489,7 +492,9 @@ function getTotalGoals() {
         <div class="progressBarPercent" style="--width: ${gPercent}" id="${gName}-pbar"></div> 
       </div> 
       <div class="goalInfo">
-        <ion-icon name="wallet" class="goalIcon" style="font-size: 32px"></ion-icon>
+        <div>
+          <img src="${eiconUrl}${eicon}" alt="saving icon" style="width: 100%">
+        </div>
         <div class="title goalTitle" id="titleGoal">
           ${gName}
         </div>

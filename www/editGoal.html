@@ -3,7 +3,7 @@
     <div class="left">
       <ons-back-button onclick="hideAlertNoChange()"></ons-back-button>
     </div>
-    <div class="center labelToolbar" id="modifyGoalTitle">EDITAR GASTO</div>
+    <div class="center labelToolbar" id="modifyGoalTitle">Editar meta</div>
   </ons-toolbar>
 
   <div style="margin: 20px">
@@ -35,6 +35,28 @@
         <ons-input id="editGoalDate" modifier="underbar" placeholder="" type="date" style="display: block"></ons-input>
       </div>
     </div>
+
+    <!--Seleccion de icono-->
+    <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--card-content-text-color)" id="newGoalIconEdit">
+      SELECCIONA UN ICONO
+    </p>
+    <div style="border: 2px solid var(--color-input); border-radius: 15px; margin-bottom: 16px">
+      <ons-list style="background: none; margin-top: -16px">
+        <ons-list-item id="expandableListContainerGoalEdit" expandable>
+          <p
+            style="margin: 0px auto 0px 12px; text-align: left; color: var(--card-content-text-color)"
+            id="newExpenseIconLabelGoalEdit"
+          >
+            CLICK PARA CAMBIAR
+          </p>
+          <div class="expandable-content" id="expenseIconListOfIconsGoalEdit">
+            <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
+          </div>
+        </ons-list-item>
+      </ons-list>
+    </div>
+
+    <!--Seleccion de degradado-->
     <div id="gradients-container">
       <p style="margin: 16px auto 0px 12px; text-align: left" id="newMoneyGradientInput">Color</p>
       <div class="option">
@@ -124,31 +146,40 @@
       'init',
       function (event) {
         if (event.target.matches('#editGoal')) {
-          createAlertDialogToEditGoal();
-          loadDetailGoal();
-
-          let languaje = localStorage.getItem('storageSwitchLanguage');
-          if (languaje == 'false') {
-            /* ALERT QUE MODIFICA TODO */
-            document.getElementById('modifyGoalTitle').innerHTML = 'Modify goal';
-            document.getElementById('goalNameAlertEdit').innerHTML = 'Name of the goal';
-            document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Description';
-            document.getElementById('goalMoneyAlertEdit').innerHTML = 'Money needed';
-            document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Current money';
-            document.getElementById('goalDateAlertEdit').innerHTML = 'Goal date';
-            document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancel';
-            document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Finished!';
-          } else {
-            /* ALERT QUE MODIFICA TODO */
-            document.getElementById('modifyGoalTitle').innerHTML = 'Modificar meta';
-            document.getElementById('goalNameAlertEdit').innerHTML = 'Nombre de la meta';
-            document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Descripción';
-            document.getElementById('goalMoneyAlertEdit').innerHTML = 'Dinero necesario';
-            document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Dinero actual';
-            document.getElementById('goalDateAlertEdit').innerHTML = 'Fecha meta';
-            document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancelar';
-            document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Listo!';
-          }
+          ons.ready(function(){
+            createAlertDialogToEditGoal();
+            loadDetailGoal();
+            
+  
+            let languaje = localStorage.getItem('storageSwitchLanguage');
+            if (languaje == 'false') {
+              /* ALERT QUE MODIFICA TODO */
+              document.getElementById('modifyGoalTitle').innerHTML = 'Modify goal';
+              document.getElementById('goalNameAlertEdit').innerHTML = 'Name of the goal';
+              document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Description';
+              document.getElementById('goalMoneyAlertEdit').innerHTML = 'Money needed';
+              document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Current money';
+              document.getElementById('goalDateAlertEdit').innerHTML = 'Goal date';
+              document.getElementById('newGoalIconEdit').innerHTML = 'Select an icon';
+              document.getElementById('newExpenseIconLabelGoalEdit').innerHTML = 'Click to change';
+              document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancel';
+              document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Finished!';
+            } else {
+              /* ALERT QUE MODIFICA TODO */
+              document.getElementById('modifyGoalTitle').innerHTML = 'Modificar meta';
+              document.getElementById('goalNameAlertEdit').innerHTML = 'Nombre de la meta';
+              document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Descripción';
+              document.getElementById('goalMoneyAlertEdit').innerHTML = 'Dinero necesario';
+              document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Dinero actual';
+              document.getElementById('goalDateAlertEdit').innerHTML = 'Fecha meta';
+              document.getElementById('newGoalIconEdit').innerHTML = 'Selecciona un icono';
+              document.getElementById('newExpenseIconLabelGoalEdit').innerHTML = 'Click para cambiar';
+              document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancelar';
+              document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Listo!';
+            }
+            //Cargo los iconos
+            loadIconsGoalEdit();
+          });
         }
       },
       false
