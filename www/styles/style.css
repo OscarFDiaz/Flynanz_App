@@ -69,12 +69,138 @@
   --spiner-front-color: #272443;
 
   /* ICONOS MENÚ & TEXTO MENU*/ 
-  --icon-home: #272443;
-  --icon-goals: #272443;
-  --icon-savings: #272443;
-  --icon-expenses: #272443;
-  --icon-money: #272443;
-  --icon-config: #272443;
+  --icon-holder: none;
+
+  --menu-icon-color: #272443;
+  --menu-font-color: #272443;
+
+  /* TOOLBAR */
+  --toolbar-color: #0d2840;
+  --label-toolbar-color: #272443;
+  --back-button-color: #272443;
+  --menu-button-color: #272443;
+
+  /* CHEVRON */
+  --chevron-color: #272443;
+
+  /* TEXTOS */
+  --item-list-config: #68667B;
+  --text-without-card: #272443;
+  --text-without-card-balance: #68667B;
+
+  --expense-title: #272443;
+  --expense-info: #68667B;
+  --expense-detail: #68667B;
+  --expense-detail-money: #272443;
+
+  --detail-goal-title-color: #272443;
+  --detail-goal-content-color: #272443;
+  --detail-money-goal: #272443;
+
+  --goal-title-color: #272443;
+  --goal-money-color: #272443;
+  --goal-icon-color: #272443;
+  --goal-info-color: #272443;
+
+  --home-total-money: #272443;
+  --home-goal-label: #68667B;
+  --para-home-options: #68667B;
+  --home-options-labels: #68667B;
+
+  --money-title: #68667B;
+  --money-info: #272443;
+  --money-delete-button: #ffffff;
+
+  --saving-main-title: #68667B;
+  --saving-info: #272443;
+  --saving-title: #68667B;
+  --saving-daily: #272443;
+  --saving-days-title: #68667B;
+  --saving-days-left: #272443;
+
+  --saving-edit-label-range: #68667B;
+  --saving-edit-range-selected: #68667B;
+  --saving-edit-selected-range: #272443;
+  --entry-amount-text: #68667B;
+  --entry-amount-detail: #272443;
+
+  /* SWITCH */
+  --switch-button-round: #272443;
+  --switch-back-off: #E5E7ED;
+  --switch-back-on: #68667B;
+
+  /* INPUT */
+  --color-input: #E5E7ED;
+  --color-input-text: #272443;
+
+  /* TEXT AREA */
+  --text-area-border-color: #272443;
+  --text-area-text-color: #272443;
+
+  /* ALERT DIALOG */
+  --alert-tile-color: #272443;
+  --alert-container-color: #ffffff;
+  --alert-footer-color: #272443;
+  --alert-content-text-color: #272443;
+  --alert-button-color-text: #ffffff;
+
+  --alert-custom-label: #68667B;
+  --alert-custom-label-money: #272443;
+
+  /* TOAST */
+  --toast-back-color: #272443;
+  --toast-message-color: #ffffff;
+
+  /* PROGRESSBAR */
+  --progressbar-back-color: #68667B;
+  --progressbar-main-color: #272443;
+
+  /* CARDS */
+  --card-back-color: #FFFFFF;
+  --card-text-title-color: #272443;
+  --card-content-text-color: #272443;
+  --card-border-color: #E5E7ED;
+
+  /* BUTTONS */
+  --flat-button-color: #272443;
+  --flat-button-color-text: #ffffff;
+  --flat-button-active-color: #272443;
+
+  --flat-button-light-color: #ffffff;
+  --flat-button-light-color-text: #272443;
+  --flat-button-light-active-color: #05565f;
+}
+
+.theme-dark {
+  /* COLORES */
+  --color: #0d2840;
+  --color-1: #0e5259;
+  --color-2: #0596a6;
+  --color-3: #9cd9ce;
+  --color-4: #f5a11b;
+  --color-5: #ffffff;
+
+  /* DEGRADADOS SELECCIONABLES */
+  --gradient_0: linear-gradient(90deg, #bfdff8 0%, #f4dcf5 100%);
+  --gradient_1: linear-gradient(90deg, #e1f0e1 0%, #aadfda 100%);
+  --gradient_2: linear-gradient(90deg, #b3dbf1 0%, #beedf5 100%);
+  --gradient_3: linear-gradient(90deg, #f6e6cf 0%, #f3ccc4 100%);
+  --gradient_4: linear-gradient(90deg, #ff8abe 0%, #fce9d0 100%);
+  --gradient_5: linear-gradient(90deg, #96c1dc 0%, #d9d4ed 100%);
+  --gradient_6: linear-gradient(90deg, #74f2ce 0%, #7cffcb 100%);
+  --gradient_7: linear-gradient(90deg, #7ee8fa 0%, #eec0c6 100%);
+  --gradient_8: linear-gradient(90deg, #b0f3f1 0%, #ffcfdf 100%);
+  --gradient_9: linear-gradient(90deg, #fb8085 0%, #f9c1b1 100%);
+ 
+  /* DEGRADADO */
+  --gradient-1: #000;
+  --gradient-2: #000;
+
+  /* SPINNER ONLOAD PAGE*/
+  --spiner-back-color: #E5E7ED;
+  --spiner-front-color: #272443;
+
+  /* ICONOS MENÚ & TEXTO MENU*/
 
   --icon-holder: none;
 

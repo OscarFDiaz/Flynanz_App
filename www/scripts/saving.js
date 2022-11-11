@@ -441,6 +441,10 @@ function loadSaving() {
   let sMoneyDayLeft = formatMoney(savingStorage.moneyLeft);
   let savedMoney = localStorage.getItem('savedMoneySaving');
 
+  if (savedMoney == null || savedMoney == '0') {
+    savedMoney = 0.0;
+  }
+
   if (languaje == 'false') {
     sView.innerHTML = `<div style="margin: 20px">
       <div class="title mainTitle">

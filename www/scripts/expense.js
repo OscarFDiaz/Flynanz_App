@@ -284,7 +284,7 @@ function selectIcon(iconName, url) {
   sessionStorage.setItem('expenseIconName', iconName);
   sessionStorage.setItem('expenseIconUrl', url);
   // Oculto los iconos, ya tengo uno seleccionado
-  document.getElementById('expandableListContainer').hideExpansion();
+  document.getElementById('expandableListContainerExpense').hideExpansion();
 }
 
 function makeNewExpense() {
@@ -313,6 +313,23 @@ function makeNewExpense() {
       });
     } else {
       ons.notification.toast('Un momento, el gasto necesita un nombre!', {
+        title: 'Error!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+
+  if (expenseGradient == '' || expenseGradient == null) {
+    if (languaje == 'false') {
+      ons.notification.toast('Wait, please select a color!', {
+        title: 'Error!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('Un momento, debes seleccionar un color!', {
         title: 'Error!',
         timeout: 2000,
         animation: 'ascend',
@@ -537,7 +554,7 @@ function getExpenses() {
     let eGradient = expenses[i].expenseGradient;
 
     if (languaje == 'false') {
-      expensesView.innerHTML += `<ons-card class="expenseCard" style="background: var(${eGradient})">
+      expensesView.innerHTML += `<ons-card class="expenseCard" style="background: var(${eGradient}); border: none">
         <div class="title expenseTitle" onclick="findExpense('${eName}')" style="padding: 16px 16px 0px 16px">
           ${eName}
         </div>
@@ -555,7 +572,7 @@ function getExpenses() {
         </ons-button>
       </ons-card>`;
     } else {
-      expensesView.innerHTML += `<ons-card class="expenseCard" style="background: var(${eGradient})">
+      expensesView.innerHTML += `<ons-card class="expenseCard" style="background: var(${eGradient}); border: none">
         <div class="title expenseTitle" onclick="findExpense('${eName}')" style="padding: 16px 16px 0px 16px">
           ${eName}  
         </div>

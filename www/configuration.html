@@ -16,7 +16,6 @@
       <span id="itemThemeScreen">TEMA</span>
       <div class="right">
         <ons-switch id="switchTheme"></ons-switch>
-        <!--TODO: CAMBIAR DE TEMA ENTRE CLARO Y OSCURO-->
       </div>
     </ons-list-item>
     <ons-list-item modifier="chevron nodivider" class="itemListConfiguration" tappable onclick="pushToTutorialOptions()">
@@ -39,6 +38,36 @@
       function (event) {
         if (event.target.matches('#configuration')) {
           localStorage.setItem('actuaPage', 'configuration.html');
+
+          /* Pongo el swith dependiendo del tema*/
+          let swicthR = localStorage.getItem('userTheme');
+          console.log('Storage' + swicthR);
+          if (swicthR == null || swicthR == '') {
+            document.getElementById('switchTheme').removeAttribute('checked');
+            setTheme('theme-default');
+          } else if (swicthR == 'theme-default') {
+            document.getElementById('switchTheme').removeAttribute('checked');
+          } else if (swicthR == 'theme-dark') {
+            document.getElementById('switchTheme').setAttribute('checked', true);
+          } else {
+            document.getElementById('switchTheme').removeAttribute('checked');
+            setTheme('theme-default');
+          }
+
+          // Cambio el tema dependiendo del lado switch al moverlo
+          let themeStatus = false;
+          document.getElementById('switchTheme').addEventListener('change', function (e) {
+            themeStatus = e.target.checked;
+            console.log(themeStatus);
+
+            if (themeStatus == false) {
+              setTheme('theme-default');
+            } else if (themeStatus == true) {
+              setTheme('theme-dark');
+            } else {
+              setTheme('theme-default');
+            }
+          });
 
           let language = localStorage.getItem('storageSwitchLanguage');
           if (language == 'false') {

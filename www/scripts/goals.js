@@ -392,7 +392,7 @@ function makeNewGoal() {
     if (iconName == '' || iconName == null) {
       iconName = 'construction.svg';
     }
-  
+
     if (iconUrl == '' || iconUrl == null) {
       iconUrl = '/www/assets/icons/icons_list/fix/';
     }
@@ -813,7 +813,7 @@ function loadDetailGoal() {
     goalsView.innerHTML = '';
 
     goalsView.innerHTML += `
-      <ons-card style="padding: 16px 0px 0px 0px; background: var(${gGradient})" class="goalCard">
+      <ons-card style="padding: 16px 0px 0px 0px; background: var(${gGradient}); border: none" class="goalCard">
         
         <!--ProgressBar-->
         <!--ActualMoney-->
@@ -882,7 +882,7 @@ function loadDetailGoal() {
     goalsView.innerHTML = '';
 
     goalsView.innerHTML += `
-      <ons-card style="padding: 16px 0px 0px 0px; background: var(${gGradient})" class="goalCard">
+      <ons-card style="padding: 16px 0px 0px 0px; background: var(${gGradient}); border: none" class="goalCard">
         
         <!--ProgressBar-->
         <!--ActualMoney-->
