@@ -14,8 +14,10 @@
     </ons-list-item>
     <ons-list-item modifier="nodivider" class="itemListConfiguration">
       <span id="itemThemeScreen">TEMA</span>
-      <div class="right">
+      <div class="right" style="padding-right: 0px;">
+        <img src="/www/assets/icons/brightness_low.svg" style="width: 55%; margin: auto auto; padding-right: 16px;"></img>
         <ons-switch id="switchTheme"></ons-switch>
+        <img src="/www/assets/icons/dark_mode.svg" style="width: 55%; margin: auto auto; padding-left: 16px;"></img>
       </div>
     </ons-list-item>
     <ons-list-item modifier="chevron nodivider" class="itemListConfiguration" tappable onclick="pushToTutorialOptions()">
@@ -41,7 +43,6 @@
 
           /* Pongo el swith dependiendo del tema*/
           let swicthR = localStorage.getItem('userTheme');
-          console.log('Storage' + swicthR);
           if (swicthR == null || swicthR == '') {
             document.getElementById('switchTheme').removeAttribute('checked');
             setTheme('theme-default');
@@ -58,7 +59,6 @@
           let themeStatus = false;
           document.getElementById('switchTheme').addEventListener('change', function (e) {
             themeStatus = e.target.checked;
-            console.log(themeStatus);
 
             if (themeStatus == false) {
               setTheme('theme-default');
