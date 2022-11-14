@@ -2,10 +2,10 @@ function loadIconsGoal() {
   let iconsView = document.getElementById('expenseIconListOfIconsGoal');
   iconsView.innerHTML = '';
 
-  let art = `/www/assets/icons/icons_list/art/`;
+  let art = `./assets/icons/icons_list/art/`;
   let artNames = ['brush.png', 'format_color_fill.png', 'format_paint.png', 'imagesearch_roller.png', 'palette.png'];
 
-  let book = `/www/assets/icons/icons_list/books/`;
+  let book = `./assets/icons/icons_list/books/`;
   let bookNames = [
     'play_lesson.png',
     'photo_album.png',
@@ -16,7 +16,7 @@ function loadIconsGoal() {
     'auto_stories.png',
   ];
 
-  let builds = `/www/assets/icons/icons_list/builds/`;
+  let builds = `./assets/icons/icons_list/builds/`;
   let buildsNames = [
     'apartment.png',
     'cabin.png',
@@ -29,10 +29,10 @@ function loadIconsGoal() {
     'villa.png',
   ];
 
-  let camera = `/www/assets/icons/icons_list/camera/`;
+  let camera = `./assets/icons/icons_list/camera/`;
   let cameraNames = ['camera.png', 'photo_camera.png', 'video_camera_back.png', 'videocam.png'];
 
-  let fix = `/www/assets/icons/icons_list/fix/`;
+  let fix = `./assets/icons/icons_list/fix/`;
   let fixNames = [
     'build.png',
     'construction.png',
@@ -43,7 +43,7 @@ function loadIconsGoal() {
     'plumbing.png',
   ];
 
-  let food = `/www/assets/icons/icons_list/food/`;
+  let food = `./assets/icons/icons_list/food/`;
   let foodNames = [
     'bakery_dining.png',
     'brunch_dining.png',
@@ -66,10 +66,10 @@ function loadIconsGoal() {
     'takeout_dining.png',
   ];
 
-  let fun = `/www/assets/icons/icons_list/fun/`;
+  let fun = `./assets/icons/icons_list/fun/`;
   let funNames = ['attractions.png', 'celebration.png', 'festival.png', 'stadia_controller.png', 'theater_comedy.png'];
 
-  let money = `/www/assets/icons/icons_list/money/`;
+  let money = `./assets/icons/icons_list/money/`;
   let moneyNames = [
     'account_balance_wallet.png',
     'credit_card.png',
@@ -88,7 +88,7 @@ function loadIconsGoal() {
     'wallet.png',
   ];
 
-  let music = `/www/assets/icons/icons_list/music/`;
+  let music = `./assets/icons/icons_list/music/`;
   let musicNames = [
     'audio_file.png',
     'auto_detect_voice.png',
@@ -101,10 +101,10 @@ function loadIconsGoal() {
     'volume_up.png',
   ];
 
-  let pc = `/www/assets/icons/icons_list/pc/`;
+  let pc = `./assets/icons/icons_list/pc/`;
   let pcNames = ['computer.png', 'desktop_windows.png', 'devices.png', 'mouse.png', 'print.png'];
 
-  let sport = `/www/assets/icons/icons_list/sport/`;
+  let sport = `./assets/icons/icons_list/sport/`;
   let sportNames = [
     'directions_run.png',
     'fitness_center.png',
@@ -121,10 +121,10 @@ function loadIconsGoal() {
     'sports_volleyball.png',
   ];
 
-  let time = `/www/assets/icons/icons_list/time/`;
+  let time = `./assets/icons/icons_list/time/`;
   let timeNames = ['alarm.png', 'date_range.png', 'hourglass_empty.png', 'schedule.png', 'watch.png'];
 
-  let transport = `/www/assets/icons/icons_list/transport/`;
+  let transport = `./assets/icons/icons_list/transport/`;
   let transportNames = [
     'airport_shuttle.png',
     'bike_scooter.png',
@@ -143,7 +143,7 @@ function loadIconsGoal() {
     'tram.png',
   ];
 
-  let travel = `/www/assets/icons/icons_list/travel/`;
+  let travel = `./assets/icons/icons_list/travel/`;
   let travelNames = ['airplane_ticket.png', 'connecting_airports.png', 'flight_takeoff.png', 'luggage.png', 'map.png'];
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Arte</p>`;
@@ -394,7 +394,7 @@ function makeNewGoal() {
     }
 
     if (iconUrl == '' || iconUrl == null) {
-      iconUrl = '/www/assets/icons/icons_list/fix/';
+      iconUrl = './assets/icons/icons_list/fix/';
     }
 
     let goalTest = Math.sign(goalMoney);
@@ -841,7 +841,7 @@ function loadDetailGoal() {
           <div style="height: 80px;">
 
             <div class="iconSavedMoney" style="display: flex; justify-content: space-around;  margin-left:0px; background: var(--fab-button)" >
-              <img src="/www/assets/icons/calendarIcon.png" alt="saving icon">
+              <img src="./assets/icons/calendarIcon.png" alt="saving icon">
             </div>
             <label class="moneyDetailGoal" style="display: block; position: relative; top: -75px; left: 76px; font-size: 14px;">
               ${nModifyDate}
@@ -861,7 +861,7 @@ function loadDetailGoal() {
       </ons-button>
       
       <ons-fab position="bottom right" onclick="editGoal('${gName}')" style="display: flex; justify-content: space-around">
-        <img src="/www/assets/icons/editButton.png" alt="saving icon" style="width: 32px; margin-top: 30%;">
+        <img src="./assets/icons/editButton.png" alt="saving icon" style="width: 32px; margin-top: 30%;">
       </ons-fab>`;
   } else {
     if (Math.sign(days) == 1 || Math.sign(days) == '1') {
@@ -910,7 +910,7 @@ function loadDetailGoal() {
           <div style="height: 80px;">
 
             <div class="iconSavedMoney" style="display: flex; justify-content: space-around;  margin-left:0px; background: var(--fab-button)" >
-              <img src="/www/assets/icons/calendarIcon.png" alt="saving icon">
+              <img src="./assets/icons/calendarIcon.png" alt="saving icon">
             </div>
             <label class="moneyDetailGoal" style="display: block; position: relative; top: -75px; left: 76px; font-size: 14px;">
               ${nModifyDate}
@@ -930,7 +930,7 @@ function loadDetailGoal() {
       </ons-button>
       
       <ons-fab position="bottom right" onclick="editGoal('${gName}')" style="display: flex; justify-content: space-around">
-        <img src="/www/assets/icons/editButton.png" alt="saving icon" style="width: 32px; margin-top: 30%;">
+        <img src="./assets/icons/editButton.png" alt="saving icon" style="width: 32px; margin-top: 30%;">
       </ons-fab>`;
   }
 }

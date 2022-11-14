@@ -19,18 +19,18 @@ function startTime() {
    * Si la versión es anterior a esta es necesario hacer comprobaciones para evitar
    * que los datos se dañen por las nuevas configuraciones
    */
-  let currentVersion = 1; // Versión actual de la app
+  let currentVersion = 3; // Versión actual de la app
   let appVersion = localStorage.getItem('appVersion');
 
   if (appVersion == null || appVersion == '') {
     // Si entra la aplicación es posterior a la nueva actualización
-    localStorage.setItem('appVersion', '1');
+    localStorage.setItem('appVersion', '3');
 
     updateGolsOnUpdate();
     updateMoneyOnUpdate();
     updateExpensesOnUpdate();
   } else if (currentVersion > appVersion) {
-    localStorage.setItem('appVersion', '1');
+    localStorage.setItem('appVersion', '3');
 
     updateGolsOnUpdate();
     updateMoneyOnUpdate();
@@ -54,17 +54,13 @@ function updateGolsOnUpdate() {
   }
 
   for (let i = 0; i < goals.length; i++) {
-    let gGradient = goals[i].goalGradient;
-    let gIconName = goals[i].iconName;
+    goals[i].goalGradient = '--gradient_0';
 
-    if (gGradient == null || gGradient == '') {
-      goals[i].goalGradient = '--gradient_0';
-    }
+    goals[i].iconName = 'format_paint.png';
+    goals[i].iconUrl = './assets/icons/icons_list/art/';
 
-    if (gIconName == null || gIconName == '') {
-      goals[i].iconName = 'format_paint.svg';
-      goals[i].iconUrl = '/www/assets/icons/icons_list/art/';
-    }
+    goals[i].iconName = 'format_paint.png';
+    goals[i].iconUrl = './assets/icons/icons_list/art/';
   }
 
   localStorage.setItem('goalStorage', JSON.stringify(goals));
@@ -101,8 +97,8 @@ function updateExpensesOnUpdate() {
     expenses[i].expenseColor1 = '#f4dcf5';
 
     //Icon
-    expenses[i].iconName = 'construction.svg';
-    expenses[i].iconUrl = '/www/assets/icons/icons_list/fix/';
+    expenses[i].iconName = 'construction.png';
+    expenses[i].iconUrl = './assets/icons/icons_list/fix/';
 
     localStorage.setItem('expenseStorage', JSON.stringify(expenses));
   }

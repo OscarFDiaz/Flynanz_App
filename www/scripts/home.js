@@ -357,7 +357,7 @@ function loadOptions() {
     userHomeView.innerHTML += `<ons-card onclick="fn.load('savings.html')">
     <div style="display: flex; align-items: center;">
       <div class="iconSavedMoney" style="display: flex; justify-content: space-around;">
-        <img src="/www/assets/icons/savingOption.png" alt="saving icon" style="width: 24px">
+        <img src="./assets/icons/savingOption.png" alt="saving icon">
       </div>
       <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
         <span class="totalMoneyTitle" id="totalSavingsAmount" style="margin-left:0">

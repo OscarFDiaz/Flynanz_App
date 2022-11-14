@@ -112,11 +112,11 @@ function hideAlertDialog() {
   }
 
   if (iconName == '' || iconName == null) {
-    iconName = 'format_paint.svg';
+    iconName = 'format_paint.png';
   }
 
   if (iconUrl == '' || iconUrl == null) {
-    iconUrl = '/www/assets/icons/icons_list/art/';
+    iconUrl = './assets/icons/icons_list/art/';
   }
 
   for (let i = 0; i < goals.length; i++) {

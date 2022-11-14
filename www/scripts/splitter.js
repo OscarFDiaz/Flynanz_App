@@ -29,18 +29,18 @@ function loadMenuIcons() {
   let themeSelected = localStorage.getItem('userTheme');
 
   if (themeSelected == 'theme-default') {
-    document.getElementById('mainIconMenu').src = '/www/assets/icons/menu_icons/homeOption.png';
-    document.getElementById('goalIconMenu').src = '/www/assets/icons/menu_icons/goalOption.png';
-    document.getElementById('savingIconMenu').src = '/www/assets/icons/menu_icons/savingOption.png';
-    document.getElementById('expenseIconMenu').src = '/www/assets/icons/menu_icons/expensesOption.png';
-    document.getElementById('moneyIconMenu').src = '/www/assets/icons/menu_icons/moneyOption.png';
-    document.getElementById('settingsIconMenu').src = '/www/assets/icons/menu_icons/settingsOption.png';
+    document.getElementById('mainIconMenu').src = './assets/icons/menu_icons/homeOption.png';
+    document.getElementById('goalIconMenu').src = './assets/icons/menu_icons/goalOption.png';
+    document.getElementById('savingIconMenu').src = './assets/icons/menu_icons/savingOption.png';
+    document.getElementById('expenseIconMenu').src = './assets/icons/menu_icons/expensesOption.png';
+    document.getElementById('moneyIconMenu').src = './assets/icons/menu_icons/moneyOption.png';
+    document.getElementById('settingsIconMenu').src = './assets/icons/menu_icons/settingsOption.png';
   } else if (themeSelected == 'theme-dark') {
-    document.getElementById('mainIconMenu').src = '/www/assets/icons/menu_icons/dark/homeOption.png';
-    document.getElementById('goalIconMenu').src = '/www/assets/icons/menu_icons/dark/goalOption.png';
-    document.getElementById('savingIconMenu').src = '/www/assets/icons/menu_icons/dark/savingOption.png';
-    document.getElementById('expenseIconMenu').src = '/www/assets/icons/menu_icons/dark/expensesOption.png';
-    document.getElementById('moneyIconMenu').src = '/www/assets/icons/menu_icons/dark/moneyOption.png';
-    document.getElementById('settingsIconMenu').src = '/www/assets/icons/menu_icons/dark/settingsOption.png';
+    document.getElementById('mainIconMenu').src = './assets/icons/menu_icons/dark/homeOption.png';
+    document.getElementById('goalIconMenu').src = './assets/icons/menu_icons/dark/goalOption.png';
+    document.getElementById('savingIconMenu').src = './assets/icons/menu_icons/dark/savingOption.png';
+    document.getElementById('expenseIconMenu').src = './assets/icons/menu_icons/dark/expensesOption.png';
+    document.getElementById('moneyIconMenu').src = './assets/icons/menu_icons/dark/moneyOption.png';
+    document.getElementById('settingsIconMenu').src = './assets/icons/menu_icons/dark/settingsOption.png';
   }
 }

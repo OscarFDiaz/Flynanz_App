@@ -484,7 +484,7 @@ function loadSaving() {
         <label class="cardHomeTitle" style="margin-top: 16px; text-align: left; color: var(--saving-title);">Saved money</label> 
         <div style="display: flex; align-items: center;">
           <div class="iconSavedMoney" style="display: flex; justify-content: space-around;">
-            <img src="/www/assets/icons/savingOption.svg" alt="saving icon" style="width: 24px">
+            <img src="./assets/icons/savingOption.png" alt="saving icon">
           </div>
           <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
             <span class="totalMoneyTitle" style="margin-left:0" id="savingMainAmount"> ${savedMoney} </span>
@@ -532,7 +532,7 @@ function loadSaving() {
         <label class="cardHomeTitle" style="margin-top: 16px; text-align: left; color: var(--saving-title);">Dinero ahorrado</label> 
         <div style="display: flex; align-items: center;">
           <div class="iconSavedMoney" style="display: flex; justify-content: space-around;">
-            <img src="/www/assets/icons/savingOption.svg" alt="saving icon" style="width: 24px">
+            <img src="./assets/icons/savingOption.png" alt="saving icon">
           </div>
           <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
             <span class="totalMoneyTitle" style="margin-left:0" id="savingMainAmountCard"> ${savedMoney} </span>
