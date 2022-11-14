@@ -10,11 +10,11 @@
   <ons-card>
     <ons-list style="background: none; margin: 16px">
       <ons-list-item modifier="nodivider" style="margin-top: 0px">
-        <div class="left listLabels">ENGLISH</div>
+        <div class="left listLabels">English</div>
         <div class="center">
           <ons-switch id="switchLanguage" style="display: block; margin: 0px auto"></ons-switch>
         </div>
-        <div class="right listLabels">ESPAÑOL</div>
+        <div class="right listLabels">Español</div>
       </ons-list-item>
     </ons-list>
   </ons-card>
@@ -43,11 +43,11 @@
 
           let languaje = localStorage.getItem('storageSwitchLanguage');
           if (languaje == 'false') {
-            document.getElementById('titleConfigurationLanguage').innerHTML = 'LANGUAGE';
+            document.getElementById('titleConfigurationLanguage').innerHTML = 'Language';
             document.getElementById('paraTutorialLanguage').innerHTML =
               'The switch indicates the language that the application will have. On the right Spanish and on the left English.';
           } else {
-            document.getElementById('titleConfigurationLanguage').innerHTML = 'LENGUAJE';
+            document.getElementById('titleConfigurationLanguage').innerHTML = 'Lenguaje';
             document.getElementById('paraTutorialLanguage').innerHTML =
               'El interruptor señala el idioma que tendrá la aplicación. A la derecha español y en la izquierda Inglés';
           }

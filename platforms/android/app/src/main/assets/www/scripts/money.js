@@ -3,6 +3,7 @@ function makeNewMoney() {
 
   let moneyName = document.getElementById('newMoneyName').value;
   let moneyCurrent = document.getElementById('newMoneyMoney').value;
+  let moneyGradient = sessionStorage.getItem('tempGradient');
 
   if (moneyName === '') {
     if (languaje == 'false') {
@@ -45,9 +46,27 @@ function makeNewMoney() {
     moneyCurrent = '0.00';
   }
 
+  if (moneyGradient == null || moneyGradient == '') {
+    if (languaje == 'false') {
+      ons.notification.toast('The money need a color, please choose one!', {
+        title: 'Error!',
+        timeout: 3000,
+        animation: 'ascend',
+      });
+    } else {
+      ons.notification.toast('Añade un color a tu dinero para poder continuar!', {
+        title: 'Error!',
+        timeout: 3000,
+        animation: 'ascend',
+      });
+    }
+    return;
+  }
+
   let money = {
     moneyName,
     moneyCurrent,
+    moneyGradient,
   };
 
   if (localStorage.getItem('moneyStorage') === null) {
@@ -74,8 +93,13 @@ function makeNewMoney() {
     });
   }
 
-  getMoneys();
-  functionPopPage();
+  try {
+    getMoneys();
+    functionPopPage();
+  } catch (error) {
+    functionPopPage();
+    return;
+  }
 
   let cIndex = localStorage.getItem('currentDot');
   showExpensesPerWallet(searchWalletByIndex(cIndex));
@@ -112,8 +136,8 @@ function getMoneys() {
     moneyTutorial = `<ons-card>
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            SEE TUTORIAL
+          <label class="iconExpenseLabel" style="margin-left: 32px;">
+            See tutorial
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <p class="paraTutorial">
@@ -134,28 +158,13 @@ function getMoneys() {
           </div>
         </ons-list-item>
       </ons-list>
-    </ons-card>
-    
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            SEE TUTORIAL (REQUIRES INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/5qdrtKrzpUE">
-          </iframe>
-          </div>
-        </ons-list-item>
-      </ons-list>
     </ons-card>`;
   } else {
     moneyTutorial = `<ons-card>
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            LEER TUTORIAL
+          <label class="iconExpenseLabel" style="margin-left: 32px;">
+            Leer tutorial
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <p class="paraTutorial">
@@ -173,21 +182,6 @@ function getMoneys() {
             <p class="paraTutorial">
               Para crear una pulsa "+".
             </p>
-          </div>
-        </ons-list-item>
-      </ons-list>
-    </ons-card>
-    
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            VER TUTORIAL (REQUIERE INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/RowmPiWl_OU">
-          </iframe>
           </div>
         </ons-list-item>
       </ons-list>
@@ -217,7 +211,7 @@ function getMoneys() {
   if (languaje == 'false') {
     totalMoneyContainer.innerHTML = `
     <ons-card>
-      <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">YOUR TOTAL MONEY:</label>
+      <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">Your total money:</label>
       <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0;">$ 
         <span class="totalMoneyTitle" id="totalMoneyMoney">
         ${totalMoney}
@@ -227,7 +221,7 @@ function getMoneys() {
     cardExpenses.innerHTML = `<ons-list style="background: none;" id="expenseListOfExpensesContainer">
     <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
       <label class="iconExpenseLabel" style="margin-left: 16px;">
-        SEE EXPENSES
+        See expenses
       </label>
       <div class="expandable-content" id="moneyListOfExpenses" style="grid-template-columns: 1fr;">
         <!-- AQUI SE CARGAN LOS GASTOS -->
@@ -237,7 +231,7 @@ function getMoneys() {
   } else {
     totalMoneyContainer.innerHTML = `
     <ons-card>
-      <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">TU DINERO TOTAL:</label>
+      <label style="color: var(--text-without-card); display: block; padding: 16px 0px 0px 16px;">Tu dinero total:</label>
       <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0;">$ 
         <span class="totalMoneyTitle" id="totalMoneyMoney">
         ${totalMoney}
@@ -247,7 +241,7 @@ function getMoneys() {
     cardExpenses.innerHTML = `<ons-list style="background: none;" id="expenseListOfExpensesContainer">
     <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
       <label class="iconExpenseLabel" style="margin-left: 16px;">
-        VER GASTOS
+        Ver gastos
       </label>
       <div class="expandable-content" id="moneyListOfExpenses" style="grid-template-columns: 1fr;">
         <!-- AQUI SE CARGAN LOS GASTOS -->
@@ -267,45 +261,46 @@ function getMoneys() {
   for (let i = 0; i < moneys.length; i++) {
     let mName = moneys[i].moneyName;
     let mMoney = formatMoney(moneys[i].moneyCurrent);
+    let mGradient = moneys[i].moneyGradient;
 
     if (languaje == 'false') {
       toInner += `
-      <ons-carousel-item style="background-color: var(--card-back-color); padding: 16px 16px 0px 16px; border-radius: 15px; margin-bottom: 10px">
+      <ons-carousel-item  class="moneyCard" style="background: var(${mGradient})">
         <div class="title moneyTitle">
           ${mName}
         </div>
         <div class="content">
-          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 16px">$ 
+          <div class="title totalMoneyTitle" style="display: block; text-align:left; padding-top: 0px; padding-bottom: 16px; font-weight: 500;">
             <span class="moneyInfo" id="${mName}-money">
-              ${mMoney}
+             $ ${mMoney}
             </span>
           </div>
         </div>
         <ons-button class="moneyButtonAdd" style="margin-bottom: 16px; margin-left: 0px" onclick="addMoneyTo('${mName}')" > 
           MODIFY MONEY
         </ons-button>
-        <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteMoney('${mName}')" >
+        <ons-button class="moneyButtonDe" style="margin-bottom: 16px; background: none" onclick="deleteMoney('${mName}')" >
           DELETE
         </ons-button>
       </ons-carousel-item>`;
       cardsCounter++;
     } else {
       toInner += `
-      <ons-carousel-item style="background-color: var(--card-back-color); padding: 16px 16px 0px 16px; border-radius: 15px; margin-bottom: 10px">
+      <ons-carousel-item  class="moneyCard" style="background: var(${mGradient})">
         <div class="title moneyTitle">
           ${mName}
         </div>
         <div class="content">
-          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 16px">$ 
+          <div class="title totalMoneyTitle" style="display: block; text-align:left; padding-top: 0px; padding-bottom: 16px; font-weight: 500;">
             <span class="moneyInfo" id="${mName}-money">
-              ${mMoney}
+              $ ${mMoney}
             </span>
           </div>
         </div>
         <ons-button class="moneyButtonAdd" style="margin-bottom: 16px; margin-left: 0px" onclick="addMoneyTo('${mName}')" > 
           MODIFICAR DINERO
         </ons-button>
-        <ons-button class="moneyButtonDe" style="margin-bottom: 16px;" onclick="deleteMoney('${mName}')" >
+        <ons-button class="moneyButtonDe" style="margin-bottom: 16px; background: none" onclick="deleteMoney('${mName}')" >
           ELIMINAR
         </ons-button>
       </ons-carousel-item>`;
@@ -328,6 +323,8 @@ function getMoneys() {
 
   // INSERTO TODO
   moneyView.innerHTML = toInner;
+
+  sessionStorage.clear();
 }
 
 function deleteMoney(sendMoneyName) {
@@ -336,7 +333,7 @@ function deleteMoney(sendMoneyName) {
     ons.notification.confirm({
       message: 'Are you sure to erase that money?',
       title: 'Notice!',
-      buttonLabels: ['YES', 'CANCEL'],
+      buttonLabels: ['Yes, erase', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -391,7 +388,7 @@ function deleteMoney(sendMoneyName) {
     ons.notification.confirm({
       message: 'Estas seguro de borrar ese dinero?',
       title: 'Aviso!',
-      buttonLabels: ['Sí', 'Cancelar'],
+      buttonLabels: ['Sí, borrar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -453,10 +450,12 @@ function addMoneyTo(sendMoneyName) {
 
     if (mName == sendMoneyName) {
       let mMoney = moneys[i].moneyCurrent;
+      let mGradient = moneys[i].moneyGradient;
 
       let findMoneyObject = {
         moneyName: mName,
         moneyCurrent: mMoney,
+        moneyGradient: mGradient,
       };
 
       if (sessionStorage.getItem('sessionFindMoney') === null) {
@@ -595,7 +594,7 @@ function showExpensesPerWallet(walletName) {
                 <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 16px; text-align:left; margin-left:16px">${iDate}</label>
               </div>
               <div style="margin-left: auto; margin-right: 0px;">
-                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">- $</span> 
+                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
                 <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
               </div>
             </div>
@@ -620,7 +619,7 @@ function showExpensesPerWallet(walletName) {
                 <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 16px; text-align:left; margin-left:16px">${iDate}</label>
               </div>
               <div style="margin-left: auto; margin-right: 0px;">
-                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">- $</span> 
+                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
                 <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
               </div>
             </div>

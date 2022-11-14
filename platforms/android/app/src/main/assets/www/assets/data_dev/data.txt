@@ -1,0 +1,46 @@
+moneyStorage
+    moneyName
+    moneyCurrent
+    **** Gradient //Called: moneyGradient
+    
+
+savingStorage
+    mainAmount
+    rangeDays
+    rangePercent
+    equivalentAmount
+    toExpend
+    daysLeft
+    moneyLeft
+
+goalStorage
+    goalName
+    goalDescription
+    goalActualMoney
+    goalMoney
+    goalDate
+    **** Gradient //Called: goalGradient
+    **** Icon
+
+expenseStorage
+    expenseName
+    totalExpense
+    mainDate
+    iconName
+    expenseColor
+    **** expenseColor2 //Called: expenseColor1
+    **** expenseGradient //Called: expenseGradient
+    toShow
+
+expenseDetailStorage
+    expenseName
+    inName
+    inAmount
+    inDate
+    inID
+    inWallet
+
+
+DESCONOCIDO
+
+function getTotalExpenses() - home.js - 387

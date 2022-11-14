@@ -13,8 +13,8 @@
 /*CHEVRON DE LOS ELEMENTOS EN LA CONFIGURACIÓN*/
 .list-item--chevron:before,
 .list-item__expand-chevron {
-  border-right: 4px solid var(--chevron-color);
-  border-bottom: 4px solid var(--chevron-color);
+  border-right: 2px solid var(--chevron-color);
+  border-bottom: 2px solid var(--chevron-color);
   display: block;
 }
 

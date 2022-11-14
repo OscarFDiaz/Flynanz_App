@@ -22,8 +22,7 @@
 }
 
 .menuIcon {
-  /*text-align: center;*/
-  font-size: 35px;
+  width: 25px;
   margin-left: 32px;
   margin-right: 32px;
   display: block;

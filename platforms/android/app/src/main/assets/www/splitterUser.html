@@ -1,31 +1,46 @@
 <ons-page id="splitterUser">
   <ons-splitter>
     <ons-splitter-side id="menu" side="left" width="85%" height="100%" swipeable collapse>
-      <ons-page style="border-top-right-radius: 50px; border-bottom-right-radius: 50px">
+      <ons-page style="border-top-right-radius: 25px; border-bottom-right-radius: 25px; margin-top: -16px">
         <ons-list id="userSplitterList" class="menuList">
           <ons-list-item onclick="fn.load('userHome.html')" tappable modifier="nodivider" class="menuItem">
-            <i class="menuIcon iconHome ion-md-home"></i>
-            <label class="labelMenu" id="menuLabelHome">INICIO</label>
+            <img src="/www/assets/icons/menu_icons/homeOption.svg" alt="main icon" class="menuIcon iconHome" id="mainIconMenu" />
+            <label class="labelMenu" id="menuLabelHome">Inicio</label>
           </ons-list-item>
 
           <ons-list-item onclick="fn.load('goals.html')" tappable modifier="nodivider" class="menuItem">
-            <i class="menuIcon iconGoals ion-md-flag"></i>
-            <label class="labelMenu" style="margin-left: 8px" id="menuLabelGoals">METAS</label>
+            <img src="/www/assets/icons/menu_icons/goalOption.svg" alt="goal icon" class="menuIcon iconHome" id="goalIconMenu" />
+            <label class="labelMenu" style="margin-left: 8px" id="menuLabelGoals">Metas</label>
           </ons-list-item>
 
           <ons-list-item onclick="fn.load('savings.html')" tappable modifier="nodivider" class="menuItem">
-            <i class="menuIcon iconSavings ion-ios-card"></i>
-            <label class="labelMenu" id="menuLabelSaved">FONDO</label>
+            <img
+              src="/www/assets/icons/menu_icons/savingOption.svg"
+              alt="saving icon"
+              class="menuIcon iconHome"
+              id="savingIconMenu"
+            />
+            <label class="labelMenu" id="menuLabelSaved">Fondo</label>
           </ons-list-item>
 
           <ons-list-item onclick="fn.load('expenses.html')" tappable modifier="nodivider" class="menuItem">
-            <i class="menuIcon iconExpenses ion-ios-list"></i>
-            <label class="labelMenu" style="margin-left: 5px" id="menuLabelExpenses">GASTOS</label>
+            <img
+              src="/www/assets/icons/menu_icons/expensesOption.svg"
+              alt="expenses icon"
+              class="menuIcon iconHome"
+              id="expenseIconMenu"
+            />
+            <label class="labelMenu" style="margin-left: 5px" id="menuLabelExpenses">Gastos</label>
           </ons-list-item>
 
           <ons-list-item id="closeSesionItem" onclick="fn.load('money.html')" tappable modifier="nodivider" class="menuItem">
-            <i class="menuIcon iconMoney ion-ios-wallet"></i>
-            <label class="labelMenu" style="margin-left: 3px" id="menuLabelMoney">MI DINERO</label>
+            <img
+              src="/www/assets/icons/menu_icons/moneyOption.svg"
+              alt="money icon"
+              class="menuIcon iconHome"
+              id="moneyIconMenu"
+            />
+            <label class="labelMenu" style="margin-left: 3px" id="menuLabelMoney">Mi dinero</label>
           </ons-list-item>
 
           <ons-list-item
@@ -35,8 +50,13 @@
             modifier="nodivider"
             class="menuItem"
           >
-            <i class="menuIcon iconConfiguration ion-md-settings"></i>
-            <label class="labelMenu" style="margin-left: 3px" id="menuLabelConfiguration">CONFIGURACIÓN</label>
+            <img
+              src="/www/assets/icons/menu_icons/settingsOption.svg"
+              alt="settings icon"
+              class="menuIcon iconHome"
+              id="settingsIconMenu"
+            />
+            <label class="labelMenu" style="margin-left: 3px" id="menuLabelConfiguration">Configuración</label>
           </ons-list-item>
         </ons-list>
       </ons-page>
@@ -48,21 +68,25 @@
       'show',
       function (event) {
         if (event.target.matches('#splitterUser')) {
+          // PERMITO QUE EL MENU SE DESLICE
+          let menuSlider = document.getElementById('menu');
+          menuSlider.setAttribute('swipeable');
+
           let language = localStorage.getItem('storageSwitchLanguage');
           if (language == 'false') {
-            document.getElementById('menuLabelHome').innerHTML = 'HOME';
-            document.getElementById('menuLabelGoals').innerHTML = 'GOALS';
-            document.getElementById('menuLabelSaved').innerHTML = 'SAVED';
-            document.getElementById('menuLabelExpenses').innerHTML = 'EXPENSES';
-            document.getElementById('menuLabelMoney').innerHTML = 'MY MONEY';
-            document.getElementById('menuLabelConfiguration').innerHTML = 'CONFIGURATION';
+            document.getElementById('menuLabelHome').innerHTML = 'Home';
+            document.getElementById('menuLabelGoals').innerHTML = 'Goals';
+            document.getElementById('menuLabelSaved').innerHTML = 'Saved';
+            document.getElementById('menuLabelExpenses').innerHTML = 'Expenses';
+            document.getElementById('menuLabelMoney').innerHTML = 'My money';
+            document.getElementById('menuLabelConfiguration').innerHTML = 'Settings';
           } else {
-            document.getElementById('menuLabelHome').innerHTML = 'INICIO';
-            document.getElementById('menuLabelGoals').innerHTML = 'METAS';
-            document.getElementById('menuLabelSaved').innerHTML = 'FONDO';
-            document.getElementById('menuLabelExpenses').innerHTML = 'GASTOS';
-            document.getElementById('menuLabelMoney').innerHTML = 'MI DINERO';
-            document.getElementById('menuLabelConfiguration').innerHTML = 'CONFIGURACIÓN';
+            document.getElementById('menuLabelHome').innerHTML = 'Inicio'; // ERROR AL CARGAR
+            document.getElementById('menuLabelGoals').innerHTML = 'Metas';
+            document.getElementById('menuLabelSaved').innerHTML = 'Fondo';
+            document.getElementById('menuLabelExpenses').innerHTML = 'Gastos';
+            document.getElementById('menuLabelMoney').innerHTML = 'Mi dinero';
+            document.getElementById('menuLabelConfiguration').innerHTML = 'Configuración';
           }
         }
       },

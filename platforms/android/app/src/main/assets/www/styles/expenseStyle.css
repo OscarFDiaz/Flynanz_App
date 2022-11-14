@@ -20,6 +20,23 @@
   color: var(--expenseIconColorPrev, var(--menu-icon-color));
 }
 
+.expenseIconContainer {
+  position: relative;
+  float: right;
+  top: 50%;
+  height: 70px;
+  width: 70px;
+  margin: -40px 16px 0px 0px;
+  background: var(--icon-holder);
+}
+
+.expenseCard {
+  min-height: 107px;
+  margin: 16px 20px 0px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px 0px rgb(112 144 176 / 20%);
+}
+
 /* NEW EXPENSE */
 
 .iconExpenseLabel {
@@ -47,8 +64,7 @@
   display: grid;
   height: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  text-align: center;
+  text-align: left;
 }
 
 /* DETAIL EXPENSE */
@@ -65,7 +81,7 @@
 }
 
 .labelInfoDetailExpense {
-  font-weight: bold;
+  font-weight: 600;
   color: var(--expense-detail-money);
   font-size: 30px;
 }

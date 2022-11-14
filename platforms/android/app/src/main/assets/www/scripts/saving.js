@@ -52,7 +52,7 @@ function makeSaving() {
       ons.notification.confirm({
         message: 'A fund already exists, do you want to delete the current one and enter this new one?',
         title: 'Notice!',
-        buttonLabels: ['Yes', 'Cancel'],
+        buttonLabels: ['Yes, delete', 'Cancel'],
         animation: 'default',
         primaryButtonIndex: 1,
         cancelable: true,
@@ -97,7 +97,7 @@ function makeSaving() {
       ons.notification.confirm({
         message: 'Ya existe un fondo, ¿quieres borrar el actual e ingresar este nuevo?',
         title: 'Aviso!',
-        buttonLabels: ['Sí', 'Cancelar'],
+        buttonLabels: ['Sí, borrar', 'Cancelar'],
         animation: 'default',
         primaryButtonIndex: 1,
         cancelable: true,
@@ -205,14 +205,6 @@ function updateSavingPreview() {
   document.getElementById('rangeSelectDays').innerHTML = rangeDays;
   document.getElementById('rangeSelectPercent').innerHTML =
     rangePercent + ` <span style="color: var(--card-text-title-color)">%</span>`;
-
-  /*Fondo ahorrado*/
-  let amountSaved = localStorage.getItem('savedMoneySaving');
-  if (amountSaved == null || amountSaved == '') {
-    amountSaved = 0;
-  }
-  document.getElementById('totalSavingAmount').innerHTML =
-    `<span style="color: var(--card-text-title-color)">$</span> ` + amountSaved;
 }
 
 function updateLastSaving() {
@@ -222,23 +214,23 @@ function updateLastSaving() {
 
   if (savingStorage == null || savingStorage == 'null') {
     if (languaje == 'false') {
-      cSavingView.innerHTML = `<label class="cardHomeTitle" style="margin-top: 0px">THERE IS NO ACTIVE FUND...</label>`;
+      cSavingView.innerHTML = `<label class="cardHomeTitle" style="margin-top: 0px">There is no active fund...</label>`;
     } else {
-      cSavingView.innerHTML = `<label class="cardHomeTitle" style="margin-top: 0px">NO HAY UN FONDO ACTIVO...</label>`;
+      cSavingView.innerHTML = `<label class="cardHomeTitle" style="margin-top: 0px">No hay un fondo activo...</label>`;
     }
     return;
   } else {
     if (languaje == 'false') {
-      cSavingView.innerHTML = `<label class="entryAmountText"
-        >ENTERED AMOUNT: 
+      cSavingView.innerHTML = `<label class="entryAmountText" id="modifyFundActualAmount"
+        >Entered amount: 
         <div style="display: block;">
           <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
           <span id="entryCurrentAmount" class="entryAmountDetail">0</span>
         </div>
       </label>
 
-        <label class="entryAmountText"
-        >SELECTED DAYS:
+        <label class="entryAmountText" id="modifyFundActualDays"
+        >Selected days:
           <div style="display: block;">
             <span id="entryCurrentDays" class="entryAmountDetail"></span>
           </div>
@@ -246,21 +238,21 @@ function updateLastSaving() {
         >
 
         <label class="entryAmountText"
-        >REMAINING DAYS:
+        >Remaining days:
           <div style="display: block;">
             <span id="entryCurrentDaysLeft" class="entryAmountDetail"></span>
           </div>
         </label>
 
-        <label class="entryAmountText"
-        >PERCENTAGE:
+        <label class="entryAmountText" id="modifyFundActualPercentage"
+        >Percentage:
           <div style="display: block;">
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>
           </div>
         </label>
 
-        <label class="entryAmountText"
-        >TO SPEND: 
+        <label class="entryAmountText" id="modifyFundActualToExpend"
+        >To spend: 
           <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpend" class="entryAmountDetail">0</span>
@@ -268,23 +260,23 @@ function updateLastSaving() {
         </label>
         
         <label class="entryAmountText" style="margin-bottom: 0px;"
-        >CURRENT AVAILABLE: 
+        >Current available: 
           <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpendLeft" class="entryAmountDetail">0</span>
           </div>
         </label>`;
     } else {
-      cSavingView.innerHTML = `<label class="entryAmountText"
-        >CANTIDAD INGRESADA: 
+      cSavingView.innerHTML = `<label class="entryAmountText" id="modifyFundActualAmount"
+        >Cantidad ingresada: 
         <div style="display: block;">
           <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
           <span id="entryCurrentAmount" class="entryAmountDetail">0</span>
         </div>
       </label>
 
-        <label class="entryAmountText"
-        >DÍAS SELECCIONADOS:
+        <label class="entryAmountText" id="modifyFundActualDays"
+        >Días seleccionados:
           <div style="display: block;">
             <span id="entryCurrentDays" class="entryAmountDetail"></span>
           </div>
@@ -292,21 +284,21 @@ function updateLastSaving() {
         >
 
         <label class="entryAmountText"
-        >DÍAS RESTANTES:
+        >Días restantes:
           <div style="display: block;">
             <span id="entryCurrentDaysLeft" class="entryAmountDetail"></span>
           </div>
         </label>
 
-        <label class="entryAmountText"
-        >PORCENTAJE:
+        <label class="entryAmountText" id="modifyFundActualPercentage"
+        >Porcentaje:
           <div style="display: block;">
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>
           </div>
         </label>
 
-        <label class="entryAmountText"
-        >PARA GASTAR: 
+        <label class="entryAmountText" id="modifyFundActualToExpend"
+        >Para gastar: 
           <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpend" class="entryAmountDetail">0</span>
@@ -314,7 +306,7 @@ function updateLastSaving() {
         </label>
         
         <label class="entryAmountText" style="margin-bottom: 0px;"
-        >DISPONIBLE ACTUAL: 
+        >Disponible actual: 
           <div style="display: block;">
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpendLeft" class="entryAmountDetail">0</span>
@@ -353,8 +345,8 @@ function loadSaving() {
     savingTutorial = `<ons-card>
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            SEE TUTORIAL
+          <label class="iconExpenseLabel" style="margin-left: 32px;">
+            See tutorial
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <p class="paraTutorial">
@@ -390,28 +382,13 @@ function loadSaving() {
           </div>
         </ons-list-item>
       </ons-list>
-    </ons-card>
-
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            SEE TUTORIAL (REQUIRES INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/0LAKMfvSSKU">
-          </iframe>
-          </div>
-        </ons-list-item>
-      </ons-list>
     </ons-card>`;
   } else {
     savingTutorial = `<ons-card>
       <ons-list style="background: none;" id="expenseListOfExpensesContainer">
         <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            LEER TUTORIAL
+          <label class="iconExpenseLabel" style="margin-left: 32px;">
+            Leer tutorial
           </label>
           <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr;">
             <p class="paraTutorial">
@@ -447,21 +424,6 @@ function loadSaving() {
           </div>
         </ons-list-item>
       </ons-list>
-    </ons-card>
-    
-    <ons-card>
-      <ons-list style="background: none;" id="expenseListOfExpensesContainer">
-        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-          <label class="iconExpenseLabel" style="margin-left: 50px;">
-            VER TUTORIAL (REQUIERE INTERNET)
-          </label>
-          <div class="expandable-content" id="expenseListOfExpenses" style="grid-template-columns: 1fr; padding: 0px; height: 400px">
-          <iframe style="width: 100%; height: 100%; border-radius: 15px; border: none"
-            src="https://www.youtube.com/embed/rE4JM89tnd0">
-          </iframe>
-          </div>
-        </ons-list-item>
-      </ons-list>
     </ons-card>`;
   }
 
@@ -477,72 +439,106 @@ function loadSaving() {
   let sMoneyDay = formatMoney(savingStorage.toExpend);
   let sDaysLeft = savingStorage.daysLeft;
   let sMoneyDayLeft = formatMoney(savingStorage.moneyLeft);
+  let savedMoney = localStorage.getItem('savedMoneySaving');
+
+  if (savedMoney == null || savedMoney == '0') {
+    savedMoney = 0.0;
+  }
 
   if (languaje == 'false') {
-    sView.innerHTML = `<ons-card>
+    sView.innerHTML = `<div style="margin: 20px">
       <div class="title mainTitle">
-          SAVED
+          Saved
       </div>
       <div class="content">
           <label id="savingsInfo" class="savingInfo">
-            <span style="color: var(--card-text-title-color)">$</span> ${sTakedAmount} / 
-            <span style="color: var(--card-text-title-color)">$</span> ${sMoneyDay}</label>
+            <span style="color: var(--card-text-title-color)">$</span> ${sTakedAmount} 
+            <span style="color: var(--saving-title); font-size: 20px; font-weight: normal"> / $ ${sMoneyDay}</span> 
+          </label>
       </div>
-    </ons-card>
+    </div>
 
     <ons-card>
       <div class="title savingTitle">
-        AVAILABLE
+        Available
       </div>
       <div class="content">
           <label id="savingsDailyInfo" class="savingDaily">
             <span style="color: var(--card-text-title-color)">$</span> 
             ${sMoneyDayLeft}
           </label>
-          <ons-button class="flatButton" onclick="editMoneySaving()" style="margin-left: 0px; margin-right: 0px">MODIFY MONEY</ons-button>
+          <ons-button class="flatButton" onclick="editMoneySaving()" style="margin-left: 0px; margin-right: 0px">Modify money</ons-button>
       </div>
     </ons-card>
 
     <ons-card>
       <div class="title daysTitle">
-        REMAINING DAYS | <span id="savingsDays" class="leftDays">${sDaysLeft}</span>
+        Remaining days | <span id="savingsDays" class="leftDays">${sDaysLeft}</span>
       </div>
       <div class="content">
-          <ons-button class="flatButtonLight" onclick="endSavingDay()" style="margin-left: 0px; margin-right: 0px">END DAY</ons-button>
+          <ons-button class="flatButtonLight" onclick="endSavingDay()" style="margin-left: 0px; margin-right: 0px">End day</ons-button>
       </div>
-    </ons-card>`;
+    </ons-card>
+    
+    <ons-card>
+        <label class="cardHomeTitle" style="margin-top: 16px; text-align: left; color: var(--saving-title);">Saved money</label> 
+        <div style="display: flex; align-items: center;">
+          <div class="iconSavedMoney" style="display: flex; justify-content: space-around;">
+            <img src="/www/assets/icons/savingOption.svg" alt="saving icon" style="width: 24px">
+          </div>
+          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
+            <span class="totalMoneyTitle" style="margin-left:0" id="savingMainAmount"> ${savedMoney} </span>
+          </div>
+        </div>
+        <ons-button class="flatButton" onclick="resetSavingMoney()" style="margin-bottom:16px">RESET</ons-button>
+      </ons-card>`;
   } else {
-    sView.innerHTML = `<ons-card>
+    sView.innerHTML = `<div style="margin: 20px">
         <div class="title mainTitle">
-            FONDO
+            Fondo
         </div>
         <div class="content">
             <label id="savingsInfo" class="savingInfo">
-              <span style="color: var(--card-text-title-color)">$</span> ${sTakedAmount} / 
-              <span style="color: var(--card-text-title-color)">$</span> ${sMoneyDay}</label>
+              <span style="color: var(--card-text-title-color)">$</span> ${sTakedAmount}
+              <span style="color: var(--saving-title); font-size: 20px; font-weight: normal"> / $ ${sMoneyDay}</span> 
+            </label>
         </div>
-      </ons-card>
+      </div>
   
       <ons-card>
         <div class="title savingTitle">
-            DISPONIBLE
+            Disponible
         </div>
         <div class="content">
             <label id="savingsDailyInfo" class="savingDaily">
               <span style="color: var(--card-text-title-color)">$</span> 
               ${sMoneyDayLeft}
             </label>
-            <ons-button class="flatButton" onclick="editMoneySaving()" style="margin-left: 0px; margin-right: 0px">MODIFICAR DINERO</ons-button>
+            <ons-button class="flatButton" onclick="editMoneySaving()" style="margin-left: 0px; margin-right: 0px">Modificar dinero</ons-button>
         </div>
       </ons-card>
   
       <ons-card>
         <div class="title daysTitle">
-            DÍAS RESTANTES | <span id="savingsDays" class="leftDays">${sDaysLeft}</span>
+            Días restantes | <span id="savingsDays" class="leftDays">${sDaysLeft}</span>
         </div>
         <div class="content">
-            <ons-button class="flatButtonLight" onclick="endSavingDay()" style="margin-left: 0px; margin-right: 0px">TERMINAR DÍA</ons-button>
+            <ons-button class="flatButtonLight" onclick="endSavingDay()" style="margin-left: 0px; margin-right: 0px">Terminar día</ons-button>
         </div>
+      </ons-card>
+
+
+      <ons-card>
+        <label class="cardHomeTitle" style="margin-top: 16px; text-align: left; color: var(--saving-title);">Dinero ahorrado</label> 
+        <div style="display: flex; align-items: center;">
+          <div class="iconSavedMoney" style="display: flex; justify-content: space-around;">
+            <img src="/www/assets/icons/savingOption.svg" alt="saving icon" style="width: 24px">
+          </div>
+          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color);">$
+            <span class="totalMoneyTitle" style="margin-left:0" id="savingMainAmountCard"> ${savedMoney} </span>
+          </div>
+        </div>
+        <ons-button class="flatButton" onclick="resetSavingMoney()" style="margin-bottom:16px">REINICIAR</ons-button>
       </ons-card>`;
   }
 }
@@ -554,11 +550,12 @@ function loadDetailSaving() {
 
 function resetSavingMoney() {
   let languaje = localStorage.getItem('storageSwitchLanguage');
+  let savedMoney = document.getElementById('savingMainAmountCard');
   if (languaje == 'false') {
     ons.notification.confirm({
       message: 'Are you sure to reset the saved fund?',
       title: 'Notice!',
-      buttonLabels: ['Yes', 'Cancel'],
+      buttonLabels: ['Yes, reset', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -567,12 +564,12 @@ function resetSavingMoney() {
           let storageS = localStorage.getItem('savedMoneySaving');
           if (storageS) {
             localStorage.setItem('savedMoneySaving', 0);
+            savedMoney.innerHTML = 0;
             ons.notification.toast('The saved fund has been reset!', {
               title: 'Notice!',
               timeout: 1000,
               animation: 'ascend',
             });
-            loadDetailSaving();
           } else {
             ons.notification.toast(`You don't have a fund saved to eliminate.`, {
               title: 'Notice!',
@@ -593,7 +590,7 @@ function resetSavingMoney() {
     ons.notification.confirm({
       message: '¿Estas seguro de reiniciar el fondo ahorrado?',
       title: 'Aviso!',
-      buttonLabels: ['Sí', 'Cancelar'],
+      buttonLabels: ['Sí, reiniciar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -602,12 +599,12 @@ function resetSavingMoney() {
           let storageS = localStorage.getItem('savedMoneySaving');
           if (storageS) {
             localStorage.setItem('savedMoneySaving', 0);
+            savedMoney.innerHTML = 0;
             ons.notification.toast('El fondo ahorrado se ha reiniciado!', {
               title: 'Aviso!',
               timeout: 1000,
               animation: 'ascend',
             });
-            loadDetailSaving();
           } else {
             ons.notification.toast('No tienes un fondo ahorrado para eliminar.', {
               title: 'Aviso!',
@@ -658,7 +655,7 @@ function returnDays(days) {
   } else if (dd > 39 && dd < 43) {
     return 14;
   } else if (dd > 42 && dd < 48) {
-    return 15; ////
+    return 15;
   } else if (dd > 47 && dd < 51) {
     return 16;
   } else if (dd > 50 && dd < 54) {
@@ -688,9 +685,9 @@ function returnDays(days) {
   } else if (dd > 86 && dd < 90) {
     return 29;
   } else if (dd > 89 && dd < 95) {
-    return 30; ///
+    return 30;
   } else if (dd > 94 && dd < 101) {
-    return 31; ///
+    return 31;
   }
 }
 
@@ -701,7 +698,7 @@ function endSavingDay() {
     ons.notification.confirm({
       message: 'Are you sure to finish the day?',
       title: 'Notice!',
-      buttonLabels: ['YES', 'CANCEL'],
+      buttonLabels: ['Yes, finish', 'Cancel'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -778,7 +775,7 @@ function endSavingDay() {
     ons.notification.confirm({
       message: '¿Estas seguro de terminar el día?',
       title: 'Aviso!',
-      buttonLabels: ['SÍ', 'CANCELAR'],
+      buttonLabels: ['Sí, terminar', 'Cancelar'],
       animation: 'default',
       primaryButtonIndex: 1,
       cancelable: true,
@@ -874,7 +871,7 @@ function editMoneySaving() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
-        ADD MONEY
+        Add money
       </ons-button>
     
       <ons-button
@@ -884,7 +881,7 @@ function editMoneySaving() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-        REMOVE MONEY
+        Remove money
       </ons-button>`;
     } else {
       optionsContainer.innerHTML = `<ons-button
@@ -894,7 +891,7 @@ function editMoneySaving() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
-        AÑADIR DINERO
+        Añadir dinero
       </ons-button>
     
       <ons-button
@@ -904,7 +901,7 @@ function editMoneySaving() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-        RESTAR DINERO
+        Restar dinero
       </ons-button>`;
     }
 
@@ -928,13 +925,13 @@ function checkRadioSelect(id) {
   if (id == 'radio-2') {
     if (languaje == 'false') {
       container.innerHTML = `
-      <label style="color: var(--alert-tile-color)">ADD TO: </label>
+      <label style="color: var(--alert-tile-color)">Add to: </label>
       <select id="selectOptionAddMoney">
         <!--AQUI SE CARGAN LOS POSIBLES GASTOS-->
       </select>`;
     } else {
       container.innerHTML = `
-      <label style="color: var(--alert-tile-color)">AÑADIR A: </label>
+      <label style="color: var(--alert-tile-color)">Añadir a: </label>
       <select id="selectOptionAddMoney">
         <!--AQUI SE CARGAN LOS POSIBLES GASTOS-->
       </select>`;
@@ -1256,7 +1253,7 @@ function closeAlertSaving() {
       ons.notification.confirm({
         message: 'You have reduced the money available. Do you want to add an expense?',
         title: 'Notice!',
-        buttonLabels: ['Yes', 'No'],
+        buttonLabels: ['Yes, add', 'No'],
         animation: 'default',
         primaryButtonIndex: 1,
         cancelable: true,
@@ -1295,7 +1292,7 @@ function closeAlertSaving() {
       ons.notification.confirm({
         message: 'Has reducido el dinero disponible. ¿Quieres añadir un gasto?',
         title: 'Aviso!',
-        buttonLabels: ['Sí', 'No'],
+        buttonLabels: ['Sí, añadir', 'No'],
         animation: 'default',
         primaryButtonIndex: 1,
         cancelable: true,
@@ -1515,7 +1512,7 @@ function hideAlertAddExpenseSaving() {
   updateExpenseTotalMoneySaving(choseCategory, eMoney);
 
   if (languaje == 'false') {
-    ons.notification.toast('New added expense!', {
+    ons.notification.toast('New expense added!', {
       title: 'Notice!',
       timeout: 2000,
       animation: 'ascend',
@@ -1592,7 +1589,7 @@ function insertActionEditFund(option) {
   if (option === 'add') {
     if (languaje == 'false') {
       optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;" >
-      I WANT TO ADD
+      I want to add
     </p>
     <ons-input
       onchange="makeSavingOperation()"
@@ -1606,7 +1603,7 @@ function insertActionEditFund(option) {
     ></ons-input>`;
     } else {
       optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">
-      QUIERO AÑADIR
+      Quiero añadir
     </p>
     <ons-input
       onchange="makeSavingOperation()"
@@ -1622,7 +1619,7 @@ function insertActionEditFund(option) {
   } else if (option === 'remove') {
     if (languaje == 'false') {
       optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">
-      I WANT TO REMOVE
+      I want to remove
     </p>
     <ons-input
       onchange="makeSavingResOperation()"
@@ -1636,7 +1633,7 @@ function insertActionEditFund(option) {
     ></ons-input>`;
     } else {
       optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center;">
-      QUIERO QUITAR
+      Quiero quitar
     </p>
     <ons-input
       onchange="makeSavingResOperation()"

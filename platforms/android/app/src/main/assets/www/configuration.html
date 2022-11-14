@@ -5,15 +5,20 @@
         <i class="menuButtonIcon ion-md-menu"></i>
       </ons-toolbar-button>
     </div>
-    <div class="center labelToolbar" id="titleConfigurarion">CONFIGURACIÓN</div>
+    <div class="center labelToolbar" id="titleConfigurarion">Configuración</div>
   </ons-toolbar>
 
   <ons-list class="listConfiguration">
     <ons-list-item modifier="chevron nodivider" class="itemListConfiguration" tappable onclick="pushToHomeOptions()">
       <span id="itemHomeScreen">PANTALLA INICIO</span>
     </ons-list-item>
-    <ons-list-item modifier="chevron nodivider" class="itemListConfiguration" tappable onclick="pushToThemeSelector()">
+    <ons-list-item modifier="nodivider" class="itemListConfiguration">
       <span id="itemThemeScreen">TEMA</span>
+      <div class="right" style="padding-right: 0px;">
+        <img src="/www/assets/icons/brightness_low.svg" style="width: 55%; margin: auto auto; padding-right: 16px;"></img>
+        <ons-switch id="switchTheme"></ons-switch>
+        <img src="/www/assets/icons/dark_mode.svg" style="width: 55%; margin: auto auto; padding-left: 16px;"></img>
+      </div>
     </ons-list-item>
     <ons-list-item modifier="chevron nodivider" class="itemListConfiguration" tappable onclick="pushToTutorialOptions()">
       <span id="itemTutorialScreen">TUTORIALES</span>
@@ -36,23 +41,51 @@
         if (event.target.matches('#configuration')) {
           localStorage.setItem('actuaPage', 'configuration.html');
 
+          /* Pongo el swith dependiendo del tema*/
+          let swicthR = localStorage.getItem('userTheme');
+          if (swicthR == null || swicthR == '') {
+            document.getElementById('switchTheme').removeAttribute('checked');
+            setTheme('theme-default');
+          } else if (swicthR == 'theme-default') {
+            document.getElementById('switchTheme').removeAttribute('checked');
+          } else if (swicthR == 'theme-dark') {
+            document.getElementById('switchTheme').setAttribute('checked', true);
+          } else {
+            document.getElementById('switchTheme').removeAttribute('checked');
+            setTheme('theme-default');
+          }
+
+          // Cambio el tema dependiendo del lado switch al moverlo
+          let themeStatus = false;
+          document.getElementById('switchTheme').addEventListener('change', function (e) {
+            themeStatus = e.target.checked;
+
+            if (themeStatus == false) {
+              setTheme('theme-default');
+            } else if (themeStatus == true) {
+              setTheme('theme-dark');
+            } else {
+              setTheme('theme-default');
+            }
+          });
+
           let language = localStorage.getItem('storageSwitchLanguage');
           if (language == 'false') {
-            document.getElementById('titleConfigurarion').innerHTML = 'CONFIGURATION';
-            document.getElementById('itemHomeScreen').innerHTML = 'HOME SCREEN';
-            document.getElementById('itemThemeScreen').innerHTML = 'THEME';
-            document.getElementById('itemTutorialScreen').innerHTML = 'TUTORIALS';
-            document.getElementById('itemLanguageScreen').innerHTML = 'LANGUAGE';
-            document.getElementById('itemDeleteScreen').innerHTML = 'DELETE DATA';
-            document.getElementById('itemAboutScreen').innerHTML = 'ABOUT';
+            document.getElementById('titleConfigurarion').innerHTML = 'Settings';
+            document.getElementById('itemHomeScreen').innerHTML = 'Home screen';
+            document.getElementById('itemThemeScreen').innerHTML = 'Theme';
+            document.getElementById('itemTutorialScreen').innerHTML = 'Tutorials';
+            document.getElementById('itemLanguageScreen').innerHTML = 'Language';
+            document.getElementById('itemDeleteScreen').innerHTML = 'Delete data';
+            document.getElementById('itemAboutScreen').innerHTML = 'About';
           } else {
-            document.getElementById('titleConfigurarion').innerHTML = 'CONFIGURACIÓN';
-            document.getElementById('itemHomeScreen').innerHTML = 'PANTALLA INICIO';
-            document.getElementById('itemThemeScreen').innerHTML = 'TEMA';
-            document.getElementById('itemTutorialScreen').innerHTML = 'TUTORIALES';
-            document.getElementById('itemLanguageScreen').innerHTML = 'LENGUAJE';
-            document.getElementById('itemDeleteScreen').innerHTML = 'BORRAR DATOS';
-            document.getElementById('itemAboutScreen').innerHTML = 'ACERCA DE';
+            document.getElementById('titleConfigurarion').innerHTML = 'Configuración';
+            document.getElementById('itemHomeScreen').innerHTML = 'Pantalla inicio';
+            document.getElementById('itemThemeScreen').innerHTML = 'Tema';
+            document.getElementById('itemTutorialScreen').innerHTML = 'Tutoriales';
+            document.getElementById('itemLanguageScreen').innerHTML = 'Lenguaje';
+            document.getElementById('itemDeleteScreen').innerHTML = 'Borrar datos';
+            document.getElementById('itemAboutScreen').innerHTML = 'Acerca de';
           }
         }
       },

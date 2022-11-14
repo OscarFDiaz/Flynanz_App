@@ -5,13 +5,13 @@
         <i class="menuButtonIcon ion-md-menu"></i>
       </ons-toolbar-button>
     </div>
-    <div class="center labelToolbar" id="titleExpensesMain">GASTOS</div>
+    <div class="center labelToolbar" id="titleExpensesMain">Gastos</div>
   </ons-toolbar>
 
   <div id="expensesContainer"></div>
 
-  <ons-fab position="bottom right" onclick="pushToNewExpense()">
-    <i class="icon ion-md-add" style="font-size: 35px"></i>
+  <ons-fab position="bottom right" onclick="pushToNewExpense()" style="display: flex; justify-content: space-around">
+    <img src="/www/assets/icons/addButton.svg" alt="saving icon" style="width: 32px; margin-top: 30%" />
   </ons-fab>
 
   <!--ALERT PARA AÑADIR UN GASTO-->
@@ -46,7 +46,7 @@
 
     <div class="alert-dialog-footer">
       <ons-alert-dialog-button onclick="hideAlertExpenseNoChange()" id="expensesMainCancel">CANCELAR</ons-alert-dialog-button>
-      <ons-alert-dialog-button onclick="hideAlertExpense()" id="expensesMainFinished">lISTO!</ons-alert-dialog-button>
+      <ons-alert-dialog-button onclick="hideAlertExpense()" id="expensesMainFinished">LISTO!</ons-alert-dialog-button>
     </div>
   </ons-alert-dialog>
   <!----------------------------------------------------------------->
@@ -59,23 +59,23 @@
           ons.ready(function () {
             let languaje = localStorage.getItem('storageSwitchLanguage');
             if (languaje == 'false') {
-              document.getElementById('titleExpensesMain').innerHTML = 'EXPENSES';
-              document.getElementById('expensesMainNewExpense').innerHTML = 'ADD NEW EXPENSE';
-              document.getElementById('expensesMainNote').innerHTML = 'EXPENDITURE NOTE';
-              document.getElementById('expensesMainAmount').innerHTML = 'SPENT MONEY';
-              document.getElementById('expensesMainDate').innerHTML = 'DATE OF EXPENDITURE';
-              document.getElementById('expensesMainRest').innerHTML = 'SUBTRACT TO: ';
-              document.getElementById('expensesMainCancel').innerHTML = 'CANCEL';
-              document.getElementById('expensesMainFinished').innerHTML = 'FINISHED!';
+              document.getElementById('titleExpensesMain').innerHTML = 'Expenses';
+              document.getElementById('expensesMainNewExpense').innerHTML = 'Add new expense';
+              document.getElementById('expensesMainNote').innerHTML = 'Expenditure note';
+              document.getElementById('expensesMainAmount').innerHTML = 'Spent money';
+              document.getElementById('expensesMainDate').innerHTML = 'Date of expenditure';
+              document.getElementById('expensesMainRest').innerHTML = 'Subtract to: ';
+              document.getElementById('expensesMainCancel').innerHTML = 'Cancel';
+              document.getElementById('expensesMainFinished').innerHTML = 'Finished!';
             } else {
-              document.getElementById('titleExpensesMain').innerHTML = 'GASTOS';
-              document.getElementById('expensesMainNewExpense').innerHTML = 'AÑADIR NUEVO GASTO';
-              document.getElementById('expensesMainNote').innerHTML = 'NOTA DEL GASTO';
-              document.getElementById('expensesMainAmount').innerHTML = 'DINERO GASTADO';
-              document.getElementById('expensesMainDate').innerHTML = 'FECHA DEL GASTO';
-              document.getElementById('expensesMainRest').innerHTML = 'RESTAR A: ';
-              document.getElementById('expensesMainCancel').innerHTML = 'CANCELAR';
-              document.getElementById('expensesMainFinished').innerHTML = 'LISTO!';
+              document.getElementById('titleExpensesMain').innerHTML = 'Gastos';
+              document.getElementById('expensesMainNewExpense').innerHTML = 'Añadir nuevo gasto';
+              document.getElementById('expensesMainNote').innerHTML = 'Nota del gasto';
+              document.getElementById('expensesMainAmount').innerHTML = 'Dinero gastado';
+              document.getElementById('expensesMainDate').innerHTML = 'Fecha del gasto';
+              document.getElementById('expensesMainRest').innerHTML = 'Restar a: ';
+              document.getElementById('expensesMainCancel').innerHTML = 'Cancelar';
+              document.getElementById('expensesMainFinished').innerHTML = 'Listo!';
             }
 
             localStorage.setItem('actuaPage', 'expenses.html');

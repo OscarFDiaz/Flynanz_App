@@ -1,31 +1,3 @@
-/*********************************************************/
-// ALERT DIALOG PARA EDITAR UNA META COMPLETAMENTE
-function createAlertDialogToEditGoal() {
-  let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
-  let parseGoal = JSON.parse(retrievedGoal);
-
-  //Guardo el nombre por si el usuario lo edita
-  localStorage.setItem('nameSaved', parseGoal.name);
-
-  document.getElementById('editGoalName').value = parseGoal.name;
-  document.getElementById('editGoalDescription').value = parseGoal.description;
-  document.getElementById('editGoalMoney').value = parseGoal.goalMoney;
-  document.getElementById('editActualGoalMoney').value = parseGoal.actualMoney;
-  document.getElementById('editGoalDate').value = parseGoal.date;
-
-  let dialog = document.getElementById('my-alert-dialog');
-
-  if (dialog) {
-    dialog.show();
-  } else {
-    ons.notification.toast('No se ha podido cargar la ventana para modificar!', {
-      title: 'Error!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  }
-}
-
 /* CUANDO SE FINALIZA DE MODIFICAR UNA META*/
 function hideAlertDialog() {
   let name = document.getElementById('editGoalName').value;
@@ -33,6 +5,11 @@ function hideAlertDialog() {
   let actualMoney = parseFloat(document.getElementById('editActualGoalMoney').value).toFixed(2);
   let goalMoney = parseFloat(document.getElementById('editGoalMoney').value).toFixed(2);
   let goalDate = document.getElementById('editGoalDate').value;
+
+  let goalGradient = sessionStorage.getItem('tempGradient');
+  //Nombre de expense para reciclar memoria
+  let iconUrl = sessionStorage.getItem('expenseIconUrl');
+  let iconName = sessionStorage.getItem('expenseIconName');
 
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
 
@@ -86,7 +63,7 @@ function hideAlertDialog() {
     }
   } else {
     if (name === '') {
-      ons.notification.toast('Wait, a goal needs a good name!', {
+      ons.notification.toast('Espera, la meta necesita un nombre!', {
         title: 'Error!',
         timeout: 2000,
         animation: 'ascend',
@@ -122,12 +99,24 @@ function hideAlertDialog() {
     }
 
     if (goalDate === '') {
-      goalDate = 'SIN DATOS DE FECHA';
+      goalDate = 'Sin datos de fecha';
     }
   }
 
   if (actualMoney == '' || actualMoney == 'NaN') {
     actualMoney = '0.00';
+  }
+
+  if (goalGradient == null || goalGradient == '') {
+    goalGradient = '--gradient_1';
+  }
+
+  if (iconName == '' || iconName == null) {
+    iconName = 'format_paint.svg';
+  }
+
+  if (iconUrl == '' || iconUrl == null) {
+    iconUrl = '/www/assets/icons/icons_list/art/';
   }
 
   for (let i = 0; i < goals.length; i++) {
@@ -140,6 +129,9 @@ function hideAlertDialog() {
         goalActualMoney: actualMoney,
         goalMoney: goalMoney,
         goalDate: goalDate,
+        goalGradient: goalGradient,
+        iconName: iconName,
+        iconUrl: iconUrl,
       };
 
       if (localStorage.getItem('goalStorage') === null) {
@@ -156,8 +148,6 @@ function hideAlertDialog() {
     }
   }
 
-  document.getElementById('my-alert-dialog').hide();
-
   if (languaje == 'false') {
     ons.notification.toast(`Goal ${name} sucecessfully modified!`, {
       title: 'Notice!',
@@ -172,13 +162,13 @@ function hideAlertDialog() {
     });
   }
 
-  functionPopPage();
+  functionPopPage(2);
   getGoals();
 }
 
 /* SE INTENTA MODIFICAR UNA META PERO SE CANCELA */
 function hideAlertNoChange() {
-  document.getElementById('my-alert-dialog').hide();
+  functionPopPage(2);
   let languaje = localStorage.getItem('storageSwitchLanguage');
   if (languaje == 'false') {
     ons.notification.toast('Goal has not been changed!', {
@@ -244,7 +234,7 @@ function createAlertDialogToEditGoalMoney() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
-        ADD MONEY
+        Add money
       </ons-button>
     
       <ons-button
@@ -254,7 +244,7 @@ function createAlertDialogToEditGoalMoney() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-        REMOVE MONEY
+        Remove money
       </ons-button>`;
     } else {
       optionsContainer.innerHTML = `<ons-button
@@ -264,7 +254,7 @@ function createAlertDialogToEditGoalMoney() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
-        AÑADIR DINERO
+        Añadir dinero
       </ons-button>
     
       <ons-button
@@ -274,7 +264,7 @@ function createAlertDialogToEditGoalMoney() {
         id="newMoneyCancelButton"
       >
         <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-        RESTAR DINERO
+        Restar dinero
       </ons-button>`;
     }
 
@@ -364,6 +354,9 @@ function hideAlertDialogMoney() {
         goalActualMoney: newMoney,
         goalMoney: goals[i].goalMoney,
         goalDate: goals[i].goalDate,
+        goalGradient: goals[i].goalGradient,
+        iconName: goals[i].iconName,
+        iconUrl: goals[i].iconUrl,
       };
 
       // Modifico los elementos para actualizar el dinero y % mostrado
@@ -482,8 +475,8 @@ function insertActionEditGoal(option) {
 
   if (option === 'add') {
     if (languaje == 'false') {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px" >
-      I WANT TO ADD
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);" >
+      I want to add
     </p>
     <ons-input
       onchange="makeSum()"
@@ -496,8 +489,8 @@ function insertActionEditGoal(option) {
       style="display: block; margin: -10px auto 16px"
     ></ons-input>`;
     } else {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px">
-      QUIERO AÑADIR
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);">
+      Quiero añadir
     </p>
     <ons-input
       onchange="makeSum()"
@@ -512,8 +505,8 @@ function insertActionEditGoal(option) {
     }
   } else if (option === 'remove') {
     if (languaje == 'false') {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px" >
-      I WANT TO REMOVE
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);" >
+      I want to remove
     </p>
     <ons-input
       onchange="makeRes()"
@@ -526,8 +519,8 @@ function insertActionEditGoal(option) {
       style="display: block; margin: -10px auto 16px"
     ></ons-input>`;
     } else {
-      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px">
-      QUIERO QUITAR
+      optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);">
+      Quiero quitar
     </p>
     <ons-input
       onchange="makeRes()"

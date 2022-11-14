@@ -5,13 +5,13 @@
         <i class="menuButtonIcon ion-md-menu"></i>
       </ons-toolbar-button>
     </div>
-    <div class="center labelToolbar" id="titleGoals">METAS</div>
+    <div class="center labelToolbar" id="titleGoals">Metas</div>
   </ons-toolbar>
 
-  <div id="goalsContainer"></div>
+  <div id="goalsContainer" style="margin-bottom: 32px"></div>
 
-  <ons-fab position="bottom right" onclick="pushToNewGoal()">
-    <i class="icon ion-md-add" style="font-size: 35px"></i>
+  <ons-fab position="bottom right" onclick="pushToNewGoal()" style="display: flex; justify-content: space-around">
+    <img src="/www/assets/icons/addButton.svg" alt="saving icon" style="width: 32px; margin-top: 30%" />
   </ons-fab>
 
   <script>
@@ -25,9 +25,9 @@
 
           let languaje = localStorage.getItem('storageSwitchLanguage');
           if (languaje == 'false') {
-            document.getElementById('titleGoals').innerHTML = 'GOALS';
+            document.getElementById('titleGoals').innerHTML = 'Goals';
           } else {
-            document.getElementById('titleGoals').innerHTML = 'METAS';
+            document.getElementById('titleGoals').innerHTML = 'Metas';
           }
         }
       },

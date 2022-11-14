@@ -5,7 +5,7 @@
         <i class="menuButtonIcon ion-md-menu"></i>
       </ons-toolbar-button>
     </div>
-    <div class="center labelToolbar" id="titleSplitterUser">INICIO</div>
+    <div class="center labelToolbar" id="titleSplitterUser">Inicio</div>
   </ons-toolbar>
 
   <div id="homeOptionsContainer"></div>
@@ -17,9 +17,9 @@
         let languaje = localStorage.getItem('storageSwitchLanguage');
         if (event.target.matches('#userHome')) {
           if (languaje == 'false') {
-            document.getElementById('titleSplitterUser').innerHTML = 'HOME';
+            document.getElementById('titleSplitterUser').innerHTML = 'Home';
           } else {
-            document.getElementById('titleSplitterUser').innerHTML = 'INICIO';
+            document.getElementById('titleSplitterUser').innerHTML = 'Inicio';
           }
           localStorage.setItem('actuaPage', 'userHome.html');
           checkOptions();

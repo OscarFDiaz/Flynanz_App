@@ -1,7 +1,7 @@
 <ons-page id="homeOptions">
   <ons-toolbar id="toolbar" class="toolbar" modifier="transparent">
     <ons-back-button></ons-back-button>
-    <div class="center labelToolbar" id="titleConfigurarionHomeScreen">PANTALLA INICIO</div>
+    <div class="center labelToolbar" id="titleConfigurarionHomeScreen">Pantalla de inicio</div>
   </ons-toolbar>
 
   <p class="paraHome" id="tutorialPara">Las casillas marcadas aparecerán en la pantalla inicio.</p>
@@ -13,6 +13,15 @@
         </div>
         <div class="right">
           <ons-switch id="switchTotalMoney"></ons-switch>
+        </div>
+      </ons-list-item>
+
+      <ons-list-item modifier="nodivider">
+        <div class="center listLabels">
+          <span id="labelHomeWallet"> CARTERAS </span>
+        </div>
+        <div class="right">
+          <ons-switch id="switchWallets"></ons-switch>
         </div>
       </ons-list-item>
 
@@ -115,24 +124,42 @@
             localStorage.setItem('storageSwitchGoals', e.target.checked);
           });
 
+          /* SWICTH WALLETS*/
+          let swicthW = localStorage.getItem('storageSwitchWallet');
+          if (swicthW == null || swicthW == '') {
+            document.getElementById('switchWallets').setAttribute('checked', true);
+            localStorage.setItem('storageSwitchWallet', true);
+          } else {
+            if (swicthW == true || swicthW == 'true') {
+              document.getElementById('switchWallets').setAttribute('checked', true);
+            } else {
+              document.getElementById('switchWallets').removeAttribute('checked');
+            }
+          }
+          document.getElementById('switchWallets').addEventListener('change', function (e) {
+            localStorage.setItem('storageSwitchWallet', e.target.checked);
+          });
+
           /* LANGUAGE */
           let language = localStorage.getItem('storageSwitchLanguage');
           if (language == 'false') {
-            document.getElementById('titleConfigurarionHomeScreen').innerHTML = 'HOME SCREEN';
+            document.getElementById('titleConfigurarionHomeScreen').innerHTML = 'Home screen';
             document.getElementById('tutorialPara').innerHTML =
               'The enabled switches represent the options that appear on the home screen.';
-            document.getElementById('labelHomeTotalMoney').innerHTML = 'TOTAL MONEY';
-            document.getElementById('labelHomeExpenses').innerHTML = 'EXPENSES';
-            document.getElementById('labelHomeSaved').innerHTML = 'SAVED MONEY';
-            document.getElementById('labelHomeGoals').innerHTML = 'GOALS';
+            document.getElementById('labelHomeTotalMoney').innerHTML = 'Total money';
+            document.getElementById('labelHomeExpenses').innerHTML = 'Expenses';
+            document.getElementById('labelHomeSaved').innerHTML = 'Saved money';
+            document.getElementById('labelHomeGoals').innerHTML = 'Goals';
+            document.getElementById('labelHomeWallet').innerHTML = 'Wallets';
           } else {
-            document.getElementById('titleConfigurarionHomeScreen').innerHTML = 'PANTALLA INICIO';
+            document.getElementById('titleConfigurarionHomeScreen').innerHTML = 'Pantalla inicio';
             document.getElementById('tutorialPara').innerHTML =
               'Los interruptores activados representan las opciones que aparecen en la pantalla de inicio.';
-            document.getElementById('labelHomeTotalMoney').innerHTML = 'DINERO TOTAL';
-            document.getElementById('labelHomeExpenses').innerHTML = 'GASTOS';
-            document.getElementById('labelHomeSaved').innerHTML = 'FONDO AHORRADO';
-            document.getElementById('labelHomeGoals').innerHTML = 'METAS';
+            document.getElementById('labelHomeTotalMoney').innerHTML = 'Dinero total';
+            document.getElementById('labelHomeExpenses').innerHTML = 'Gastos';
+            document.getElementById('labelHomeSaved').innerHTML = 'Fondo ahorrado';
+            document.getElementById('labelHomeGoals').innerHTML = 'Metas';
+            document.getElementById('labelHomeWallet').innerHTML = 'Carteras';
           }
         }
       },

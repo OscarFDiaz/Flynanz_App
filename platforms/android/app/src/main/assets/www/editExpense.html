@@ -6,15 +6,12 @@
     <div class="center labelToolbar" id="titleExpensesEdit">EDITAR GASTO</div>
   </ons-toolbar>
 
-  <ons-card>
+  <div style="margin: 20px;">
     <div class="content">
       <div style="text-align: center; margin-top: 16px">
         <div>
-          <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="editExpenseName">NOMBRE DEL GASTO</p>
+          <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)" id="editExpenseName">NOMBRE DEL GASTO</p>
           <ons-input
-            onchange="changeTitlePreviewEdit()"
-            onkeypress="this.onchange()"
-            oninput="this.onchange()"
             id="newExpenseNameEdit"
             modifier="underbar"
             placeholder=""
@@ -24,37 +21,19 @@
         </div>
       </div>
 
-      <div>
-        <p style="margin: 0px auto -16px 12px; text-align: left" id="editExpenseColor">SELECCIONA UN COLOR</p>
-        <div style="margin-top: 16px; border: 2px solid var(--color-input); border-radius: 15px; height: 48px">
-          <div class="input-color-container" style="width: 100%; height: 44px; border: none">
-            <input
-              onchange="loadIconsEdit()"
-              onkeypress="this.onchange()"
-              oninput="this.onchange()"
-              class="customInput"
-              value="#ffffff"
-              type="color"
-              id="newExpenseColorEdit"
-              style="display: block; width: 105%; height: 150%; margin: 0px"
-            />
-          </div>
-        </div>
-      </div>
-
-      <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--card-content-text-color)" id="editExpenseIcon">
+      <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="editExpenseIcon">
         SELECCIONA UN ICONO
       </p>
       <div style="border: 2px solid var(--color-input); border-radius: 15px; margin-bottom: 16px">
         <ons-list style="background: none; margin-top: -16px">
           <ons-list-item id="expandableListContainerEdit" expandable>
             <p
-              style="margin: 0px auto 0px 12px; text-align: left; color: var(--card-content-text-color)"
+              style="margin: 0px auto 0px 12px; text-align: left; color: var(--color-input-label)"
               id="editExpenseIconLabel"
             >
               CLICK PARA CAMBIAR
             </p>
-            <div class="expandable-content" id="expenseIconListOfIconsEdit">
+            <div class="expandable-content" id="expenseIconListOfIconsEdit" style="background-color: var(--color-input)">
               <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
             </div>
           </ons-list-item>
@@ -62,11 +41,67 @@
       </div>
 
       <div>
-        <p style="margin: 0px auto -16px 12px; text-align: left" id="editExpenseSwitch">MOSTRAR EN INICIO</p>
+        <p style="margin: 0px auto -16px 12px; text-align: left; color: var(--color-input-label)" id="editExpenseSwitch">MOSTRAR EN INICIO</p>
         <div style="margin-top: 16px; border: 2px solid var(--color-input); border-radius: 15px; height: 48px">
           <div style="text-align: left; display: block; margin: 10px 16px">
             <ons-switch id="switchNewGoalEdit"></ons-switch>
           </div>
+        </div>
+      </div>
+
+      <div id="gradients-container" style="margin-bottom: 32px;">
+        <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newMoneyGradientInput">Color</p>
+        <div class="option">
+          <ons-button
+            class="gradientButton"
+            style="background: var(--gradient_0)"
+            onclick="gradientButtonExpenseClick('--gradient_0', '#bfdff8', '#f4dcf5')"
+          ></ons-button>
+          <ons-button
+            class="gradientButton"
+            style="background: var(--gradient_1)"
+            onclick="gradientButtonExpenseClick('--gradient_1', '#e1f0e1', '#aadfda')"
+          ></ons-button>
+          <ons-button
+            class="gradientButton"
+            style="background: var(--gradient_2)"
+            onclick="gradientButtonExpenseClick('--gradient_2', '#b3dbf1', '#beedf5')"
+          ></ons-button>
+          <ons-button
+            class="gradientButton"
+            style="background: var(--gradient_3)"
+            onclick="gradientButtonExpenseClick('--gradient_3', '#f6e6cf', '#f3ccc4')"
+          ></ons-button>
+          <ons-button
+            class="gradientButton"
+            style="background: var(--gradient_4)"
+            onclick="gradientButtonExpenseClick('--gradient_4', '#ff8abe', '#fce9d0')"
+          ></ons-button>
+          <ons-button
+            class="gradientButton"
+            style="background: var(--gradient_5)"
+            onclick="gradientButtonExpenseClick('--gradient_5', '#96c1dc', '#d9d4ed')"
+          ></ons-button>
+          <ons-button
+            class="gradientButton"
+            style="background: var(--gradient_6)"
+            onclick="gradientButtonExpenseClick('--gradient_6', '#74f2ce', '#7cffcb')"
+          ></ons-button>
+          <ons-button
+            class="gradientButton"
+            style="background: var(--gradient_7)"
+            onclick="gradientButtonExpenseClick('--gradient_7', '#7ee8fa', '#eec0c6')"
+          ></ons-button>
+          <ons-button
+            class="gradientButton"
+            style="background: var(--gradient_8)"
+            onclick="gradientButtonExpenseClick('--gradient_8', '#b0f3f1', '#ffcfdf')"
+          ></ons-button>
+          <ons-button
+            class="gradientButton"
+            style="background: var(--gradient_9)"
+            onclick="gradientButtonExpenseClick('--gradient_9', '#fb8085', '#f9c1b1')"
+          ></ons-button>
         </div>
       </div>
 
@@ -87,21 +122,6 @@
     </div>
   </ons-card>
 
-  <label class="cardHomeTitle" id="editExpensePrevTitle">PREVISUALIZACIÓN</label>
-  <ons-card>
-    <div class="title expenseTitle" id="expensePrevTitleEdit" style="display: inline-block; margin-bottom: 16px">
-      NUEVO NOMBRE
-    </div>
-    <i class="expenseIcon" id="expensePrevIconEdit"></i>
-    <div class="content" style="margin-top: -16px">
-      <label class="expenseInfo" id="expenseInfoInsert">$ GASTADOS TOTALMENTE</label>
-    </div>
-    <ons-button class="moneyButtonAdd" style="margin-bottom: 16px" onclick="" id="editExpensePrevAddButton">
-      AÑADIR GASTO
-    </ons-button>
-    <ons-button class="moneyButtonDe" style="margin-bottom: 16px" onclick="" id="editExpensePrevAddButton"> ELIMINAR </ons-button>
-  </ons-card>
-
   <script>
     document.addEventListener(
       'init',
@@ -110,57 +130,37 @@
           ons.ready(function () {
             let languaje = localStorage.getItem('storageSwitchLanguage');
             if (languaje == 'false') {
-              document.getElementById('titleExpensesEdit').innerHTML = 'EDIT EXPENDITURE';
-              document.getElementById('editExpenseName').innerHTML = 'NAME OF EXPENDITURE';
-              document.getElementById('editExpenseColor').innerHTML = 'SELECT A COLOR';
-              document.getElementById('editExpenseIcon').innerHTML = 'SELECT AN ICON';
-              document.getElementById('editExpenseIconLabel').innerHTML = 'CLICK TO CHANGE';
-              document.getElementById('editExpenseSwitch').innerHTML = 'SHOW IN HOME';
-              document.getElementById('editExpenseFinishedButton').innerHTML = 'FINISHED!';
-              document.getElementById('editExpenseCancelButton').innerHTML = 'CANCEL';
-
-              document.getElementById('editExpensePrevTitle').innerHTML = 'PREVIEW';
-              document.getElementById('expensePrevTitleEdit').innerHTML = 'NEW NAME';
-              document.getElementById('expenseInfoInsert').innerHTML = '$ TOTALLY SPENT';
-              document.getElementById('editExpensePrevAddButton').innerHTML = ' ADD EXPENSE ';
-              document.getElementById('editExpensePrevAddButton').innerHTML = ' DELETE ';
+              document.getElementById('titleExpensesEdit').innerHTML = 'Edit expenditure';
+              document.getElementById('editExpenseName').innerHTML = 'Name of expenditure';
+              document.getElementById('editExpenseIcon').innerHTML = 'Select an icon';
+              document.getElementById('editExpenseIconLabel').innerHTML = 'Click to change';
+              document.getElementById('editExpenseSwitch').innerHTML = 'Show in home';
+              document.getElementById('editExpenseFinishedButton').innerHTML = 'Finished!';
+              document.getElementById('editExpenseCancelButton').innerHTML = 'Cancel';
             } else {
-              document.getElementById('titleExpensesEdit').innerHTML = 'EDITAR GASTO';
-              document.getElementById('editExpenseName').innerHTML = 'NOMBRE DEL GASTO';
-              document.getElementById('editExpenseColor').innerHTML = 'SELECCIONA UN COLOR';
-              document.getElementById('editExpenseIcon').innerHTML = 'SELECCIONA UN ICONO';
-              document.getElementById('editExpenseIconLabel').innerHTML = 'CLICK PARA CAMBIAR';
-              document.getElementById('editExpenseSwitch').innerHTML = 'MOSTRAR EN INICIO';
-              document.getElementById('editExpenseFinishedButton').innerHTML = 'LISTO!';
-              document.getElementById('editExpenseCancelButton').innerHTML = 'CANCELAR';
-
-              document.getElementById('editExpensePrevTitle').innerHTML = 'PREVISUALIZACIÓN';
-              document.getElementById('expensePrevTitleEdit').innerHTML = 'NUEVO NOMBRE';
-              document.getElementById('expenseInfoInsert').innerHTML = '$ GASTADOS TOTALMENTE';
-              document.getElementById('editExpensePrevAddButton').innerHTML = ' AÑADIR GASTO ';
-              document.getElementById('editExpensePrevAddButton').innerHTML = ' ELIMINAR ';
+              document.getElementById('titleExpensesEdit').innerHTML = 'Editar gasto';
+              document.getElementById('editExpenseName').innerHTML = 'Nombre del gasto';
+              document.getElementById('editExpenseIcon').innerHTML = 'Selecciona un icono';
+              document.getElementById('editExpenseIconLabel').innerHTML = 'Click para cambiar';
+              document.getElementById('editExpenseSwitch').innerHTML = 'Mostrar en inicio';
+              document.getElementById('editExpenseFinishedButton').innerHTML = 'Listo!';
+              document.getElementById('editExpenseCancelButton').innerHTML = 'Cancelar';
             }
 
             loadIconsEdit();
 
             let expenseNameEdit = sessionStorage.getItem('expenseNameEdit');
             document.getElementById('newExpenseNameEdit').value = expenseNameEdit;
-            document.getElementById('expensePrevTitleEdit').innerHTML = expenseNameEdit;
 
             let expenseS = JSON.parse(localStorage.getItem('expenseStorage'));
-            let expenseIcon, expenseColor, isChecked;
+            let expenseIcon, iconUrl, expenseColor, isChecked;
             let expenseInfoInsert = document.getElementById('expenseInfoInsert');
 
             for (let i = 0; i < expenseS.length; i++) {
               if (expenseS[i].expenseName == expenseNameEdit) {
                 expenseIcon = expenseS[i].iconName;
+                iconUrl = expenseS[i].iconUrl;
                 expenseColor = expenseS[i].expenseColor;
-
-                if (languaje == 'false') {
-                  expenseInfoInsert.innerHTML = '$ ' + expenseS[i].totalExpense + ' SPENT';
-                } else {
-                  expenseInfoInsert.innerHTML = '$ ' + expenseS[i].totalExpense + ' GASTADOS';
-                }
                 //Seteo el switch
                 isChecked = expenseS[i].toShow;
                 break;
@@ -172,17 +172,6 @@
             } else {
               document.getElementById('switchNewGoalEdit').removeAttribute('checked');
             }
-
-            document.getElementById('newExpenseColorEdit').value = expenseColor;
-
-            /* OBTENGO EL ICONO ACTUAL Y LO AÑADO*/
-            let iconElement = document.getElementById('expensePrevIconEdit');
-            sessionStorage.setItem('oldIcon', expenseIcon);
-            iconElement.className = '';
-            iconElement.classList.add('expenseIcon');
-            iconElement.classList.add(expenseIcon);
-            // Añado el color
-            iconElement.style.cssText = `--expenseIconColorPrev: ${expenseColor}`;
           });
         }
       },

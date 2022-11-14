@@ -18,15 +18,15 @@
   </div>
 
   <!--CARRUSEL-->
-  <ons-card style="margin: 16px" id="moneyContainer">
+  <ons-card style="margin: 20px; border: none;" id="moneyContainer">
   </ons-card>
 
   <!--GASTOS POR TARJETA-->
   <ons-card id="cardExpensesContainer">
   </ons-card>
-  
-  <ons-fab position="bottom right" onclick="pushToNewMoney()">
-    <i class="icon ion-md-add" style="font-size: 35px;"></i>
+
+  <ons-fab position="bottom right" onclick="pushToNewMoney()" style="display: flex; justify-content: space-around">
+    <img src="/www/assets/icons/addButton.svg" alt="saving icon" style="width: 32px; margin-top: 30%" />
   </ons-fab>
 
   <!--ALERT PARA EDITAR UNICAMENTE EL DINERO-->
@@ -96,33 +96,32 @@
       function (event) {
         if (event.target.matches("#money")) {
           ons.ready(function () {
+
             localStorage.setItem("actuaPage", "money.html");
 
             let languaje = localStorage.getItem("storageSwitchLanguage");
             if (languaje == 'false') {
-              document.getElementById('titleMoney').innerHTML = 'MY MONEY';
-              document.getElementById('moneyEditAlertTitle').innerHTML = 'MODIFY MY MONEY';
+              document.getElementById('titleMoney').innerHTML = 'My money';
+              document.getElementById('moneyEditAlertTitle').innerHTML = 'Modify my money';
               document.getElementById('moneyEditAlertActualMoney').innerHTML = 
-              `CURRENT MONEY: $ 
+              `Current money: $ 
               <label id="editMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-             // document.getElementById('moneyEditAlertWhat').innerHTML = 'I WANT TO ADD / REMOVE';
               document.getElementById('moneyEditAlertNewMoney').innerHTML = 
-              `NEW AMOUNT: $ 
+              `New amount: $ 
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertCancel').innerHTML = 'CANCEL';
-              document.getElementById('moneyEditAlertFinished').innerHTML = 'FINISHED!';
+              document.getElementById('moneyEditAlertCancel').innerHTML = 'Cancel';
+              document.getElementById('moneyEditAlertFinished').innerHTML = 'Finished!';
             } else {
-              document.getElementById('titleMoney').innerHTML = 'MI DINERO';
-              document.getElementById('moneyEditAlertTitle').innerHTML = 'MODIFICAR MI DINERO';
+              document.getElementById('titleMoney').innerHTML = 'Mi dinero';
+              document.getElementById('moneyEditAlertTitle').innerHTML = 'Modificar mi dinero';
               document.getElementById('moneyEditAlertActualMoney').innerHTML = 
-              `DINERO ACTUAL: $ 
+              `Dinero actual: $ 
               <label id="editMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-             // document.getElementById('moneyEditAlertWhat').innerHTML = 'QUIERO AÑADIR / QUITAR';
               document.getElementById('moneyEditAlertNewMoney').innerHTML = 
-              `CANTIDAD NUEVA: $ 
+              `Cantidad nueva: $ 
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertCancel').innerHTML = 'CANCELAR';
-              document.getElementById('moneyEditAlertFinished').innerHTML = 'LISTO!';
+              document.getElementById('moneyEditAlertCancel').innerHTML = 'Cancelar';
+              document.getElementById('moneyEditAlertFinished').innerHTML = 'Listo!';
             }
 
             getMoneys();
