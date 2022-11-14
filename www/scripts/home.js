@@ -316,7 +316,7 @@ function loadOptions() {
         let mGradient = moneys[i].moneyGradient;
         toInner += `
           <div class="wallet" style="background: var(${mGradient})">
-            <div class="tittleWallet">
+            <div class="tittleWalletHome">
               ${mName}
             </div>
             <div class="walletMoneyAmount">$ 

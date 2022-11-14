@@ -1,8 +1,9 @@
 function startTime() {
   let themeSelected = localStorage.getItem('userTheme');
 
-  if (themeSelected != 'theme-default' || themeSelected != 'theme-dark') {
+  if (themeSelected != 'theme-default' && themeSelected != 'theme-dark') {
     localStorage.setItem('userTheme', 'theme-default');
+    themeSelected = 'theme-default';
     document.documentElement.className = 'theme-default';
   }
 
@@ -59,13 +60,13 @@ function updateGolsOnUpdate() {
     if (gGradient == null || gGradient == '') {
       goals[i].goalGradient = '--gradient_0';
     }
-    
-    if(gIconName == null || gIconName == '') {
+
+    if (gIconName == null || gIconName == '') {
       goals[i].iconName = 'format_paint.svg';
       goals[i].iconUrl = '/www/assets/icons/icons_list/art/';
     }
   }
-  
+
   localStorage.setItem('goalStorage', JSON.stringify(goals));
 }
 
