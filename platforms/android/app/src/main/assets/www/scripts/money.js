@@ -268,6 +268,7 @@ function getMoneys() {
       <ons-carousel-item  class="moneyCard" style="background: var(${mGradient})">
         <div class="title moneyTitle">
           ${mName}
+          <img src="./assets/icons/editButtonBlack.png" alt="saving icon" style="width: 32px; position: absolute; right: 20px" onclick="modifyMoney('${mName}')">
         </div>
         <div class="content">
           <div class="title totalMoneyTitle" style="display: block; text-align:left; padding-top: 0px; padding-bottom: 16px; font-weight: 500;">
@@ -289,6 +290,7 @@ function getMoneys() {
       <ons-carousel-item  class="moneyCard" style="background: var(${mGradient})">
         <div class="title moneyTitle">
           ${mName}
+          <img src="./assets/icons/editButtonBlack.png" alt="saving icon" style="width: 32px; position: absolute; right: 20px" onclick="modifyMoney('${mName}')">
         </div>
         <div class="content">
           <div class="title totalMoneyTitle" style="display: block; text-align:left; padding-top: 0px; padding-bottom: 16px; font-weight: 500;">
@@ -627,5 +629,158 @@ function showExpensesPerWallet(walletName) {
         }
       }
     }
+  }
+}
+
+function modifyMoney(sendMoneyName) {
+  let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
+
+  for (let i = 0; i < moneys.length; i++) {
+    let mName = moneys[i].moneyName;
+
+    if (mName == sendMoneyName) {
+      let mMoney = moneys[i].moneyCurrent;
+      let mGradient = moneys[i].moneyGradient;
+
+      sessionStorage.setItem('tempGradient', mGradient);
+
+      let findMoneyObject = {
+        moneyName: mName,
+        moneyCurrent: mMoney,
+        moneyGradient: mGradient,
+      };
+
+      if (sessionStorage.getItem('sessionFindMoney') === null) {
+        sessionStorage.setItem('sessionFindMoney', JSON.stringify(findMoneyObject));
+      } else {
+        sessionStorage.removeItem('sessionFindMoney');
+        sessionStorage.setItem('sessionFindMoney', JSON.stringify(findMoneyObject));
+      }
+      const navigator = document.querySelector('#navigator');
+      navigator.pushPage('editMoney.html');
+      break;
+    }
+  }
+}
+
+function loadDetailMoney() {
+  let retrievedMoney = sessionStorage.getItem('sessionFindMoney');
+  let parseMoney = JSON.parse(retrievedMoney);
+
+  //Guardo el nombre por si el usuario lo edita
+  localStorage.setItem('nameSaved', parseMoney.moneyName);
+
+  document.getElementById('editMoneyName').value = parseMoney.moneyName;
+  document.getElementById('editMoneyMoney').value = parseMoney.moneyCurrent;
+}
+
+function saveEditMoney() {
+  let sName = localStorage.getItem('nameSaved');
+
+  let name = document.getElementById('editMoneyName').value;
+  let actualMoney = parseFloat(document.getElementById('editMoneyMoney').value).toFixed(2);
+
+  let moneyGradient = sessionStorage.getItem('tempGradient');
+
+  let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
+
+  let languaje = localStorage.getItem('storageSwitchLanguage');
+
+  let testMoney = Math.sign(actualMoney);
+
+  if (languaje == 'false') {
+    if (name === '') {
+      ons.notification.toast('Wait, a money needs a good name!', {
+        title: 'Error!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+      return;
+    }
+
+    if (actualMoney == '' || actualMoney == null || actualMoney == 'NaN') {
+      actualMoney = '0.00';
+    }
+
+    if (testMoney == '-1' || testMoney === '-0' || testMoney == '0') {
+      ons.notification.toast('It is not possible to leave a money in negative numbers, sorry.', {
+        title: 'Notice!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+      return;
+    }
+  } else {
+    if (name === '') {
+      ons.notification.toast('Espera, el dinero necesita un nombre!', {
+        title: 'Error!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+      return;
+    }
+
+    if (actualMoney == '' || actualMoney == null || actualMoney == 'NaN') {
+      actualMoney = '0.00';
+    }
+
+    if (testMoney == '-1' || testMoney === '-0' || testMoney == '0') {
+      ons.notification.toast('No es posible dejar un dinero en negativo!.', {
+        title: 'Notice!',
+        timeout: 2000,
+        animation: 'ascend',
+      });
+      return;
+    }
+  }
+
+  if (moneyGradient == null || moneyGradient == '') {
+    moneyGradient = '--gradient_1';
+  }
+
+  for (let i = 0; i < moneys.length; i++) {
+    if (moneys[i].moneyName == sName) {
+      indexGoal = i; //Pongo la posición donde esta mi objeto que modificare
+
+      let updateMoneyObject = {
+        moneyName: name,
+        moneyCurrent: actualMoney,
+        moneyGradient: moneyGradient,
+      };
+
+      if (localStorage.getItem('moneyStorage') === null) {
+        let moneysArray = [];
+        moneysArray.push(updateMoneyObject);
+        localStorage.setItem('moneyStorage', JSON.stringify(moneysArray));
+      } else {
+        moneys[indexGoal] = updateMoneyObject;
+        localStorage.setItem('moneyStorage', JSON.stringify(moneys));
+      }
+      localStorage.removeItem('nameSaved');
+      sessionStorage.clear();
+      break;
+    }
+  }
+
+  if (languaje == 'false') {
+    ons.notification.toast(`Money ${name} sucecessfully modified!`, {
+      title: 'Notice!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
+  } else {
+    ons.notification.toast(`Dinero ${name} modificada exitosamente!`, {
+      title: 'Aviso!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
+  }
+
+  try {
+    functionPopPage();
+    getMoneys();
+  } catch (error) {
+    functionPopPage();
+    return;
   }
 }
