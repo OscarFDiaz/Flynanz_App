@@ -10,148 +10,148 @@ function loadIcons() {
   iconsView.innerHTML = '';
 
   let art = `/www/assets/icons/icons_list/art/`;
-  let artNames = ['brush.svg', 'format_color_fill.svg', 'format_paint.svg', 'imagesearch_roller.svg', 'palette.svg'];
+  let artNames = ['brush.png', 'format_color_fill.png', 'format_paint.png', 'imagesearch_roller.png', 'palette.png'];
 
   let book = `/www/assets/icons/icons_list/books/`;
   let bookNames = [
-    'play_lesson.svg',
-    'photo_album.svg',
-    'menu_book.svg',
-    'library_books.svg',
-    'import_contacts.svg',
-    'book.svg',
-    'auto_stories.svg',
+    'play_lesson.png',
+    'photo_album.png',
+    'menu_book.png',
+    'library_books.png',
+    'import_contacts.png',
+    'book.png',
+    'auto_stories.png',
   ];
 
   let builds = `/www/assets/icons/icons_list/builds/`;
   let buildsNames = [
-    'apartment.svg',
-    'cabin.svg',
-    'cottage.svg',
-    'gite.svg',
-    'home.svg',
-    'home_work.svg',
-    'house.svg',
-    'location_city.svg',
-    'villa.svg',
+    'apartment.png',
+    'cabin.png',
+    'cottage.png',
+    'gite.png',
+    'home.png',
+    'home_work.png',
+    'house.png',
+    'location_city.png',
+    'villa.png',
   ];
 
   let camera = `/www/assets/icons/icons_list/camera/`;
-  let cameraNames = ['camera.svg', 'photo_camera.svg', 'video_camera_back.svg', 'videocam.svg'];
+  let cameraNames = ['camera.png', 'photo_camera.png', 'video_camera_back.png', 'videocam.png'];
 
   let fix = `/www/assets/icons/icons_list/fix/`;
   let fixNames = [
-    'build.svg',
-    'construction.svg',
-    'engineering.svg',
-    'handyman.svg',
-    'healing.svg',
-    'home_repair_service.svg',
-    'plumbing.svg',
+    'build.png',
+    'construction.png',
+    'engineering.png',
+    'handyman.png',
+    'healing.png',
+    'home_repair_service.png',
+    'plumbing.png',
   ];
 
   let food = `/www/assets/icons/icons_list/food/`;
   let foodNames = [
-    'bakery_dining.svg',
-    'brunch_dining.svg',
-    'cake.svg',
-    'coffee.svg',
-    'coffee_maker.svg',
-    'emoji_food_beverage.svg',
-    'fastfood.svg',
-    'icecream.svg',
-    'kebab_dining.svg',
-    'liquor.svg',
-    'local_bar.svg',
-    'local_cafe.svg',
-    'local_drink.svg',
-    'local_pizza.svg',
-    'lunch_dining.svg',
-    'ramen_dining.svg',
-    'restaurant.svg',
-    'sports_bar.svg',
-    'takeout_dining.svg',
+    'bakery_dining.png',
+    'brunch_dining.png',
+    'cake.png',
+    'coffee.png',
+    'coffee_maker.png',
+    'emoji_food_beverage.png',
+    'fastfood.png',
+    'icecream.png',
+    'kebab_dining.png',
+    'liquor.png',
+    'local_bar.png',
+    'local_cafe.png',
+    'local_drink.png',
+    'local_pizza.png',
+    'lunch_dining.png',
+    'ramen_dining.png',
+    'restaurant.png',
+    'sports_bar.png',
+    'takeout_dining.png',
   ];
 
   let fun = `/www/assets/icons/icons_list/fun/`;
-  let funNames = ['attractions.svg', 'celebration.svg', 'festival.svg', 'stadia_controller.svg', 'theater_comedy.svg'];
+  let funNames = ['attractions.png', 'celebration.png', 'festival.png', 'stadia_controller.png', 'theater_comedy.png'];
 
   let money = `/www/assets/icons/icons_list/money/`;
   let moneyNames = [
-    'account_balance_wallet.svg',
-    'credit_card.svg',
-    'footprint.svg',
-    'local_mall.svg',
-    'monetization_on.svg',
-    'payments.svg',
-    'redeem.svg',
-    'savings.svg',
-    'sell.svg',
-    'shopping_bag.svg',
-    'shopping_cart.svg',
-    'store.svg',
-    'storefront.svg',
-    'styler.svg',
-    'wallet.svg',
+    'account_balance_wallet.png',
+    'credit_card.png',
+    'footprint.png',
+    'local_mall.png',
+    'monetization_on.png',
+    'payments.png',
+    'redeem.png',
+    'savings.png',
+    'sell.png',
+    'shopping_bag.png',
+    'shopping_cart.png',
+    'store.png',
+    'storefront.png',
+    'styler.png',
+    'wallet.png',
   ];
 
   let music = `/www/assets/icons/icons_list/music/`;
   let musicNames = [
-    'audio_file.svg',
-    'auto_detect_voice.svg',
-    'headphones.svg',
-    'headset_mic.svg',
-    'music_note.svg',
-    'piano.svg',
-    'settings_voice.svg',
-    'speaker.svg',
-    'volume_up.svg',
+    'audio_file.png',
+    'auto_detect_voice.png',
+    'headphones.png',
+    'headset_mic.png',
+    'music_note.png',
+    'piano.png',
+    'settings_voice.png',
+    'speaker.png',
+    'volume_up.png',
   ];
 
   let pc = `/www/assets/icons/icons_list/pc/`;
-  let pcNames = ['computer.svg', 'desktop_windows.svg', 'devices.svg', 'mouse.svg', 'print.svg'];
+  let pcNames = ['computer.png', 'desktop_windows.png', 'devices.png', 'mouse.png', 'print.png'];
 
   let sport = `/www/assets/icons/icons_list/sport/`;
   let sportNames = [
-    'directions_run.svg',
-    'fitness_center.svg',
-    'golf_course.svg',
-    'sports_baseball.svg',
-    'sports_basketball.svg',
-    'sports_cricket.svg',
-    'sports_football.svg',
-    'sports_golf.svg',
-    'sports_handball.svg',
-    'sports_rugby.svg',
-    'sports_soccer.svg',
-    'sports_tennis.svg',
-    'sports_volleyball.svg',
+    'directions_run.png',
+    'fitness_center.png',
+    'golf_course.png',
+    'sports_baseball.png',
+    'sports_basketball.png',
+    'sports_cricket.png',
+    'sports_football.png',
+    'sports_golf.png',
+    'sports_handball.png',
+    'sports_rugby.png',
+    'sports_soccer.png',
+    'sports_tennis.png',
+    'sports_volleyball.png',
   ];
 
   let time = `/www/assets/icons/icons_list/time/`;
-  let timeNames = ['alarm.svg', 'date_range.svg', 'hourglass_empty.svg', 'schedule.svg', 'watch.svg'];
+  let timeNames = ['alarm.png', 'date_range.png', 'hourglass_empty.png', 'schedule.png', 'watch.png'];
 
   let transport = `/www/assets/icons/icons_list/transport/`;
   let transportNames = [
-    'airport_shuttle.svg',
-    'bike_scooter.svg',
-    'directions_bike.svg',
-    'directions_boat.svg',
-    'directions_bus.svg',
-    'directions_car.svg',
-    'directions_railway.svg',
-    'ev_station.svg',
-    'local_gas_station.svg',
-    'local_shipping.svg',
-    'motorcycle.svg',
-    'sailing.svg',
-    'snowmobile.svg',
-    'tire_repair.svg',
-    'tram.svg',
+    'airport_shuttle.png',
+    'bike_scooter.png',
+    'directions_bike.png',
+    'directions_boat.png',
+    'directions_bus.png',
+    'directions_car.png',
+    'directions_railway.png',
+    'ev_station.png',
+    'local_gas_station.png',
+    'local_shipping.png',
+    'motorcycle.png',
+    'sailing.png',
+    'snowmobile.png',
+    'tire_repair.png',
+    'tram.png',
   ];
 
   let travel = `/www/assets/icons/icons_list/travel/`;
-  let travelNames = ['airplane_ticket.svg', 'connecting_airports.svg', 'flight_takeoff.svg', 'luggage.svg', 'map.svg'];
+  let travelNames = ['airplane_ticket.png', 'connecting_airports.png', 'flight_takeoff.png', 'luggage.png', 'map.png'];
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Arte</p>`;
   for (let i = 0; i < artNames.length; i++) {
@@ -339,7 +339,7 @@ function makeNewExpense() {
   }
 
   if (iconName == '' || iconName == null) {
-    iconName = 'construction.svg';
+    iconName = 'construction.png';
   }
 
   if (iconUrl == '' || iconUrl == null) {
@@ -1061,7 +1061,7 @@ function loadDetailExpense() {
     onclick="resetExpense('${eName}')">Reset</ons-button>
 
     <ons-fab position="bottom right"  onclick="editExpense('${eName}')" style="display: flex; justify-content: space-around">
-      <img src="/www/assets/icons/editButton.svg" alt="saving icon" style="width: 32px; margin-top: 30%" />
+      <img src="/www/assets/icons/editButton.png" alt="saving icon" style="width: 32px; margin-top: 30%" />
     </ons-fab>`;
   } else {
     expenseView.innerHTML += `
@@ -1113,7 +1113,7 @@ function loadDetailExpense() {
     onclick="resetExpense('${eName}')">Reiniciar</ons-button>
     
     <ons-fab position="bottom right" onclick="editExpense('${eName}')" style="display: flex; justify-content: space-around">
-      <img src="/www/assets/icons/editButton.svg" alt="saving icon" style="width: 32px; margin-top: 30%" />
+      <img src="/www/assets/icons/editButton.png" alt="saving icon" style="width: 32px; margin-top: 30%" />
     </ons-fab>
     `;
   }

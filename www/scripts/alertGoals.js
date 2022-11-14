@@ -112,7 +112,7 @@ function hideAlertDialog() {
   }
 
   if (iconName == '' || iconName == null) {
-    iconName = 'format_paint.svg';
+    iconName = 'format_paint.png';
   }
 
   if (iconUrl == '' || iconUrl == null) {
