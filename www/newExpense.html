@@ -9,7 +9,10 @@
     <div class="content">
       <div style="text-align: center; margin-top: 16px">
         <div>
-          <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="newExpenseNameInput">
+          <p
+            style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
+            id="newExpenseNameInput"
+          >
             NOMBRE DEL GASTO
           </p>
           <ons-input
@@ -22,19 +25,16 @@
         </div>
       </div>
 
-      <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--card-content-text-color)" id="newExpenseIcon">
+      <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newExpenseIcon">
         SELECCIONA UN ICONO
       </p>
       <div style="border: 2px solid var(--color-input); border-radius: 15px; margin-bottom: 16px">
         <ons-list style="background: none; margin-top: -16px">
           <ons-list-item id="expandableListContainerExpense" expandable>
-            <p
-              style="margin: 0px auto 0px 12px; text-align: left; color: var(--card-content-text-color)"
-              id="newExpenseIconLabel"
-            >
+            <p style="margin: 0px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newExpenseIconLabel">
               CLICK PARA CAMBIAR
             </p>
-            <div class="expandable-content" id="expenseIconListOfIcons">
+            <div class="expandable-content" id="expenseIconListOfIcons" style="background-color: var(--color-input)">
               <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
             </div>
           </ons-list-item>
@@ -42,7 +42,9 @@
       </div>
 
       <div>
-        <p style="margin: 0px auto -16px 12px; text-align: left" id="newExpenseSwitch">MOSTRAR EN INICIO</p>
+        <p style="margin: 0px auto -16px 12px; text-align: left; color: var(--color-input-label)" id="newExpenseSwitch">
+          MOSTRAR EN INICIO
+        </p>
         <div style="margin-top: 16px; border: 2px solid var(--color-input); border-radius: 15px; height: 48px">
           <div style="text-align: left; display: block; margin: 10px 16px">
             <ons-switch id="switchNewGoal" checked></ons-switch>
@@ -51,7 +53,9 @@
       </div>
 
       <div id="gradients-container" style="margin-bottom: 32px">
-        <p style="margin: 16px auto 0px 12px; text-align: left" id="newMoneyGradientInput">Color</p>
+        <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newMoneyGradientInput">
+          Color
+        </p>
         <div class="option">
           <ons-button
             class="gradientButton"

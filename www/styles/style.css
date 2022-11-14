@@ -109,7 +109,7 @@
 
   --money-title: #68667B;
   --money-info: #272443;
-  --money-delete-button: #ffffff;
+  --money-dots: #272443;
 
   --saving-main-title: #68667B;
   --saving-info: #272443;
@@ -132,6 +132,9 @@
   /* INPUT */
   --color-input: #E5E7ED;
   --color-input-text: #272443;
+  --color-input-label: #272443;
+  --color-input-option-back: #E5E7ED;
+  --color-input-option-font: #272443;
 
   /* TEXT AREA */
   --text-area-border-color: #272443;
@@ -169,6 +172,15 @@
   --flat-button-light-color: #ffffff;
   --flat-button-light-color-text: #272443;
   --flat-button-light-active-color: #05565f;
+
+  --fab-button: #272443;
+  --fab-button-text: #F3F3F3;
+
+  --mini-button-back: #272443;
+  --mini-button-font: #F3F3F3;
+
+  --mini-button-light-back: #272443;
+  --mini-button-light-font: #272443;
 }
 
 .theme-dark {
@@ -240,9 +252,9 @@
   --para-home-options: #9d9da0;
   --home-options-labels: #F3F3F3;
 
-  --money-title: #f3f3f3;
+  --money-title: #272443;
   --money-info: #272443;
-  --money-delete-button: #f3f3f3;
+  --money-dots: #F3F3F3;
 
   --saving-main-title: #68667B;
   --saving-info: #f3f3f3;
@@ -265,15 +277,18 @@
   /* INPUT */
   --color-input: #E5E7ED;
   --color-input-text: #272443;
+  --color-input-label: #f3f3f3;
+  --color-input-option-back: #f3f3f3;
+  --color-input-option-font: #272443;
 
   /* TEXT AREA */
-  --text-area-border-color: #1a191e;
-  --text-area-text-color: #F3F3F3;
+  --text-area-border-color: #68667B;
+  --text-area-text-color: #272443;
 
   /* ALERT DIALOG */
   --alert-tile-color: #272443;
   --alert-container-color: #ffffff;
-  --alert-footer-color: #272443;
+  --alert-footer-color: #1A191E;
   --alert-content-text-color: #272443;
   --alert-button-color-text: #ffffff;
 
@@ -281,7 +296,7 @@
   --alert-custom-label-money: #272443;
 
   /* TOAST */
-  --toast-back-color: #272443;
+  --toast-back-color: #1A191E;
   --toast-message-color: #ffffff;
 
   /* PROGRESSBAR */
@@ -295,16 +310,22 @@
   --card-border-color: #2A292E;
 
   /* BUTTONS */
-  --flat-button-color: #CDEAF7;
+  --flat-button-color: #F3F3F3;
   --flat-button-color-text: #1A191D;
   --flat-button-active-color: #ffffff;
 
-  --flat-button-light-color: #1a191e;;
-  --flat-button-light-color-text: #cdeaf7;;
+  --flat-button-light-color: #1a191e;
+  --flat-button-light-color-text: #cdeaf7;
   --flat-button-light-active-color: #05565f;
 
   --fab-button: #000;
   --fab-button-text: #F3F3F3;
+
+  --mini-button-back: #1A191D;
+  --mini-button-font: #F3F3F3;
+
+  --mini-button-light-back: #1a191e;
+  --mini-button-light-font: #1a191e;
 }
 
 .logoLoadPage {
@@ -503,8 +524,8 @@ select {
 }
 
 option {
-  color: var(--color-input-text);
-  background: var(--card-back-color);
+  color: var(--color-input-option-font);
+  background: var(--color-input-option-back);
 }
 
 .select-input--material {

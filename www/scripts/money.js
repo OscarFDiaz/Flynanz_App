@@ -66,7 +66,7 @@ function makeNewMoney() {
   let money = {
     moneyName,
     moneyCurrent,
-    moneyGradient
+    moneyGradient,
   };
 
   if (localStorage.getItem('moneyStorage') === null) {
@@ -270,9 +270,9 @@ function getMoneys() {
           ${mName}
         </div>
         <div class="content">
-          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 16px; font-weight: 500;">$ 
+          <div class="title totalMoneyTitle" style="display: block; text-align:left; padding-top: 0px; padding-bottom: 16px; font-weight: 500;">
             <span class="moneyInfo" id="${mName}-money">
-              ${mMoney}
+             $ ${mMoney}
             </span>
           </div>
         </div>
@@ -291,9 +291,9 @@ function getMoneys() {
           ${mName}
         </div>
         <div class="content">
-          <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block; text-align:left; padding-top: 0px; padding-bottom: 16px; font-weight: 500;">$ 
+          <div class="title totalMoneyTitle" style="display: block; text-align:left; padding-top: 0px; padding-bottom: 16px; font-weight: 500;">
             <span class="moneyInfo" id="${mName}-money">
-              ${mMoney}
+              $ ${mMoney}
             </span>
           </div>
         </div>
@@ -455,7 +455,7 @@ function addMoneyTo(sendMoneyName) {
       let findMoneyObject = {
         moneyName: mName,
         moneyCurrent: mMoney,
-        moneyGradient: mGradient
+        moneyGradient: mGradient,
       };
 
       if (sessionStorage.getItem('sessionFindMoney') === null) {

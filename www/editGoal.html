@@ -9,35 +9,58 @@
   <div style="margin: 20px">
     <div style="text-align: center; margin-top: 0px">
       <div>
-        <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalNameAlertEdit">NOMBRE DE LA META</p>
+        <p
+          style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
+          id="goalNameAlertEdit"
+        >
+          NOMBRE DE LA META
+        </p>
         <ons-input id="editGoalName" modifier="underbar" placeholder="" type="text" style="display: block"></ons-input>
       </div>
 
       <div>
-        <p style="margin: 0px auto 0px 12px; text-align: left; padding-top: 16px" id="goalDescriptionAlertEdit">DESCRIPCIÓN</p>
+        <p
+          style="margin: 0px auto 0px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
+          id="goalDescriptionAlertEdit"
+        >
+          DESCRIPCIÓN
+        </p>
         <textarea id="editGoalDescription" class="textarea" rows="5" placeholder=""></textarea>
       </div>
 
       <div>
-        <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalMoneyAlertEdit">DINERO NECESARIO</p>
+        <p
+          style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
+          id="goalMoneyAlertEdit"
+        >
+          DINERO NECESARIO
+        </p>
         <ons-input id="editGoalMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
       </div>
 
       <div>
-        <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalMoneyActualAlertEdit">
+        <p
+          style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
+          id="goalMoneyActualAlertEdit"
+        >
           DINERO ACTUAL
         </p>
         <ons-input id="editActualGoalMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
       </div>
 
       <div>
-        <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="goalDateAlertEdit">FECHA META</p>
+        <p
+          style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
+          id="goalDateAlertEdit"
+        >
+          FECHA META
+        </p>
         <ons-input id="editGoalDate" modifier="underbar" placeholder="" type="date" style="display: block"></ons-input>
       </div>
     </div>
 
     <!--Seleccion de icono-->
-    <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--card-content-text-color)" id="newGoalIconEdit">
+    <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newGoalIconEdit">
       SELECCIONA UN ICONO
     </p>
     <div style="border: 2px solid var(--color-input); border-radius: 15px; margin-bottom: 16px">
@@ -49,7 +72,7 @@
           >
             CLICK PARA CAMBIAR
           </p>
-          <div class="expandable-content" id="expenseIconListOfIconsGoalEdit">
+          <div class="expandable-content" id="expenseIconListOfIconsGoalEdit" style="background-color: var(--color-input)">
             <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
           </div>
         </ons-list-item>
@@ -58,7 +81,9 @@
 
     <!--Seleccion de degradado-->
     <div id="gradients-container">
-      <p style="margin: 16px auto 0px 12px; text-align: left" id="newMoneyGradientInput">Color</p>
+      <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newMoneyGradientInput">
+        Color
+      </p>
       <div class="option">
         <ons-button
           id="gd-0"
@@ -146,11 +171,10 @@
       'init',
       function (event) {
         if (event.target.matches('#editGoal')) {
-          ons.ready(function(){
+          ons.ready(function () {
             createAlertDialogToEditGoal();
             loadDetailGoal();
-            
-  
+
             let languaje = localStorage.getItem('storageSwitchLanguage');
             if (languaje == 'false') {
               /* ALERT QUE MODIFICA TODO */

@@ -8,7 +8,9 @@
   <div class="content" style="margin: 0px 20px 0px 20px">
     <div style="text-align: center; padding-top: 16px">
       <div>
-        <p style="margin: 0px auto -16px 12px; text-align: left" id="newGoalNameInput">NOMBRE DE LA META</p>
+        <p style="margin: 0px auto -16px 12px; text-align: left; color: var(--color-input-label)" id="newGoalNameInput">
+          NOMBRE DE LA META
+        </p>
         <ons-input
           id="newGoalName"
           modifier="underbar"
@@ -19,12 +21,16 @@
       </div>
 
       <div>
-        <p style="margin: 16px auto 0px 12px; text-align: left" id="newGoalDescInput">DESCRIPCIÓN DE LA META</p>
+        <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newGoalDescInput">
+          DESCRIPCIÓN DE LA META
+        </p>
         <textarea id="newGoalDescription" class="textarea" rows="5" placeholder=""></textarea>
       </div>
 
       <div>
-        <p style="margin: 16px auto -33px 12px; text-align: left" id="newGoalMoneyInput">DINERO NECESARIO</p>
+        <p style="margin: 16px auto -33px 12px; text-align: left; color: var(--color-input-label)" id="newGoalMoneyInput">
+          DINERO NECESARIO
+        </p>
         <ons-input
           id="newGoalMoney"
           modifier="underbar"
@@ -35,7 +41,9 @@
       </div>
 
       <div>
-        <p style="margin: 0px auto -33px 12px; text-align: left" id="newMoneyDateInput">FECHA META</p>
+        <p style="margin: 0px auto -33px 12px; text-align: left; color: var(--color-input-label)" id="newMoneyDateInput">
+          FECHA META
+        </p>
         <ons-input
           id="newGoalDate"
           modifier="underbar"
@@ -47,7 +55,7 @@
     </div>
 
     <!--Seleccion de icono-->
-    <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--card-content-text-color)" id="newGoalIcon">
+    <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newGoalIcon">
       SELECCIONA UN ICONO
     </p>
     <div style="border: 2px solid var(--color-input); border-radius: 15px; margin-bottom: 16px">
@@ -59,7 +67,7 @@
           >
             CLICK PARA CAMBIAR
           </p>
-          <div class="expandable-content" id="expenseIconListOfIconsGoal">
+          <div class="expandable-content" id="expenseIconListOfIconsGoal" style="background-color: var(--color-input)">
             <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
           </div>
         </ons-list-item>
@@ -68,7 +76,7 @@
 
     <!--Seleccion de degradado-->
     <div id="gradients-container">
-      <p style="margin: 0px auto 0px 12px; text-align: left" id="newMoneyGradientInput">Color</p>
+      <p style="margin: 0px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newMoneyGradientInput">Color</p>
       <div class="option">
         <ons-button
           id="gd-0"
@@ -180,7 +188,8 @@
               document.getElementById('newGoalIcon').innerHTML = 'Selecciona un icono';
               document.getElementById('newExpenseIconLabelGoal').innerHTML = 'Click para cambiar';
               document.getElementById('newGoalFinishedButton').innerHTML = 'Listo!';
-              document.getElementById('newGoalCancelButton').innerHTML = 'Cancelar'; newGoalIcon
+              document.getElementById('newGoalCancelButton').innerHTML = 'Cancelar';
+              newGoalIcon;
             }
 
             //Cargo los iconos

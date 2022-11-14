@@ -15,8 +15,8 @@
 }
 
 .moneyButtonAdd {
-  background: var(--flat-button-color);
-  color: var(--flat-button-color-text);
+  background: var(--mini-button-back);
+  color: var(--mini-button-font);
   box-shadow: none;
   margin: 0px 0px 0px 16px;
   border-radius: 10px;
@@ -44,8 +44,8 @@
 }
 
 .moneyButtonDe {
-  background: var(--money-delete-button);
-  color: var(--flat-button-light-color-text);
+  background: var(--mini-button-light-back);
+  color: var(--mini-button-light-font);
   box-shadow: none;
   margin: 0px 0px 0px 16px;
   border-radius: 10px;
@@ -61,7 +61,7 @@
 .cover-label {
   text-align: center;
   width: 100%;
-  color: var(--money-info);
+  color: var(--money-dots);
   font-size: 26px;
   margin-top: -20px;
   margin-bottom: 16px;

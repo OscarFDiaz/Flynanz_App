@@ -294,7 +294,7 @@ function loadOptions() {
         <span onclick="pushToNewMoney()" style="right: 20px;
           position: absolute;
           font-size: 14px;
-          color: var(--money-title);
+          color: var(--text-without-card);
           font-weight: 500;">Add wallet +</span>
           </label>`;
       } else {
@@ -302,7 +302,7 @@ function loadOptions() {
           <span onclick="pushToNewMoney()" style="right: 20px;
           position: absolute;
           font-size: 14px;
-          color: var(--money-title);
+          color: var(--text-without-card);
           font-weight: 500;">Añadir +</span>
         </label>`;
       }
@@ -375,7 +375,7 @@ function loadOptions() {
       <span onclick="pushToNewGoal()" style="right: 20px;
           position: absolute;
           font-size: 14px;
-          color: var(--money-title);
+          color: var(--text-without-card);
           font-weight: 500;">Add goal +</span>
       </label>`;
     } else {
@@ -383,7 +383,7 @@ function loadOptions() {
       <span onclick="pushToNewGoal()" style="right: 20px;
           position: absolute;
           font-size: 14px;
-          color: var(--money-title);
+          color: var(--text-without-card);
           font-weight: 500;">Añadir +</span>
       </label>`;
     }

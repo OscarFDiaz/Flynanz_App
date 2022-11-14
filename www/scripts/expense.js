@@ -488,26 +488,26 @@ function getExpenses() {
       <div class="content">
         <label class="labelDetailExpense"
           >Total cost:
-          <div style="display: block; font-size: 30px; font-weight: bold;">$ 
+          <div style="display: block; font-size: 30px; font-weight: bold;">
             <span id="totalExpenseDetailMain" class="labelInfoDetailExpense"
-              >${totalExpenses}</span
+              >$ ${totalExpenses}</span
             >
           </div>
         </label>
         
         <label class="labelDetailExpense"
           >Last 15 days: 
-          <div style="display: block; font-size: 30px; font-weight: bold;">$ 
+          <div style="display: block; font-size: 30px; font-weight: bold;"> 
             <span id="lastDaysDetailMain" class="labelInfoDetailExpense"
-              >${totalFDays}</span
+              >$ ${totalFDays}</span
             >
           </div>
         </label>
         <label class="labelDetailExpense"
           >Last 31 days: 
-          <div style="display: block; font-size: 30px; font-weight: bold;">$ 
+          <div style="display: block; font-size: 30px; font-weight: bold;">
             <span id="lastMonthDetailMain" class="labelInfoDetailExpense"
-              >${totalTDays}</span
+              >$ ${totalTDays}</span
             >
           </div>
         </label>
@@ -518,26 +518,26 @@ function getExpenses() {
       <div class="content">
         <label class="labelDetailExpense"
           >Gasto total:
-          <div style="display: block; font-size: 30px; font-weight: bold;">$ 
+          <div style="display: block; font-size: 30px; font-weight: bold;">
             <span id="totalExpenseDetailMain" class="labelInfoDetailExpense"
-              >${totalExpenses}</span
+              >$ ${totalExpenses}</span
             >
           </div>
         </label>
         
         <label class="labelDetailExpense"
           >Últimos 15 días: 
-          <div style="display: block; font-size: 30px; font-weight: bold;">$ 
+          <div style="display: block; font-size: 30px; font-weight: bold;">
             <span id="lastDaysDetailMain" class="labelInfoDetailExpense"
-              >${totalFDays}</span
+              >$ ${totalFDays}</span
             >
           </div>
         </label>
         <label class="labelDetailExpense"
           >Últimos 31 días: 
-          <div style="display: block; font-size: 30px; font-weight: bold;">$ 
+          <div style="display: block; font-size: 30px; font-weight: bold;">
             <span id="lastMonthDetailMain" class="labelInfoDetailExpense"
-              >${totalTDays}</span
+              >$ ${totalTDays}</span
             >
           </div>
         </label>
@@ -1017,26 +1017,26 @@ function loadDetailExpense() {
       <div class="content">
         <label class="labelDetailExpense"
           >Total cost since ${mDate}: 
-          <div style="display: block; font-size: 30px; font-weight: bold;">$  
+          <div style="display: block; font-size: 30px; font-weight: bold;">  
             <span id="totalExpenseDetail" class="labelInfoDetailExpense"
-              >${eTotalTS}</span
+              >$ ${eTotalTS}</span
             >
           </div>
         </label>
         
         <label class="labelDetailExpense"
           >Last 15 days: 
-          <div style="display: block; font-size: 30px; font-weight: bold;">$  
+          <div style="display: block; font-size: 30px; font-weight: bold;">
             <span id="lastDaysDetail" class="labelInfoDetailExpense"
-              >${lastFDays}</span
+              >$ ${lastFDays}</span
             >
           </div>
         </label>
         <label class="labelDetailExpense"
           >Last 30 days: 
-          <div style="display: block; font-size: 30px; font-weight: bold;">$  
+          <div style="display: block; font-size: 30px; font-weight: bold;">
             <span id="lastMonthDetail" class="labelInfoDetailExpense"
-              >${lastTDays}</span
+              >$ ${lastTDays}</span
             >
           </div>
         </label>
@@ -1069,26 +1069,26 @@ function loadDetailExpense() {
       <div class="content">
         <label class="labelDetailExpense"
           >Gasto total desde ${mDate}:
-          <div style="display: block; font-size: 30px; font-weight: bold;">$  
+          <div style="display: block; font-size: 30px; font-weight: bold;">
             <span id="totalExpenseDetail" class="labelInfoDetailExpense"
-              >${eTotalTS}</span
+              >$ ${eTotalTS}</span
             >
           </div>
         </label>
         
         <label class="labelDetailExpense"
           >Últimos 15 días: 
-          <div style="display: block; font-size: 30px; font-weight: bold;">$  
+          <div style="display: block; font-size: 30px; font-weight: bold;">
             <span id="lastDaysDetail" class="labelInfoDetailExpense"
-              >${lastFDays}</span
+              >$ ${lastFDays}</span
             >
           </div>
         </label>
         <label class="labelDetailExpense"
           >Últimos 30 días: 
-          <div style="display: block; font-size: 30px; font-weight: bold;">$  
+          <div style="display: block; font-size: 30px; font-weight: bold;">
             <span id="lastMonthDetail" class="labelInfoDetailExpense"
-              >${lastTDays}</span
+              >$ ${lastTDays}</span
             >
           </div>
         </label>
