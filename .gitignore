@@ -1,3 +1,9 @@
+#Cordova and stuff
+platforms
+node_modules
+plugins
+
+
 # Built application files
 *.apk
 *.ap_
