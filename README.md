@@ -5,35 +5,35 @@ Aplicación movil, para el control de gastos y manejo de finanzas personales
 <img
 src="https://i.imgur.com/Nh4Z7Lm.png"
 alt="Inicio"
-style="display: inline; max-width: 150px">
+style="display: inline; max-width: 100px">
 <img
 src="https://i.imgur.com/xysLVqV.png"
 alt="Metas"
-style="display: inline; max-width: 150px">
+style="display: inline; max-width: 100px">
 <img
 src="https://i.imgur.com/l4GpDCI.png"
 alt="Fondo"
-style="display: inline; max-width: 150px">
+style="display: inline; max-width: 100px">
 <img
 src="https://i.imgur.com/dVKdoty.png"
 alt="Gastos"
-style="display: inline; max-width: 150px">
+style="display: inline; max-width: 100px">
 <img
 src="https://i.imgur.com/Z2xO5iU.png"
 alt="Mi dinero"
-style="display: inline; max-width: 150px">
+style="display: inline; max-width: 100px">
 <img
 src="https://i.imgur.com/qVY5PMR.png"
 alt="Configuracion"
-style="display: inline; max-width: 150px">
+style="display: inline; max-width: 100px">
 <img
 src="https://i.imgur.com/1ukTvLk.png"
 alt="Tema"
-style="display: inline; max-width: 150px">
+style="display: inline; max-width: 100px">
 <img
 src="https://i.imgur.com/9cYse6t.png"
 alt="Tema2"
-style="display: inline; max-width: 150px">
+style="display: inline; max-width: 100px">
 <img
 src="https://i.imgur.com/IRN05vb.png"
 alt="Showcase"
