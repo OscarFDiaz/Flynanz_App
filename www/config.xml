@@ -24,5 +24,5 @@
     <icon src="www\assets\images\icono.png" platform="android"/>
 	
 	<preference name="android-minSdkVersion" value="22" /> 
-    <preference name="android-targetSdkVersion" value="30" /> 
+    <preference name="android-targetSdkVersion" value="31" /> 
 </widget>
