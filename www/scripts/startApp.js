@@ -1,4 +1,5 @@
-function startTime() {
+function startApp() {
+  // Busco el tema del usuario o defino uno, entre el claro y el oscuro
   let themeSelected = localStorage.getItem('userTheme');
 
   if (themeSelected != 'theme-default' && themeSelected != 'theme-dark') {
@@ -42,10 +43,11 @@ function startTime() {
 
   setTimeout(function () {
     const navigator = document.querySelector('#navigator');
-    navigator.resetToPage('splitterUser.html');
-  }, 1000);
+    navigator.resetToPage('pages/userPage/splitterUser.html');
+  }, 500);
 }
 
+// Funciones para actualizar la app a la nueva versión
 function updateGolsOnUpdate() {
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
 
@@ -86,7 +88,12 @@ function updateMoneyOnUpdate() {
 function updateExpensesOnUpdate() {
   let expenses = JSON.parse(localStorage.getItem('expenseStorage'));
 
-  if (expenses == null || expenses == 'null' || expenses.length == 0 || expenses.length < 1) {
+  if (
+    expenses == null ||
+    expenses == 'null' ||
+    expenses.length == 0 ||
+    expenses.length < 1
+  ) {
     return;
   }
 

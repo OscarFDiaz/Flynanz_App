@@ -3,7 +3,6 @@ moneyStorage
     moneyCurrent
     **** Gradient //Called: moneyGradient
     
-
 savingStorage
     mainAmount
     rangeDays
@@ -41,6 +40,7 @@ expenseDetailStorage
     inWallet
 
 
-DESCONOCIDO
+TO CHECK
+push.js line 41
 
-function getTotalExpenses() - home.js - 387
+menuStyles.css - estilos de iconos ya no se aplican (no se usan)

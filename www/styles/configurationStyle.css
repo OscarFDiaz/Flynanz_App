@@ -33,41 +33,6 @@
   background-size: cover;
 }
 
-.themeLight {
-  /*#fff6e9 • #ffefd7 • #fffef9 • #e3f0ff • #d2e7ff*/
-  background: url('../assets/images/themeLight.png');
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.themeYuri {
-  /*#fff6e9 • #ffefd7 • #fffef9 • #e3f0ff • #d2e7ff*/
-  /*background: url("../assets/images/themeYuri.png");*/
-  background: url('../assets/images/themeYuri.png');
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.themePink {
-  /*#fff6e9 • #ffefd7 • #fffef9 • #e3f0ff • #d2e7ff*/
-  /*background: url("../assets/images/themeYuri.png");*/
-  background: url('../assets/images/themePink.png');
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.themeCustom {
-  /*#fff6e9 • #ffefd7 • #fffef9 • #e3f0ff • #d2e7ff*/
-  /*background: url("../assets/images/themeYuri.png");*/
-  background: url('../assets/images/themeCustom.png');
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .tutorialLabel {
   text-align: center;
   display: block;

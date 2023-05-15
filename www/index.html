@@ -2,7 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width,  viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width,  viewport-fit=cover"
+    />
     <meta name="theme-color" content="#FFFFFF" />
 
     <!--IMPORT DE LOS ESTILOS DE ONSEN UI-->
@@ -10,14 +13,23 @@
     <link rel="stylesheet" href="./styles/onsen/onsen-css-components.min.css" />
     <script src="./scripts/js/onsenui.min.js"></script>
 
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+      rel="stylesheet"
+    />
 
     <!--FONT ROBOTO-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" />
 
     <!--ionicons-->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
 
     <!--IMPORT DE LA HOJA DE ESTILOS LOCAL-->
     <link rel="stylesheet" href="./styles/style.css" />
@@ -34,7 +46,7 @@
     <script type="text/javascript" src="scripts/Chart.js"></script>
 
     <script src="scripts/splitter.js"></script>
-    <script src="scripts/timer.js"></script>
+    <script src="scripts/startApp.js"></script>
 
     <script src="scripts/push.js"></script>
 
@@ -54,7 +66,7 @@
 
     <title>Flynanz</title>
   </head>
-  <body onload="startTime()">
+  <body onload="startApp()">
     <ons-navigator id="navigator" page="index.html" var="navigator"></ons-navigator>
 
     <ons-template id="index.html">
@@ -70,7 +82,12 @@
           class="spinner"
           modifier="material"
           indeterminate
-          style="width: 80%; display: block; margin-left: auto; margin-right: auto; background-color: var(--spiner-back-color)"
+          style="
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+            background-color: var(--spiner-back-color);
+          "
         ></ons-progress-bar>
       </ons-page>
     </ons-template>

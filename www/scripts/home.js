@@ -28,7 +28,7 @@ function loadChartData(expenseData) {
       }
       expenseData.datasets[0].data.push('000.01');
       expenseData.datasets[0].backgroundColor.push(
-        getComputedStyle(document.documentElement).getPropertyValue('--home-total-money')
+        getComputedStyle(document.documentElement).getPropertyValue('--home-total-money'),
       );
     } else {
       for (let i = 0; i < expenses.length; i++) {
@@ -58,25 +58,31 @@ function loadChartData(expenseData) {
         }
         expenseData.datasets[0].data.push('100');
         expenseData.datasets[0].backgroundColor.push(
-          getComputedStyle(document.documentElement).getPropertyValue('--home-total-money')
+          getComputedStyle(document.documentElement).getPropertyValue(
+            '--home-total-money',
+          ),
         );
       }
     }
   }
 
-  Chart.defaults.global.defaultFontColor = getComputedStyle(document.documentElement).getPropertyValue('--card-text-title-color');
+  Chart.defaults.global.defaultFontColor = getComputedStyle(
+    document.documentElement,
+  ).getPropertyValue('--card-text-title-color');
   Chart.defaults.global.defaultFontSize = 16;
   Chart.defaults.RoundedDoughnut = Chart.helpers.clone(Chart.defaults.doughnut);
 
-  Chart.defaults.global.tooltips.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--toolbar-color');
+  Chart.defaults.global.tooltips.backgroundColor = getComputedStyle(
+    document.documentElement,
+  ).getPropertyValue('--toolbar-color');
   Chart.defaults.global.tooltips.titleFontSize = 20;
 
-  Chart.defaults.global.elements.arc.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue(
-    '--card-back-color'
-  );
-  Chart.defaults.global.elements.arc.borderColor = getComputedStyle(document.documentElement).getPropertyValue(
-    '--card-back-color'
-  );
+  Chart.defaults.global.elements.arc.backgroundColor = getComputedStyle(
+    document.documentElement,
+  ).getPropertyValue('--card-back-color');
+  Chart.defaults.global.elements.arc.borderColor = getComputedStyle(
+    document.documentElement,
+  ).getPropertyValue('--card-back-color');
   Chart.defaults.global.elements.arc.borderWidth = 0;
 
   Chart.defaults.RoundedDoughnut = Chart.helpers.clone(Chart.defaults.doughnut);
@@ -103,12 +109,24 @@ function loadChartData(expenseData) {
 
         ctx.fillStyle = i === 0 ? vm.backgroundColor : pColor;
         ctx.beginPath();
-        ctx.arc(radius * Math.sin(startAngle), radius * Math.cos(startAngle), thickness, 0, 2 * Math.PI);
+        ctx.arc(
+          radius * Math.sin(startAngle),
+          radius * Math.cos(startAngle),
+          thickness,
+          0,
+          2 * Math.PI,
+        );
         ctx.fill();
 
         ctx.fillStyle = vm.backgroundColor;
         ctx.beginPath();
-        ctx.arc(radius * Math.sin(angle), radius * Math.cos(angle), thickness, 0, 2 * Math.PI);
+        ctx.arc(
+          radius * Math.sin(angle),
+          radius * Math.cos(angle),
+          thickness,
+          0,
+          2 * Math.PI,
+        );
         ctx.fill();
 
         ctx.restore();
@@ -188,11 +206,14 @@ function setTheme(themeName) {
         animation: 'ascend',
       });
     } else {
-      ons.notification.toast('Actualmente tienes este tema puesto, esta chevere, verdad?', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'Actualmente tienes este tema puesto, esta chevere, verdad?',
+        {
+          title: 'Aviso!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
     }
   } else {
     //Si no es el mismo tema lo cambio
@@ -393,7 +414,12 @@ function loadOptions() {
   }
 
   // SI EL USUARIO NO DECIDE MOSTRAR NADA
-  if (totalMoney == 'false' && expenses == 'false' && savings == 'false' && goals == 'false') {
+  if (
+    totalMoney == 'false' &&
+    expenses == 'false' &&
+    savings == 'false' &&
+    goals == 'false'
+  ) {
     userHomeView.innerHTML = '';
 
     // ******* AÑADIR IMAGEN DE QUE NO HAY NADA Y BOTON PARA IR A LOS AJUSTES
@@ -448,11 +474,6 @@ function getTotalSavings() {
     storage = 0;
   }
   return storage;
-}
-
-// FUNCION DESCONOCIDA
-function getTotalExpenses() {
-  return true;
 }
 
 // CONSIGO LAS METAS DEL USUARIO Y LAS HAGO UNA STRINGLIST
