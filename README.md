@@ -4,11 +4,11 @@ Aplicación movil, para el control de gastos y manejo de finanzas personales
 
 ## 📺 App showcase [Youtube video]
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=rNyuF-kUjjs" target="_blank">
+<!-- <a href="http://www.youtube.com/watch?feature=player_embedded&v=rNyuF-kUjjs" target="_blank">
  <img src="https://img.youtube.com/vi/rNyuF-kUjjs/mqdefault.jpg" alt="Watch the video" width="340"   />
-</a>
+</a> -->
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rNyuF-kUjjs?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Image from Gyazo](https://i.gyazo.com/42ae6c6bddb75767dab6e6a8435cd4e8.gif)](http://www.youtube.com/watch?feature=player_embedded&v=rNyuF-kUjjs)
 
 <img
 src="https://i.imgur.com/Nh4Z7Lm.png"
