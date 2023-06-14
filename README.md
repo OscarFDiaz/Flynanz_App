@@ -2,7 +2,7 @@
 
 Aplicación movil, para el control de gastos y manejo de finanzas personales
 
-## 📺 App showcase [Youtube video]
+## 📺 App showcase [Youtube Video](http://www.youtube.com/watch?feature=player_embedded&v=rNyuF-kUjjs)
 
 <!-- <a href="http://www.youtube.com/watch?feature=player_embedded&v=rNyuF-kUjjs" target="_blank">
  <img src="https://img.youtube.com/vi/rNyuF-kUjjs/mqdefault.jpg" alt="Watch the video" width="340"   />
