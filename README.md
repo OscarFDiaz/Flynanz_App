@@ -10,6 +10,10 @@ Aplicación movil, para el control de gastos y manejo de finanzas personales
 
 <a href="http://gyazo.com/42ae6c6bddb75767dab6e6a8435cd4e8"><img src="https://i.gyazo.com/42ae6c6bddb75767dab6e6a8435cd4e8.gif" alt="Image from Gyazo" width="854"/></a>
 
+
+https://github.com/OscarFDiaz/Flynanz_App/assets/9502714/56b2c323-1d3e-44bf-a342-507fd755e360
+
+
 <img
 src="https://i.imgur.com/Nh4Z7Lm.png"
 alt="Inicio"
