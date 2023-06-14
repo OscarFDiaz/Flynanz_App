@@ -3,17 +3,8 @@
 Aplicación movil, para el control de gastos y manejo de finanzas personales
 
 ## 📺 App showcase [Youtube Video](http://www.youtube.com/watch?feature=player_embedded&v=rNyuF-kUjjs)
-![showcase](https://github.com/OscarFDiaz/Flynanz_App/assets/9502714/6b23c929-b135-4660-8531-140881655b5e)
 
-[![GifVideo](http://i.gyazo.com/42ae6c6bddb75767dab6e6a8435cd4e8.gif)](https://www.youtube.com/watch?v=rNyuF-kUjjs)
-
-[![GifVideo](http://i.imgur.com/SdykavX.gif)](https://www.youtube.com/watch?v=rNyuF-kUjjs)
-
-<a href="http://gyazo.com/42ae6c6bddb75767dab6e6a8435cd4e8"><img src="https://i.gyazo.com/42ae6c6bddb75767dab6e6a8435cd4e8.gif" alt="Image from Gyazo" width="854"/></a>
-
-
-https://github.com/OscarFDiaz/Flynanz_App/assets/9502714/56b2c323-1d3e-44bf-a342-507fd755e360
-
+[![showcase](https://github.com/OscarFDiaz/Flynanz_App/assets/9502714/6b23c929-b135-4660-8531-140881655b5e)](https://www.youtube.com/watch?v=rNyuF-kUjjs)
 
 <img
 src="https://i.imgur.com/Nh4Z7Lm.png"
