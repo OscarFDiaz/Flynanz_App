@@ -4,7 +4,7 @@ Aplicación movil, para el control de gastos y manejo de finanzas personales
 
 ## 📺 App showcase [Youtube video]
 
-[![Flynanz: control de gastos y finanzas personales](https://img.youtube.com/vi/rNyuF-kUjjs/mqdefault.jpg)](https://www.youtube.com/watch?v=rNyuF-kUjjs?target=_blank)
+[![Flynanz: control de gastos y finanzas personales](https://img.youtube.com/vi/rNyuF-kUjjs/mqdefault.jpg)](https://www.youtube.com/watch?v=rNyuF-kUjjs){:target="\_blank"}
 
 ---
 
