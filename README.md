@@ -8,7 +8,7 @@ Aplicación movil, para el control de gastos y manejo de finanzas personales
  <img src="https://img.youtube.com/vi/rNyuF-kUjjs/mqdefault.jpg" alt="Watch the video" width="340"   />
 </a>
 
----
+## <iframe width="560" height="315" src="https://www.youtube.com/embed/rNyuF-kUjjs?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <img
 src="https://i.imgur.com/Nh4Z7Lm.png"
