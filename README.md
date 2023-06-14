@@ -8,6 +8,8 @@ Aplicación movil, para el control de gastos y manejo de finanzas personales
 
 [![GifVideo](https://i.imgur.com/SdykavX.gif)](https://www.youtube.com/watch?v=rNyuF-kUjjs)
 
+<a href="https://gyazo.com/42ae6c6bddb75767dab6e6a8435cd4e8"><img src="https://i.gyazo.com/42ae6c6bddb75767dab6e6a8435cd4e8.gif" alt="Image from Gyazo" width="854"/></a>
+
 <img
 src="https://i.imgur.com/Nh4Z7Lm.png"
 alt="Inicio"
