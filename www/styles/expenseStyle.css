@@ -1,33 +1,33 @@
 /* MAIN EXPENSE */
 .expenseTitle {
   display: block;
-  text-align: left;
+  color: var(--expense-title);
 
   font-size: 28px;
-  color: var(--expense-title);
+  text-align: left;
 }
 
 .expenseInfo {
   display: block;
-  text-align: left;
+  color: var(--expense-info);
 
   font-size: 18px;
-  color: var(--expense-info);
+  text-align: left;
 }
 
 .expenseIcon {
-  font-size: 28px;
   color: var(--expenseIconColorPrev, var(--menu-icon-color));
+  font-size: 28px;
 }
 
 .expenseIconContainer {
   position: relative;
-  float: right;
   top: 50%;
-  height: 70px;
   width: 70px;
+  height: 70px;
   margin: -40px 16px 0px 0px;
   background: var(--icon-holder);
+  float: right;
 }
 
 .expenseCard {
@@ -42,15 +42,15 @@
 .iconExpenseLabel {
   display: block;
 
-  text-align: center;
+  color: var(--expense-detail);
   font-size: 18px;
 
-  color: var(--expense-detail);
+  text-align: center;
 }
 
 .expenseIconList {
-  font-size: 50px;
   color: var(--expenseIconColor, #ffffff);
+  font-size: 50px;
 }
 .expenseIconList:active {
   background-color: var(--color-2);
@@ -62,8 +62,8 @@
 
 .list-item.expanded > .list-item__expandable-content {
   display: grid;
-  height: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: auto;
   text-align: left;
 }
 
@@ -75,13 +75,13 @@
   color: var(--expense-detail);
 
   font-size: 14px;
-  text-align: left;
-  font-weight: 400;
   font-style: normal;
+  font-weight: 400;
+  text-align: left;
 }
 
 .labelInfoDetailExpense {
-  font-weight: 600;
   color: var(--expense-detail-money);
   font-size: 30px;
+  font-weight: 600;
 }

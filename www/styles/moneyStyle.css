@@ -1,28 +1,28 @@
 .moneyTitle {
   display: block;
-  text-align: left;
+  color: var(--money-title);
 
   font-size: 28px;
-  color: var(--money-title);
+  text-align: left;
 }
 
 .moneyInfo {
-  text-align: center;
   padding-bottom: 16px;
+  color: var(--money-info);
   font-size: 50px;
   font-weight: 500;
-  color: var(--money-info);
+  text-align: center;
 }
 
 .moneyButtonAdd {
+  margin: 0px 0px 0px 16px;
   background: var(--mini-button-back);
   color: var(--mini-button-font);
-  box-shadow: none;
-  margin: 0px 0px 0px 16px;
-  border-radius: 10px;
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   font-size: 14px;
   text-align: center;
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  box-shadow: none;
+  border-radius: 10px;
 }
 
 .moneyButtonAdd:active {
@@ -30,47 +30,46 @@
 }
 
 .moneyButtonRe {
+  margin: 0px 0px 0px 16px;
   background: var(--flat-button-light-color);
   color: var(--flat-button-light-color-text);
-  box-shadow: none;
-  margin: 0px 0px 0px 16px;
-  border-radius: 10px;
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   font-size: 14px;
   text-align: center;
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  box-shadow: none;
+  border-radius: 10px;
 }
 .moneyButtonRe:active {
   background: var(--flat-button-light-active-color);
 }
 
 .moneyButtonDe {
+  border: 1px solid var(--text-area-border-color);
+  margin: 0px 0px 0px 16px;
   background: var(--mini-button-light-back);
   color: var(--mini-button-light-font);
-  box-shadow: none;
-  margin: 0px 0px 0px 16px;
-  border-radius: 10px;
+  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   font-size: 14px;
   text-align: center;
-  border: 1px solid var(--text-area-border-color);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  box-shadow: none;
+  border-radius: 10px;
 }
 .moneyButtonDe:active {
   background: var(--flat-button-light-active-color);
 }
 
 .cover-label {
-  text-align: center;
   width: 100%;
-  color: var(--money-dots);
-  font-size: 26px;
   margin-top: -20px;
   margin-bottom: 16px;
+  color: var(--money-dots);
+  font-size: 26px;
+  text-align: center;
 }
-
 
 .moneyCard {
   box-shadow: 0px 2px 4px 0px rgb(112 144 176 / 20%);
-  padding: 16px 16px 0px 16px; 
+  padding: 16px 16px 0px 16px;
   border-radius: 10px;
   margin-bottom: 32px;
 }
