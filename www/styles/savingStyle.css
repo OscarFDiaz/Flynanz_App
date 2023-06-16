@@ -1,34 +1,33 @@
 .mainTitle {
-  color: var(--saving-main-title);
-
   font-size: 20px;
   font-weight: normal;
+  color: var(--saving-main-title);
   text-align: left;
 }
 
 .savingInfo {
   display: block;
-  color: var(--saving-info);
 
   font-size: 38px;
   font-weight: bold;
+  color: var(--saving-info);
   text-align: left;
 }
 
 .savingTitle {
-  color: var(--saving-title);
-
   font-size: 20px;
   font-weight: normal;
+  color: var(--saving-title);
   text-align: center;
 }
 
 .savingDaily {
-  display: block;
   overflow: hidden;
-  color: var(--saving-daily);
+  display: block;
+
   font-size: clamp(1rem, 16vw, 15rem);
   font-weight: bold;
+  color: var(--saving-daily);
   text-align: center;
   text-overflow: clip;
   white-space: nowrap;
@@ -36,53 +35,57 @@
 
 .daysTitle {
   margin-bottom: 16px;
-  color: var(--saving-days-title);
 
   font-size: 20px;
   font-weight: normal;
+  color: var(--saving-days-title);
   text-align: center;
 }
 
 .leftDays {
-  color: var(--saving-days-left);
   font-size: 20px;
   font-weight: bold;
+  color: var(--saving-days-left);
 }
 
 /* SAVING DETAIL */
 .labelRange {
-  color: var(--saving-edit-label-range);
   font-size: 26px;
+  color: var(--saving-edit-label-range);
 }
 
 .labelRangeLess {
-  color: var(--saving-edit-label-range);
   font-size: 20px;
+  color: var(--saving-edit-label-range);
 }
 
 .selectedText {
   display: block;
+
   margin-bottom: -16px;
-  color: var(--saving-edit-range-selected);
+
   font-size: 14px;
+  color: var(--saving-edit-range-selected);
   text-align: center;
 }
 
 .selectedRange {
-  color: var(--saving-edit-selected-range);
   font-weight: bold;
+  color: var(--saving-edit-selected-range);
 }
 
 .entryAmountText {
   display: block;
+
   margin-bottom: 16px;
-  color: var(--entry-amount-text);
+
   font-size: 14px;
+  color: var(--entry-amount-text);
   text-align: left;
 }
 
 .entryAmountDetail {
-  color: var(--entry-amount-detail);
   font-size: 30px;
   font-weight: bold;
+  color: var(--entry-amount-detail);
 }

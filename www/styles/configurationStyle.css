@@ -5,9 +5,9 @@
 }
 
 .itemListConfiguration {
-  color: var(--item-list-config);
   font-size: 20px;
   font-weight: 500;
+  color: var(--item-list-config);
 }
 
 /* CHEVRON DE LOS ELEMENTOS EN LA CONFIGURACIÓN */
@@ -20,24 +20,26 @@
 
 .themeDefault {
   background: url('../assets/images/themeDefault.png');
-  background-position: center top;
   background-repeat: no-repeat;
+  background-position: center top;
   background-size: cover;
 }
 
 .themeDark {
   /* 162447 - 1f4068 - 1b1b2f - e43f5a - fffcf2 */
   background: url('../assets/images/themeDark.png');
-  background-position: center top;
   background-repeat: no-repeat;
+  background-position: center top;
   background-size: cover;
 }
 
 .tutorialLabel {
   display: block;
+
   margin-bottom: -16px;
-  color: var(--text-without-card);
+
   font-size: 18px;
   font-weight: 100;
+  color: var(--text-without-card);
   text-align: center;
 }

@@ -12,43 +12,47 @@
 
 .goalCard {
   min-height: 107px;
-  padding: 16px;
-  border-radius: 10px;
   margin: 16px 20px 0;
+  padding: 16px;
+
+  border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgb(112 144 176 / 20%);
 }
 
 .goalTitle {
   margin-left: 16px;
-  color: var(--goal-title-color);
   font-size: 16px;
   font-weight: 600;
+  color: var(--goal-title-color);
 }
 
 .goalDate {
   position: absolute;
   right: 36px;
+
   font-size: 14px;
   font-weight: 500;
   text-transform: lowercase;
 }
 
 .detailTitle {
-  color: var(--detail-goal-title-color);
   font-size: 24px;
+  color: var(--detail-goal-title-color);
   text-align: center;
 }
 
 .detailInfo {
-  color: var(--detail-goal-content-color);
   font-size: 16px;
   font-weight: normal;
+  color: var(--detail-goal-content-color);
 }
 
 .percentDetailTitle {
   display: block;
+
   margin-right: auto;
   margin-left: auto;
+
   font-size: 50px;
   text-align: center;
 }
@@ -60,10 +64,10 @@
 }
 
 .progressBarContainer {
-  padding: 0;
-  border-radius: 10px;
   margin-top: 16px;
+  padding: 0;
   background-color: var(--progressbar-back-color);
+  border-radius: 10px;
 }
 
 .progressBarPercent {
@@ -71,14 +75,15 @@
   min-width: 10px;
   max-width: calc(100% - 1px);
   height: 3px;
-  border-radius: 10px;
+
   background-color: var(--progressbar-main-color);
+  border-radius: 10px;
 }
 
 .moneyDetailGoal {
   max-width: 250px;
-  color: var(--detail-goal-title-color);
   font-size: 20px;
+  color: var(--detail-goal-title-color);
 }
 
 .buttonContainer {
@@ -90,9 +95,10 @@
 .gradientButton {
   width: 40px;
   height: 40px;
-  border-radius: 50px;
   margin: 4px;
+
   background: white;
+  border-radius: 50px;
   box-shadow: none;
 }
 

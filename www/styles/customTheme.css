@@ -1,8 +1,11 @@
 .input-color-container {
   position: relative;
+
   overflow: hidden;
+
   width: 50px;
   height: 40px;
+
   border: solid 2px #ddd;
   border-radius: 10px;
 }
@@ -11,21 +14,23 @@
   position: absolute;
   top: -8px;
   right: -8px;
+
   width: 60px;
   height: 56px;
+
   border: none;
 }
 
 .labelColorText {
   margin-left: 16px;
-  color: var(--card-content-text-color);
   font-size: 18px;
   font-weight: 600;
+  color: var(--card-content-text-color);
 }
 
 .labelHeaderText {
-  color: var(--card-text-title-color);
   font-size: 18px;
+  color: var(--card-text-title-color);
   text-align: center;
 }
 

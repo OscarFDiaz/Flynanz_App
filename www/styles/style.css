@@ -3,8 +3,8 @@
 /* stylelint-disable custom-property-pattern */
 @font-face {
   font-family: PoppinsFont;
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
   src: url('../assets/fonts/normal/Poppins-Regular.ttf') format('truetype'),
     url('../assets/fonts/normal/poppins-regular-webfont.woff2') format('woff2'),
     url('../assets/fonts/normal/poppins-regular-webfont.woff') format('woff');
@@ -12,8 +12,8 @@
 
 @font-face {
   font-family: PoppinsFont;
-  font-style: normal;
   font-weight: 100;
+  font-style: normal;
   src: url('../assets/fonts/light/Poppins-Light.ttf') format('truetype'),
     url('../assets/fonts/light/poppins-light-webfont.woff2') format('woff2'),
     url('../assets/fonts/light/poppins-light-webfont.woff') format('woff');
@@ -21,8 +21,8 @@
 
 @font-face {
   font-family: PoppinsFont;
-  font-style: normal;
   font-weight: 800;
+  font-style: normal;
   src: url('../assets/fonts/bold/Poppins-Bold.ttf') format('truetype'),
     url('../assets/fonts/bold/poppins-bold-webfont.woff2') format('woff2'),
     url('../assets/fonts/bold/poppins-bold-webfont.woff') format('woff');
@@ -30,8 +30,8 @@
 
 @font-face {
   font-family: PoppinsFont;
-  font-style: normal;
   font-weight: 600;
+  font-style: normal;
   src: url('../assets/fonts/semiBold/poppins-semibold-webfont.woff') format('truetype'),
     url('../assets/fonts/semiBold/poppins-semibold-webfont.woff2') format('woff2'),
     url('../assets/fonts/semiBold/poppins-semibold-webfont.woff') format('woff');
@@ -306,41 +306,41 @@
 }
 
 .logoLoadPage {
-  animation-duration: 1s;
   animation-name: imageHomeLoader;
+  animation-duration: 1s;
 }
 
 @keyframes imageHomeLoader {
   0% {
-    width: 0%;
     transform: rotate(0);
+    width: 0%;
   }
 
   100% {
-    width: 75%;
     transform: rotate(360deg);
+    width: 75%;
   }
 }
 
 .page__background {
   background: rgb(0 0 0);
   background: linear-gradient(180deg, var(--gradient-1) 0%, var(--gradient-2) 100%);
-  background-position: center top;
   background-repeat: no-repeat;
+  background-position: center top;
   background-size: cover;
 }
 
 .labelToolbar {
-  color: var(--label-toolbar-color);
   font-family: PoppinsFont, Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 600;
+  color: var(--label-toolbar-color);
 }
 
 .menuButtonIcon {
-  color: var(--menu-button-color);
   font-size: 26px;
   font-weight: bold;
+  color: var(--menu-button-color);
 }
 
 .back-button,
@@ -352,36 +352,38 @@
 
 .card,
 .card--material {
-  padding: 0;
-  border: 2px solid var(--card-border-color);
-  border-radius: 10px;
   margin-right: 20px;
   margin-bottom: 16px;
   margin-left: 20px;
+  padding: 0;
+
   background-color: var(--card-back-color);
+  border: 2px solid var(--card-border-color);
+  border-radius: 10px;
   box-shadow: none;
 }
 
 .card__title,
 .card--material__title {
-  padding: 16px;
   margin: 0;
-  color: var(--card-text-title-color);
+  padding: 16px;
+
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
+  color: var(--card-text-title-color);
   text-align: left;
 }
 
 .card__content,
 .card--material__content {
   padding: 0 16px 16px;
-  color: var(--card-content-text-color);
   font-size: 14px;
+  color: var(--card-content-text-color);
   text-align: left;
 }
 
 ons-fab.fab--bottom__right {
-  background: var(--fab-button);
   color: var(--fab-button-text);
+  background: var(--fab-button);
 }
 
 ons-fab.fab--material {
@@ -390,19 +392,22 @@ ons-fab.fab--material {
 
 .flatButton {
   display: block;
+
   width: auto;
   min-height: 50px;
-  border-radius: 10px;
   margin-right: 16px;
   margin-left: 16px;
-  background: var(--flat-button-color);
-  box-shadow: none;
-  color: var(--flat-button-color-text);
+
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 50px;
+  color: var(--flat-button-color-text);
   text-align: center;
+
+  background: var(--flat-button-color);
+  border-radius: 10px;
+  box-shadow: none;
 }
 
 .flatButton:active {
@@ -411,20 +416,23 @@ ons-fab.fab--material {
 
 .flatButtonLight {
   display: block;
+
   width: auto;
   min-height: 45px;
-  border: 1px solid var(--text-area-border-color);
-  border-radius: 10px;
   margin-right: 16px;
   margin-left: 16px;
-  background: var(--flat-button-light-color);
-  box-shadow: none;
-  color: var(--flat-button-light-color-text);
+
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 45px;
+  color: var(--flat-button-light-color-text);
   text-align: center;
+
+  background: var(--flat-button-light-color);
+  border: 1px solid var(--text-area-border-color);
+  border-radius: 10px;
+  box-shadow: none;
 }
 
 .flatButtonLight:active {
@@ -442,68 +450,77 @@ ons-fab.fab--material {
 .text-input--underbar:invalid,
 .text-input:invalid {
   top: 0;
+
   margin-top: 16px;
-  color: var(--color-input-text);
+
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
   font-size: 18px;
+  color: var(--color-input-text);
 }
 
 .text-input--material {
   height: 48px;
-  padding: 16px;
-  border-radius: 10px;
   margin-top: 16px;
-  background: var(--color-input);
-  color: var(--color-input-text);
+  padding: 16px;
+
   font-size: 18px;
+  color: var(--color-input-text);
   text-align: center;
+
+  background: var(--color-input);
+  border-radius: 10px;
 }
 
 .text-input--material:focus {
-  border: 1px solid var(--text-area-border-color);
   background: var(--color-input);
+  border: 1px solid var(--text-area-border-color);
 }
 
 select {
   display: block;
+
   width: 100%;
   height: 48px;
+  margin-right: auto;
+  margin-left: auto;
+
+  font-size: 18px;
+  color: var(--color-input-text);
+
+  background: none;
   border: none;
   border: 2px solid var(--color-input);
   border-radius: 10px;
-  margin-right: auto;
-  margin-left: auto;
-  background: none;
-  color: var(--color-input-text);
-  font-size: 18px;
 }
 
 option {
-  background: var(--color-input-option-back);
   color: var(--color-input-option-font);
+  background: var(--color-input-option-back);
 }
 
 .select-input--material {
-  color: var(--color-input-text);
   font-size: 18px;
+  color: var(--color-input-text);
   text-align: center;
 }
 
 .textarea {
   width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 10px;
   margin: 0 auto;
-  background: var(--color-input);
-  color: var(--text-area-text-color);
+  padding: 16px;
+
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
   font-size: 18px;
+  color: var(--text-area-text-color);
+
+  background: var(--color-input);
+  border: none;
+  border-radius: 10px;
 }
 
 .textarea:focus {
-  border: 1px solid var(--text-area-border-color);
   background: var(--color-input);
+  border: 1px solid var(--text-area-border-color);
 }
 
 .alert-dialog,
@@ -514,56 +531,57 @@ option {
 .alert-dialog-container,
 .alert-dialog--material,
 .alert-dialog-container--material {
-  border-radius: 10px;
-  background-color: var(--alert-container-color);
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
+  background-color: var(--alert-container-color);
+  border-radius: 10px;
 }
 
 .alert-dialog,
 .alert-dialog-title,
 .alert-dialog-title--material {
-  color: var(--alert-tile-color);
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
+  color: var(--alert-tile-color);
 }
 
 .alert-dialog-footer,
 .alert-dialog-footer--material {
-  background-color: var(--alert-footer-color);
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
+  background-color: var(--alert-footer-color);
 }
 
 .alert-dialog-content,
 .alert-dialog-content--material {
   margin: 16px 0;
-  background-color: none;
-  color: var(--alert-content-text-color);
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
+  color: var(--alert-content-text-color);
+  background-color: none;
 }
 
 .alert-dialog-button,
 .alert-dialog-button--material {
-  color: var(--alert-button-color-text);
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
+  color: var(--alert-button-color-text);
 }
 
 .ons-toast .toast {
-  border-radius: 10px 10px 0 0;
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
+  border-radius: 10px 10px 0 0;
 }
 
 .toast,
 .toast--material {
-  border-radius: 10px 10px 0 0;
-  background-color: var(--toast-back-color);
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
+  background-color: var(--toast-back-color);
+  border-radius: 10px 10px 0 0;
 }
 
 .toast__message,
 .toast--material__message {
   margin: 0;
-  color: var(--toast-message-color);
+
   font-family: PoppinsFont, Roboto, Noto, sans-serif;
   font-size: 18px;
+  color: var(--toast-message-color);
   text-align: center;
 }
 

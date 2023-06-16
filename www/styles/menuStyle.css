@@ -17,10 +17,12 @@
 
 .menuList {
   display: grid;
-  height: 100vh;
-  background: none;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  height: 100vh;
+
+  background: none;
 }
 
 .menuIcon {
@@ -56,9 +58,10 @@
 
 .labelMenu {
   margin-right: auto;
-  color: var(--menu-font-color);
+
   font-size: 20px;
-  font-style: normal;
   font-weight: 500;
+  font-style: normal;
+  color: var(--menu-font-color);
   text-align: center;
 }
