@@ -1,71 +1,71 @@
 .mainTitle {
-  text-align: left;
+  color: var(--saving-main-title);
 
   font-size: 20px;
   font-weight: normal;
-  color: var(--saving-main-title);
+  text-align: left;
 }
 
 .savingInfo {
-  text-align: left;
   display: block;
+  color: var(--saving-info);
 
   font-size: 38px;
   font-weight: bold;
-  color: var(--saving-info);
+  text-align: left;
 }
 
 .savingTitle {
-  text-align: center;
+  color: var(--saving-title);
 
   font-size: 20px;
   font-weight: normal;
-  color: var(--saving-title);
+  text-align: center;
 }
 
 .savingDaily {
-  text-align: center;
   display: block;
+  overflow: hidden;
+  color: var(--saving-daily);
   font-size: clamp(1rem, 16vw, 15rem);
   font-weight: bold;
-  color: var(--saving-daily);
-  white-space: nowrap;
-  overflow: hidden;
+  text-align: center;
   text-overflow: clip;
+  white-space: nowrap;
 }
 
 .daysTitle {
-  text-align: center;
   margin-bottom: 16px;
+  color: var(--saving-days-title);
 
   font-size: 20px;
   font-weight: normal;
-  color: var(--saving-days-title);
+  text-align: center;
 }
 
 .leftDays {
+  color: var(--saving-days-left);
   font-size: 20px;
   font-weight: bold;
-  color: var(--saving-days-left);
 }
 
 /* SAVING DETAIL */
 .labelRange {
-  font-size: 26px;
   color: var(--saving-edit-label-range);
+  font-size: 26px;
 }
 
 .labelRangeLess {
-  font-size: 20px;
   color: var(--saving-edit-label-range);
+  font-size: 20px;
 }
 
 .selectedText {
   display: block;
-  text-align: center;
-  font-size: 14px;
-  color: var(--saving-edit-range-selected);
   margin-bottom: -16px;
+  color: var(--saving-edit-range-selected);
+  font-size: 14px;
+  text-align: center;
 }
 
 .selectedRange {
@@ -75,14 +75,14 @@
 
 .entryAmountText {
   display: block;
-  text-align: left;
-  font-size: 14px;
-  color: var(--entry-amount-text);
   margin-bottom: 16px;
+  color: var(--entry-amount-text);
+  font-size: 14px;
+  text-align: left;
 }
 
 .entryAmountDetail {
   color: var(--entry-amount-detail);
-  font-weight: bold;
   font-size: 30px;
+  font-weight: bold;
 }

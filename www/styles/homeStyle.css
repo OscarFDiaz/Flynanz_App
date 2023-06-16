@@ -1,10 +1,9 @@
+/* stylelint-disable no-descending-specificity */
 .divTotalBalance {
   position: sticky;
-
   z-index: 99;
-  top: 0px;
+  top: 0;
   padding-left: 20px;
-
   margin-bottom: 32px;
   background-color: var(--gradient-1);
 }
@@ -30,23 +29,21 @@
 
 .walletsContainer {
   display: flex;
-  overflow-x: auto;
   width: 100%;
-  padding: 0px 20px 0px 0px;
-  margin: 8px 20px 0px 0px;
+  padding: 0 20px 0 0;
+  margin: 8px 20px 0 0;
+  overflow-x: auto;
   white-space: nowrap;
 }
 
 .wallet {
-  flex: 0 0 150px;
   min-height: 100px;
+  flex: 0 0 150px;
   padding: 16px;
-  margin-bottom: 8px;
-
-  margin-left: 20px;
   border-radius: 10px;
-
-  box-shadow: 0px 2px 4px 0px rgba(112, 144, 176, 0.2);
+  margin-bottom: 8px;
+  margin-left: 20px;
+  box-shadow: 0 2px 4px 0 rgb(112 144 176 / 20%);
 }
 
 .iconSavedMoney {
@@ -54,15 +51,14 @@
   width: 50px;
   height: 50px;
   padding: 8px;
-
-  margin: 25px 16px 25px 16px;
-  background: #e5e7ed;
   border-radius: 15px;
+  margin: 25px 16px;
+  background: #e5e7ed;
 }
 
 .cardHomeTitle {
   display: block;
-  margin: 32px auto 0px 20px;
+  margin: 32px auto 0 20px;
   color: var(--text-without-card);
   font-size: 20px;
   font-weight: 500;
@@ -79,11 +75,9 @@
 
 .totalMoneyTitle {
   display: inline-block;
-
   color: var(--home-total-money);
   font-size: 50px;
   font-weight: 700;
-
   text-align: left;
 }
 

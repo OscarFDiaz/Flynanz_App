@@ -10,8 +10,8 @@
   font-weight: 500;
 }
 
-/*CHEVRON DE LOS ELEMENTOS EN LA CONFIGURACIÓN*/
-.list-item--chevron:before,
+/* CHEVRON DE LOS ELEMENTOS EN LA CONFIGURACIÓN */
+.list-item--chevron::before,
 .list-item__expand-chevron {
   display: block;
   border-right: 2px solid var(--chevron-color);
@@ -21,16 +21,16 @@
 .themeDefault {
   background: url('../assets/images/themeDefault.png');
   background-position: center top;
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .themeDark {
   /* 162447 - 1f4068 - 1b1b2f - e43f5a - fffcf2 */
   background: url('../assets/images/themeDark.png');
   background-position: center top;
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .tutorialLabel {

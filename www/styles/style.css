@@ -1,3 +1,6 @@
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
 @font-face {
   font-family: PoppinsFont;
   font-style: normal;
@@ -36,7 +39,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
 }
 
 .theme-default {
@@ -46,7 +49,7 @@
   --color-2: #0596a6;
   --color-3: #9cd9ce;
   --color-4: #f5a11b;
-  --color-5: #ffffff;
+  --color-5: #fff;
 
   /* DEGRADADOS SELECCIONABLES */
   --gradient_0: linear-gradient(90deg, #bfdff8 0%, #f4dcf5 100%);
@@ -61,16 +64,15 @@
   --gradient_9: linear-gradient(90deg, #fb8085 0%, #f9c1b1 100%);
 
   /* DEGRADADO */
-  --gradient-1: #ffffff;
-  --gradient-2: #ffffff;
+  --gradient-1: #fff;
+  --gradient-2: #fff;
 
-  /* SPINNER ONLOAD PAGE*/
+  /* SPINNER ONLOAD PAGE */
   --spiner-back-color: #e5e7ed;
   --spiner-front-color: #272443;
 
-  /* ICONOS MENÚ & TEXTO MENU*/
+  /* ICONOS MENÚ & TEXTO MENU */
   --icon-holder: none;
-
   --menu-icon-color: #272443;
   --menu-font-color: #272443;
 
@@ -87,37 +89,30 @@
   --item-list-config: #68667b;
   --text-without-card: #272443;
   --text-without-card-balance: #68667b;
-
   --expense-title: #272443;
   --expense-info: #68667b;
   --expense-detail: #68667b;
   --expense-detail-money: #272443;
-
   --detail-goal-title-color: #272443;
   --detail-goal-content-color: #272443;
   --detail-money-goal: #272443;
-
   --goal-title-color: #272443;
   --goal-money-color: #272443;
   --goal-icon-color: #272443;
   --goal-info-color: #272443;
-
   --home-total-money: #272443;
   --home-goal-label: #68667b;
   --para-home-options: #68667b;
   --home-options-labels: #68667b;
-
   --money-title: #68667b;
   --money-info: #272443;
   --money-dots: #272443;
-
   --saving-main-title: #68667b;
   --saving-info: #272443;
   --saving-title: #68667b;
   --saving-daily: #272443;
   --saving-days-title: #68667b;
   --saving-days-left: #272443;
-
   --saving-edit-label-range: #68667b;
   --saving-edit-range-selected: #68667b;
   --saving-edit-selected-range: #272443;
@@ -142,43 +137,38 @@
 
   /* ALERT DIALOG */
   --alert-tile-color: #272443;
-  --alert-container-color: #ffffff;
+  --alert-container-color: #fff;
   --alert-footer-color: #272443;
   --alert-content-text-color: #272443;
-  --alert-button-color-text: #ffffff;
-
+  --alert-button-color-text: #fff;
   --alert-custom-label: #68667b;
   --alert-custom-label-money: #272443;
 
   /* TOAST */
   --toast-back-color: #272443;
-  --toast-message-color: #ffffff;
+  --toast-message-color: #fff;
 
   /* PROGRESSBAR */
   --progressbar-back-color: #68667b;
   --progressbar-main-color: #272443;
 
   /* CARDS */
-  --card-back-color: #ffffff;
+  --card-back-color: #fff;
   --card-text-title-color: #272443;
   --card-content-text-color: #272443;
   --card-border-color: #e5e7ed;
 
   /* BUTTONS */
   --flat-button-color: #272443;
-  --flat-button-color-text: #ffffff;
+  --flat-button-color-text: #fff;
   --flat-button-active-color: #272443;
-
-  --flat-button-light-color: #ffffff;
+  --flat-button-light-color: #fff;
   --flat-button-light-color-text: #272443;
   --flat-button-light-active-color: #05565f;
-
   --fab-button: #272443;
   --fab-button-text: #f3f3f3;
-
   --mini-button-back: #272443;
   --mini-button-font: #f3f3f3;
-
   --mini-button-light-back: #272443;
   --mini-button-light-font: #272443;
 }
@@ -190,7 +180,7 @@
   --color-2: #0596a6;
   --color-3: #9cd9ce;
   --color-4: #f5a11b;
-  --color-5: #ffffff;
+  --color-5: #fff;
 
   /* DEGRADADOS SELECCIONABLES */
   --gradient_0: linear-gradient(90deg, #bfdff8 0%, #f4dcf5 100%);
@@ -208,14 +198,13 @@
   --gradient-1: #1a191e;
   --gradient-2: #1a191e;
 
-  /* SPINNER ONLOAD PAGE*/
+  /* SPINNER ONLOAD PAGE */
   --spiner-back-color: #2a292e;
   --spiner-front-color: #cdeaf7;
 
-  /* ICONOS MENÚ & TEXTO MENU*/
+  /* ICONOS MENÚ & TEXTO MENU */
 
   --icon-holder: none;
-
   --menu-icon-color: #78787a;
   --menu-font-color: #f3f3f3;
 
@@ -232,37 +221,30 @@
   --item-list-config: #f3f3f3;
   --text-without-card: #9d9da0;
   --text-without-card-balance: #9d9da0;
-
   --expense-title: #272443;
   --expense-info: #68667b;
   --expense-detail: #68667b;
   --expense-detail-money: #f3f3f3;
-
   --detail-goal-title-color: #272443;
   --detail-goal-content-color: #272443;
   --detail-money-goal: #272443;
-
   --goal-title-color: #272443;
   --goal-money-color: #272443;
   --goal-icon-color: #272443;
   --goal-info-color: #272443;
-
   --home-total-money: #f3f3f3;
   --home-goal-label: #f3f3f3;
   --para-home-options: #9d9da0;
   --home-options-labels: #f3f3f3;
-
   --money-title: #272443;
   --money-info: #272443;
   --money-dots: #f3f3f3;
-
   --saving-main-title: #68667b;
   --saving-info: #f3f3f3;
   --saving-title: #68667b;
   --saving-daily: #f3f3f3;
   --saving-days-title: #68667b;
   --saving-days-left: #f3f3f3;
-
   --saving-edit-label-range: #68667b;
   --saving-edit-range-selected: #68667b;
   --saving-edit-selected-range: #f3f3f3;
@@ -287,17 +269,16 @@
 
   /* ALERT DIALOG */
   --alert-tile-color: #272443;
-  --alert-container-color: #ffffff;
+  --alert-container-color: #fff;
   --alert-footer-color: #1a191e;
   --alert-content-text-color: #272443;
-  --alert-button-color-text: #ffffff;
-
+  --alert-button-color-text: #fff;
   --alert-custom-label: #68667b;
   --alert-custom-label-money: #272443;
 
   /* TOAST */
   --toast-back-color: #1a191e;
-  --toast-message-color: #ffffff;
+  --toast-message-color: #fff;
 
   /* PROGRESSBAR */
   --progressbar-back-color: #68667b;
@@ -312,25 +293,21 @@
   /* BUTTONS */
   --flat-button-color: #f3f3f3;
   --flat-button-color-text: #1a191d;
-  --flat-button-active-color: #ffffff;
-
+  --flat-button-active-color: #fff;
   --flat-button-light-color: #1a191e;
   --flat-button-light-color-text: #cdeaf7;
   --flat-button-light-active-color: #05565f;
-
   --fab-button: #000;
   --fab-button-text: #f3f3f3;
-
   --mini-button-back: #1a191d;
   --mini-button-font: #f3f3f3;
-
   --mini-button-light-back: #1a191e;
   --mini-button-light-font: #1a191e;
 }
 
 .logoLoadPage {
-  animation-name: imageHomeLoader;
   animation-duration: 1s;
+  animation-name: imageHomeLoader;
 }
 
 @keyframes imageHomeLoader {
@@ -338,6 +315,7 @@
     width: 0%;
     transform: rotate(0);
   }
+
   100% {
     width: 75%;
     transform: rotate(360deg);
@@ -345,16 +323,16 @@
 }
 
 .page__background {
-  background: rgb(0, 0, 0);
+  background: rgb(0 0 0);
   background: linear-gradient(180deg, var(--gradient-1) 0%, var(--gradient-2) 100%);
   background-position: center top;
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .labelToolbar {
   color: var(--label-toolbar-color);
-  font-family: 'PoppinsFont';
+  font-family: PoppinsFont, Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 600;
 }
@@ -368,43 +346,36 @@
 .back-button,
 .back-button__icon,
 .back-button--material__icon {
-  fill: var(--back-button-color);
   color: var(--back-button-color);
+  fill: var(--back-button-color);
 }
 
 .card,
 .card--material {
-  padding: 0px;
-
+  padding: 0;
   border: 2px solid var(--card-border-color);
+  border-radius: 10px;
   margin-right: 20px;
   margin-bottom: 16px;
   margin-left: 20px;
-
   background-color: var(--card-back-color);
-  border-radius: 10px;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
 .card__title,
 .card--material__title {
-  padding: 16px 16px 16px 16px;
-  margin: 0px;
+  padding: 16px;
+  margin: 0;
   color: var(--card-text-title-color);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
-
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
   text-align: left;
 }
 
 .card__content,
 .card--material__content {
-  padding: 0px 16px 16px 16px;
+  padding: 0 16px 16px;
   color: var(--card-content-text-color);
   font-size: 14px;
-
   text-align: left;
 }
 
@@ -414,28 +385,24 @@ ons-fab.fab--bottom__right {
 }
 
 ons-fab.fab--material {
-  box-shadow: 0px 2px 4px 0px rgba(5, 6, 8, 0.2);
+  box-shadow: 0 2px 4px 0 rgb(5 6 8 / 20%);
 }
 
 .flatButton {
   display: block;
   width: auto;
   min-height: 50px;
+  border-radius: 10px;
   margin-right: 16px;
   margin-left: 16px;
-
   background: var(--flat-button-color);
+  box-shadow: none;
   color: var(--flat-button-color-text);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
-
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
   font-size: 18px;
   font-weight: 400;
-
   line-height: 50px;
   text-align: center;
-
-  border-radius: 10px;
-  box-shadow: none;
 }
 
 .flatButton:active {
@@ -447,21 +414,17 @@ ons-fab.fab--material {
   width: auto;
   min-height: 45px;
   border: 1px solid var(--text-area-border-color);
+  border-radius: 10px;
   margin-right: 16px;
   margin-left: 16px;
-
   background: var(--flat-button-light-color);
+  box-shadow: none;
   color: var(--flat-button-light-color-text);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
-
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
   font-size: 18px;
   font-weight: 400;
-
   line-height: 45px;
   text-align: center;
-
-  border-radius: 10px;
-  box-shadow: none;
 }
 
 .flatButtonLight:active {
@@ -478,24 +441,22 @@ ons-fab.fab--material {
 .text-input--material__label,
 .text-input--underbar:invalid,
 .text-input:invalid {
-  top: 0px;
+  top: 0;
   margin-top: 16px;
   color: var(--color-input-text);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
   font-size: 18px;
 }
 
 .text-input--material {
   height: 48px;
   padding: 16px;
+  border-radius: 10px;
   margin-top: 16px;
-
   background: var(--color-input);
   color: var(--color-input-text);
   font-size: 18px;
   text-align: center;
-
-  border-radius: 10px;
 }
 
 .text-input--material:focus {
@@ -509,14 +470,12 @@ select {
   height: 48px;
   border: none;
   border: 2px solid var(--color-input);
+  border-radius: 10px;
   margin-right: auto;
-
   margin-left: auto;
-
   background: none;
   color: var(--color-input-text);
   font-size: 18px;
-  border-radius: 10px;
 }
 
 option {
@@ -534,12 +493,12 @@ option {
   width: 100%;
   padding: 16px;
   border: none;
-  margin: 0px auto;
+  border-radius: 10px;
+  margin: 0 auto;
   background: var(--color-input);
   color: var(--text-area-text-color);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
   font-size: 18px;
-  border-radius: 10px;
 }
 
 .textarea:focus {
@@ -555,74 +514,72 @@ option {
 .alert-dialog-container,
 .alert-dialog--material,
 .alert-dialog-container--material {
-  background-color: var(--alert-container-color);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
   border-radius: 10px;
+  background-color: var(--alert-container-color);
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
 }
 
 .alert-dialog,
 .alert-dialog-title,
 .alert-dialog-title--material {
   color: var(--alert-tile-color);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
 }
 
 .alert-dialog-footer,
 .alert-dialog-footer--material {
   background-color: var(--alert-footer-color);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
 }
 
 .alert-dialog-content,
 .alert-dialog-content--material {
-  margin: 16px 0 16px;
+  margin: 16px 0;
   background-color: none;
   color: var(--alert-content-text-color);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
 }
 
 .alert-dialog-button,
 .alert-dialog-button--material {
   color: var(--alert-button-color-text);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
 }
 
 .ons-toast .toast {
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 10px 10px 0 0;
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
 }
 
 .toast,
 .toast--material {
+  border-radius: 10px 10px 0 0;
   background-color: var(--toast-back-color);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
-  border-radius: 10px 10px 0px 0px;
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
 }
 
 .toast__message,
 .toast--material__message {
-  margin: 0px;
+  margin: 0;
   color: var(--toast-message-color);
-  font-family: PoppinsFont, Roboto, Noto, 'sans-serif';
+  font-family: PoppinsFont, Roboto, Noto, sans-serif;
   font-size: 18px;
   text-align: center;
 }
 
-.progress-bar--material.progress-bar--indeterminate:after,
-.progress-bar--material.progress-bar--indeterminate:before {
+.progress-bar--material.progress-bar--indeterminate::after,
+.progress-bar--material.progress-bar--indeterminate::before {
   background-color: var(--spiner-front-color);
 }
 
-:checked + .radio-button--material__checkmark:after {
+:checked + .radio-button--material__checkmark::after {
   background: var(--chevron-color);
 }
 
-:checked + .radio-button--material__checkmark:before {
+:checked + .radio-button--material__checkmark::before {
   border: 2px solid var(--chevron-color);
 }
 
-.radio-button--material__checkmark:before {
+.radio-button--material__checkmark::before {
   border: 1px solid var(--chevron-color);
 }
-
-/**/
