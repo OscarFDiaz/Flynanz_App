@@ -1,15 +1,15 @@
 function startApp() {
   // Busco el tema del usuario o defino uno, entre el claro y el oscuro
-  let themeSelected = localStorage.getItem('userTheme');
+  let themeSelected = getFromStorage('userTheme');
 
-  if (themeSelected != 'theme-default' && themeSelected != 'theme-dark') {
-    localStorage.setItem('userTheme', 'theme-default');
+  if (themeSelected !== 'theme-default' && themeSelected !== 'theme-dark') {
+    saveToStorage('userTheme', 'theme-default');
     themeSelected = 'theme-default';
     document.documentElement.className = 'theme-default';
   }
 
   if (themeSelected == null || themeSelected == '') {
-    localStorage.setItem('userTheme', 'theme-default');
+    saveToStorage('userTheme', 'theme-default');
     document.documentElement.className = 'theme-default';
   } else {
     document.documentElement.className = themeSelected;
@@ -21,24 +21,24 @@ function startApp() {
    * que los datos se dañen por las nuevas configuraciones
    */
   let currentVersion = 3; // Versión actual de la app
-  let appVersion = localStorage.getItem('appVersion');
+  let appVersion = getFromStorage('appVersion');
 
-  if (appVersion == null || appVersion == '') {
+  if (appVersion === null || appVersion === '') {
     // Si entra la aplicación es posterior a la nueva actualización
-    localStorage.setItem('appVersion', '3');
+    saveToStorage('appVersion', '3');
 
     updateGolsOnUpdate();
     updateMoneyOnUpdate();
     updateExpensesOnUpdate();
   } else if (currentVersion > appVersion) {
-    localStorage.setItem('appVersion', '3');
+    saveToStorage('appVersion', '3');
 
     updateGolsOnUpdate();
     updateMoneyOnUpdate();
     updateExpensesOnUpdate();
   } else {
     // Sino entra, la aplicación es posterior a la actualización
-    localStorage.setItem('appVersion', `${currentVersion}`); // Actualizo la versión del storage
+    saveToStorage('appVersion', currentVersion); // Actualizo la versión del storage
   }
 
   setTimeout(function () {
