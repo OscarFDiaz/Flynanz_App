@@ -3,7 +3,13 @@ function loadIconsGoal() {
   iconsView.innerHTML = '';
 
   let art = `./assets/icons/icons_list/art/`;
-  let artNames = ['brush.png', 'format_color_fill.png', 'format_paint.png', 'imagesearch_roller.png', 'palette.png'];
+  let artNames = [
+    'brush.png',
+    'format_color_fill.png',
+    'format_paint.png',
+    'imagesearch_roller.png',
+    'palette.png',
+  ];
 
   let book = `./assets/icons/icons_list/books/`;
   let bookNames = [
@@ -30,7 +36,12 @@ function loadIconsGoal() {
   ];
 
   let camera = `./assets/icons/icons_list/camera/`;
-  let cameraNames = ['camera.png', 'photo_camera.png', 'video_camera_back.png', 'videocam.png'];
+  let cameraNames = [
+    'camera.png',
+    'photo_camera.png',
+    'video_camera_back.png',
+    'videocam.png',
+  ];
 
   let fix = `./assets/icons/icons_list/fix/`;
   let fixNames = [
@@ -67,7 +78,13 @@ function loadIconsGoal() {
   ];
 
   let fun = `./assets/icons/icons_list/fun/`;
-  let funNames = ['attractions.png', 'celebration.png', 'festival.png', 'stadia_controller.png', 'theater_comedy.png'];
+  let funNames = [
+    'attractions.png',
+    'celebration.png',
+    'festival.png',
+    'stadia_controller.png',
+    'theater_comedy.png',
+  ];
 
   let money = `./assets/icons/icons_list/money/`;
   let moneyNames = [
@@ -102,7 +119,13 @@ function loadIconsGoal() {
   ];
 
   let pc = `./assets/icons/icons_list/pc/`;
-  let pcNames = ['computer.png', 'desktop_windows.png', 'devices.png', 'mouse.png', 'print.png'];
+  let pcNames = [
+    'computer.png',
+    'desktop_windows.png',
+    'devices.png',
+    'mouse.png',
+    'print.png',
+  ];
 
   let sport = `./assets/icons/icons_list/sport/`;
   let sportNames = [
@@ -122,7 +145,13 @@ function loadIconsGoal() {
   ];
 
   let time = `./assets/icons/icons_list/time/`;
-  let timeNames = ['alarm.png', 'date_range.png', 'hourglass_empty.png', 'schedule.png', 'watch.png'];
+  let timeNames = [
+    'alarm.png',
+    'date_range.png',
+    'hourglass_empty.png',
+    'schedule.png',
+    'watch.png',
+  ];
 
   let transport = `./assets/icons/icons_list/transport/`;
   let transportNames = [
@@ -144,7 +173,13 @@ function loadIconsGoal() {
   ];
 
   let travel = `./assets/icons/icons_list/travel/`;
-  let travelNames = ['airplane_ticket.png', 'connecting_airports.png', 'flight_takeoff.png', 'luggage.png', 'map.png'];
+  let travelNames = [
+    'airplane_ticket.png',
+    'connecting_airports.png',
+    'flight_takeoff.png',
+    'luggage.png',
+    'map.png',
+  ];
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Arte</p>`;
   for (let i = 0; i < artNames.length; i++) {
@@ -301,7 +336,8 @@ function makeNewGoal() {
   //Compruebo que no hay campos vacios, en su defecto los lleno
   if (languaje == 'false') {
     if (goalDescription === '') {
-      goalDescription = "There is no description for this amazing goal. You can add one in the 'EDIT GOAL' button";
+      goalDescription =
+        "There is no description for this amazing goal. You can add one in the 'EDIT GOAL' button";
     }
 
     if (goalDate === '') {
@@ -339,20 +375,25 @@ function makeNewGoal() {
 
     let goalTest = Math.sign(goalMoney);
     if (goalTest == '-1' || goalTest == '-0' || goalTest == '0') {
-      ons.notification.toast('Wait, it is not possible to add a negative goal, it would be impossible to achieve.', {
-        title: 'Error!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'Wait, it is not possible to add a negative goal, it would be impossible to achieve.',
+        {
+          title: 'Error!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
       return;
     }
   } else {
     /* SI EL IDIOMA SELECCIONADO ESTA EN ESPANOL */
     if (goalDescription === '') {
       if (languaje == 'false') {
-        goalDescription = "There is no description for this amazing goal. You can add one in the 'EDIT GOAL' button";
+        goalDescription =
+          "There is no description for this amazing goal. You can add one in the 'EDIT GOAL' button";
       } else {
-        goalDescription = "No existe una descripción para esta asombrosa meta. Puedes añadir una en el botón 'EDITAR META'";
+        goalDescription =
+          "No existe una descripción para esta asombrosa meta. Puedes añadir una en el botón 'EDITAR META'";
       }
     }
 
@@ -399,11 +440,14 @@ function makeNewGoal() {
 
     let goalTest = Math.sign(goalMoney);
     if (goalTest == '-1' || goalTest == '-0' || goalTest == '0') {
-      ons.notification.toast('Un momento, no es posible añadir una meta en negativo, seria imposible de lograr.', {
-        title: 'Error!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'Un momento, no es posible añadir una meta en negativo, seria imposible de lograr.',
+        {
+          title: 'Error!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
       return;
     }
   } /* TERMINA IDIOMA */
@@ -635,7 +679,7 @@ function findGoal(sendGoalName) {
       }
 
       const navigator = document.querySelector('#navigator');
-      navigator.pushPage('detailGoal.html');
+      navigator.pushPage('pages/goalPage/detailGoal.html');
       break;
     }
   }
@@ -804,7 +848,8 @@ function loadDetailGoal() {
     }
 
     if (gDescription === '') {
-      gDescription = "There is no description for this amazing goal. You can add one in the 'EDIT META' button";
+      gDescription =
+        "There is no description for this amazing goal. You can add one in the 'EDIT META' button";
     }
 
     document.getElementById('titleDetailGoal').innerHTML = gName;
@@ -873,7 +918,8 @@ function loadDetailGoal() {
     }
 
     if (gDescription === '') {
-      gDescription = "No existe una descripción para esta asombrosa meta. Puedes añadir una en el botón 'EDITAR META'";
+      gDescription =
+        "No existe una descripción para esta asombrosa meta. Puedes añadir una en el botón 'EDITAR META'";
     }
 
     document.getElementById('titleDetailGoal').innerHTML = gName;
