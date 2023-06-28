@@ -1,18 +1,19 @@
 function startApp() {
   // Busco el tema del usuario o defino uno, entre el claro y el oscuro
   let themeSelected = getFromStorage('userTheme');
+  const docElement = document.documentElement;
 
   if (themeSelected !== 'theme-default' && themeSelected !== 'theme-dark') {
     saveToStorage('userTheme', 'theme-default');
     themeSelected = 'theme-default';
-    document.documentElement.className = 'theme-default';
+    docElement.className = 'theme-default';
   }
 
-  if (themeSelected == null || themeSelected == '') {
+  if (!themeSelected) {
     saveToStorage('userTheme', 'theme-default');
-    document.documentElement.className = 'theme-default';
+    docElement.className = 'theme-default';
   } else {
-    document.documentElement.className = themeSelected;
+    docElement.className = themeSelected;
   }
 
   /**
@@ -23,7 +24,7 @@ function startApp() {
   let currentVersion = 3; // Versión actual de la app
   let appVersion = getFromStorage('appVersion');
 
-  if (appVersion === null || appVersion === '') {
+  if (!appVersion) {
     // Si entra la aplicación es posterior a la nueva actualización
     saveToStorage('appVersion', '3');
 
@@ -43,7 +44,7 @@ function startApp() {
 
   setTimeout(function () {
     const navigator = document.querySelector('#navigator');
-    navigator.resetToPage('pages/userPage/splitterUser.html');
+    navigator.resetToPage('./pages/userPage/splitterUser.html');
   }, 500);
 }
 
@@ -51,11 +52,10 @@ function startApp() {
 function updateGolsOnUpdate() {
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
 
-  if (goals == null || goals == 'null' || goals.length == 0 || goals.length < 1) {
-    return;
-  }
+  if (!goals || goals.length < 1) return;
 
   for (let i = 0; i < goals.length; i++) {
+    // Valores default cuando se actualice de una versión vieja
     goals[i].goalGradient = '--gradient_0';
 
     goals[i].iconName = 'format_paint.png';
@@ -65,37 +65,30 @@ function updateGolsOnUpdate() {
     goals[i].iconUrl = './assets/icons/icons_list/art/';
   }
 
-  localStorage.setItem('goalStorage', JSON.stringify(goals));
+  saveToStorage('goalStorage', JSON.stringify(goals));
 }
 
 function updateMoneyOnUpdate() {
-  let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
+  let moneys = JSON.parse(getFromStorage('moneyStorage'));
 
-  if (moneys == null || moneys == 'null' || moneys.length == 0 || moneys.length < 1) {
-    return;
-  }
+  if (!moneys || moneys.length < 1) return;
+
+  let mGradient;
 
   for (let i = 0; i < moneys.length; i++) {
-    let mGradient = moneys[i].moneyGradient;
+    mGradient = moneys[i].moneyGradient;
 
-    if (mGradient == null || mGradient == '') {
+    if (!mGradient) {
       moneys[i].moneyGradient = '--gradient_0';
-      localStorage.setItem('moneyStorage', JSON.stringify(moneys));
+      saveToStorage('moneyStorage', JSON.stringify(moneys));
     }
   }
 }
 
 function updateExpensesOnUpdate() {
-  let expenses = JSON.parse(localStorage.getItem('expenseStorage'));
+  let expenses = JSON.parse(getFromStorage('expenseStorage'));
 
-  if (
-    expenses == null ||
-    expenses == 'null' ||
-    expenses.length == 0 ||
-    expenses.length < 1
-  ) {
-    return;
-  }
+  if (!expenses || expenses.length < 1) return;
 
   for (let i = 0; i < expenses.length; i++) {
     //Gradient and color donut
@@ -107,6 +100,6 @@ function updateExpensesOnUpdate() {
     expenses[i].iconName = 'construction.png';
     expenses[i].iconUrl = './assets/icons/icons_list/fix/';
 
-    localStorage.setItem('expenseStorage', JSON.stringify(expenses));
+    saveToStorage('expenseStorage', JSON.stringify(expenses));
   }
 }

@@ -499,9 +499,6 @@ function makeNewGoal() {
 /*
   - Consigo el local Storage y con un FOR lo voy cargando
 */
-function getPercent(goalMoney, actualMoney) {
-  return Math.round((actualMoney * 100) / goalMoney);
-}
 
 function getGoals() {
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
