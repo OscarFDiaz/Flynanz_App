@@ -23,12 +23,48 @@ const lang = {
     userpage_splitter_mymoney: 'Mi dinero',
     userpage_splitter_settings: 'Configuración',
 
+    goals_loadicons_art: 'Arte',
+    goals_loadicons_books: 'Libros',
+    goals_loadicons_builds: 'Edificios',
+    goals_loadicons_camera: 'Fotos',
+    goals_loadicons_fix: 'Reparar',
+    goals_loadicons_food: 'Comida',
+    goals_loadicons_fun: 'Diversión',
+    goals_loadicons_money: 'Dinero',
+    goals_loadicons_music: 'Música',
+    goals_loadicons_pc: 'PC',
+    goals_loadicons_sport: 'Deporte',
+    goals_loadicons_time: 'Tiempo',
+    goals_loadicons_transport: 'Transporte',
+    goals_loadicons_travel: 'Viajes',
+    goals_makenew_gdesc:
+      'Esta meta no tiene una descripción. Puedes añadirle una editando la meta.',
+    goals_makenew_gdate: 'Sin fecha',
+    goals_makenew_gname: 'Espera, no olvides poner un nombre a la meta!',
+    goals_makenew_gmoney: 'Espera, cuanto dinero necesitara tu meta?!',
+    goals_makenew_ggradient: 'Espera, selecciona un color antes de terminar!',
+    goals_makenew_gmoneytest:
+      'Espera, añade una cantidad de dinero real, no una negativa.',
+    goals_makenew_success: 'Nueva meta creada:',
+    goals_getgoals_tutorial: 'Leer tutorial',
+    goals_getgoals_tutorial_p1:
+      'Aquí podrás añadir las metas que deseas cumplir. Deberás añadir un nombre a la meta, la cantidad de dinero que necesitas para cumplirla y, de ser necesario, la fecha en la que te gustaría cumplir esta meta.',
+    goals_getgoals_tutorial_p2:
+      'Posteriormente, podrás añadir el dinero que vayas recaudando y, además, verás un porcentaje en el que se indique que tan lejos o cerca te encuentras de la meta.',
+    goals_getgoals_tutorial_p3: 'Para crear una nueva meta pulsa el botón "+".',
+    goals_getgoals_nodatedata: 'Sin datos de fecha',
+    goals_getgoals_daysremaining: 'días restantes.',
+    goals_getgoals_expired: 'Venció hace',
+    goals_getgoals_daysago: 'días',
+    goals_getgoals_lastday: 'Hoy es el último día.',
+
     helpers_delete_message: '¿Estas seguro de borrar TODO?',
     helpers_delete_labelconfirm: 'Sí, borrar',
     helpers_delete_labelcancel: 'Cancelar',
     helpers_delete_cancel: 'De acuerdo, todo fluye como normalmente!',
 
     title_notice: 'Aviso!',
+    title_error: 'Error!',
   },
   en: {
     home_chart_noexpenses: 'NO EXPENSES TO SHOW',
@@ -53,12 +89,48 @@ const lang = {
     userpage_splitter_mymoney: 'My money',
     userpage_splitter_settings: 'Configuration',
 
+    goals_loadicons_art: 'Art',
+    goals_loadicons_books: 'Books',
+    goals_loadicons_builds: 'Builds',
+    goals_loadicons_camera: 'Camera',
+    goals_loadicons_fix: 'Fix',
+    goals_loadicons_food: 'Food',
+    goals_loadicons_fun: 'Fun',
+    goals_loadicons_money: 'Money',
+    goals_loadicons_music: 'Music',
+    goals_loadicons_pc: 'PC',
+    goals_loadicons_sport: 'Sport',
+    goals_loadicons_time: 'Time',
+    goals_loadicons_transport: 'Transport',
+    goals_loadicons_travel: 'Travel',
+    goals_makenew_gdesc:
+      'There is no description for this amazing goal. You can add one in the EDIT GOAL button',
+    goals_makenew_gdate: 'No date goal',
+    goals_makenew_gname: 'Wait, a goal needs a good name!',
+    goals_makenew_gmoney: 'Wait, how much money does your goal need?!',
+    goals_makenew_ggradient: 'Wait, you have to select a color for the goal!',
+    goals_makenew_gmoneytest:
+      'Wait, it is not possible to add a negative goal, it would be impossible to achieve.',
+    goals_makenew_success: 'New goal added:',
+    goals_getgoals_tutorial: 'Read tutorial',
+    goals_getgoals_tutorial_p1:
+      'Here you can add the goals you want to achieve. You will need to add a name to the goal, the amount of money you need to achieve it, and, if necessary, the date you would like to achieve this goal.',
+    goals_getgoals_tutorial_p2:
+      'Later, you can add the money you collect and, in addition, you will see a percentage indicating how far or close you are to the goal.',
+    goals_getgoals_tutorial_p3: 'To create a new goal press the "+" button.',
+    goals_getgoals_nodatedata: 'No date',
+    goals_getgoals_daysremaining: 'days remaining',
+    goals_getgoals_expired: 'Expired',
+    goals_getgoals_daysago: 'days ago',
+    goals_getgoals_lastday: 'Today is the las day.',
+
     helpers_delete_message: 'Are you sure to delete EVERYTHING?',
     helpers_delete_labelconfirm: 'Yes, delete',
     helpers_delete_labelcancel: 'Cancel',
     helpers_delete_cancel: 'Okay, everything flows as normal!',
 
     title_notice: 'Notice!',
+    title_error: 'Error!',
   },
 };
 
