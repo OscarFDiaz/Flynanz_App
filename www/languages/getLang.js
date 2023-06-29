@@ -12,6 +12,11 @@ const lang = {
     home_load_goals: 'Metas',
     home_load_nothing: 'Nada por aquí...',
 
+    helpers_delete_message: '¿Estas seguro de borrar TODO?',
+    helpers_delete_labelconfirm: 'Sí, borrar',
+    helpers_delete_labelcancel: 'Cancelar',
+    helpers_delete_cancel: 'De acuerdo, todo fluye como normalmente!',
+
     title_notice: 'Aviso!',
   },
   en: {
@@ -26,11 +31,16 @@ const lang = {
     home_load_goals: 'Goals',
     home_load_nothing: 'Nothing here...',
 
+    helpers_delete_message: 'Are you sure to delete EVERYTHING?',
+    helpers_delete_labelconfirm: 'Yes, delete',
+    helpers_delete_labelcancel: 'Cancel',
+    helpers_delete_cancel: 'Okay, everything flows as normal!',
+
     title_notice: 'Notice!',
   },
 };
 
 function getLang(key) {
-  let language = localStorage.getItem('storageSwitchLanguage') || true;
+  let language = localStorage.getItem('storageSwitchLanguage') || 'true';
   return lang[language === 'true' ? 'es' : 'en'][key];
 }
