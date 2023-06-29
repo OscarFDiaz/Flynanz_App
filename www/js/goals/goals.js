@@ -175,6 +175,7 @@ function loadDetailGoal() {
   let parseGoal = JSON.parse(retrievedGoal); // Cambiar lo que regresa
   let languaje = localStorage.getItem('storageSwitchLanguage');
 
+  //
   let gName = parseGoal.name;
   let gDescription = parseGoal.description;
   let gAMoney = parseGoal.actualMoney;
