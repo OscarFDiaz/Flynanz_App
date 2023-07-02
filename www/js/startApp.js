@@ -1,4 +1,10 @@
 function startApp() {
+  //Cargo los scripts
+  loadOnStartScripts();
+
+  // Cargo los css
+  // loadOnStartCSS();
+
   // Busco el tema del usuario o defino uno, entre el claro y el oscuro
   let themeSelected = getFromStorage('userTheme');
   const docElement = document.documentElement;
@@ -102,4 +108,54 @@ function updateExpensesOnUpdate() {
 
     saveToStorage('expenseStorage', JSON.stringify(expenses));
   }
+}
+
+function loadScripts(src) {
+  const script = document.createElement('script');
+  script.src = src;
+  script.async = false;
+  document.body.append(script);
+}
+
+function loadOnStartScripts() {
+  loadScripts('./js/alerts/alertExpense.js');
+  loadScripts('./js/alerts/alertGoals.js');
+  loadScripts('./js/alerts/alertMoneys.js');
+
+  loadScripts('./js/expense/expense.js');
+
+  // <!-- GOALS -->
+  loadScripts('./js/goals/deleteGoal.js');
+  loadScripts('./js/goals/editGoal.js');
+  loadScripts('./js/goals/getGoals.js');
+  loadScripts('./js/goals/loadDetailGoal.js');
+  loadScripts('./js/goals/loadIconsGoal.js');
+  loadScripts('./js/goals/makeNewGoal.js');
+  loadScripts('./js/goals/helpers/addMoneyGoal.js');
+  loadScripts('./js/goals/helpers/deleteGoalInsta.js');
+  loadScripts('./js/goals/helpers/findGoal.js');
+  loadScripts('./js/goals/helpers/gradientButtonClick.js');
+  loadScripts('./js/goals/helpers/selectIconGoal.js');
+
+  // <!-- HOME -->
+  loadScripts('./js/home/chartStart.js');
+  loadScripts('./js/home/checkOptions.js');
+  loadScripts('./js/home/loadOptions.js');
+  loadScripts('./js/home/themeSelect.js');
+  loadScripts('./js/home/helpers/getTotalMoney.js');
+  loadScripts('./js/home/helpers/getTotalSavings.js');
+  loadScripts('./js/home/helpers/getTotalGoals.js');
+
+  loadScripts('./js/menu/splitter.js');
+  loadScripts('./js/money/money.js');
+  loadScripts('./js/navigator/push.js');
+  loadScripts('./js/saving/saving.js');
+
+  // <!-- GENERAL HELPERS -->
+  loadScripts('./js/helpers/manageStorage.js');
+  loadScripts('./js/helpers/getPercent.js');
+  loadScripts('./js/helpers/deleteAllData.js');
+
+  // <!-- LANG -->
+  loadScripts('./languages/getLang.js');
 }

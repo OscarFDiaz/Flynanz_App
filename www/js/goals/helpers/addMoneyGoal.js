@@ -1,10 +1,10 @@
-function findGoal(sendGoalName) {
+function addMoneyGoal(sendGoalName) {
   let goals = JSON.parse(getFromStorage('goalStorage'));
 
   for (let i = 0; i < goals.length; i++) {
-    let { goalName } = goals[i];
+    let gName = goals[i].goalName;
 
-    if (goalName == sendGoalName) {
+    if (gName == sendGoalName) {
       let findGoalObject = { ...goals[i] };
 
       if (sessionStorage.getItem('sessionFindGoal') === null) {
@@ -13,9 +13,7 @@ function findGoal(sendGoalName) {
         sessionStorage.removeItem('sessionFindGoal');
         sessionStorage.setItem('sessionFindGoal', JSON.stringify(findGoalObject));
       }
-
-      const navigator = document.querySelector('#navigator');
-      navigator.pushPage('pages/goalPage/detailGoal.html');
+      createAlertDialogToEditGoalMoney();
       break;
     }
   }
