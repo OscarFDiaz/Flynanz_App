@@ -3,7 +3,13 @@ function loadIconsGoalEdit() {
   iconsView.innerHTML = '';
 
   let art = `./assets/icons/icons_list/art/`;
-  let artNames = ['brush.png', 'format_color_fill.png', 'format_paint.png', 'imagesearch_roller.png', 'palette.png'];
+  let artNames = [
+    'brush.png',
+    'format_color_fill.png',
+    'format_paint.png',
+    'imagesearch_roller.png',
+    'palette.png',
+  ];
 
   let book = `./assets/icons/icons_list/books/`;
   let bookNames = [
@@ -30,7 +36,12 @@ function loadIconsGoalEdit() {
   ];
 
   let camera = `./assets/icons/icons_list/camera/`;
-  let cameraNames = ['camera.png', 'photo_camera.png', 'video_camera_back.png', 'videocam.png'];
+  let cameraNames = [
+    'camera.png',
+    'photo_camera.png',
+    'video_camera_back.png',
+    'videocam.png',
+  ];
 
   let fix = `./assets/icons/icons_list/fix/`;
   let fixNames = [
@@ -67,7 +78,13 @@ function loadIconsGoalEdit() {
   ];
 
   let fun = `./assets/icons/icons_list/fun/`;
-  let funNames = ['attractions.png', 'celebration.png', 'festival.png', 'stadia_controller.png', 'theater_comedy.png'];
+  let funNames = [
+    'attractions.png',
+    'celebration.png',
+    'festival.png',
+    'stadia_controller.png',
+    'theater_comedy.png',
+  ];
 
   let money = `./assets/icons/icons_list/money/`;
   let moneyNames = [
@@ -102,7 +119,13 @@ function loadIconsGoalEdit() {
   ];
 
   let pc = `./assets/icons/icons_list/pc/`;
-  let pcNames = ['computer.png', 'desktop_windows.png', 'devices.png', 'mouse.png', 'print.png'];
+  let pcNames = [
+    'computer.png',
+    'desktop_windows.png',
+    'devices.png',
+    'mouse.png',
+    'print.png',
+  ];
 
   let sport = `./assets/icons/icons_list/sport/`;
   let sportNames = [
@@ -122,7 +145,13 @@ function loadIconsGoalEdit() {
   ];
 
   let time = `./assets/icons/icons_list/time/`;
-  let timeNames = ['alarm.png', 'date_range.png', 'hourglass_empty.png', 'schedule.png', 'watch.png'];
+  let timeNames = [
+    'alarm.png',
+    'date_range.png',
+    'hourglass_empty.png',
+    'schedule.png',
+    'watch.png',
+  ];
 
   let transport = `./assets/icons/icons_list/transport/`;
   let transportNames = [
@@ -144,7 +173,13 @@ function loadIconsGoalEdit() {
   ];
 
   let travel = `./assets/icons/icons_list/travel/`;
-  let travelNames = ['airplane_ticket.png', 'connecting_airports.png', 'flight_takeoff.png', 'luggage.png', 'map.png'];
+  let travelNames = [
+    'airplane_ticket.png',
+    'connecting_airports.png',
+    'flight_takeoff.png',
+    'luggage.png',
+    'map.png',
+  ];
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Arte</p>`;
   for (let i = 0; i < artNames.length; i++) {
@@ -319,7 +354,7 @@ function editGoal(sendGoalName) {
       }
 
       const navigator = document.querySelector('#navigator');
-      navigator.pushPage('editGoal.html');
+      navigator.pushPage('pages/goalPage/editGoal.html');
       //createAlertDialogToEditGoal();
       break;
     }

@@ -31,17 +31,23 @@ function makeNewMoney() {
   let testMoney = Math.sign(moneyCurrent);
   if (testMoney == '-1' || testMoney === '-0') {
     if (languaje == 'false') {
-      ons.notification.toast('I cannot add a wallet with negative money, I will assume that the wallet is empty.', {
-        title: 'Error!',
-        timeout: 3000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'I cannot add a wallet with negative money, I will assume that the wallet is empty.',
+        {
+          title: 'Error!',
+          timeout: 3000,
+          animation: 'ascend',
+        },
+      );
     } else {
-      ons.notification.toast('No puedo añadir una cartera con dinero negativo, supondre que la cartera esta vacia.', {
-        title: 'Error!',
-        timeout: 3000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'No puedo añadir una cartera con dinero negativo, supondre que la cartera esta vacia.',
+        {
+          title: 'Error!',
+          timeout: 3000,
+          animation: 'ascend',
+        },
+      );
     }
     moneyCurrent = '0.00';
   }
@@ -358,18 +364,20 @@ function deleteMoney(sendMoneyName) {
           showExpensesPerWallet(searchWalletByIndex(cIndex));
 
           if (document.getElementById('carousel2') != null) {
-            document.getElementById('carousel2').addEventListener('postchange', function (event) {
-              let cIndex = event.activeIndex;
-              let laIndex = event.lastActiveIndex;
+            document
+              .getElementById('carousel2')
+              .addEventListener('postchange', function (event) {
+                let cIndex = event.activeIndex;
+                let laIndex = event.lastActiveIndex;
 
-              localStorage.setItem('currentDot', cIndex);
+                localStorage.setItem('currentDot', cIndex);
 
-              document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
-              if (document.getElementById(`indicator${laIndex}`) != null) {
-                document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
-              }
-              showExpensesPerWallet(searchWalletByIndex(cIndex));
-            });
+                document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
+                if (document.getElementById(`indicator${laIndex}`) != null) {
+                  document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
+                }
+                showExpensesPerWallet(searchWalletByIndex(cIndex));
+              });
           }
 
           ons.notification.toast('The selected money has been removed!', {
@@ -413,18 +421,20 @@ function deleteMoney(sendMoneyName) {
           showExpensesPerWallet(searchWalletByIndex(cIndex));
 
           if (document.getElementById('carousel2') != null) {
-            document.getElementById('carousel2').addEventListener('postchange', function (event) {
-              let cIndex = event.activeIndex;
-              let laIndex = event.lastActiveIndex;
+            document
+              .getElementById('carousel2')
+              .addEventListener('postchange', function (event) {
+                let cIndex = event.activeIndex;
+                let laIndex = event.lastActiveIndex;
 
-              localStorage.setItem('currentDot', cIndex);
+                localStorage.setItem('currentDot', cIndex);
 
-              document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
-              if (document.getElementById(`indicator${laIndex}`) != null) {
-                document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
-              }
-              showExpensesPerWallet(searchWalletByIndex(cIndex));
-            });
+                document.getElementById(`indicator${cIndex}`).innerHTML = ' ● ';
+                if (document.getElementById(`indicator${laIndex}`) != null) {
+                  document.getElementById(`indicator${laIndex}`).innerHTML = ' ○ ';
+                }
+                showExpensesPerWallet(searchWalletByIndex(cIndex));
+              });
           }
 
           ons.notification.toast('Se ha eliminado el dinero seleccionado!', {
@@ -476,7 +486,9 @@ function makeSumMoney() {
   let actualAmount = document.getElementById('editMoneyActualMoney').textContent;
   let newAmount = document.getElementById('editOnlyMoneyMoney').value;
 
-  let sumResult = parseFloat(parseFloat(actualAmount) + Math.abs(parseFloat(newAmount))).toFixed(2);
+  let sumResult = parseFloat(
+    parseFloat(actualAmount) + Math.abs(parseFloat(newAmount)),
+  ).toFixed(2);
 
   document.getElementById('editMoneyEndMoney').innerHTML = formatMoney(sumResult);
   sessionStorage.setItem('addNewMoney', sumResult);
@@ -486,7 +498,9 @@ function makeResMoney() {
   let actualAmount = document.getElementById('editMoneyActualMoney').textContent;
   let newAmount = document.getElementById('editOnlyMoneyMoney').value;
 
-  let sumResult = parseFloat(parseFloat(actualAmount) - Math.abs(parseFloat(newAmount))).toFixed(2);
+  let sumResult = parseFloat(
+    parseFloat(actualAmount) - Math.abs(parseFloat(newAmount)),
+  ).toFixed(2);
 
   document.getElementById('editMoneyEndMoney').innerHTML = formatMoney(sumResult);
   sessionStorage.setItem('addNewMoney', sumResult);
@@ -499,7 +513,9 @@ function formatMoney(amount, decimalCount = 2, decimal = '.', thousands = ',') {
 
     const negativeSign = amount < 0 ? '-' : '';
 
-    let i = parseInt((amount = Math.abs(Number(amount) || 0).toFixed(decimalCount))).toString();
+    let i = parseInt(
+      (amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)),
+    ).toString();
     let j = i.length > 3 ? i.length % 3 : 0;
 
     return (
@@ -657,7 +673,7 @@ function modifyMoney(sendMoneyName) {
         sessionStorage.setItem('sessionFindMoney', JSON.stringify(findMoneyObject));
       }
       const navigator = document.querySelector('#navigator');
-      navigator.pushPage('editMoney.html');
+      navigator.pushPage('pages/moneyPage/editMoney.html');
       break;
     }
   }
@@ -678,7 +694,9 @@ function saveEditMoney() {
   let sName = localStorage.getItem('nameSaved');
 
   let name = document.getElementById('editMoneyName').value;
-  let actualMoney = parseFloat(document.getElementById('editMoneyMoney').value).toFixed(2);
+  let actualMoney = parseFloat(document.getElementById('editMoneyMoney').value).toFixed(
+    2,
+  );
 
   let moneyGradient = sessionStorage.getItem('tempGradient');
 
@@ -703,11 +721,14 @@ function saveEditMoney() {
     }
 
     if (testMoney == '-1' || testMoney === '-0' || testMoney == '0') {
-      ons.notification.toast('It is not possible to leave a money in negative numbers, sorry.', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'It is not possible to leave a money in negative numbers, sorry.',
+        {
+          title: 'Notice!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
       return;
     }
   } else {

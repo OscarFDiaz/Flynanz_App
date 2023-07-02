@@ -74,11 +74,14 @@ function hideAlertExpense() {
     }
 
     if (eMoney == null || eMoney == '') {
-      ons.notification.toast('I can add that expense, but I need to know how much you spent.', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'I can add that expense, but I need to know how much you spent.',
+        {
+          title: 'Notice!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
       return;
     }
   } else {
@@ -92,11 +95,14 @@ function hideAlertExpense() {
     }
 
     if (eMoney == null || eMoney == '') {
-      ons.notification.toast('Puedo añadir ese gasto, pero necesito saber cuanto gastaste.', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'Puedo añadir ese gasto, pero necesito saber cuanto gastaste.',
+        {
+          title: 'Aviso!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
       return;
     }
   }
@@ -110,20 +116,26 @@ function hideAlertExpense() {
   let testSign = Math.sign(eMoney);
   if (languaje == 'false') {
     if (testSign == '-1' || testSign == '-0') {
-      ons.notification.toast('You cannot add a negative expense, that would be very strange.', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'You cannot add a negative expense, that would be very strange.',
+        {
+          title: 'Notice!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
       return;
     }
   } else {
     if (testSign == '-1' || testSign == '-0') {
-      ons.notification.toast('No puedes añadir un gasto negativo, eso seria muy extraño.', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'No puedes añadir un gasto negativo, eso seria muy extraño.',
+        {
+          title: 'Aviso!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
       return;
     }
   }
@@ -195,22 +207,30 @@ function updateMoneyStorage(sendName, amount) {
         let testSign = Math.sign(test);
         if (testSign == '-1') {
           if (languaje == 'false') {
-            ons.notification.toast('No more money can be subtracted from the selected location.', {
-              title: 'Notice!',
-              timeout: 2000,
-              animation: 'ascend',
-            });
+            ons.notification.toast(
+              'No more money can be subtracted from the selected location.',
+              {
+                title: 'Notice!',
+                timeout: 2000,
+                animation: 'ascend',
+              },
+            );
           } else {
-            ons.notification.toast('No se puede restar más dinero del lugar seleccionado.', {
-              title: 'Aviso!',
-              timeout: 2000,
-              animation: 'ascend',
-            });
+            ons.notification.toast(
+              'No se puede restar más dinero del lugar seleccionado.',
+              {
+                title: 'Aviso!',
+                timeout: 2000,
+                animation: 'ascend',
+              },
+            );
           }
           return true;
         }
 
-        moneyStorage[i].moneyCurrent = (parseFloat(moneyStorage[i].moneyCurrent) - parseFloat(amount)).toFixed(2);
+        moneyStorage[i].moneyCurrent = (
+          parseFloat(moneyStorage[i].moneyCurrent) - parseFloat(amount)
+        ).toFixed(2);
 
         localStorage.setItem('moneyStorage', JSON.stringify(moneyStorage));
         break;
@@ -276,7 +296,9 @@ function editDetailExpense(idSend) {
 // PARA EDITAR UN GASTO YA CREADO
 function hideEditAlertExpense() {
   let note = document.getElementById('alertEditExpenseNote').value;
-  let money = parseFloat(document.getElementById('alertEditExpenseMoney').value).toFixed(2);
+  let money = parseFloat(document.getElementById('alertEditExpenseMoney').value).toFixed(
+    2,
+  );
   let date = document.getElementById('alertEditExpenseDate').value;
   let mName, id, index, inWallet;
 
@@ -296,11 +318,14 @@ function hideEditAlertExpense() {
     }
 
     if (money == null || money == '' || money == 'NaN') {
-      ons.notification.toast('I can edit that expense, but I need to know how much you spent.', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'I can edit that expense, but I need to know how much you spent.',
+        {
+          title: 'Notice!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
       return;
     }
   } else {
@@ -314,11 +339,14 @@ function hideEditAlertExpense() {
     }
 
     if (money == null || money == '' || money == 'NaN') {
-      ons.notification.toast('Puedo editar ese gasto, pero necesito saber cuanto gastaste.', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'Puedo editar ese gasto, pero necesito saber cuanto gastaste.',
+        {
+          title: 'Aviso!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
       return;
     }
   }
@@ -330,17 +358,23 @@ function hideEditAlertExpense() {
   let testSign = Math.sign(money);
   if (testSign == '-1' || testSign == '-0') {
     if (languaje == 'false') {
-      ons.notification.toast('You cannot add a negative expense, that would be very strange.', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'You cannot add a negative expense, that would be very strange.',
+        {
+          title: 'Notice!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
     } else {
-      ons.notification.toast('No puedes añadir un gasto negativo, eso seria muy extraño.', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
+      ons.notification.toast(
+        'No puedes añadir un gasto negativo, eso seria muy extraño.',
+        {
+          title: 'Aviso!',
+          timeout: 2000,
+          animation: 'ascend',
+        },
+      );
     }
     return;
   }
@@ -470,7 +504,7 @@ function editExpense(sendName) {
   }
 
   const navigator = document.querySelector('#navigator');
-  navigator.pushPage('editExpense.html');
+  navigator.pushPage('pages/expensePage/editExpense.html');
 }
 
 function hideAlertExpenseEditNoChange() {
@@ -596,7 +630,13 @@ function loadIconsEdit() {
   iconsView.innerHTML = '';
 
   let art = `./assets/icons/icons_list/art/`;
-  let artNames = ['brush.png', 'format_color_fill.png', 'format_paint.png', 'imagesearch_roller.png', 'palette.png'];
+  let artNames = [
+    'brush.png',
+    'format_color_fill.png',
+    'format_paint.png',
+    'imagesearch_roller.png',
+    'palette.png',
+  ];
 
   let book = `./assets/icons/icons_list/books/`;
   let bookNames = [
@@ -623,7 +663,12 @@ function loadIconsEdit() {
   ];
 
   let camera = `./assets/icons/icons_list/camera/`;
-  let cameraNames = ['camera.png', 'photo_camera.png', 'video_camera_back.png', 'videocam.png'];
+  let cameraNames = [
+    'camera.png',
+    'photo_camera.png',
+    'video_camera_back.png',
+    'videocam.png',
+  ];
 
   let fix = `./assets/icons/icons_list/fix/`;
   let fixNames = [
@@ -660,7 +705,13 @@ function loadIconsEdit() {
   ];
 
   let fun = `./assets/icons/icons_list/fun/`;
-  let funNames = ['attractions.png', 'celebration.png', 'festival.png', 'stadia_controller.png', 'theater_comedy.png'];
+  let funNames = [
+    'attractions.png',
+    'celebration.png',
+    'festival.png',
+    'stadia_controller.png',
+    'theater_comedy.png',
+  ];
 
   let money = `./assets/icons/icons_list/money/`;
   let moneyNames = [
@@ -695,7 +746,13 @@ function loadIconsEdit() {
   ];
 
   let pc = `./assets/icons/icons_list/pc/`;
-  let pcNames = ['computer.png', 'desktop_windows.png', 'devices.png', 'mouse.png', 'print.png'];
+  let pcNames = [
+    'computer.png',
+    'desktop_windows.png',
+    'devices.png',
+    'mouse.png',
+    'print.png',
+  ];
 
   let sport = `./assets/icons/icons_list/sport/`;
   let sportNames = [
@@ -715,7 +772,13 @@ function loadIconsEdit() {
   ];
 
   let time = `./assets/icons/icons_list/time/`;
-  let timeNames = ['alarm.png', 'date_range.png', 'hourglass_empty.png', 'schedule.png', 'watch.png'];
+  let timeNames = [
+    'alarm.png',
+    'date_range.png',
+    'hourglass_empty.png',
+    'schedule.png',
+    'watch.png',
+  ];
 
   let transport = `./assets/icons/icons_list/transport/`;
   let transportNames = [
@@ -737,7 +800,13 @@ function loadIconsEdit() {
   ];
 
   let travel = `./assets/icons/icons_list/travel/`;
-  let travelNames = ['airplane_ticket.png', 'connecting_airports.png', 'flight_takeoff.png', 'luggage.png', 'map.png'];
+  let travelNames = [
+    'airplane_ticket.png',
+    'connecting_airports.png',
+    'flight_takeoff.png',
+    'luggage.png',
+    'map.png',
+  ];
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Arte</p>`;
   for (let i = 0; i < artNames.length; i++) {
@@ -914,7 +983,9 @@ function deleteDetailExpense(idSend) {
 
           for (let i = 0; i < storage.length; i++) {
             if (storage[i].expenseName == loadName) {
-              document.getElementById('totalExpenseDetail').innerHTML = formatMoney(storage[i].totalExpense);
+              document.getElementById('totalExpenseDetail').innerHTML = formatMoney(
+                storage[i].totalExpense,
+              );
               break;
             }
           }
@@ -966,7 +1037,9 @@ function deleteDetailExpense(idSend) {
 
           for (let i = 0; i < storage.length; i++) {
             if (storage[i].expenseName == loadName) {
-              document.getElementById('totalExpenseDetail').innerHTML = formatMoney(storage[i].totalExpense);
+              document.getElementById('totalExpenseDetail').innerHTML = formatMoney(
+                storage[i].totalExpense,
+              );
               break;
             }
           }
