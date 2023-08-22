@@ -10,13 +10,7 @@ function loadIcons() {
   iconsView.innerHTML = '';
 
   let art = `./assets/icons/icons_list/art/`;
-  let artNames = [
-    'brush.png',
-    'format_color_fill.png',
-    'format_paint.png',
-    'imagesearch_roller.png',
-    'palette.png',
-  ];
+  let artNames = ['brush.png', 'format_color_fill.png', 'format_paint.png', 'imagesearch_roller.png', 'palette.png'];
 
   let book = `./assets/icons/icons_list/books/`;
   let bookNames = [
@@ -43,12 +37,7 @@ function loadIcons() {
   ];
 
   let camera = `./assets/icons/icons_list/camera/`;
-  let cameraNames = [
-    'camera.png',
-    'photo_camera.png',
-    'video_camera_back.png',
-    'videocam.png',
-  ];
+  let cameraNames = ['camera.png', 'photo_camera.png', 'video_camera_back.png', 'videocam.png'];
 
   let fix = `./assets/icons/icons_list/fix/`;
   let fixNames = [
@@ -85,13 +74,7 @@ function loadIcons() {
   ];
 
   let fun = `./assets/icons/icons_list/fun/`;
-  let funNames = [
-    'attractions.png',
-    'celebration.png',
-    'festival.png',
-    'stadia_controller.png',
-    'theater_comedy.png',
-  ];
+  let funNames = ['attractions.png', 'celebration.png', 'festival.png', 'stadia_controller.png', 'theater_comedy.png'];
 
   let money = `./assets/icons/icons_list/money/`;
   let moneyNames = [
@@ -126,13 +109,7 @@ function loadIcons() {
   ];
 
   let pc = `./assets/icons/icons_list/pc/`;
-  let pcNames = [
-    'computer.png',
-    'desktop_windows.png',
-    'devices.png',
-    'mouse.png',
-    'print.png',
-  ];
+  let pcNames = ['computer.png', 'desktop_windows.png', 'devices.png', 'mouse.png', 'print.png'];
 
   let sport = `./assets/icons/icons_list/sport/`;
   let sportNames = [
@@ -152,13 +129,7 @@ function loadIcons() {
   ];
 
   let time = `./assets/icons/icons_list/time/`;
-  let timeNames = [
-    'alarm.png',
-    'date_range.png',
-    'hourglass_empty.png',
-    'schedule.png',
-    'watch.png',
-  ];
+  let timeNames = ['alarm.png', 'date_range.png', 'hourglass_empty.png', 'schedule.png', 'watch.png'];
 
   let transport = `./assets/icons/icons_list/transport/`;
   let transportNames = [
@@ -180,13 +151,7 @@ function loadIcons() {
   ];
 
   let travel = `./assets/icons/icons_list/travel/`;
-  let travelNames = [
-    'airplane_ticket.png',
-    'connecting_airports.png',
-    'flight_takeoff.png',
-    'luggage.png',
-    'map.png',
-  ];
+  let travelNames = ['airplane_ticket.png', 'connecting_airports.png', 'flight_takeoff.png', 'luggage.png', 'map.png'];
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Arte</p>`;
   for (let i = 0; i < artNames.length; i++) {
@@ -645,7 +610,7 @@ function findExpense(sendName) {
       }
 
       const navigator = document.querySelector('#navigator');
-      navigator.pushPage('pages/expensePage/detailExpense.html');
+      navigator.pushPage('detailExpense.html');
       break;
     }
   }
@@ -676,8 +641,7 @@ function resetExpense(sendName) {
   let languaje = localStorage.getItem('storageSwitchLanguage');
   if (languaje == 'false') {
     ons.notification.confirm({
-      message:
-        'Are you sure to delete all the expenses made? The creation date will not be modified.',
+      message: 'Are you sure to delete all the expenses made? The creation date will not be modified.',
       title: 'Notice!',
       buttonLabels: ['Yes, delete', 'Cancel'],
       animation: 'default',
@@ -688,26 +652,20 @@ function resetExpense(sendName) {
           let detailExpenses = JSON.parse(localStorage.getItem('expenseDetailStorage'));
 
           if (detailExpenses == null || detailExpenses == 'null') {
-            ons.notification.toast(
-              'Wait, there are no costs to delete, do you want to try to deceive me?',
-              {
-                title: 'Notice!',
-                timeout: 2000,
-                animation: 'ascend',
-              },
-            );
+            ons.notification.toast('Wait, there are no costs to delete, do you want to try to deceive me?', {
+              title: 'Notice!',
+              timeout: 2000,
+              animation: 'ascend',
+            });
             return;
           }
 
           if (detailExpenses.length == 0 || detailExpenses.length == '0') {
-            ons.notification.toast(
-              'Wait, there are no costs to delete, do you want to try to deceive me?',
-              {
-                title: 'Notice!',
-                timeout: 2000,
-                animation: 'ascend',
-              },
-            );
+            ons.notification.toast('Wait, there are no costs to delete, do you want to try to deceive me?', {
+              title: 'Notice!',
+              timeout: 2000,
+              animation: 'ascend',
+            });
             return;
           }
 
@@ -767,8 +725,7 @@ function resetExpense(sendName) {
     });
   } else {
     ons.notification.confirm({
-      message:
-        'Estas seguro de borrar todos los gastos realizados?, la fecha de creación no se modificara.',
+      message: 'Estas seguro de borrar todos los gastos realizados?, la fecha de creación no se modificara.',
       title: 'Aviso!',
       buttonLabels: ['Sí, borrar', 'Cancelar'],
       animation: 'default',
@@ -779,26 +736,20 @@ function resetExpense(sendName) {
           let detailExpenses = JSON.parse(localStorage.getItem('expenseDetailStorage'));
 
           if (detailExpenses == null || detailExpenses == 'null') {
-            ons.notification.toast(
-              'Un momento, no hay gastos para borrar, me quieres intentar engañar?',
-              {
-                title: 'Aviso!',
-                timeout: 2000,
-                animation: 'ascend',
-              },
-            );
+            ons.notification.toast('Un momento, no hay gastos para borrar, me quieres intentar engañar?', {
+              title: 'Aviso!',
+              timeout: 2000,
+              animation: 'ascend',
+            });
             return;
           }
 
           if (detailExpenses.length == 0 || detailExpenses.length == '0') {
-            ons.notification.toast(
-              'Un momento, no hay gastos para borrar, me querias intentar engañar?',
-              {
-                title: 'Aviso!',
-                timeout: 2000,
-                animation: 'ascend',
-              },
-            );
+            ons.notification.toast('Un momento, no hay gastos para borrar, me querias intentar engañar?', {
+              title: 'Aviso!',
+              timeout: 2000,
+              animation: 'ascend',
+            });
             return;
           }
 
@@ -976,9 +927,7 @@ function updateExpenseTotalMoney(sendName, amountSend) {
     }
   }
 
-  expense.totalExpense = parseFloat(
-    parseFloat(expense.totalExpense) + parseFloat(newAmount),
-  ).toFixed(2);
+  expense.totalExpense = parseFloat(parseFloat(expense.totalExpense) + parseFloat(newAmount)).toFixed(2);
 
   /* Guardo el expense original*/
   if (localStorage.getItem('expenseStorage') === null) {
@@ -1030,9 +979,8 @@ function dateDiff(date1, date2) {
   dt1 = new Date(date1);
   dt2 = new Date(date2);
   return Math.floor(
-    (Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) -
-      Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) /
-      (1000 * 60 * 60 * 24),
+    (Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) /
+      (1000 * 60 * 60 * 24)
   );
 }
 

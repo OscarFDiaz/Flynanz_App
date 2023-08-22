@@ -1,9 +1,7 @@
 <ons-page id="detailGoal">
   <ons-toolbar id="toolbar" class="toolbar" modifier="transparent">
     <ons-back-button></ons-back-button>
-    <div class="center labelToolbar" id="titleDetailGoal">
-      Aquí se carga el nombre de la meta
-    </div>
+    <div class="center labelToolbar" id="titleDetailGoal">Aquí se carga el nombre de la meta</div>
   </ons-toolbar>
 
   <!--SE CARGA LOS DETALLES DE LA META-->
@@ -11,9 +9,7 @@
 
   <!--ALERT PARA EDITAR UNICAMENTE EL DINERO-->
   <ons-alert-dialog id="alertEditGoalMoney" modifier="material">
-    <div class="alert-dialog-title" style="text-align: center" id="modifyGoalTitleMoney">
-      Modificar dinero
-    </div>
+    <div class="alert-dialog-title" style="text-align: center" id="modifyGoalTitleMoney">Modificar dinero</div>
 
     <div class="alert-dialog-content">
       <div style="text-align: center; margin-top: 16px">
@@ -50,14 +46,10 @@
     </div>
 
     <div class="alert-dialog-footer">
-      <ons-alert-dialog-button
-        onclick="hideAlertNoChangeMoney()"
-        id="goalCancelButtonMoneyAlertEdit"
+      <ons-alert-dialog-button onclick="hideAlertNoChangeMoney()" id="goalCancelButtonMoneyAlertEdit"
         >Cancelar</ons-alert-dialog-button
       >
-      <ons-alert-dialog-button
-        onclick="hideAlertDialogMoney()"
-        id="goalFinishedButtonMoneyAlertEdit"
+      <ons-alert-dialog-button onclick="hideAlertDialogMoney()" id="goalFinishedButtonMoneyAlertEdit"
         >Listo!</ons-alert-dialog-button
       >
     </div>
@@ -70,27 +62,29 @@
         if (event.target.matches('#detailGoal')) {
           loadDetailGoal();
 
-          /* ALERT QUE MODIFICA DINERO */
-          document.getElementById('modifyGoalTitleMoney').innerHTML = getLang(
-            'detailgoalpage_modify',
-          );
-          document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `${getLang(
-            'detailgoalpage_current',
-          )}: $
+          let languaje = localStorage.getItem('storageSwitchLanguage');
+          if (languaje == 'false') {
+            /* ALERT QUE MODIFICA DINERO */
+            document.getElementById('modifyGoalTitleMoney').innerHTML = 'Modify money';
+            document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `Current money: $
             <label id="editOnlyMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-          document.getElementById('goalNewMoneyAlertEdit').innerHTML = `${getLang(
-            'detailgoalpage_newamount',
-          )}: $
+            document.getElementById('goalNewMoneyAlertEdit').innerHTML = `New amount: $
             <label id="editOnlyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-          document.getElementById('goalCancelButtonMoneyAlertEdit').innerHTML = getLang(
-            'detailgoalpage_cancel',
-          );
-          document.getElementById('goalFinishedButtonMoneyAlertEdit').innerHTML = getLang(
-            'detailgoalpage_finished',
-          );
+            document.getElementById('goalCancelButtonMoneyAlertEdit').innerHTML = 'Cancel';
+            document.getElementById('goalFinishedButtonMoneyAlertEdit').innerHTML = 'Finished!';
+          } else {
+            /* ALERT QUE MODIFICA DINERO */
+            document.getElementById('modifyGoalTitleMoney').innerHTML = 'Modificar dinero';
+            document.getElementById('goalCurrentMoneyAlertEdit').innerHTML = `Dinero actual: $
+            <label id="editOnlyMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
+            document.getElementById('goalNewMoneyAlertEdit').innerHTML = `Cantidad nueva: $
+            <label id="editOnlyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
+            document.getElementById('goalCancelButtonMoneyAlertEdit').innerHTML = 'Cancelar';
+            document.getElementById('goalFinishedButtonMoneyAlertEdit').innerHTML = 'Listo!';
+          }
         }
       },
-      false,
+      false
     );
   </script>
 </ons-page>

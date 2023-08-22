@@ -125,25 +125,22 @@
           let menuSlider = document.getElementById('menu');
           menuSlider.setAttribute('swipeable');
 
-          // Asigno nombre a los iconos
-          document.getElementById('menuLabelHome').innerHTML = getLang(
-            'userpage_splitter_home',
-          );
-          document.getElementById('menuLabelGoals').innerHTML = getLang(
-            'userpage_splitter_goals',
-          );
-          document.getElementById('menuLabelSaved').innerHTML = getLang(
-            'userpage_splitter_saved',
-          );
-          document.getElementById('menuLabelExpenses').innerHTML = getLang(
-            'userpage_splitter_expenses',
-          );
-          document.getElementById('menuLabelMoney').innerHTML = getLang(
-            'userpage_splitter_mymoney',
-          );
-          document.getElementById('menuLabelConfiguration').innerHTML = getLang(
-            'userpage_splitter_settings',
-          );
+          let language = localStorage.getItem('storageSwitchLanguage');
+          if (language == 'false') {
+            document.getElementById('menuLabelHome').innerHTML = 'Home';
+            document.getElementById('menuLabelGoals').innerHTML = 'Goals';
+            document.getElementById('menuLabelSaved').innerHTML = 'Saved';
+            document.getElementById('menuLabelExpenses').innerHTML = 'Expenses';
+            document.getElementById('menuLabelMoney').innerHTML = 'My money';
+            document.getElementById('menuLabelConfiguration').innerHTML = 'Settings';
+          } else {
+            document.getElementById('menuLabelHome').innerHTML = 'Inicio'; // ERROR AL CARGAR
+            document.getElementById('menuLabelGoals').innerHTML = 'Metas';
+            document.getElementById('menuLabelSaved').innerHTML = 'Fondo';
+            document.getElementById('menuLabelExpenses').innerHTML = 'Gastos';
+            document.getElementById('menuLabelMoney').innerHTML = 'Mi dinero';
+            document.getElementById('menuLabelConfiguration').innerHTML = 'Configuración';
+          }
         }
       },
       false,

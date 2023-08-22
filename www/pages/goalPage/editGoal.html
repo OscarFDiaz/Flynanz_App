@@ -10,144 +10,69 @@
     <div style="text-align: center; margin-top: 0px">
       <div>
         <p
-          style="
-            margin: 0px auto -16px 12px;
-            text-align: left;
-            padding-top: 16px;
-            color: var(--color-input-label);
-          "
+          style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
           id="goalNameAlertEdit"
         >
           NOMBRE DE LA META
         </p>
-        <ons-input
-          id="editGoalName"
-          modifier="underbar"
-          placeholder=""
-          type="text"
-          style="display: block"
-        ></ons-input>
+        <ons-input id="editGoalName" modifier="underbar" placeholder="" type="text" style="display: block"></ons-input>
       </div>
 
       <div>
         <p
-          style="
-            margin: 0px auto 0px 12px;
-            text-align: left;
-            padding-top: 16px;
-            color: var(--color-input-label);
-          "
+          style="margin: 0px auto 0px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
           id="goalDescriptionAlertEdit"
         >
           DESCRIPCIÓN
         </p>
-        <textarea
-          id="editGoalDescription"
-          class="textarea"
-          rows="5"
-          placeholder=""
-        ></textarea>
+        <textarea id="editGoalDescription" class="textarea" rows="5" placeholder=""></textarea>
       </div>
 
       <div>
         <p
-          style="
-            margin: 0px auto -16px 12px;
-            text-align: left;
-            padding-top: 16px;
-            color: var(--color-input-label);
-          "
+          style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
           id="goalMoneyAlertEdit"
         >
           DINERO NECESARIO
         </p>
-        <ons-input
-          id="editGoalMoney"
-          modifier="underbar"
-          placeholder=""
-          type="number"
-          style="display: block"
-        ></ons-input>
+        <ons-input id="editGoalMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
       </div>
 
       <div>
         <p
-          style="
-            margin: 0px auto -16px 12px;
-            text-align: left;
-            padding-top: 16px;
-            color: var(--color-input-label);
-          "
+          style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
           id="goalMoneyActualAlertEdit"
         >
           DINERO ACTUAL
         </p>
-        <ons-input
-          id="editActualGoalMoney"
-          modifier="underbar"
-          placeholder=""
-          type="number"
-          style="display: block"
-        ></ons-input>
+        <ons-input id="editActualGoalMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
       </div>
 
       <div>
         <p
-          style="
-            margin: 0px auto -16px 12px;
-            text-align: left;
-            padding-top: 16px;
-            color: var(--color-input-label);
-          "
+          style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
           id="goalDateAlertEdit"
         >
           FECHA META
         </p>
-        <ons-input
-          id="editGoalDate"
-          modifier="underbar"
-          placeholder=""
-          type="date"
-          style="display: block"
-        ></ons-input>
+        <ons-input id="editGoalDate" modifier="underbar" placeholder="" type="date" style="display: block"></ons-input>
       </div>
     </div>
 
     <!--Seleccion de icono-->
-    <p
-      style="
-        margin: 16px auto 0px 12px;
-        text-align: left;
-        color: var(--color-input-label);
-      "
-      id="newGoalIconEdit"
-    >
+    <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newGoalIconEdit">
       SELECCIONA UN ICONO
     </p>
-    <div
-      style="
-        border: 2px solid var(--color-input);
-        border-radius: 15px;
-        margin-bottom: 16px;
-      "
-    >
+    <div style="border: 2px solid var(--color-input); border-radius: 15px; margin-bottom: 16px">
       <ons-list style="background: none; margin-top: -16px">
         <ons-list-item id="expandableListContainerGoalEdit" expandable>
           <p
-            style="
-              margin: 0px auto 0px 12px;
-              text-align: left;
-              color: var(--card-content-text-color);
-            "
+            style="margin: 0px auto 0px 12px; text-align: left; color: var(--card-content-text-color)"
             id="newExpenseIconLabelGoalEdit"
           >
             CLICK PARA CAMBIAR
           </p>
-          <div
-            class="expandable-content"
-            id="expenseIconListOfIconsGoalEdit"
-            style="background-color: var(--color-input)"
-          >
+          <div class="expandable-content" id="expenseIconListOfIconsGoalEdit" style="background-color: var(--color-input)">
             <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
           </div>
         </ons-list-item>
@@ -156,14 +81,7 @@
 
     <!--Seleccion de degradado-->
     <div id="gradients-container">
-      <p
-        style="
-          margin: 16px auto 0px 12px;
-          text-align: left;
-          color: var(--color-input-label);
-        "
-        id="newMoneyGradientInput"
-      >
+      <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newMoneyGradientInput">
         Color
       </p>
       <div class="option">
@@ -262,34 +180,24 @@
               /* ALERT QUE MODIFICA TODO */
               document.getElementById('modifyGoalTitle').innerHTML = 'Modify goal';
               document.getElementById('goalNameAlertEdit').innerHTML = 'Name of the goal';
-              document.getElementById('goalDescriptionAlertEdit').innerHTML =
-                'Description';
+              document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Description';
               document.getElementById('goalMoneyAlertEdit').innerHTML = 'Money needed';
-              document.getElementById('goalMoneyActualAlertEdit').innerHTML =
-                'Current money';
+              document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Current money';
               document.getElementById('goalDateAlertEdit').innerHTML = 'Goal date';
               document.getElementById('newGoalIconEdit').innerHTML = 'Select an icon';
-              document.getElementById('newExpenseIconLabelGoalEdit').innerHTML =
-                'Click to change';
+              document.getElementById('newExpenseIconLabelGoalEdit').innerHTML = 'Click to change';
               document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancel';
-              document.getElementById('goalFinishedButtonAlertEdit').innerHTML =
-                'Finished!';
+              document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Finished!';
             } else {
               /* ALERT QUE MODIFICA TODO */
               document.getElementById('modifyGoalTitle').innerHTML = 'Modificar meta';
-              document.getElementById('goalNameAlertEdit').innerHTML =
-                'Nombre de la meta';
-              document.getElementById('goalDescriptionAlertEdit').innerHTML =
-                'Descripción';
-              document.getElementById('goalMoneyAlertEdit').innerHTML =
-                'Dinero necesario';
-              document.getElementById('goalMoneyActualAlertEdit').innerHTML =
-                'Dinero actual';
+              document.getElementById('goalNameAlertEdit').innerHTML = 'Nombre de la meta';
+              document.getElementById('goalDescriptionAlertEdit').innerHTML = 'Descripción';
+              document.getElementById('goalMoneyAlertEdit').innerHTML = 'Dinero necesario';
+              document.getElementById('goalMoneyActualAlertEdit').innerHTML = 'Dinero actual';
               document.getElementById('goalDateAlertEdit').innerHTML = 'Fecha meta';
-              document.getElementById('newGoalIconEdit').innerHTML =
-                'Selecciona un icono';
-              document.getElementById('newExpenseIconLabelGoalEdit').innerHTML =
-                'Click para cambiar';
+              document.getElementById('newGoalIconEdit').innerHTML = 'Selecciona un icono';
+              document.getElementById('newExpenseIconLabelGoalEdit').innerHTML = 'Click para cambiar';
               document.getElementById('goalCancelButtonAlertEdit').innerHTML = 'Cancelar';
               document.getElementById('goalFinishedButtonAlertEdit').innerHTML = 'Listo!';
             }
@@ -298,7 +206,7 @@
           });
         }
       },
-      false,
+      false
     );
   </script>
 </ons-page>
