@@ -32,7 +32,7 @@ const findGoal = (sendGoalName) => {
       }
 
       const navigator = document.querySelector('#navigator');
-      navigator.pushPage('detailGoal.html');
+      navigator.pushPage('pages/goalPage/detailGoal.html');
       break;
     }
   }

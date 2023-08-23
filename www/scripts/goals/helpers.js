@@ -1,5 +1,5 @@
 const gradientButtonClick = (gradient) => {
-  // Defino el gradiento al que le da click
+  // Defino el gradiente al que le da click
   sessionStorage.setItem('tempGradient', gradient);
 };
 

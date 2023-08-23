@@ -1,5 +1,4 @@
 const lang = {
-  // Carpeta - archivoJs - identificativo
   es: {
     home: {
       currentTheme: 'TEMA ACTUAL',
@@ -28,6 +27,34 @@ const lang = {
       cancel: 'Cancelar',
       modify: 'Modificar meta',
       modifyMoney: 'Modificar dinero',
+      goalDesc:
+        "No existe una descripción para esta asombrosa meta. Puedes añadir una en el botón 'EDITAR META'",
+      noDate: 'Sin datos de fecha.',
+      noName: 'Un momento, ¡una meta necesita un buen nombre!',
+      noMoney: 'Un momento, ¿cuanto dinero necesita tu meta?',
+      noColor: 'Un momento, ¡debes seleccionar un color!',
+      noPositive:
+        'Un momento, no es posible añadir una meta en negativo, seria imposible de lograr.',
+      added: 'añadida!',
+      days: 'días',
+      leftDays: 'días restantes',
+      expiredAgo: 'Venció hace',
+      lastDay: 'Hoy es el último día.',
+      notice: '¡Aviso!',
+      confirmDelete: '¿Estas seguro de borrar la meta?',
+      cancelDelete: 'De acuerdo, todo fluye como normalmente.',
+      deleteOption: 'Sí, borrar',
+      delete: 'Eliminar meta',
+      goalDeleted: 'La meta',
+      goalDeleted1: 'ha sido eliminada!',
+      readTuto: 'LEER TUTORIAL',
+      tutoPara:
+        'Aquí podrás añadir las metas que deseas cumplir. Deberás añadir un nombre a la meta, la cantidad de dinero que necesitas para cumplirla y, de ser necesario, la fecha en la que te gustaría cumplir esta meta.',
+      tutoPara1:
+        'Posteriormente, podrás añadir el dinero que vayas recaudando y, además, verás un porcentaje en el que se indique que tan lejos o cerca te encuentras de la meta.',
+      tutoPara2:
+        'Podrás editar esta información cuantas veces quieras, e incluso eliminar la meta si ya no la deseas ver.',
+      tutoPara3: 'Para crear una nueva meta pulsa el botón "+".',
     },
     exitApp: {
       title: 'Aviso!',
