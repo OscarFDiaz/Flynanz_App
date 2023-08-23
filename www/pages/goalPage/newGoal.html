@@ -8,7 +8,14 @@
   <div class="content" style="margin: 0px 20px 0px 20px">
     <div style="text-align: center; padding-top: 16px">
       <div>
-        <p style="margin: 0px auto -16px 12px; text-align: left; color: var(--color-input-label)" id="newGoalNameInput">
+        <p
+          style="
+            margin: 0px auto -16px 12px;
+            text-align: left;
+            color: var(--color-input-label);
+          "
+          id="newGoalNameInput"
+        >
           NOMBRE DE LA META
         </p>
         <ons-input
@@ -21,14 +28,33 @@
       </div>
 
       <div>
-        <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newGoalDescInput">
+        <p
+          style="
+            margin: 16px auto 0px 12px;
+            text-align: left;
+            color: var(--color-input-label);
+          "
+          id="newGoalDescInput"
+        >
           DESCRIPCIÓN DE LA META
         </p>
-        <textarea id="newGoalDescription" class="textarea" rows="5" placeholder=""></textarea>
+        <textarea
+          id="newGoalDescription"
+          class="textarea"
+          rows="5"
+          placeholder=""
+        ></textarea>
       </div>
 
       <div>
-        <p style="margin: 16px auto -33px 12px; text-align: left; color: var(--color-input-label)" id="newGoalMoneyInput">
+        <p
+          style="
+            margin: 16px auto -33px 12px;
+            text-align: left;
+            color: var(--color-input-label);
+          "
+          id="newGoalMoneyInput"
+        >
           DINERO NECESARIO
         </p>
         <ons-input
@@ -41,7 +67,14 @@
       </div>
 
       <div>
-        <p style="margin: 0px auto -33px 12px; text-align: left; color: var(--color-input-label)" id="newMoneyDateInput">
+        <p
+          style="
+            margin: 0px auto -33px 12px;
+            text-align: left;
+            color: var(--color-input-label);
+          "
+          id="newMoneyDateInput"
+        >
           FECHA META
         </p>
         <ons-input
@@ -55,19 +88,40 @@
     </div>
 
     <!--Seleccion de icono-->
-    <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newGoalIcon">
+    <p
+      style="
+        margin: 16px auto 0px 12px;
+        text-align: left;
+        color: var(--color-input-label);
+      "
+      id="newGoalIcon"
+    >
       SELECCIONA UN ICONO
     </p>
-    <div style="border: 2px solid var(--color-input); border-radius: 15px; margin-bottom: 16px">
+    <div
+      style="
+        border: 2px solid var(--color-input);
+        border-radius: 15px;
+        margin-bottom: 16px;
+      "
+    >
       <ons-list style="background: none; margin-top: -16px">
         <ons-list-item id="expandableListContainerGoal" expandable>
           <p
-            style="margin: 0px auto 0px 12px; text-align: left; color: var(--card-content-text-color)"
+            style="
+              margin: 0px auto 0px 12px;
+              text-align: left;
+              color: var(--card-content-text-color);
+            "
             id="newExpenseIconLabelGoal"
           >
             CLICK PARA CAMBIAR
           </p>
-          <div class="expandable-content" id="expenseIconListOfIconsGoal" style="background-color: var(--color-input)">
+          <div
+            class="expandable-content"
+            id="expenseIconListOfIconsGoal"
+            style="background-color: var(--color-input)"
+          >
             <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
           </div>
         </ons-list-item>
@@ -76,7 +130,16 @@
 
     <!--Seleccion de degradado-->
     <div id="gradients-container">
-      <p style="margin: 0px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newMoneyGradientInput">Color</p>
+      <p
+        style="
+          margin: 0px auto 0px 12px;
+          text-align: left;
+          color: var(--color-input-label);
+        "
+        id="newMoneyGradientInput"
+      >
+        Color
+      </p>
       <div class="option">
         <ons-button
           id="gd-0"
@@ -167,37 +230,24 @@
       function (event) {
         if (event.target.matches('#newGoal')) {
           ons.ready(function () {
-            let languaje = localStorage.getItem('storageSwitchLanguage');
+            const lang = getLang('goals');
 
-            if (languaje == 'false') {
-              document.getElementById('titleNewGoal').innerHTML = 'New goal';
-              document.getElementById('newGoalNameInput').innerHTML = 'Goal name';
-              document.getElementById('newGoalDescInput').innerHTML = 'Goal description';
-              document.getElementById('newGoalMoneyInput').innerHTML = 'Money needed';
-              document.getElementById('newMoneyDateInput').innerHTML = 'Goal Date';
-              document.getElementById('newGoalIcon').innerHTML = 'Select an icon';
-              document.getElementById('newExpenseIconLabelGoal').innerHTML = 'Click to change';
-              document.getElementById('newGoalFinishedButton').innerHTML = 'Finished!';
-              document.getElementById('newGoalCancelButton').innerHTML = 'Cancel';
-            } else {
-              document.getElementById('titleNewGoal').innerHTML = 'Nueva meta';
-              document.getElementById('newGoalNameInput').innerHTML = 'Nombre de la meta';
-              document.getElementById('newGoalDescInput').innerHTML = 'Descripción de la meta';
-              document.getElementById('newGoalMoneyInput').innerHTML = 'Dinero necesario';
-              document.getElementById('newMoneyDateInput').innerHTML = 'Fecha de la meta';
-              document.getElementById('newGoalIcon').innerHTML = 'Selecciona un icono';
-              document.getElementById('newExpenseIconLabelGoal').innerHTML = 'Click para cambiar';
-              document.getElementById('newGoalFinishedButton').innerHTML = 'Listo!';
-              document.getElementById('newGoalCancelButton').innerHTML = 'Cancelar';
-              newGoalIcon;
-            }
+            document.getElementById('titleNewGoal').innerHTML = lang.new;
+            document.getElementById('newGoalNameInput').innerHTML = lang.name;
+            document.getElementById('newGoalDescInput').innerHTML = lang.desc;
+            document.getElementById('newGoalMoneyInput').innerHTML = lang.moneyNeed;
+            document.getElementById('newMoneyDateInput').innerHTML = lang.date;
+            document.getElementById('newGoalIcon').innerHTML = lang.icon;
+            document.getElementById('newExpenseIconLabelGoal').innerHTML = lang.change;
+            document.getElementById('newGoalFinishedButton').innerHTML = lang.ready;
+            document.getElementById('newGoalCancelButton').innerHTML = lang.cancel;
 
             //Cargo los iconos
             loadIconsGoal();
           });
         }
       },
-      false
+      false,
     );
   </script>
 </ons-page>

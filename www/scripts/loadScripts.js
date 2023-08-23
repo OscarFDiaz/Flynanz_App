@@ -1,25 +1,33 @@
 // Cargar todos los scripts necesarios
 const scriptsToLoad = [
-  'startApp.js',
-  'splitter.js',
-  'push.js',
-  'goals.js',
-  'alertGoals.js',
-  'editGoal.js',
-  'money.js',
-  'alertMoneys.js',
-  'home.js',
-  'expense.js',
-  'alertExpense.js',
-  'saving.js',
-  'checkUpdates/checkUpdates.js',
+  'scripts/startApp.js',
+  'scripts/splitter.js',
+  'scripts/push.js',
+  'scripts/goals/getGoals.js',
+  'scripts/goals/loadIconsGoal.js',
+  'scripts/goals/helpers.js',
+  'scripts/goals/newGoal.js',
+  'scripts/goals/findGoal.js',
+  'scripts/goals/deleteGoal.js',
+  'scripts/goals/addMoney.js',
+  'scripts/goals/loadDetailGoal.js',
+  'scripts/alertGoals.js',
+  'scripts/editGoal.js',
+  'scripts/money.js',
+  'scripts/alertMoneys.js',
+  'scripts/home.js',
+  'scripts/expense.js',
+  'scripts/alertExpense.js',
+  'scripts/saving.js',
+  'scripts/checkUpdates/checkUpdates.js',
+  'locales/locales.js',
 ];
 
 // Función para cargar scripts
 const loadScripts = () => {
   scriptsToLoad.forEach((script) => {
     const scriptElement = document.createElement('script');
-    scriptElement.src = `scripts/${script}`;
+    scriptElement.src = `${script}`;
     document.body.appendChild(scriptElement);
   });
 };

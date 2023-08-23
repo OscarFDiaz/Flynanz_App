@@ -14,47 +14,30 @@
     document.addEventListener(
       'show',
       function (event) {
-        let languaje = localStorage.getItem('storageSwitchLanguage');
         if (event.target.matches('#userHome')) {
-          if (languaje == 'false') {
-            document.getElementById('titleSplitterUser').innerHTML = 'Home';
-          } else {
-            document.getElementById('titleSplitterUser').innerHTML = 'Inicio';
-          }
+          document.getElementById('titleSplitterUser').innerHTML =
+            getLang('menuOptions').home;
           localStorage.setItem('actuaPage', 'userHome.html');
           checkOptions();
         }
 
         // MODIFICO EL LISTENER DEL BACK BUTTON PARA CONFIRMAS SALIDA DE APLICACIÓN
         ons.setDefaultDeviceBackButtonListener(function (event) {
-          if (languaje == 'false') {
-            ons.notification
-              .confirm('Do you want to exit the application?', {
-                title: 'Notice!',
-                buttonLabels: ['Cancel', 'Exit'],
-              }) // Ask for confirmation
-              .then(function (index) {
-                if (index === 1) {
-                  // OK button
-                  navigator.app.exitApp(); // Close the app
-                }
-              });
-          } else {
-            ons.notification
-              .confirm('¿Quieres salir de la aplicación?', {
-                title: 'Aviso!',
-                buttonLabels: ['Cancelar', 'Salir'],
-              }) // Ask for confirmation
-              .then(function (index) {
-                if (index === 1) {
-                  // OK button
-                  navigator.app.exitApp(); // Close the app
-                }
-              });
-          }
+          const lang = getLang('exitApp');
+          ons.notification
+            .confirm(lang.leaveQuestion, {
+              title: lang.title,
+              buttonLabels: [lang.cancel, lang.confirm],
+            }) // Ask for confirmation
+            .then(function (index) {
+              if (index === 1) {
+                // OK button
+                navigator.app.exitApp(); // Close the app
+              }
+            });
         });
       },
-      false
+      false,
     );
   </script>
 </ons-page>

@@ -10,8 +10,16 @@
 
   <div id="goalsContainer" style="margin-bottom: 32px"></div>
 
-  <ons-fab position="bottom right" onclick="pushToNewGoal()" style="display: flex; justify-content: space-around">
-    <img src="./assets/icons/addButton.png" alt="saving icon" style="width: 32px; margin-top: 30%" />
+  <ons-fab
+    position="bottom right"
+    onclick="pushToNewGoal()"
+    style="display: flex; justify-content: space-around"
+  >
+    <img
+      src="./assets/icons/addButton.png"
+      alt="saving icon"
+      style="width: 32px; margin-top: 30%"
+    />
   </ons-fab>
 
   <script>
@@ -20,18 +28,12 @@
       function (event) {
         if (event.target.matches('#goals')) {
           localStorage.setItem('actuaPage', 'goals.html');
-          // Conseguir Goals
+          // Conseguir Goals al cagar esta página
           getGoals();
-
-          let languaje = localStorage.getItem('storageSwitchLanguage');
-          if (languaje == 'false') {
-            document.getElementById('titleGoals').innerHTML = 'Goals';
-          } else {
-            document.getElementById('titleGoals').innerHTML = 'Metas';
-          }
+          document.getElementById('titleGoals').innerHTML = getLang('menuOptions').goals;
         }
       },
-      false
+      false,
     );
   </script>
 </ons-page>
