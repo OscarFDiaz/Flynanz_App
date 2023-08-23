@@ -27,11 +27,14 @@ const lang = {
       cancel: 'Cancelar',
       modify: 'Modificar meta',
       modifyMoney: 'Modificar dinero',
+      addMoney: 'Añadir dinero',
+      resMoney: 'Restar dinero',
       goalDesc:
         "No existe una descripción para esta asombrosa meta. Puedes añadir una en el botón 'EDITAR META'",
       noDate: 'Sin datos de fecha.',
       noName: 'Un momento, ¡una meta necesita un buen nombre!',
       noMoney: 'Un momento, ¿cuanto dinero necesita tu meta?',
+      noMoneyAdded: 'Ingresa cuanto dinero deseas añadir, por favor!',
       noColor: 'Un momento, ¡debes seleccionar un color!',
       noPositive:
         'Un momento, no es posible añadir una meta en negativo, seria imposible de lograr.',
@@ -46,7 +49,13 @@ const lang = {
       deleteOption: 'Sí, borrar',
       delete: 'Eliminar meta',
       goalDeleted: 'La meta',
+      goal: 'La meta',
       goalDeleted1: 'ha sido eliminada!',
+      goalModified: 'modificada exitosamente!',
+      goalLessMoney: 'retrocedimos un poco, pero esta bien!',
+      goalMoreMoney: 'nos acercamos a la meta!',
+      goalNotModified: 'No se ha modificado la meta!',
+      goalFinished: 'hemos llegado a la meta!',
       readTuto: 'LEER TUTORIAL',
       tutoPara:
         'Aquí podrás añadir las metas que deseas cumplir. Deberás añadir un nombre a la meta, la cantidad de dinero que necesitas para cumplirla y, de ser necesario, la fecha en la que te gustaría cumplir esta meta.',
