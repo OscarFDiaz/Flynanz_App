@@ -18,7 +18,7 @@ const scriptsToLoad = [
   'scripts/home.js',
   'scripts/expense.js',
   'scripts/alertExpense.js',
-  'scripts/saving.js',
+  'scripts/saving/saving.js',
   'scripts/checkUpdates/checkUpdates.js',
   'locales/locales.js',
 ];

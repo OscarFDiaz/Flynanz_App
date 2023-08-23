@@ -9,7 +9,12 @@
     <div class="content">
       <div style="text-align: center; margin-top: 16px">
         <div>
-          <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="modifyFundAmount">CANTIDAD</p>
+          <p
+            style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px"
+            id="modifyFundAmount"
+          >
+            CANTIDAD
+          </p>
           <ons-input
             onchange="updateSavingPreview()"
             onkeypress="this.onchange()"
@@ -69,7 +74,12 @@
         </ons-row>
       </p>
 
-      <ons-button class="flatButton" onclick="makeSaving()" style="margin-left: 0px; margin-right: 0px" id="modifyFundAddFund">
+      <ons-button
+        class="flatButton"
+        onclick="makeSaving()"
+        style="margin-left: 0px; margin-right: 0px"
+        id="modifyFundAddFund"
+      >
         INGRESAR
       </ons-button>
     </div>
@@ -90,7 +100,11 @@
         <!--percentage-->
       </label>
 
-      <label class="entryAmountText" style="margin-bottom: 0px" id="modifyFundPrevToExpend">
+      <label
+        class="entryAmountText"
+        style="margin-bottom: 0px"
+        id="modifyFundPrevToExpend"
+      >
         <!--toExpend-->
       </label>
     </div>
@@ -111,7 +125,11 @@
         <!--percentage-->
       </label>
 
-      <label class="entryAmountText" style="margin-bottom: 0px" id="modifyFundActualToExpend">
+      <label
+        class="entryAmountText"
+        style="margin-bottom: 0px"
+        id="modifyFundActualToExpend"
+      >
         <!--toExpend-->
       </label>
     </div>
@@ -122,97 +140,68 @@
       'show',
       function (event) {
         if (event.target.matches('#detailSaving')) {
-          let languaje = localStorage.getItem('storageSwitchLanguage');
-          if (languaje == 'false') {
-            document.getElementById('titleDetailSaving').innerHTML = 'Modify fund';
-            document.getElementById('modifyFundAmount').innerHTML = 'Amount';
-            document.getElementById('modifyFundDays').innerHTML = `Days: 
-            <span id="rangeSelectDays" class="selectedRange">16</span>`;
-            document.getElementById('modifyFundPercentage').innerHTML = `Percentage to use: 
-            <span id="rangeSelectPercent" class="selectedRange">50%</span>`;
-            document.getElementById('modifyFundAddFund').innerHTML = 'Finished!';
+          const lang = getLang('saving');
 
-            document.getElementById('modifyFundPrevText').innerHTML = 'Preview';
-            document.getElementById('modifyFundPrevAmount').innerHTML = `Entered amount:
+          document.getElementById('titleDetailSaving').innerHTML = lang.modifyAll;
+          document.getElementById('modifyFundAmount').innerHTML = lang.amount;
+          document.getElementById('modifyFundDays').innerHTML = `${lang.days}: 
+            <span id="rangeSelectDays" class="selectedRange">16</span>`;
+          document.getElementById('modifyFundPercentage').innerHTML = `${lang.percent}:
+            <span id="rangeSelectPercent" class="selectedRange">50%</span>`;
+          document.getElementById('modifyFundAddFund').innerHTML = lang.add;
+
+          // Previsualización del fondo
+          document.getElementById('modifyFundPrevText').innerHTML = lang.prev;
+          document.getElementById(
+            'modifyFundPrevAmount',
+          ).innerHTML = `${lang.innerAmount}:
             <div style="display: block">
               <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
               <span id="entryAmount" class="entryAmountDetail">0</span>
             </div>`;
-            document.getElementById('modifyFundPrevDays').innerHTML = `Days:
+          document.getElementById('modifyFundPrevDays').innerHTML = `${lang.days}:
             <div style="display: block">
               <span id="entryDays" class="entryAmountDetail"></span>
             </div>`;
-            document.getElementById('modifyFundPrevPercentage').innerHTML = `Percentage:
+          document.getElementById(
+            'modifyFundPrevPercentage',
+          ).innerHTML = `${lang.percentOnly}:
             <div style="display: block">
               <span id="entryPercent" class="entryAmountDetail"></span>
             </div>`;
-            document.getElementById('modifyFundPrevToExpend').innerHTML = `To spend:
+          document.getElementById(
+            'modifyFundPrevToExpend',
+          ).innerHTML = `${lang.toExpense}:
             <div style="display: block">
               <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
               <span id="entryExpend" class="entryAmountDetail">0</span>
             </div>`;
 
-            document.getElementById('modifyFundActualTitle').innerHTML = 'Current fund';
-            document.getElementById('modifyFundActualAmount').innerHTML = `Entered amount: 
-            <div style="display: block;">
-            <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
-            <span id="entryCurrentAmount" class="entryAmountDetail">0</span>
-            </div>`;
-            document.getElementById('modifyFundActualDays').innerHTML = `Selected days: 
-            <span id="entryCurrentDays" class="entryAmountDetail"></span>`;
-            document.getElementById('modifyFundActualPercentage').innerHTML = `Percentage: 
-            <span id="entryCurrentPercent" class="entryAmountDetail"></span>`;
-            document.getElementById('modifyFundActualToExpend').innerHTML = `To spend:
-            <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
-            <span id="entryCurrentExpend" class="entryAmountDetail">0</span>`;
-          } else {
-            document.getElementById('titleDetailSaving').innerHTML = 'Modificar fondo';
-            document.getElementById('modifyFundAmount').innerHTML = 'Cantidad';
-            document.getElementById('modifyFundDays').innerHTML = `Días: 
-            <span id="rangeSelectDays" class="selectedRange">16</span>`;
-            document.getElementById('modifyFundPercentage').innerHTML = `Porcentaje a usar: 
-            <span id="rangeSelectPercent" class="selectedRange">50%</span>`;
-            document.getElementById('modifyFundAddFund').innerHTML = 'Ingresar';
-
-            // Previsualización del fondo
-            document.getElementById('modifyFundPrevText').innerHTML = 'Previsualización';
-            document.getElementById('modifyFundPrevAmount').innerHTML = `Cantidad ingresada:
-            <div style="display: block">
-              <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
-              <span id="entryAmount" class="entryAmountDetail">0</span>
-            </div>`;
-            document.getElementById('modifyFundPrevDays').innerHTML = `Días:
-            <div style="display: block">
-              <span id="entryDays" class="entryAmountDetail"></span>
-            </div>`;
-            document.getElementById('modifyFundPrevPercentage').innerHTML = `Porcentaje:
-            <div style="display: block">
-              <span id="entryPercent" class="entryAmountDetail"></span>
-            </div>`;
-            document.getElementById('modifyFundPrevToExpend').innerHTML = `Para gastar:
-            <div style="display: block">
-              <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
-              <span id="entryExpend" class="entryAmountDetail">0</span>
-            </div>`;
-
-            // Fondo actual
-            document.getElementById('modifyFundActualTitle').innerHTML = 'Fondo actual';
-            document.getElementById('modifyFundActualAmount').innerHTML = `Cantidad ingresada: 
+          // Fondo actual
+          document.getElementById('modifyFundActualTitle').innerHTML = lang.actualSaving;
+          document.getElementById(
+            'modifyFundActualAmount',
+          ).innerHTML = `${lang.innerAmount}: 
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentAmount" class="entryAmountDetail">0</span>`;
-            document.getElementById('modifyFundActualDays').innerHTML = `Días seleccionados: 
+          document.getElementById(
+            'modifyFundActualDays',
+          ).innerHTML = `${lang.selectedDays}: 
             <span id="entryCurrentDays" class="entryAmountDetail"></span>`;
-            document.getElementById('modifyFundActualPercentage').innerHTML = `Porcentaje: 
+          document.getElementById(
+            'modifyFundActualPercentage',
+          ).innerHTML = `${lang.percentOnly}: 
             <span id="entryCurrentPercent" class="entryAmountDetail"></span>`;
-            document.getElementById('modifyFundActualToExpend').innerHTML = `Para gastar: 
+          document.getElementById(
+            'modifyFundActualToExpend',
+          ).innerHTML = `${lang.toExpense}: 
             <span class="entryAmountDetail" style="color: var(--card-text-title-color)">$ </span>
             <span id="entryCurrentExpend" class="entryAmountDetail">0</span>`;
-          }
 
           loadDetailSaving();
         }
       },
-      false
+      false,
     );
   </script>
 </ons-page>
