@@ -35,30 +35,9 @@
     <!--IMPORT DE LOS .JS-->
     <script type="text/javascript" src="scripts/Chart.js"></script>
 
-    <!-- MAIN JS MODULE -->
-    <script type="module" src="scripts/startApp.js"></script>
-
-    <script src="scripts/splitter.js"></script>
-
-    <script src="scripts/push.js"></script>
-
-    <script src="scripts/goals.js"></script>
-    <script src="scripts/alertGoals.js"></script>
-    <script src="scripts/editGoal.js"></script>
-
-    <script src="scripts/money.js"></script>
-    <script src="scripts/alertMoneys.js"></script>
-
-    <script src="scripts/home.js"></script>
-
-    <script src="scripts/expense.js"></script>
-    <script src="scripts/alertExpense.js"></script>
-
-    <script src="scripts/saving.js"></script>
-
     <title>Flynanz</title>
   </head>
-  <body onload="startApp()">
+  <body>
     <ons-navigator id="navigator" page="index.html" var="navigator"></ons-navigator>
 
     <ons-template id="index.html">
@@ -83,5 +62,6 @@
         ></ons-progress-bar>
       </ons-page>
     </ons-template>
+    <script src="scripts/loadScripts.js"></script>
   </body>
 </html>

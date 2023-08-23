@@ -4,6 +4,7 @@
   "version": "1.90.80",
   "description": "Flynanz: Control de gastos y finanzas personales.",
   "main": "index.js",
+  "type": "module",
   "dependencies": {
     "chart.js": "^2.9.3",
     "cordova": "^12.0.0",
