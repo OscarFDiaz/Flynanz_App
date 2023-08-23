@@ -287,7 +287,7 @@ function hideAlertDialogMoney() {
 
       // Checo como voy de dinero conforme a lo requerido en la meta.
       let testElement = Math.sign(element);
-      if (testElement == '-1') {
+      if (testElement === -1) {
         ons.notification.toast(
           `${lang.goal} ${sName} ${lang.goalModified}, ${lang.goalLessMoney}`,
           {
