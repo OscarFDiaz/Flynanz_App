@@ -163,7 +163,7 @@ function createAlertDialogToEditGoalMoney() {
   let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
   let parseGoal = JSON.parse(retrievedGoal);
   let optionsContainer = document.getElementById('alertEditGoalMoneyOptionsAlert');
-  let lang = getLang('goals');
+  const lang = getLang('goals');
 
   //Guardo el nombre por si el usuario lo edita
   localStorage.setItem('nameSaved', parseGoal.name);
@@ -179,20 +179,20 @@ function createAlertDialogToEditGoalMoney() {
     onclick="insertActionEditGoal('add')"
     style="margin-bottom: 16px; margin-top: 16px; margin-left: 0px; width: 90%"
     id="newMoneyCancelButton"
-  >
-    <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
+    >
     ${lang.addMoney}
-  </ons-button>
+      <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
+    </ons-button>
 
-  <ons-button
-    class="moneyButtonAdd"
-    onclick="insertActionEditGoal('remove')"
-    style="margin-bottom: 16px; margin-left: 0px; width: 90%"
-    id="newMoneyCancelButton"
-  >
-    <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-    ${lang.resMoney}
-  </ons-button>`;
+    <ons-button
+      class="moneyButtonAdd"
+      onclick="insertActionEditGoal('remove')"
+      style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+      id="newMoneyCancelButton"
+    >
+      <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
+      ${lang.resMoney}
+    </ons-button>`;
 
     dialog.show();
   } else {
@@ -347,7 +347,7 @@ function hideAlertNoChangeMoney() {
 
 function insertActionEditGoal(option) {
   let optionsContainer = document.getElementById('alertEditGoalMoneyOptionsAlert');
-  let lang = localStorage.getItem('storageSwitchLanguage');
+  let lang = getLang('goals');
 
   if (option === 'add') {
     optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);">
