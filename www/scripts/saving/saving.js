@@ -710,7 +710,7 @@ function addToMoneyLeftMoney() {
 
 function cancelAddLeftMoney() {
   document.getElementById('alertMoneyLeft').hide();
-  let languaje = localStorage.getItem('storageSwitchLanguage');
+  let lang = getLang('saving');
 
   ons.notification.toast(lang.allNormal, {
     title: 'Aviso!',
