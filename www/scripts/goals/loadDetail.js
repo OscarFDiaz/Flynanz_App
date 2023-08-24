@@ -3,36 +3,36 @@ function loadDetailGoal() {
 
   const lang = getLang('goals');
 
-  let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
+  let retrievedGoal = JSON.parse(sessionStorage.getItem('sessionFindGoal'));
 
-  let { name, description, actualMoney, goalMoney, date, gradient } =
-    JSON.parse(retrievedGoal);
+  let { goalActualMoney, goalDate, goalGradient, goalDescription, goalMoney, goalName } =
+    retrievedGoal;
 
-  let nModifyDate = date;
+  let nModifyDate = goalDate;
 
-  let gAMoneyTS = formatMoney(actualMoney);
+  let gAMoneyTS = formatMoney(goalActualMoney);
   let gMoneyTS = formatMoney(goalMoney);
 
-  let gPercent = getPercent(goalMoney, actualMoney);
+  let gPercent = getPercent(goalMoney, goalActualMoney);
 
   let today = new Date().toJSON().slice(0, 10);
-  let days = dateDiff(today, date);
+  let days = dateDiff(today, goalDate);
 
   if (Math.sign(days) === 1) {
-    date = `${days} ${lang.leftDays}`;
+    goalDate = `${days} ${lang.leftDays}`;
   } else if (Math.sign(days) === -1) {
-    date = `${lang.expiredAgo} ${Math.abs(days)} ${lang.days}`;
+    goalDate = `${lang.expiredAgo} ${Math.abs(days)} ${lang.days}`;
   } else if (Math.sign(days) === 0) {
-    date = lang.lastDay;
+    goalDate = lang.lastDay;
   }
 
-  document.getElementById('titleDetailGoal').innerHTML = name;
+  document.getElementById('titleDetailGoal').innerHTML = goalName;
 
   let goalsView = document.getElementById('goalDetailContainer');
   goalsView.innerHTML = '';
 
-  goalsView.innerHTML += html` <ons-card
-      style="padding: 16px 0px 0px 0px; background: var(${gradient}); border: none"
+  goalsView.innerHTML += /*HTML*/ ` <ons-card
+      style="padding: 16px 0px 0px 0px; background: var(${goalGradient}); border: none"
       class="goalCard"
     >
       <!--ProgressBar-->
@@ -62,14 +62,14 @@ function loadDetailGoal() {
         >
           <span
             style="white-space: nowrap; display: table; margin: 0 auto; color: var(--progressbar-back-color); font-weight: 500; position: relative; top: 5px; font-size:20px"
-            id="${name}-pnumber"
+            id="${goalName}-pnumber"
             >${gPercent} %</span
           >
         </div>
       </div>
 
       <!--Description-->
-      <div class="content detailInfo" style="margin-top:64px">${description}</div>
+      <div class="content detailInfo" style="margin-top:64px">${goalDescription}</div>
 
       <!--GoalDate-->
       <div class="content">
@@ -90,13 +90,13 @@ function loadDetailGoal() {
             class="moneyDetailGoal"
             style="display: block; position: relative;top: -70px; left: 76px; font-weight: 500"
           >
-            ${date}
+            ${goalDate}
           </label>
         </div>
         <ons-button
           class="flatButton"
           style="margin-left: 0px; margin-right: 0px"
-          onclick="addMoneyGoal('${name}')"
+          onclick="addMoneyGoal('${goalName}')"
         >
           ${lang.modifyMoney}
         </ons-button>
@@ -106,14 +106,14 @@ function loadDetailGoal() {
     <ons-button
       class="flatButtonLight"
       style="margin-top: 16px; margin-bottom: 16px"
-      onclick="deleteGoal('${name}')"
+      onclick="deleteGoal('${goalName}')"
     >
       ${lang.delete}
     </ons-button>
 
     <ons-fab
       position="bottom right"
-      onclick="editGoal('${name}')"
+      onclick="editGoal('${goalName}')"
       style="display: flex; justify-content: space-around"
     >
       <img

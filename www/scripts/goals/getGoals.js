@@ -6,7 +6,7 @@ function getGoals() {
   goalsView.innerHTML = '';
   let goalsTutorial = '';
 
-  goalsTutorial = html`<ons-card>
+  goalsTutorial = /*HTML*/ `<ons-card>
     <ons-list style="background: none;" id="expenseListOfExpensesContainer">
       <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
         <label class="iconExpenseLabel" style="margin-left: 50px;">
@@ -71,7 +71,7 @@ function getGoals() {
       }
     }
 
-    goalsView.innerHTML += html`<div
+    goalsView.innerHTML += /*HTML*/ `<div
       onclick="findGoal('${goalName}')"
       class="goalCard"
       style="background: var(${goalGradient})"

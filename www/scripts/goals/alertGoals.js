@@ -166,7 +166,7 @@ function createAlertDialogToEditGoalMoney() {
   if (dialog) {
     document.getElementById('editOnlyEndMoney').innerHTML = '';
 
-    optionsContainer.innerHTML = html`<ons-button
+    optionsContainer.innerHTML = /*HTML*/ `<ons-button
         class="moneyButtonAdd"
         onclick="insertActionEditGoal('add')"
         style="margin-bottom: 16px; margin-top: 16px; margin-left: 0px; width: 90%"
@@ -239,15 +239,18 @@ function hideAlertDialogMoney() {
     if (goals[i].goalName == sName) {
       indexGoal = i; //Pongo la posición donde esta mi objeto que modificare
 
+      let { goalDescription, goalMoney, goalDate, goalGradient, iconName, iconUrl } =
+        goals[i];
+
       updateGoalObject = {
-        goalName: sName,
-        goalDescription: goals[i].goalDescription,
         goalActualMoney: newMoney,
-        goalMoney: goals[i].goalMoney,
-        goalDate: goals[i].goalDate,
-        goalGradient: goals[i].goalGradient,
-        iconName: goals[i].iconName,
-        iconUrl: goals[i].iconUrl,
+        goalName: sName,
+        goalDescription,
+        goalMoney,
+        goalDate,
+        goalGradient,
+        iconName,
+        iconUrl,
       };
 
       // Modifico los elementos para actualizar el dinero y % mostrado
@@ -342,7 +345,7 @@ function insertActionEditGoal(option) {
   let lang = getLang('goals');
 
   if (option === 'add') {
-    optionsContainer.innerHTML = html`<p
+    optionsContainer.innerHTML = /*HTML*/ `<p
         style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);"
       >
         ${lang.addMoney}
@@ -358,7 +361,7 @@ function insertActionEditGoal(option) {
         style="display: block; margin: -10px auto 16px"
       ></ons-input>`;
   } else if (option === 'remove') {
-    optionsContainer.innerHTML = html`<p
+    optionsContainer.innerHTML = /*HTML*/ `<p
         style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);"
       >
         ${lang.resMoney}
