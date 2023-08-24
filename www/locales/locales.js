@@ -67,6 +67,17 @@ const lang = {
     },
     saving: {
       addExpense: 'Añadir gasto al fondo',
+      addMoney: 'Añadir dinero',
+      newExpense: 'Nuevo gasto añadido!',
+      nothingButSubtract:
+        'De acuerdo, no se añadirá ningún gasto, pero el dinero sí se redujo!',
+      wantAdd: 'Quiero añadir',
+      wantSub: 'Quiero quitar',
+      moreAdded: 'Se ha aumentado el dinero disponible!',
+      noCategory: 'NINGUNA CATEGORÍA', //NO CATEGORY
+      noSubtract: 'NO RESTAR', //DO NOT SUBTRACT
+      addTo: 'Añadir a',
+      takeMoney: 'Restar dinero',
       category: 'Categoría:',
       note: 'Nota del gasto',
       expensed: 'Dinero gastado',
@@ -79,9 +90,12 @@ const lang = {
       newMoney: 'Cantidad nueva',
       leftMoney: 'Quedó dinero disponible, ¿qué quieres hacer con el?',
       leftAmount: 'Dinero restante',
+      leftAmountAdd: 'Dinero restante añadido a',
+      savedAmount: 'Dinero ahorrado',
       nextDay: 'Añadir al día siguiente',
       addToMoney: 'Añadir a "MI DINERO"',
       modifyAll: 'Modificar fondo',
+      modifyMoney: 'Modificar dinero',
       amount: 'Cantidad',
       days: 'Días',
       selectedDays: 'Días seleccionados',
@@ -92,6 +106,62 @@ const lang = {
       prev: 'Previsualización',
       innerAmount: 'Cantidad ingresada',
       actualSaving: 'Fondo actual',
+      noName: 'No puedes añadir un gasto sin un nombre/nota!',
+      noAmount: 'Un momento, tienes que ingresar una cantidad antes!',
+      noNegative: 'No puedes añadir un fondo negativo.',
+      noNegative1: 'No puedes dejar tu fondo negativo, lo siento...',
+      moneyAdded: 'Dinero restante añadido, hoy podrás gastar un poco más!',
+      reducedMoney: 'Has reducido el dinero disponible. ¿Quieres añadir un gasto?',
+      selectCategory:
+        "Debes seleccionar una categoría, de no haber, debes crear una en 'GASTOS'",
+      selectOption:
+        "Selecciona una opción donde guardar el dinero, si no existe un lugar donde guardar el dinero, añade uno en 'MI DINERO'",
+      noMore:
+        "No hay más días para el fondo, debes seleccionar 'Añadir a MI DINERO' o modificar el fondo y agregar más días.",
+      exist: 'Ya existe un fondo, ¿quieres borrar el actual e ingresar este nuevo?',
+      notice: 'Aviso!',
+      confirmDelete: 'Sí, borrar',
+      confirmReset: 'Sí, reiniciar',
+      confirmEnd: 'Sí, terminar',
+      confirmAdd: 'Sí, añadir',
+      no: 'No',
+      justReduced: 'De acuerdo, sólo se ha reducido el dinero disponible!',
+      endQuestion: '¿Estas seguro de terminar el día?',
+      updated: 'Se ha actualizado el fondo!',
+      noAction: 'De acuerdo, todo fluye como normalmente!',
+      noSaving: 'No tienes un fondo ahorrado para eliminar.',
+      noMoreDays:
+        'Ya no hay más días restantes en el fondo, ingresa un nuevo fondo!. Lo siento!',
+      allNormal: 'De acuerdo, todo fluye como normalmente!',
+      finished: 'Se ha ingresado el fondo!',
+      nothing: 'No hay un fondo activo...',
+      entryAmount: 'Cantidad ingresada',
+      leftDays: 'Días estantes',
+      endDay: 'Terminar día',
+      toExpend: 'Para gastar',
+      noModify: 'No se ha modificado nada!',
+      selectSomething: 'Selecciona que deseas hacer, por favor!',
+      enterAmount: 'Ingresa cuanto dinero deseas añadir/quitar, por favor!',
+      available: 'Disponible actual',
+      onHand: 'Disponible',
+      dayChanged: 'Se ha cambiado de día!',
+      reset: 'REINICIAR',
+      sureToReset: '¿Estas seguro de reiniciar el fondo ahorrado?',
+      resetSaving: 'El fondo ahorrado se ha reiniciado!',
+      read: 'LEER TUTORIAL',
+      read1:
+        'Fondo será la opción que te ayudará a controlar tus gastos, podrás elegir que cantidad de dinero quieres gastar y en cuantos días, mediante un porcentaje podrás seleccionar cuanto dinero podrás gastar día con día.',
+      read2:
+        'Ejemplo, sí tienes $3000 y quieres gastar el 50% de esa cantidad en los próximos 15 días, la aplicación te dirá cuanto dinero puedes gastar durante cada día por esos días seleccionados.',
+      read3:
+        'Podrás aumentar el gasto diario que tendrás, también podrás reducirlo, si lo quieres reducir se te preguntara si deseas crear un gasto, de aceptar deberás seleccionar en que categoría quieres crear ese gasto, eso sí, deberás tener ya el gasto creado en “GASTOS”, también podrás reducirlo a tu dinero, y obvio deberás tener ese dinero creado en “MI DINERO”.',
+      read4:
+        'El punto es que vayas restando los días conforme estos terminen, para terminarlo deberás dar sobre “Terminar día”, no es necesario que te termines todo tu dinero disponible en el día para pasar al siguiente, si quedó algo de dinero se te preguntara que quieres hacer con el, añadirlo al día siguiente en caso de haberlo o guardarlo en "MI DINERO".',
+      read5:
+        'El dinero que guardes cuando te sobre es el que se verá en la pantalla de inicio en “FONDO GUARDADO”.',
+      read6:
+        'Para reiniciar esa cantidad ingresa en "MI FONDO", da click en "MODIFICAR" y en donde sale tu fondo ahorrado en "REINICIAR"',
+      read7: 'Para modificar/ingresar un nuevo fondo da click en “Modificar”.',
     },
     exitApp: {
       title: 'Aviso!',
