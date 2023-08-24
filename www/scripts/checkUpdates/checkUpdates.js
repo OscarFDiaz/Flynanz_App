@@ -1,17 +1,14 @@
 const checkUpdates = () => {
-  console.log('Checkupdates');
-  updateGolsOnUpdate();
+  updateGoalsOnUpdate();
   updateMoneyOnUpdate();
   updateExpensesOnUpdate();
 };
 
 // Funciones para actualizar la app a la nueva versión
-const updateGolsOnUpdate = () => {
-  let goals = JSON.parse(localStorage.getItem('goalStorage'));
+const updateGoalsOnUpdate = () => {
+  const goals = JSON.parse(localStorage.getItem('goalStorage'));
 
-  if (goals == null || goals == 'null' || goals.length == 0 || goals.length < 1) {
-    return;
-  }
+  if (goals === null) return;
 
   for (let i = 0; i < goals.length; i++) {
     goals[i].goalGradient = '--gradient_0';
@@ -27,16 +24,14 @@ const updateGolsOnUpdate = () => {
 };
 
 function updateMoneyOnUpdate() {
-  let moneys = JSON.parse(localStorage.getItem('moneyStorage'));
+  const moneys = JSON.parse(localStorage.getItem('moneyStorage'));
 
-  if (moneys == null || moneys == 'null' || moneys.length == 0 || moneys.length < 1) {
-    return;
-  }
+  if (moneys === null) return;
 
   for (let i = 0; i < moneys.length; i++) {
-    let mGradient = moneys[i].moneyGradient;
+    let moneyGradient = moneys[i].moneyGradient;
 
-    if (mGradient == null || mGradient == '') {
+    if (moneyGradient === null) {
       moneys[i].moneyGradient = '--gradient_0';
       localStorage.setItem('moneyStorage', JSON.stringify(moneys));
     }
@@ -44,16 +39,9 @@ function updateMoneyOnUpdate() {
 }
 
 const updateExpensesOnUpdate = () => {
-  let expenses = JSON.parse(localStorage.getItem('expenseStorage'));
+  const expenses = JSON.parse(localStorage.getItem('expenseStorage'));
 
-  if (
-    expenses == null ||
-    expenses == 'null' ||
-    expenses.length == 0 ||
-    expenses.length < 1
-  ) {
-    return;
-  }
+  if (expenses === null) return;
 
   for (let i = 0; i < expenses.length; i++) {
     //Gradient and color donut
