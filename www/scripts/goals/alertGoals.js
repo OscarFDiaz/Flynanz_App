@@ -1,3 +1,18 @@
+// ALERT DIALOG PARA EDITAR UNA META COMPLETAMENTE
+function createAlertDialogToEditGoal() {
+  let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
+  let parseGoal = JSON.parse(retrievedGoal);
+
+  //Guardo el nombre por si el usuario lo edita
+  localStorage.setItem('nameSaved', parseGoal.name);
+
+  document.getElementById('editGoalName').value = parseGoal.name;
+  document.getElementById('editGoalDescription').value = parseGoal.description;
+  document.getElementById('editGoalMoney').value = parseGoal.goalMoney;
+  document.getElementById('editActualGoalMoney').value = parseGoal.actualMoney;
+  document.getElementById('editGoalDate').value = parseGoal.date;
+}
+
 /* CUANDO SE FINALIZA DE MODIFICAR UNA META*/
 function hideAlertDialog() {
   let name = document.getElementById('editGoalName').value;

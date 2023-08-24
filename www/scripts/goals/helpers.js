@@ -13,3 +13,10 @@ const selectIconGoal = (iconName, url) => {
 const getPercent = (goalMoney, actualMoney) => {
   return Math.round((actualMoney * 100) / goalMoney);
 };
+
+const selectIconGoalEdit = (iconName, url) => {
+  sessionStorage.setItem('expenseIconName', iconName);
+  sessionStorage.setItem('expenseIconUrl', url);
+  // Oculto los iconos, ya tengo uno seleccionado
+  document.getElementById('expandableListContainerGoalEdit').hideExpansion();
+};

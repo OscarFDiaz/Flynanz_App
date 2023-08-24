@@ -308,42 +308,37 @@ function loadIconsGoalEdit() {
   }
 }
 
-function selectIconGoalEdit(iconName, url) {
-  sessionStorage.setItem('expenseIconName', iconName);
-  sessionStorage.setItem('expenseIconUrl', url);
-  // Oculto los iconos, ya tengo uno seleccionado
-  document.getElementById('expandableListContainerGoalEdit').hideExpansion();
-}
-
 function editGoal(sendGoalName) {
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
 
   for (let i = 0; i < goals.length; i++) {
-    let gName = goals[i].goalName;
+    let { goalName } = goals[i];
 
-    if (gName == sendGoalName) {
-      let gDescription = goals[i].goalDescription;
-      let gAMoney = goals[i].goalActualMoney;
-      let gMoney = goals[i].goalMoney;
-      let gDate = goals[i].goalDate;
+    if (goalName == sendGoalName) {
+      let {
+        goalName,
+        goalDescription,
+        goalActualMoney,
+        goalMoney,
+        goalDate,
+        goalGradient,
+        iconName,
+        iconUrl,
+      } = goals[i];
 
-      let gGradient = goals[i].goalGradient;
-      let iconName = goals[i].iconName;
-      let url = goals[i].iconUrl;
-
-      sessionStorage.setItem('tempGradient', gGradient);
+      sessionStorage.setItem('tempGradient', goalGradient);
       sessionStorage.setItem('expenseIconName', iconName);
-      sessionStorage.setItem('expenseIconUrl', url);
+      sessionStorage.setItem('expenseIconUrl', iconUrl);
 
       let findGoalObject = {
-        name: gName,
-        description: gDescription,
-        actualMoney: gAMoney,
-        goalMoney: gMoney,
-        date: gDate,
-        gradient: gGradient,
-        iconName: iconName,
-        iconUrl: url,
+        goalName,
+        goalDescription,
+        goalActualMoney,
+        goalMoney,
+        goalDate,
+        goalGradient,
+        iconName,
+        iconUrl,
       };
 
       if (sessionStorage.getItem('sessionFindGoal') === null) {
@@ -354,25 +349,8 @@ function editGoal(sendGoalName) {
       }
 
       const navigator = document.querySelector('#navigator');
-      navigator.pushPage('editGoal.html');
-      //createAlertDialogToEditGoal();
+      navigator.pushPage('pages/goalPage/editGoal.html');
       break;
     }
   }
-}
-
-/*********************************************************/
-// ALERT DIALOG PARA EDITAR UNA META COMPLETAMENTE
-function createAlertDialogToEditGoal() {
-  let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
-  let parseGoal = JSON.parse(retrievedGoal);
-
-  //Guardo el nombre por si el usuario lo edita
-  localStorage.setItem('nameSaved', parseGoal.name);
-
-  document.getElementById('editGoalName').value = parseGoal.name;
-  document.getElementById('editGoalDescription').value = parseGoal.description;
-  document.getElementById('editGoalMoney').value = parseGoal.goalMoney;
-  document.getElementById('editActualGoalMoney').value = parseGoal.actualMoney;
-  document.getElementById('editGoalDate').value = parseGoal.date;
 }
