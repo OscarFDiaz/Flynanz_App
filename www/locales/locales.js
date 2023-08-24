@@ -29,6 +29,7 @@ const lang = {
       modifyMoney: 'Modificar dinero',
       addMoney: 'Añadir dinero',
       resMoney: 'Restar dinero',
+      select: 'Selecciona que deseas hacer, por favor!',
       goalDesc:
         "No existe una descripción para esta asombrosa meta. Puedes añadir una en el botón 'EDITAR META'",
       noDate: 'Sin datos de fecha.',
