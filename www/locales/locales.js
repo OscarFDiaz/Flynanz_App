@@ -1,5 +1,55 @@
 const lang = {
   es: {
+    expense: {
+      expensed: 'gastados',
+      newExpense: 'Nuevo gasto',
+      expense: 'Gasto',
+      modify: 'modificado correctamente!',
+      added: 'añadido!',
+      totalExpenseSince: 'Gasto total desde',
+      totalExpense: 'Gasto total',
+      last15: 'Últimos 15 días',
+      last30: 'Últimos 30 días',
+      reset: 'Reiniciar',
+      seeExpenses: 'Ver gastos',
+      nothing: 'Nada por mostrar, vas bien con los ahorros...',
+      nothingDelete:
+        'Un momento, no hay gastos para borrar, ¿me quieres intentar engañar?',
+      noDate: 'Sin datos de fecha',
+      noDateMayus: 'SIN DATOS DE FECHA',
+      noName: 'Un momento, el gasto necesita un nombre!',
+      noExpense: '¿Cuanto gastaste?',
+      noColor: 'Un momento, debes seleccionar un color!',
+      noNegative: 'No puedes añadir un gasto negativo, eso seria muy extraño.',
+      noSubtract: 'NO RESTAR', //DO NOT SUBTRACT
+      noMore: 'No se puede restar más dinero del lugar seleccionado.',
+      expensesDeleted: 'Se han reiniciado los gastos!, un nuevo comienzo...',
+      in: 'En',
+      days: 'días',
+      ago: 'Hace',
+      today: 'Hoy',
+      edit: 'EDITAR',
+      delete: 'ELIMINAR',
+      addExpense: 'AÑADIR GASTO',
+      confirmDelete: '¿Estas seguro de borrar el gasto totalmente?',
+      confirmDeleteExpenses:
+        '¿Estas seguro de borrar todos los gastos realizados?, la fecha de creación no se modificara.',
+      notice: 'Aviso!',
+      confirm: 'Sí, borrar',
+      cancel: 'Cancelar',
+      success: 'Se ha eliminado el gasto seleccionado!',
+      allNormal: 'De acuerdo, todo fluye como normalmente!',
+      read: 'LEER TUTORIAL',
+      read1:
+        'Aquí podrás añadir los gastos que vayas realizando. Podrás separarlos en categorías y, a la vez, seleccionar un color e icono para cada una de ellas. Los gastos se verán reflejados en la pantalla de "INICIO"; en dónde se encuentra la gráfica en forma de dona. Además, podrás remover el gasto a alguna de tus carteras ubicadas en: "MI DINERO".',
+      read2:
+        'Se podrá añadir gastos individuales. Se mostrará cuánto has gastado en cada categoría y te dirá los gastos en total.',
+      read3:
+        'Al ingresar a tu categoría verás una lista de los gastos que has generado, éstos se mostrarán conforme se vayan creando, es decir; el gasto más reciente estará ubicado en el primer lugar.',
+      read4:
+        'También podrás reiniciar los gastos realizados en una categoría entrando a ésta y dando clic en: "REINICIAR". En dado caso de qué reinicies los gastos el dinero no se actualizará.',
+      read5: 'Para crear un nuevo gasto pulsa "+".',
+    },
     home: {
       currentTheme: 'TEMA ACTUAL',
       expenses: 'Gastos',

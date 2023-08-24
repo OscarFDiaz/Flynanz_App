@@ -6,7 +6,7 @@ function createAlertDialogToAddExpense() {
     loadSelectOptions();
     dialog.show();
   } else {
-    ons.notification.toast('Ups! No se ha podido cargar la ventana para añadir!', {
+    ons.notification.toast('Ups! contact support', {
       title: 'Error!',
       timeout: 2000,
       animation: 'ascend',
@@ -16,24 +16,17 @@ function createAlertDialogToAddExpense() {
 
 function loadSelectOptions() {
   let moneyStorage = JSON.parse(localStorage.getItem('moneyStorage'));
-  let languaje = localStorage.getItem('storageSwitchLanguage');
+  let lang = getLang('expense');
 
   let container = document.getElementById('selectOptio');
   container.innerHTML = '';
 
   const option = document.createElement('option');
 
-  let text;
-  if (languaje == 'false') {
-    text = 'DO NOT SUBTRACT';
-  } else {
-    text = 'NO RESTAR';
-  }
-  option.innerText = text;
+  option.innerText = lang.noSubtract;
 
   container.appendChild(option);
-  if (moneyStorage == null || moneyStorage == 'null') {
-  } else {
+  if (moneyStorage !== null) {
     for (let i = 0; i < moneyStorage.length; i++) {
       const option = document.createElement('option');
       let text = moneyStorage[i].moneyName;
@@ -49,13 +42,13 @@ function hideAlertExpense() {
   let eMoney = document.getElementById('alertExpenseMoney').value;
   let eDate = document.getElementById('alertExpenseDate').value;
   let eid = localStorage.getItem('detailExpenseCount');
-  let languaje = localStorage.getItem('storageSwitchLanguage');
+  let lang = getLang('expense');
 
   const selectTag = document.getElementById('selectOptio');
   const options = selectTag.options;
   var selectedOption = options[selectTag.selectedIndex].value;
 
-  if (eid == null || eid == '') {
+  if (eid === null || eid === '') {
     localStorage.setItem('detailExpenseCount', '0');
     eid = 0;
   }
@@ -63,73 +56,41 @@ function hideAlertExpense() {
   eid = +eid + 1;
   localStorage.setItem('detailExpenseCount', eid);
 
-  if (languaje == 'false') {
-    if (eName == null || eName == '') {
-      ons.notification.toast('I cannot add an expense without a name / note!', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-      return;
-    }
+  if (eName === null || eName === '') {
+    ons.notification.toast(lang.noName, {
+      title: 'Aviso!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
+    return;
+  }
 
-    if (eMoney == null || eMoney == '') {
-      ons.notification.toast('I can add that expense, but I need to know how much you spent.', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-      return;
-    }
-  } else {
-    if (eName == null || eName == '') {
-      ons.notification.toast('No puedo añadir un gasto sin un nombre/nota!', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-      return;
-    }
-
-    if (eMoney == null || eMoney == '') {
-      ons.notification.toast('Puedo añadir ese gasto, pero necesito saber cuanto gastaste.', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-      return;
-    }
+  if (eMoney === null || eMoney === '') {
+    ons.notification.toast(lang.noExpense, {
+      title: 'Aviso!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
+    return;
   }
   // Convierto la cantidad después de ver que fue escrita
   eMoney = parseFloat(eMoney).toFixed(2);
 
-  if (eDate == null || eDate == '') {
+  if (eDate === null || eDate === '') {
     eDate = new Date().toJSON().slice(0, 10);
   }
 
   let testSign = Math.sign(eMoney);
-  if (languaje == 'false') {
-    if (testSign == '-1' || testSign == '-0') {
-      ons.notification.toast('You cannot add a negative expense, that would be very strange.', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-      return;
-    }
-  } else {
-    if (testSign == '-1' || testSign == '-0') {
-      ons.notification.toast('No puedes añadir un gasto negativo, eso seria muy extraño.', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-      return;
-    }
+  if (testSign === -1 || testSign === -0) {
+    ons.notification.toast(lang.noNegative, {
+      title: 'Aviso!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
+    return;
   }
 
-  if (selectedOption == 'NO RESTAR' || selectedOption == 'DO NOT SUBTRACT') {
-  } else {
+  if (selectedOption !== 'NO RESTAR' || selectedOption !== 'DO NOT SUBTRACT') {
     // Resto el dinero de donde se selecciono, me regreso sino se puede restar
     if (updateMoneyStorage(selectedOption, eMoney)) {
       return;
@@ -161,19 +122,11 @@ function hideAlertExpense() {
 
   updateExpenseTotalMoney(expenseObject, eMoney);
 
-  if (languaje == 'false') {
-    ons.notification.toast(`New expense ${expenseObject} added!`, {
-      title: 'Notice!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  } else {
-    ons.notification.toast(`Nuevo gasto ${expenseObject} añadido!`, {
-      title: 'Aviso!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  }
+  ons.notification.toast(`${lang.newExpense} ${expenseObject} ${lang.added}`, {
+    title: 'Aviso!',
+    timeout: 2000,
+    animation: 'ascend',
+  });
 
   sessionStorage.clear();
   document.getElementById('alertExpenseNote').value = null;
@@ -185,32 +138,25 @@ function hideAlertExpense() {
 function updateMoneyStorage(sendName, amount) {
   let moneyStorage = JSON.parse(localStorage.getItem('moneyStorage'));
 
-  let languaje = localStorage.getItem('storageSwitchLanguage');
+  let lang = getLang('expense');
 
-  if (moneyStorage == null || moneyStorage == 'null') {
-  } else {
+  if (moneyStorage !== null) {
     for (let i = 0; i < moneyStorage.length; i++) {
       if (moneyStorage[i].moneyName == sendName) {
         let test = +moneyStorage[i].moneyCurrent + -amount;
         let testSign = Math.sign(test);
-        if (testSign == '-1') {
-          if (languaje == 'false') {
-            ons.notification.toast('No more money can be subtracted from the selected location.', {
-              title: 'Notice!',
-              timeout: 2000,
-              animation: 'ascend',
-            });
-          } else {
-            ons.notification.toast('No se puede restar más dinero del lugar seleccionado.', {
-              title: 'Aviso!',
-              timeout: 2000,
-              animation: 'ascend',
-            });
-          }
+        if (testSign === -1) {
+          ons.notification.toast(lang.noMore, {
+            title: 'Aviso!',
+            timeout: 2000,
+            animation: 'ascend',
+          });
           return true;
         }
 
-        moneyStorage[i].moneyCurrent = (parseFloat(moneyStorage[i].moneyCurrent) - parseFloat(amount)).toFixed(2);
+        moneyStorage[i].moneyCurrent = (
+          parseFloat(moneyStorage[i].moneyCurrent) - parseFloat(amount)
+        ).toFixed(2);
 
         localStorage.setItem('moneyStorage', JSON.stringify(moneyStorage));
         break;
@@ -220,20 +166,14 @@ function updateMoneyStorage(sendName, amount) {
 }
 
 function hideAlertExpenseNoChange() {
-  let languaje = localStorage.getItem('storageSwitchLanguage');
-  if (languaje == 'false') {
-    ons.notification.toast('Nothing has been modified :)', {
-      title: 'Aviso!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  } else {
-    ons.notification.toast('No se ha modificado nada :)', {
-      title: 'Aviso!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  }
+  let lang = getLang('expense');
+
+  ons.notification.toast(lang.allNormal, {
+    title: 'Aviso!',
+    timeout: 2000,
+    animation: 'ascend',
+  });
+
   sessionStorage.clear();
   document.getElementById('alertExpenseNote').value = null;
   document.getElementById('alertExpenseMoney').value = null;
@@ -247,7 +187,7 @@ function editDetailExpense(idSend) {
   let expenses = JSON.parse(localStorage.getItem('expenseDetailStorage'));
   sessionStorage.setItem('editExpense', idSend);
 
-  let note, money, date, inWallet;
+  let note, money, date;
 
   for (let i = 0; i < expenses.length; i++) {
     if (expenses[i].inID == idSend) {
@@ -265,7 +205,7 @@ function editDetailExpense(idSend) {
     document.getElementById('alertEditExpenseMoney').value = money;
     document.getElementById('alertEditExpenseDate').value = date;
   } else {
-    ons.notification.toast('Ups! No se ha podido cargar la ventana para editar!', {
+    ons.notification.toast('Ups! contact support', {
       title: 'Error!',
       timeout: 2000,
       animation: 'ascend',
@@ -276,72 +216,46 @@ function editDetailExpense(idSend) {
 // PARA EDITAR UN GASTO YA CREADO
 function hideEditAlertExpense() {
   let note = document.getElementById('alertEditExpenseNote').value;
-  let money = parseFloat(document.getElementById('alertEditExpenseMoney').value).toFixed(2);
+  let money = parseFloat(document.getElementById('alertEditExpenseMoney').value).toFixed(
+    2,
+  );
   let date = document.getElementById('alertEditExpenseDate').value;
   let mName, id, index, inWallet;
 
   let idSend = sessionStorage.getItem('editExpense');
   let expenses = JSON.parse(localStorage.getItem('expenseDetailStorage'));
 
-  let languaje = localStorage.getItem('storageSwitchLanguage');
+  let lang = getLang('expense');
 
-  if (languaje == 'false') {
-    if (note == null || note == '') {
-      ons.notification.toast('I cannot add an expense without a name / note!', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-      return;
-    }
-
-    if (money == null || money == '' || money == 'NaN') {
-      ons.notification.toast('I can edit that expense, but I need to know how much you spent.', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-      return;
-    }
-  } else {
-    if (note == null || note == '') {
-      ons.notification.toast('No puedo añadir un gasto sin un nombre/nota!', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-      return;
-    }
-
-    if (money == null || money == '' || money == 'NaN') {
-      ons.notification.toast('Puedo editar ese gasto, pero necesito saber cuanto gastaste.', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-      return;
-    }
+  if (note === null || note === '') {
+    ons.notification.toast(lang.noName, {
+      title: 'Aviso!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
+    return;
   }
 
-  if (date == null || date == '') {
+  if (money == null || money == '' || money == 'NaN') {
+    ons.notification.toast(lang.noExpense, {
+      title: 'Aviso!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
+    return;
+  }
+
+  if (date === null || date === '') {
     date = new Date().toJSON().slice(0, 10);
   }
 
   let testSign = Math.sign(money);
-  if (testSign == '-1' || testSign == '-0') {
-    if (languaje == 'false') {
-      ons.notification.toast('You cannot add a negative expense, that would be very strange.', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-    } else {
-      ons.notification.toast('No puedes añadir un gasto negativo, eso seria muy extraño.', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-    }
+  if (testSign === -1 || testSign === -0) {
+    ons.notification.toast(lang.noNegative, {
+      title: 'Aviso!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
     return;
   }
 
@@ -373,19 +287,11 @@ function hideEditAlertExpense() {
   insertNewExpenseAmount(mName);
   updateExpenseLastDays(mName);
 
-  if (languaje == 'false') {
-    ons.notification.toast(`Expense ${mName} modified correctly!`, {
-      title: 'Notice!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  } else {
-    ons.notification.toast(`Gasto ${mName} modificado correctamente!`, {
-      title: 'Aviso!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  }
+  ons.notification.toast(`${lang.expense} ${mName} ${lang.modify}`, {
+    title: 'Aviso!',
+    timeout: 2000,
+    animation: 'ascend',
+  });
 
   sessionStorage.clear();
   document.getElementById('alertEditExpenseNote').value = null;
@@ -413,16 +319,27 @@ function insertNewExpenseAmount(sendName) {
     if (mainStorage[i].expenseName == sendName) {
       index = i;
 
+      let {
+        expenseName,
+        mainDate,
+        iconName,
+        iconUrl,
+        toShow,
+        expenseColor,
+        expenseColor1,
+        expenseGradient,
+      } = mainStorage[i];
+
       let expense = {
-        expenseName: mainStorage[i].expenseName,
+        expenseName,
         totalExpense: newAmount,
-        mainDate: mainStorage[i].mainDate,
-        iconName: mainStorage[i].iconName,
-        iconUrl: mainStorage[i].iconUrl,
-        toShow: mainStorage[i].toShow,
-        expenseColor: mainStorage[i].expenseColor,
-        expenseColor1: mainStorage[i].expenseColor1,
-        expenseGradient: mainStorage[i].expenseGradient,
+        mainDate,
+        iconName,
+        iconUrl,
+        toShow,
+        expenseColor,
+        expenseColor1,
+        expenseGradient,
       };
       mainStorage[index] = expense;
       localStorage.setItem('expenseStorage', JSON.stringify(mainStorage));
@@ -431,20 +348,14 @@ function insertNewExpenseAmount(sendName) {
 }
 
 function hideEditAlertExpenseNoChange() {
-  let languaje = localStorage.getItem('storageSwitchLanguage');
-  if (languaje == 'false') {
-    ons.notification.toast('Nothing has been modified :)', {
-      title: 'Notice!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  } else {
-    ons.notification.toast('No se ha modificado nada :)', {
-      title: 'Aviso!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  }
+  let lang = getLang('expense');
+
+  ons.notification.toast(lang.allNormal, {
+    title: 'Aviso!',
+    timeout: 2000,
+    animation: 'ascend',
+  });
+
   sessionStorage.clear();
   document.getElementById('alertEditExpenseMoney').value = null;
   document.getElementById('alertEditExpenseDate').value = null;
@@ -460,39 +371,35 @@ function editExpense(sendName) {
   // Icono, iconourl, icono gradient, iconoc1 y c2
   for (let i = 0; i < expenseStorage.length; i++) {
     if (expenseStorage[i].expenseName == sendName) {
-      sessionStorage.setItem('expenseIconName', expenseStorage[i].iconName);
-      sessionStorage.setItem('expenseIconUrl', expenseStorage[i].iconUrl);
-      sessionStorage.setItem('tempGradient', expenseStorage[i].expenseGradient);
-      sessionStorage.setItem('colorExpense', expenseStorage[i].expenseColor);
-      sessionStorage.setItem('colorExpense1', expenseStorage[i].expenseColor1);
+      let { iconName, iconUrl, expenseGradient, expenseColor, expenseColor1 } =
+        expenseStorage[i];
+
+      sessionStorage.setItem('expenseIconName', iconName);
+      sessionStorage.setItem('expenseIconUrl', iconUrl);
+      sessionStorage.setItem('tempGradient', expenseGradient);
+      sessionStorage.setItem('colorExpense', expenseColor);
+      sessionStorage.setItem('colorExpense1', expenseColor1);
       break;
     }
   }
 
   const navigator = document.querySelector('#navigator');
-  navigator.pushPage('editExpense.html');
+  navigator.pushPage('pages/expensePage/editExpense.html');
 }
 
 function hideAlertExpenseEditNoChange() {
   document.getElementById('newExpenseNameEdit').value = null;
 
-  let languaje = localStorage.getItem('storageSwitchLanguage');
+  let lang = getLang('expense');
 
   sessionStorage.clear();
   functionPopPage();
-  if (languaje == 'false') {
-    ons.notification.toast('Okay, everything normal!', {
-      title: 'Aviso!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  } else {
-    ons.notification.toast('De acuerdo, todo normal!', {
-      title: 'Aviso!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  }
+
+  ons.notification.toast(lang.allNormal, {
+    title: 'Aviso!',
+    timeout: 2000,
+    animation: 'ascend',
+  });
 }
 
 // MODIFICA TODO EL EXPENSE
@@ -508,7 +415,7 @@ function hideAlertExpenseEdit() {
   let expenseColor = sessionStorage.getItem('colorExpense');
   let expenseColor1 = sessionStorage.getItem('colorExpense1');
 
-  let languaje = localStorage.getItem('storageSwitchLanguage');
+  let lang = getLang('expense');
 
   if (expenseGradient == null || expenseGradient == '') {
     expenseGradient = '--gradient_0';
@@ -516,24 +423,16 @@ function hideAlertExpenseEdit() {
     expenseColor1 = '#f4dcf5';
   }
 
-  if (newName == null || newName == 'null' || newName == '') {
-    if (languaje == 'false') {
-      ons.notification.toast('You must add a new name to the expense!', {
-        title: 'Notice!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-    } else {
-      ons.notification.toast('Debes añadir un nuevo nombre al gasto!', {
-        title: 'Aviso!',
-        timeout: 2000,
-        animation: 'ascend',
-      });
-    }
+  if (newName === null || newName === '') {
+    ons.notification.toast(lang.noName, {
+      title: 'Aviso!',
+      timeout: 2000,
+      animation: 'ascend',
+    });
     return;
   }
 
-  if (newIcon == null || newIcon == 'null' || newIcon == '') {
+  if (newIcon == null || newIcon == '') {
     newIcon = 'construction.png';
   }
 
@@ -573,19 +472,11 @@ function hideAlertExpenseEdit() {
     localStorage.setItem('expenseStorage', JSON.stringify(expenseStorage));
   }
 
-  if (languaje == 'false') {
-    ons.notification.toast(`Expenditure ${newName} modified successfully!`, {
-      title: 'Notice!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  } else {
-    ons.notification.toast(`Gasto ${newName} modificado exitosamente!`, {
-      title: 'Aviso!',
-      timeout: 2000,
-      animation: 'ascend',
-    });
-  }
+  ons.notification.toast(`${lang.expense} ${newName} ${lang.modify}`, {
+    title: 'Aviso!',
+    timeout: 2000,
+    animation: 'ascend',
+  });
 
   functionPopPage(2);
   sessionStorage.clear();
@@ -596,7 +487,13 @@ function loadIconsEdit() {
   iconsView.innerHTML = '';
 
   let art = `./assets/icons/icons_list/art/`;
-  let artNames = ['brush.png', 'format_color_fill.png', 'format_paint.png', 'imagesearch_roller.png', 'palette.png'];
+  let artNames = [
+    'brush.png',
+    'format_color_fill.png',
+    'format_paint.png',
+    'imagesearch_roller.png',
+    'palette.png',
+  ];
 
   let book = `./assets/icons/icons_list/books/`;
   let bookNames = [
@@ -623,7 +520,12 @@ function loadIconsEdit() {
   ];
 
   let camera = `./assets/icons/icons_list/camera/`;
-  let cameraNames = ['camera.png', 'photo_camera.png', 'video_camera_back.png', 'videocam.png'];
+  let cameraNames = [
+    'camera.png',
+    'photo_camera.png',
+    'video_camera_back.png',
+    'videocam.png',
+  ];
 
   let fix = `./assets/icons/icons_list/fix/`;
   let fixNames = [
@@ -660,7 +562,13 @@ function loadIconsEdit() {
   ];
 
   let fun = `./assets/icons/icons_list/fun/`;
-  let funNames = ['attractions.png', 'celebration.png', 'festival.png', 'stadia_controller.png', 'theater_comedy.png'];
+  let funNames = [
+    'attractions.png',
+    'celebration.png',
+    'festival.png',
+    'stadia_controller.png',
+    'theater_comedy.png',
+  ];
 
   let money = `./assets/icons/icons_list/money/`;
   let moneyNames = [
@@ -695,7 +603,13 @@ function loadIconsEdit() {
   ];
 
   let pc = `./assets/icons/icons_list/pc/`;
-  let pcNames = ['computer.png', 'desktop_windows.png', 'devices.png', 'mouse.png', 'print.png'];
+  let pcNames = [
+    'computer.png',
+    'desktop_windows.png',
+    'devices.png',
+    'mouse.png',
+    'print.png',
+  ];
 
   let sport = `./assets/icons/icons_list/sport/`;
   let sportNames = [
@@ -715,7 +629,13 @@ function loadIconsEdit() {
   ];
 
   let time = `./assets/icons/icons_list/time/`;
-  let timeNames = ['alarm.png', 'date_range.png', 'hourglass_empty.png', 'schedule.png', 'watch.png'];
+  let timeNames = [
+    'alarm.png',
+    'date_range.png',
+    'hourglass_empty.png',
+    'schedule.png',
+    'watch.png',
+  ];
 
   let transport = `./assets/icons/icons_list/transport/`;
   let transportNames = [
@@ -737,7 +657,13 @@ function loadIconsEdit() {
   ];
 
   let travel = `./assets/icons/icons_list/travel/`;
-  let travelNames = ['airplane_ticket.png', 'connecting_airports.png', 'flight_takeoff.png', 'luggage.png', 'map.png'];
+  let travelNames = [
+    'airplane_ticket.png',
+    'connecting_airports.png',
+    'flight_takeoff.png',
+    'luggage.png',
+    'map.png',
+  ];
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Arte</p>`;
   for (let i = 0; i < artNames.length; i++) {
@@ -874,112 +800,60 @@ function selectIconEdit(iconName, url) {
 }
 
 function deleteDetailExpense(idSend) {
-  let languaje = localStorage.getItem('storageSwitchLanguage');
-  if (languaje == 'false') {
-    ons.notification.confirm({
-      message: 'Are you sure to erase the expense?',
-      title: 'Notice!',
-      buttonLabels: ['Yes, erase', 'Cancel'],
-      animation: 'default',
-      primaryButtonIndex: 1,
-      cancelable: true,
-      callback: function (index) {
-        if (0 === index) {
-          let detailExpenses = JSON.parse(localStorage.getItem('expenseDetailStorage'));
-          let loadName, amountLess;
+  let lang = getLang('expense');
+  ons.notification.confirm({
+    message: lang.confirmDelete,
+    title: lang.notice,
+    buttonLabels: [lang.confirm, lang.cancel],
+    animation: 'default',
+    primaryButtonIndex: 1,
+    cancelable: true,
+    callback: function (index) {
+      if (0 === index) {
+        let detailExpenses = JSON.parse(localStorage.getItem('expenseDetailStorage'));
+        let loadName, amountLess;
 
-          for (let i = 0; i < detailExpenses.length; i++) {
-            if (detailExpenses[i].inID == idSend) {
-              loadName = detailExpenses[i].expenseName;
-              amountLess = detailExpenses[i].inAmount;
-              detailExpenses.splice(i, 1);
-              i--;
-              break;
-            }
+        for (let i = 0; i < detailExpenses.length; i++) {
+          if (detailExpenses[i].inID == idSend) {
+            loadName = detailExpenses[i].expenseName;
+            amountLess = detailExpenses[i].inAmount;
+            detailExpenses.splice(i, 1);
+            i--;
+            break;
           }
-          localStorage.setItem('expenseDetailStorage', JSON.stringify(detailExpenses));
-
-          ons.notification.toast('The selected expense has been deleted!', {
-            title: 'Notice!',
-            timeout: 2000,
-            animation: 'ascend',
-          });
-
-          /* Actualizo los datos de la meta principal */
-          reInsertExpenseDetail(loadName);
-          updateExpenseTotalMoney(loadName, '-' + amountLess);
-          updateExpenseLastDays(loadName);
-
-          let storage = JSON.parse(localStorage.getItem('expenseStorage'));
-
-          for (let i = 0; i < storage.length; i++) {
-            if (storage[i].expenseName == loadName) {
-              document.getElementById('totalExpenseDetail').innerHTML = formatMoney(storage[i].totalExpense);
-              break;
-            }
-          }
-        } else {
-          ons.notification.toast('Okay, everything flows as normal!', {
-            title: 'Notice!',
-            timeout: 1000,
-            animation: 'ascend',
-          });
         }
-      },
-    });
-  } else {
-    ons.notification.confirm({
-      message: '¿Estas seguro de borrar el gasto?',
-      title: 'Aviso!',
-      buttonLabels: ['Sí, borrar', 'Cancelar'],
-      animation: 'default',
-      primaryButtonIndex: 1,
-      cancelable: true,
-      callback: function (index) {
-        if (0 === index) {
-          let detailExpenses = JSON.parse(localStorage.getItem('expenseDetailStorage'));
-          let loadName, amountLess;
+        localStorage.setItem('expenseDetailStorage', JSON.stringify(detailExpenses));
 
-          for (let i = 0; i < detailExpenses.length; i++) {
-            if (detailExpenses[i].inID == idSend) {
-              loadName = detailExpenses[i].expenseName;
-              amountLess = detailExpenses[i].inAmount;
-              detailExpenses.splice(i, 1);
-              i--;
-              break;
-            }
+        ons.notification.toast(lang.success, {
+          title: 'Aviso!',
+          timeout: 2000,
+          animation: 'ascend',
+        });
+
+        /* Actualizo los datos de la meta principal */
+        reInsertExpenseDetail(loadName);
+        updateExpenseTotalMoney(loadName, '-' + amountLess);
+        updateExpenseLastDays(loadName);
+
+        let storage = JSON.parse(localStorage.getItem('expenseStorage'));
+
+        for (let i = 0; i < storage.length; i++) {
+          if (storage[i].expenseName == loadName) {
+            document.getElementById('totalExpenseDetail').innerHTML = formatMoney(
+              storage[i].totalExpense,
+            );
+            break;
           }
-          localStorage.setItem('expenseDetailStorage', JSON.stringify(detailExpenses));
-
-          ons.notification.toast('Se ha eliminado el gasto seleccionado!', {
-            title: 'Aviso!',
-            timeout: 2000,
-            animation: 'ascend',
-          });
-
-          /* Actualizo los datos de la meta principal */
-          reInsertExpenseDetail(loadName);
-          updateExpenseTotalMoney(loadName, '-' + amountLess);
-          updateExpenseLastDays(loadName);
-
-          let storage = JSON.parse(localStorage.getItem('expenseStorage'));
-
-          for (let i = 0; i < storage.length; i++) {
-            if (storage[i].expenseName == loadName) {
-              document.getElementById('totalExpenseDetail').innerHTML = formatMoney(storage[i].totalExpense);
-              break;
-            }
-          }
-        } else {
-          ons.notification.toast('De acuerdo, todo fluye como normalmente!', {
-            title: 'Aviso!',
-            timeout: 1000,
-            animation: 'ascend',
-          });
         }
-      },
-    });
-  }
+      } else {
+        ons.notification.toast(lang.allNormal, {
+          title: 'Aviso!',
+          timeout: 1000,
+          animation: 'ascend',
+        });
+      }
+    },
+  });
 }
 
 /* RECARGA LOS GASTOS AL ELIMINAR UNO CUANDO SE ENTRA DETALLADAMENTE A UN GASTO*/
@@ -989,11 +863,10 @@ function reInsertExpenseDetail(sendName) {
 
   let expensesDetail = JSON.parse(localStorage.getItem('expenseDetailStorage'));
 
-  let languaje = localStorage.getItem('storageSwitchLanguage');
+  let lang = getLang('expense');
 
   let actualEx = 0;
-  if (expensesDetail == null || expensesDetail == 'null') {
-  } else {
+  if (expensesDetail !== null) {
     for (let i = 0; i < expensesDetail.length; i++) {
       if (expensesDetail[i].expenseName == sendName) {
         actualEx = 1;
@@ -1003,85 +876,84 @@ function reInsertExpenseDetail(sendName) {
   }
 
   if (actualEx == 0) {
-    if (languaje == 'false') {
-      detailDetailExpenseView.innerHTML = `<div style="margin-bottom: 30px;">
-        <label class="labelDetailExpense" style="text-align:center">Nothing to show, you are doing well with the savings...</label>
-      </div>`;
-    } else {
-      detailDetailExpenseView.innerHTML = `<div style="margin-bottom: 30px;">
-        <label class="labelDetailExpense" style="text-align:center">Nada por mostrar, vas bien con los ahorros...</label>
-      </div>`;
-    }
+    detailDetailExpenseView.innerHTML = `<div style="margin-bottom: 30px;">
+      <label class="labelDetailExpense" style="text-align:center"
+        >${lang.nothing}</label
+      >
+    </div>`;
   } else {
     for (let i = 0; i < expensesDetail.length; i++) {
       if (expensesDetail[i].expenseName == sendName) {
-        let iName = expensesDetail[i].inName;
         let iAmount = formatMoney(expensesDetail[i].inAmount);
-        let iDate = expensesDetail[i].inDate;
-        let iD = expensesDetail[i].inID;
+        // let iName = expensesDetail[i].inName;
+        // let iDate = expensesDetail[i].inDate;
+        // let iD = expensesDetail[i].inID;
+
+        let { inName, inDate, inID } = expensesDetail[i];
 
         let today = new Date().toJSON().slice(0, 10);
         let days = dateDiff(today, iDate);
 
-        if (iDate === '') {
-          iDate = 'SIN DATOS DE FECHA';
+        if (inDate === '') {
+          inDate = lang.noDateMayus;
         } else {
-          if (Math.sign(days) == 1 || Math.sign(days) == '1') {
-            iDate = 'EN ' + days + ' DÍAS';
-          } else if (Math.sign(days) == '-1' || Math.sign(days) == -1) {
-            iDate = 'HACE ' + Math.abs(days) + ' DÍAS';
-          } else if (Math.sign(days) == '0' || Math.sign(days) == 0) {
-            iDate = 'HOY';
+          if (Math.sign(days) === 1) {
+            inDate = `${lang.in} ${days} ${days}`;
+          } else if (Math.sign(days) === -1) {
+            inDate = `${ago} ${Math.abs(days)} ${days}`;
+          } else if (Math.sign(days) === 0) {
+            inDate = lang.today;
           }
         }
 
-        if (languaje == 'false') {
-          detailDetailExpenseView.innerHTML += `<ons-list-item expandable style="margin-top: -16px;" modifier="nodivider">
-            <div class="center" style="margin-right: 16px">
-              <div style="max-width: 50%;">
-                <label class="list-item__title labelDetailExpense" style="text-align:left; margin-left:16px; font-size:22px">${iName}</label> 
-                <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:left; margin-left:16px">${iDate}</label>
-              </div>
-              <div style="margin-left: auto; margin-right: 0px;">
-                <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
-                <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
-              </div>
-            </div>
-
-            <div class="expandable-content" style="grid-template-columns: 1fr 1fr;">
-              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 32px; margin-right: 8px; background: var(--flat-button-color); color: var(--flat-button-color-text)" onclick="editDetailExpense('${iD}')" >
-                EDIT
-              </ons-button>
-
-              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 8px; margin-right: 32px; background: var(--flat-button-light-color); color: var(--flat-button-light-color-text)" onclick="deleteDetailExpense('${iD}')" >
-                DELETE
-              </ons-button>
-            </div>
-          </ons-list-item>`;
-        } else {
-          detailDetailExpenseView.innerHTML += `<ons-list-item expandable style="margin-top: -16px;" modifier="nodivider">
+        detailDetailExpenseView.innerHTML += `<ons-list-item
+          expandable
+          style="margin-top: -16px;"
+          modifier="nodivider"
+        >
           <div class="center" style="margin-right: 16px">
             <div style="max-width: 50%;">
-              <label class="list-item__title labelDetailExpense" style="text-align:left; margin-left:16px; font-size:22px">${iName}</label> 
-              <label class="list-item__subtitle labelDetailExpense" style="padding-top: 0px; font-size: 18px; text-align:left; margin-left:16px">${iDate}</label>
+              <label
+                class="list-item__title labelDetailExpense"
+                style="text-align:left; margin-left:16px; font-size:22px"
+                >${inName}</label
+              >
+              <label
+                class="list-item__subtitle labelDetailExpense"
+                style="padding-top: 0px; font-size: 18px; text-align:left; margin-left:16px"
+                >${inDate}</label
+              >
             </div>
             <div style="margin-left: auto; margin-right: 0px;">
-              <span class="labelInfoDetailExpense" style="font-size:26px; color: var(--expense-detail)">$</span> 
-              <span class="labelInfoDetailExpense" style="font-size:26px;">${iAmount}</span>
+              <span
+                class="labelInfoDetailExpense"
+                style="font-size:26px; color: var(--expense-detail)"
+                >$</span
+              >
+              <span class="labelInfoDetailExpense" style="font-size:26px;"
+                >${iAmount}</span
+              >
             </div>
           </div>
 
-            <div class="expandable-content" style="grid-template-columns: 1fr 1fr;">
-              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 32px; margin-right: 8px; background: var(--flat-button-color); color: var(--flat-button-color-text)" onclick="editDetailExpense('${iD}')" >
-                EDITAR
-              </ons-button>
-  
-              <ons-button class="moneyButtonDe" style="margin-bottom: 16px; margin-left: 8px; margin-right: 32px; background: var(--flat-button-light-color); color: var(--flat-button-light-color-text)" onclick="deleteDetailExpense('${iD}')" >
-                ELIMINAR
-              </ons-button>
-            </div>
-          </ons-list-item>`;
-        }
+          <div class="expandable-content" style="grid-template-columns: 1fr 1fr;">
+            <ons-button
+              class="moneyButtonDe"
+              style="margin-bottom: 16px; margin-left: 32px; margin-right: 8px; background: var(--flat-button-color); color: var(--flat-button-color-text)"
+              onclick="editDetailExpense('${inID}')"
+            >
+              ${lang.edit}
+            </ons-button>
+
+            <ons-button
+              class="moneyButtonDe"
+              style="margin-bottom: 16px; margin-left: 8px; margin-right: 32px; background: var(--flat-button-light-color); color: var(--flat-button-light-color-text)"
+              onclick="deleteDetailExpense('${inID}')"
+            >
+            ${lang.delete}
+            </ons-button>
+          </div>
+        </ons-list-item>`;
       }
     }
   }
