@@ -1,17 +1,18 @@
+//TODO: This works?
 // ALERT DIALOG PARA EDITAR UNA META COMPLETAMENTE
-function createAlertDialogToEditGoal() {
-  let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
-  let parseGoal = JSON.parse(retrievedGoal);
+// function createAlertDialogToEditGoal() {
+//   let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
+//   let parseGoal = JSON.parse(retrievedGoal);
 
-  //Guardo el nombre por si el usuario lo edita
-  localStorage.setItem('nameSaved', parseGoal.name);
+//   //Guardo el nombre por si el usuario lo edita
+//   localStorage.setItem('nameSaved', parseGoal.name);
 
-  document.getElementById('editGoalName').value = parseGoal.name;
-  document.getElementById('editGoalDescription').value = parseGoal.description;
-  document.getElementById('editGoalMoney').value = parseGoal.goalMoney;
-  document.getElementById('editActualGoalMoney').value = parseGoal.actualMoney;
-  document.getElementById('editGoalDate').value = parseGoal.date;
-}
+//   document.getElementById('editGoalName').value = parseGoal.name;
+//   document.getElementById('editGoalDescription').value = parseGoal.description;
+//   document.getElementById('editGoalMoney').value = parseGoal.goalMoney;
+//   document.getElementById('editActualGoalMoney').value = parseGoal.actualMoney;
+//   document.getElementById('editGoalDate').value = parseGoal.date;
+// }
 
 /* CUANDO SE FINALIZA DE MODIFICAR UNA META*/
 function hideAlertDialog() {
@@ -24,13 +25,12 @@ function hideAlertDialog() {
   let goalDate = document.getElementById('editGoalDate').value;
 
   let goalGradient = sessionStorage.getItem('tempGradient');
+
   //Nombre de expense para reciclar memoria
   let iconUrl = sessionStorage.getItem('expenseIconUrl');
   let iconName = sessionStorage.getItem('expenseIconName');
 
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
-
-  let indexGoal;
 
   let sName = localStorage.getItem('nameSaved');
   let testMoney = Math.sign(goalMoney);
@@ -78,22 +78,23 @@ function hideAlertDialog() {
     goalDate = lang.noDate;
   }
 
-  if (actualMoney == '' || actualMoney == 'NaN') {
+  if (actualMoney === '' || actualMoney == 'NaN') {
     actualMoney = '0.00';
   }
 
-  if (goalGradient == null || goalGradient == '') {
+  if (goalGradient === null) {
     goalGradient = '--gradient_1';
   }
 
-  if (iconName == '' || iconName == null) {
+  if (iconName === null) {
     iconName = 'format_paint.png';
   }
 
-  if (iconUrl == '' || iconUrl == null) {
+  if (iconUrl === null) {
     iconUrl = './assets/icons/icons_list/art/';
   }
 
+  let indexGoal;
   for (let i = 0; i < goals.length; i++) {
     if (goals[i].goalName == sName) {
       indexGoal = i; //Pongo la posición donde esta mi objeto que modificare
@@ -150,30 +151,6 @@ function hideAlertNoChange() {
 /*********************************************************/
 // ALERT DIALOG PARA EDITAR UNICAMENTE EL DINERO DE LA META
 
-function makeSum() {
-  let actualAmount = document.getElementById('editOnlyMoneyActualMoney').textContent;
-  let newAmount = document.getElementById('editOnlyGoalMoney').value;
-
-  let sumResult = parseFloat(
-    parseFloat(actualAmount) + Math.abs(parseFloat(newAmount)),
-  ).toFixed(2);
-
-  document.getElementById('editOnlyEndMoney').innerHTML = formatMoney(sumResult);
-  sessionStorage.setItem('addNewMoney', sumResult);
-}
-
-function makeRes() {
-  let actualAmount = document.getElementById('editOnlyMoneyActualMoney').textContent;
-  let newAmount = document.getElementById('editOnlyGoalMoney').value;
-
-  let sumResult = parseFloat(
-    parseFloat(actualAmount) - Math.abs(parseFloat(newAmount)),
-  ).toFixed(2);
-
-  document.getElementById('editOnlyEndMoney').innerHTML = formatMoney(sumResult);
-  sessionStorage.setItem('addNewMoney', sumResult);
-}
-
 function createAlertDialogToEditGoalMoney() {
   let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
   let parseGoal = JSON.parse(retrievedGoal);
@@ -189,29 +166,29 @@ function createAlertDialogToEditGoalMoney() {
   if (dialog) {
     document.getElementById('editOnlyEndMoney').innerHTML = '';
 
-    optionsContainer.innerHTML = `<ons-button
-    class="moneyButtonAdd"
-    onclick="insertActionEditGoal('add')"
-    style="margin-bottom: 16px; margin-top: 16px; margin-left: 0px; width: 90%"
-    id="newMoneyCancelButton"
-    >
-    ${lang.addMoney}
-      <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
-    </ons-button>
+    optionsContainer.innerHTML = html`<ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditGoal('add')"
+        style="margin-bottom: 16px; margin-top: 16px; margin-left: 0px; width: 90%"
+        id="newMoneyCancelButton"
+      >
+        ${lang.addMoney}
+        <i class="icon ion-md-add" style="font-size: 14px; margin-right: 16px"></i>
+      </ons-button>
 
-    <ons-button
-      class="moneyButtonAdd"
-      onclick="insertActionEditGoal('remove')"
-      style="margin-bottom: 16px; margin-left: 0px; width: 90%"
-      id="newMoneyCancelButton"
-    >
-      <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
-      ${lang.resMoney}
-    </ons-button>`;
+      <ons-button
+        class="moneyButtonAdd"
+        onclick="insertActionEditGoal('remove')"
+        style="margin-bottom: 16px; margin-left: 0px; width: 90%"
+        id="newMoneyCancelButton"
+      >
+        <i class="icon ion-md-remove" style="font-size: 14px; margin-right: 16px"></i>
+        ${lang.resMoney}
+      </ons-button>`;
 
     dialog.show();
   } else {
-    ons.notification.toast('Ups, contact an admin', {
+    ons.notification.toast('Ups, contact support!', {
       title: 'Error!',
       timeout: 2000,
       animation: 'ascend',
@@ -223,7 +200,7 @@ function hideAlertDialogMoney() {
   let lang = getLang('goals');
 
   if (document.getElementById('editOnlyGoalMoney') === null) {
-    ons.notification.toast('Selecciona que deseas hacer, por favor!', {
+    ons.notification.toast(lang.select, {
       title: 'Aviso!',
       timeout: 2000,
       animation: 'ascend',
@@ -235,7 +212,7 @@ function hideAlertDialogMoney() {
 
   let newMoney = sessionStorage.getItem('addNewMoney');
   let testMoney = Math.sign(newMoney);
-  if (element === null || element === '' || element == '') {
+  if (element === null || element == '') {
     ons.notification.toast(lang.noMoneyAdded, {
       title: 'Aviso!',
       timeout: 2000,
@@ -243,7 +220,7 @@ function hideAlertDialogMoney() {
     });
     return;
   }
-  if (testMoney == '-1' || testMoney === '-0') {
+  if (testMoney === -1 || testMoney === -0) {
     ons.notification.toast(lang.noPositive, {
       title: 'Aviso!',
       timeout: 2000,
@@ -300,7 +277,7 @@ function hideAlertDialogMoney() {
         localStorage.setItem('goalStorage', JSON.stringify(goals));
       }
 
-      // Checo como voy de dinero conforme a lo requerido en la meta.
+      // Reviso como voy de dinero conforme a lo requerido en la meta.
       let testElement = Math.sign(element);
       if (testElement === -1) {
         ons.notification.toast(
@@ -365,32 +342,36 @@ function insertActionEditGoal(option) {
   let lang = getLang('goals');
 
   if (option === 'add') {
-    optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);">
-      ${lang.addMoney}
-    </p>
-    <ons-input
-      onchange="makeSum()"
-      onkeypress="this.onchange()"
-      oninput="this.onchange()"
-      id="editOnlyGoalMoney"
-      modifier="underbar"
-      placeholder=""
-      type="number"
-      style="display: block; margin: -10px auto 16px"
-    ></ons-input>`;
+    optionsContainer.innerHTML = html`<p
+        style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);"
+      >
+        ${lang.addMoney}
+      </p>
+      <ons-input
+        onchange="makeSum()"
+        onkeypress="this.onchange()"
+        oninput="this.onchange()"
+        id="editOnlyGoalMoney"
+        modifier="underbar"
+        placeholder=""
+        type="number"
+        style="display: block; margin: -10px auto 16px"
+      ></ons-input>`;
   } else if (option === 'remove') {
-    optionsContainer.innerHTML = `<p style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);">
-      ${lang.resMoney}
-    </p>
-    <ons-input
-      onchange="makeRes()"
-      onkeypress="this.onchange()"
-      oninput="this.onchange()"
-      id="editOnlyGoalMoney"
-      modifier="underbar"
-      placeholder=""
-      type="number"
-      style="display: block; margin: -10px auto 16px"
-    ></ons-input>`;
+    optionsContainer.innerHTML = html`<p
+        style="margin: 0px auto -16px 0px; text-align: center; padding-top: 16px; color: var(--alert-custom-label);"
+      >
+        ${lang.resMoney}
+      </p>
+      <ons-input
+        onchange="makeRes()"
+        onkeypress="this.onchange()"
+        oninput="this.onchange()"
+        id="editOnlyGoalMoney"
+        modifier="underbar"
+        placeholder=""
+        type="number"
+        style="display: block; margin: -10px auto 16px"
+      ></ons-input>`;
   }
 }

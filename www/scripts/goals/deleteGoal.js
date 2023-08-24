@@ -1,10 +1,10 @@
-const deleteGoal = (sendGoalName) => {
+function deleteGoal(sendGoalName) {
   const lang = getLang('goals');
+
   ons.notification.confirm({
     message: lang.confirmDelete,
     title: lang.notice,
     buttonLabels: [lang.deleteOption, lang.cancel],
-    animation: 'default',
     primaryButtonIndex: 1,
     cancelable: true,
     callback: function (index) {
@@ -39,9 +39,9 @@ const deleteGoal = (sendGoalName) => {
       }
     },
   });
-};
+}
 
-const deleteGoalInsta = (sendGoalName) => {
+function deleteGoalInsta(sendGoalName) {
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
 
   for (let i = 0; i < goals.length; i++) {
@@ -51,4 +51,4 @@ const deleteGoalInsta = (sendGoalName) => {
     }
   }
   localStorage.setItem('goalStorage', JSON.stringify(goals));
-};
+}

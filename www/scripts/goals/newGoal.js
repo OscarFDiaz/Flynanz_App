@@ -1,4 +1,4 @@
-const makeNewGoal = () => {
+function makeNewGoal() {
   let goalName = document.getElementById('newGoalName').value;
   let goalDescription = document.getElementById('newGoalDescription').value;
   let goalMoney = document.getElementById('newGoalMoney').value;
@@ -95,10 +95,11 @@ const makeNewGoal = () => {
   });
 
   sessionStorage.removeItem('tempGradient');
+
   try {
     getGoals();
     functionPopPage();
   } catch (error) {
     functionPopPage();
   }
-};
+}

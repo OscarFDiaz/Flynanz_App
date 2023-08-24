@@ -1,28 +1,30 @@
-const addMoneyGoal = (sendGoalName) => {
+function addMoneyGoal(sendGoalName) {
   let goals = JSON.parse(localStorage.getItem('goalStorage'));
 
   for (let i = 0; i < goals.length; i++) {
-    let gName = goals[i].goalName;
+    let { goalName } = goals[i];
 
-    if (gName == sendGoalName) {
-      let gDescription = goals[i].goalDescription;
-      let gAMoney = goals[i].goalActualMoney;
-      let gMoney = goals[i].goalMoney;
-      let gDate = goals[i].goalDate;
-      let gGradient = goals[i].goalGradient;
-
-      let eicon = goals[i].iconName;
-      let eiconUrl = goals[i].iconUrl;
+    if (goalName == sendGoalName) {
+      let {
+        goalName,
+        goalDescription,
+        goalActualMoney,
+        goalMoney,
+        goalDate,
+        goalGradient,
+        iconName,
+        iconUrl,
+      } = goals[i];
 
       let findGoalObject = {
-        name: gName,
-        description: gDescription,
-        actualMoney: gAMoney,
-        goalMoney: gMoney,
-        date: gDate,
-        gradient: gGradient,
-        iconName: eicon,
-        iconUrl: eiconUrl,
+        goalName,
+        goalDescription,
+        goalActualMoney,
+        goalMoney,
+        goalDate,
+        goalGradient,
+        iconName,
+        iconUrl,
       };
 
       if (sessionStorage.getItem('sessionFindGoal') === null) {
@@ -35,4 +37,4 @@ const addMoneyGoal = (sendGoalName) => {
       break;
     }
   }
-};
+}
