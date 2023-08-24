@@ -58,7 +58,7 @@ function makeNewGoal() {
   }
 
   let goalTest = Math.sign(goalMoney);
-  if (goalTest === -1 || goalTest === -0 || goalTest === NaN) {
+  if (goalTest === -1 || goalTest === NaN) {
     ons.notification.toast(lang.noPositive, {
       title: 'Error!',
       timeout: 2000,
@@ -97,8 +97,8 @@ function makeNewGoal() {
   sessionStorage.removeItem('tempGradient');
 
   try {
-    getGoals();
     functionPopPage();
+    getGoals();
   } catch (error) {
     functionPopPage();
   }

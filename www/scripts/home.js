@@ -284,17 +284,25 @@ function loadOptions() {
   let totalMoney = localStorage.getItem('storageSwitchTotalMoney');
   if (totalMoney == true || totalMoney == 'true') {
     if (language == 'false') {
-      userHomeView.innerHTML += `
-      <div onclick="fn.load('money.html')" class="divTotalBalance">
-      <label class="cardHomeTitle cardHomeTitleBalance" style="margin-left: 0px">Total balance</label>
-      <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block;">$ 
-        <span class="totalMoneyTitle" id="totalMoneyMoney" style="margin-left: 0px">
-        </span>
-      </div>
-    </div>`;
+      userHomeView.innerHTML += ` <div
+        onclick="fn.load('pages/moneyPage/money.html')"
+        class="divTotalBalance"
+      >
+        <label class="cardHomeTitle cardHomeTitleBalance" style="margin-left: 0px"
+          >Total balance</label
+        >
+        <div
+          class="title totalMoneyTitle"
+          style="color: var(--card-text-title-color); display: block;"
+        >
+          $
+          <span class="totalMoneyTitle" id="totalMoneyMoney" style="margin-left: 0px">
+          </span>
+        </div>
+      </div>`;
     } else {
       userHomeView.innerHTML += `
-      <div onclick="fn.load('money.html')" class="divTotalBalance">
+      <div onclick="fn.load('pages/moneyPage/money.html')" class="divTotalBalance">
       <label class="cardHomeTitle cardHomeTitleBalance" style="margin-left: 0px">Dinero total</label>
       <div class="title totalMoneyTitle" style="color: var(--card-text-title-color); display: block">$ 
         <span class="totalMoneyTitle" id="totalMoneyMoney" style="margin-left: 0px">
@@ -329,7 +337,7 @@ function loadOptions() {
       }
 
       let toInner = '';
-      toInner += `<div class="walletsContainer" onclick="fn.load('money.html')">`;
+      toInner += `<div class="walletsContainer" onclick="fn.load('pages/moneyPage/money.html')">`;
 
       for (let i = 0; i < moneys.length; i++) {
         let mName = moneys[i].moneyName;
@@ -360,7 +368,7 @@ function loadOptions() {
     } else {
       userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Gastos</label>`;
     }
-    userHomeView.innerHTML += `<ons-card onclick="fn.load('expenses.html')" style="padding-top: 16px;">
+    userHomeView.innerHTML += `<ons-card onclick="fn.load('pages/expensePage/expenses.html')" style="padding-top: 16px;">
       <div class="content">
         <canvas id="oilChart" width="400" height="400"></canvas>
       </div>
@@ -375,7 +383,7 @@ function loadOptions() {
     } else {
       userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder">Dinero ahorrado</label>`;
     }
-    userHomeView.innerHTML += `<ons-card onclick="fn.load('savings.html')">
+    userHomeView.innerHTML += `<ons-card onclick="fn.load('pages/savingPage/savings.html')">
     <div style="display: flex; align-items: center;">
       <div class="iconSavedMoney" style="display: flex; justify-content: space-around;">
         <img src="./assets/icons/savingOption.png" alt="saving icon">
@@ -409,7 +417,7 @@ function loadOptions() {
       </label>`;
     }
     userHomeView.innerHTML += `
-      <div class="content" id="homeGoalsContainer" onclick="fn.load('goals.html')" style="margin-bottom: 40px"> 
+      <div class="content" id="homeGoalsContainer" onclick="fn.load('pages/goalPage/goals.html')" style="margin-bottom: 40px"> 
       </div>`;
   }
 
@@ -546,7 +554,7 @@ function deleteAllData() {
           sessionStorage.clear();
 
           const navigator = document.querySelector('#navigator');
-          navigator.resetToPage('splitterUser.html');
+          navigator.resetToPage('pages/userPage/splitterUser.html');
         } else {
           ons.notification.toast('Okay, everything flows as normal!', {
             title: 'Notice!',
@@ -572,7 +580,7 @@ function deleteAllData() {
           sessionStorage.clear();
 
           const navigator = document.querySelector('#navigator');
-          navigator.resetToPage('splitterUser.html');
+          navigator.resetToPage('pages/userPage/splitterUser.html');
         } else {
           ons.notification.toast('De acuerdo, todo fluye como normalmente!', {
             title: 'Aviso!',

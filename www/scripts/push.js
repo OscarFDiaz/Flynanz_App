@@ -38,13 +38,6 @@ function pushToDeleteOptions() {
   navigator.pushPage('pages/optionsPage/deleteOptions.html');
 }
 
-// WARNING -- revisar existencia de esta pgina
-function pushToEditTheme() {
-  setTheme('theme-custom');
-  const navigator = document.querySelector('#navigator');
-  navigator.pushPage('customTheme.html');
-}
-
 function pushToAbout() {
   const navigator = document.querySelector('#navigator');
   navigator.pushPage('pages/aboutPage/about.html');

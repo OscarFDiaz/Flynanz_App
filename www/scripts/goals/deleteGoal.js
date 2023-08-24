@@ -19,8 +19,12 @@ function deleteGoal(sendGoalName) {
         }
         localStorage.setItem('goalStorage', JSON.stringify(goals));
 
-        getGoals();
-        functionPopPage();
+        try {
+          functionPopPage();
+          getGoals();
+        } catch (error) {
+          functionPopPage();
+        }
 
         ons.notification.toast(
           `${lang.goalDeleted} ${sendGoalName} ${lang.goalDeleted1}`,

@@ -1,18 +1,18 @@
-//TODO: This works?
 // ALERT DIALOG PARA EDITAR UNA META COMPLETAMENTE
-// function createAlertDialogToEditGoal() {
-//   let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
-//   let parseGoal = JSON.parse(retrievedGoal);
+function createAlertDialogToEditGoal() {
+  let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
+  let { goalName, goalDescription, goalMoney, goalActualMoney, goalDate } =
+    JSON.parse(retrievedGoal);
 
-//   //Guardo el nombre por si el usuario lo edita
-//   localStorage.setItem('nameSaved', parseGoal.name);
+  //Guardo el nombre por si el usuario lo edita
+  localStorage.setItem('nameSaved', goalName);
 
-//   document.getElementById('editGoalName').value = parseGoal.name;
-//   document.getElementById('editGoalDescription').value = parseGoal.description;
-//   document.getElementById('editGoalMoney').value = parseGoal.goalMoney;
-//   document.getElementById('editActualGoalMoney').value = parseGoal.actualMoney;
-//   document.getElementById('editGoalDate').value = parseGoal.date;
-// }
+  document.getElementById('editGoalName').value = goalName;
+  document.getElementById('editGoalDescription').value = goalDescription;
+  document.getElementById('editGoalMoney').value = goalMoney;
+  document.getElementById('editActualGoalMoney').value = goalActualMoney;
+  document.getElementById('editGoalDate').value = goalDate;
+}
 
 /* CUANDO SE FINALIZA DE MODIFICAR UNA META*/
 function hideAlertDialog() {
@@ -56,7 +56,7 @@ function hideAlertDialog() {
     return;
   }
 
-  if (testMoney === -1 || testMoney === -0 || testMoney === 0) {
+  if (testMoney === -1) {
     ons.notification.toast(lang.noPositive, {
       title: 'Aviso!',
       timeout: 2000,
@@ -65,7 +65,7 @@ function hideAlertDialog() {
     return;
   }
 
-  if (testGMoney === -1 || testGMoney === -0) {
+  if (testGMoney === -1) {
     ons.notification.toast(lang.noPositive, {
       title: 'Aviso!',
       timeout: 2000,
@@ -130,8 +130,12 @@ function hideAlertDialog() {
     animation: 'ascend',
   });
 
-  functionPopPage(2);
-  getGoals();
+  try {
+    functionPopPage(2);
+    getGoals();
+  } catch (error) {
+    functionPopPage(2);
+  }
 }
 
 /* SE INTENTA MODIFICAR UNA META PERO SE CANCELA */
@@ -220,7 +224,7 @@ function hideAlertDialogMoney() {
     });
     return;
   }
-  if (testMoney === -1 || testMoney === -0) {
+  if (testMoney === -1) {
     ons.notification.toast(lang.noPositive, {
       title: 'Aviso!',
       timeout: 2000,
@@ -325,7 +329,13 @@ function hideAlertDialogMoney() {
   document.getElementById('alertEditGoalMoney').hide();
 
   sessionStorage.clear();
-  getGoals();
+
+  try {
+    functionPopPage();
+    getGoals();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function hideAlertNoChangeMoney() {
