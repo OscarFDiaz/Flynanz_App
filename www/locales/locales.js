@@ -50,6 +50,10 @@ const lang = {
         'También podrás reiniciar los gastos realizados en una categoría entrando a ésta y dando clic en: "REINICIAR". En dado caso de qué reinicies los gastos el dinero no se actualizará.',
       read5: 'Para crear un nuevo gasto pulsa "+".',
     },
+    chart: {
+      noExpenses: 'NO HAY GASTOS PARA MOSTRAR',
+      noActive: 'NO HAY GASTOS ACTIVADOS',
+    },
     home: {
       currentTheme: 'TEMA ACTUAL',
       currentMessage: 'Actualmente tienes este tema puesto.',

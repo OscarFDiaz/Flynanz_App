@@ -1,16 +1,13 @@
 function loadChartData(expenseData) {
   let expenses = JSON.parse(localStorage.getItem('expenseStorage'));
-  let language = localStorage.getItem('storageSwitchLanguage');
+  let lang = getLang('chart');
   let entry = false;
   let expenseCanvas = document.getElementById('oilChart');
 
   if (expenseData.datasets.length > 0) {
-    if (expenses == null || expenses == '') {
-      if (language == 'false') {
-        expenseData.labels.push('NO EXPENSES TO SHOW');
-      } else {
-        expenseData.labels.push('NO HAY GASTOS PARA MOSTRAR');
-      }
+    if (expenses === null || expenses === '') {
+      expenseData.labels.push(lang.noExpenses);
+
       expenseData.datasets[0].data.push('000.01');
       expenseData.datasets[0].backgroundColor.push(
         getComputedStyle(document.documentElement).getPropertyValue('--home-total-money'),
@@ -19,28 +16,22 @@ function loadChartData(expenseData) {
       for (let i = 0; i < expenses.length; i++) {
         if (expenses[i].toShow == true) {
           // Si el usuario decide que se muestre en la dona
-          let eName = expenses[i].expenseName;
-          let eExpense = expenses[i].totalExpense;
-          let eColor = expenses[i].expenseColor;
-          let eColor1 = expenses[i].expenseColor1;
+          let { expenseName, totalExpense, expenseColor, expenseColor1 } = expenses[i];
 
           let ctx = expenseCanvas.getContext('2d');
           let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-          gradient.addColorStop(0, eColor);
-          gradient.addColorStop(1, eColor1);
+          gradient.addColorStop(0, expenseColor);
+          gradient.addColorStop(1, expenseColor1);
 
-          expenseData.labels.push(eName);
-          expenseData.datasets[0].data.push(eExpense);
+          expenseData.labels.push(expenseName);
+          expenseData.datasets[0].data.push(totalExpense);
           expenseData.datasets[0].backgroundColor.push(gradient);
           entry = true;
         }
       }
       if (!entry) {
-        if (language == 'false') {
-          expenseData.labels.push('NO EXPENSES ACTIVATED');
-        } else {
-          expenseData.labels.push('NO HAY GASTOS ACTIVADOS');
-        }
+        expenseData.labels.push(lang.noActive);
+
         expenseData.datasets[0].data.push('100');
         expenseData.datasets[0].backgroundColor.push(
           getComputedStyle(document.documentElement).getPropertyValue(

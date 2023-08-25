@@ -2,6 +2,8 @@
 const scriptsToLoad = [
   'locales/locales.js',
   'scripts/alertMoneys.js',
+  'scripts/chart/loadChart.js',
+  'scripts/chart/makeChart.js',
   'scripts/checkUpdates/checkUpdates.js',
   'scripts/expenses/addExpenseToExpense.js',
   'scripts/expenses/alertExpense.js',
@@ -38,7 +40,6 @@ const scriptsToLoad = [
   'scripts/saving/loadSaving.js',
   'scripts/saving/makeSaving.js',
   'scripts/saving/resetMoney.js',
-  'scripts/saving/saving.js',
   'scripts/saving/updateExpense.js',
   'scripts/saving/updateLast.js',
   'scripts/saving/updateSavingPreview.js',
