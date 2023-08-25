@@ -27,7 +27,7 @@ const scriptsToLoad = [
   'scripts/goals/loadIcons.js',
   'scripts/goals/newGoal.js',
   'scripts/home.js',
-  'scripts/money.js',
+  'scripts/money/money.js',
   'scripts/push.js',
   'scripts/saving/addToMoneyLeft.js',
   'scripts/saving/alertSaving.js',
