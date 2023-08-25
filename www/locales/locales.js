@@ -51,6 +51,13 @@ const lang = {
       read5: 'Para crear un nuevo gasto pulsa "+".',
     },
     money: {
+      newMyMoney: 'Nuevo mi dinero',
+      myMoney: 'Mi dinero',
+      modify: 'Modificar mi dinero',
+      newAmount: 'Cantidad nueva',
+      edit: 'Editar mi dinero',
+      name: 'Nombre del dinero',
+      actual: 'Dinero actual',
       money: 'Dinero',
       modified: 'modificada exitosamente!',
       yourMoney: 'Tu dinero total',

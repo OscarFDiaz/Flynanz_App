@@ -9,26 +9,55 @@
     <div style="text-align: center; margin-top: 16px">
       <div>
         <p
-          style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
+          style="
+            margin: 0px auto -16px 12px;
+            text-align: left;
+            padding-top: 16px;
+            color: var(--color-input-label);
+          "
           id="newMoneyMoneyNameInput"
         >
           NOMBRE DEL DINERO
         </p>
-        <ons-input id="newMoneyName" modifier="underbar" placeholder="" type="text" style="display: block"></ons-input>
+        <ons-input
+          id="newMoneyName"
+          modifier="underbar"
+          placeholder=""
+          type="text"
+          style="display: block"
+        ></ons-input>
       </div>
 
       <div>
         <p
-          style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px; color: var(--color-input-label)"
+          style="
+            margin: 0px auto -16px 12px;
+            text-align: left;
+            padding-top: 16px;
+            color: var(--color-input-label);
+          "
           id="newMoneyMoneyActualInput"
         >
           DINERO ACTUAL
         </p>
-        <ons-input id="newMoneyMoney" modifier="underbar" placeholder="" type="number" style="display: block"></ons-input>
+        <ons-input
+          id="newMoneyMoney"
+          modifier="underbar"
+          placeholder=""
+          type="number"
+          style="display: block"
+        ></ons-input>
       </div>
 
       <div id="gradients-container">
-        <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newMoneyGradientInput">
+        <p
+          style="
+            margin: 16px auto 0px 12px;
+            text-align: left;
+            color: var(--color-input-label);
+          "
+          id="newMoneyGradientInput"
+        >
           Color
         </p>
         <div class="option">
@@ -111,25 +140,17 @@
       function (event) {
         if (event.target.matches('#newMoney')) {
           ons.ready(function () {
-            let languaje = localStorage.getItem('storageSwitchLanguage');
+            let lang = getLang('money');
 
-            if (languaje == 'false') {
-              document.getElementById('titleNewMoney').innerHTML = 'New my money';
-              document.getElementById('newMoneyMoneyNameInput').innerHTML = 'Money name';
-              document.getElementById('newMoneyMoneyActualInput').innerHTML = 'Current money';
-              document.getElementById('newMoneyFinishedButton').innerHTML = 'Finished!';
-              document.getElementById('newMoneyCancelButton').innerHTML = 'Cancel';
-            } else {
-              document.getElementById('titleNewMoney').innerHTML = 'Nuevo mi dinero';
-              document.getElementById('newMoneyMoneyNameInput').innerHTML = 'Nombre del dinero';
-              document.getElementById('newMoneyMoneyActualInput').innerHTML = 'Dinero actual';
-              document.getElementById('newMoneyFinishedButton').innerHTML = 'Listo!';
-              document.getElementById('newMoneyCancelButton').innerHTML = 'Cancelar';
-            }
+            document.getElementById('titleNewMoney').innerHTML = lang.newMyMoney;
+            document.getElementById('newMoneyMoneyNameInput').innerHTML = lang.name;
+            document.getElementById('newMoneyMoneyActualInput').innerHTML = lang.actual;
+            document.getElementById('newMoneyFinishedButton').innerHTML = lang.ready;
+            document.getElementById('newMoneyCancelButton').innerHTML = lang.cancel;
           });
         }
       },
-      false
+      false,
     );
   </script>
 </ons-page>

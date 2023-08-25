@@ -11,7 +11,7 @@
   </ons-toolbar>
   
   <!--DINERO TOTAL-->
-  <div id="totalMoneyContainer">
+  <div id="totalMoneyContainer"> 
   </div>
 
   <div id="tutorialContainer">
@@ -99,30 +99,17 @@
 
             localStorage.setItem("actuaPage", "money.html");
 
-            let languaje = localStorage.getItem("storageSwitchLanguage");
-            if (languaje == 'false') {
-              document.getElementById('titleMoney').innerHTML = 'My money';
-              document.getElementById('moneyEditAlertTitle').innerHTML = 'Modify my money';
+            let lang = getLang('money');
+            document.getElementById('titleMoney').innerHTML = lang.myMoney;
+              document.getElementById('moneyEditAlertTitle').innerHTML = lang.modify;
               document.getElementById('moneyEditAlertActualMoney').innerHTML = 
-              `Current money: $ 
+              `${lang.actual}: $ 
               <label id="editMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
               document.getElementById('moneyEditAlertNewMoney').innerHTML = 
-              `New amount: $ 
+              `${lang.newAmount}: $ 
               <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertCancel').innerHTML = 'Cancel';
-              document.getElementById('moneyEditAlertFinished').innerHTML = 'Finished!';
-            } else {
-              document.getElementById('titleMoney').innerHTML = 'Mi dinero';
-              document.getElementById('moneyEditAlertTitle').innerHTML = 'Modificar mi dinero';
-              document.getElementById('moneyEditAlertActualMoney').innerHTML = 
-              `Dinero actual: $ 
-              <label id="editMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertNewMoney').innerHTML = 
-              `Cantidad nueva: $ 
-              <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertCancel').innerHTML = 'Cancelar';
-              document.getElementById('moneyEditAlertFinished').innerHTML = 'Listo!';
-            }
+              document.getElementById('moneyEditAlertCancel').innerHTML = lang.cancel;
+              document.getElementById('moneyEditAlertFinished').innerHTML = lang.ready;
 
             getMoneys();
 
