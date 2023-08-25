@@ -52,6 +52,7 @@ const lang = {
     },
     home: {
       currentTheme: 'TEMA ACTUAL',
+      currentMessage: 'Actualmente tienes este tema puesto.',
       expenses: 'Gastos',
       goals: 'Metas',
       myMoney: 'Mi dinero',
@@ -62,6 +63,11 @@ const lang = {
       themeChangedSuccess: 'Se cambio el tema correctamente, tienes buenos gustos!',
       title: 'Inicio',
       totalBalance: 'Dinero total',
+      deleteAll: '¿Estas seguro de borrar TODO?',
+      notice: 'Aviso!',
+      confirm: 'Sí, borrar',
+      cancel: 'Cancelar',
+      allNormal: 'De acuerdo, todo fluye como normalmente!',
     },
     goals: {
       new: 'Nueva meta',
