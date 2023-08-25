@@ -1,6 +1,16 @@
 const lang = {
   es: {
     expense: {
+      title: 'Gastos',
+      addNew: 'Añadir nuevo gasto',
+      edit: 'Editar gasto',
+      note: 'Nota del gasto',
+      name: 'Nombre del gasto',
+      icon: 'Selecciona un icono',
+      touch: 'Pulsa para cambiar',
+      showHome: 'Mostrar en inicio',
+      expensedMoney: 'Dinero gastado',
+      date: 'Fecha del gasto',
       expensed: 'gastados',
       newExpense: 'Nuevo gasto',
       expense: 'Gasto',
@@ -37,6 +47,7 @@ const lang = {
       notice: 'Aviso!',
       confirm: 'Sí, borrar',
       cancel: 'Cancelar',
+      ready: 'Listo!',
       success: 'Se ha eliminado el gasto seleccionado!',
       allNormal: 'De acuerdo, todo fluye como normalmente!',
       read: 'LEER TUTORIAL',

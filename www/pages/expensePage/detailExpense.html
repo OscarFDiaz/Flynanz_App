@@ -8,19 +8,37 @@
 
   <!--ALERT PARA EDITAR UN GASTO-->
   <ons-alert-dialog id="alertToEditExpense" modifier="material">
-    <div class="alert-dialog-title" style="text-align: center" id="detailExpenseEditTitle">EDITAR GASTO</div>
+    <div
+      class="alert-dialog-title"
+      style="text-align: center"
+      id="detailExpenseEditTitle"
+    >
+      EDITAR GASTO
+    </div>
 
     <div class="alert-dialog-content">
       <div style="text-align: center; margin-top: 16px">
         <div>
-          <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="detailExpenseEditNote">
+          <p
+            style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px"
+            id="detailExpenseEditNote"
+          >
             NOTA DEL GASTO
           </p>
-          <ons-input id="alertEditExpenseNote" modifier="underbar" placeholder="" type="text" style="display: block"></ons-input>
+          <ons-input
+            id="alertEditExpenseNote"
+            modifier="underbar"
+            placeholder=""
+            type="text"
+            style="display: block"
+          ></ons-input>
         </div>
 
         <div>
-          <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="detailExpenseEditAmount">
+          <p
+            style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px"
+            id="detailExpenseEditAmount"
+          >
             DINERO GASTADO
           </p>
           <ons-input
@@ -33,19 +51,34 @@
         </div>
 
         <div>
-          <p style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px" id="detailExpenseEditDate">
+          <p
+            style="margin: 0px auto -16px 12px; text-align: left; padding-top: 16px"
+            id="detailExpenseEditDate"
+          >
             FECHA DEL GASTO
           </p>
-          <ons-input id="alertEditExpenseDate" modifier="underbar" placeholder="" type="date" style="display: block"></ons-input>
+          <ons-input
+            id="alertEditExpenseDate"
+            modifier="underbar"
+            placeholder=""
+            type="date"
+            style="display: block"
+          ></ons-input>
         </div>
       </div>
     </div>
 
     <div class="alert-dialog-footer">
-      <ons-alert-dialog-button onclick="hideEditAlertExpenseNoChange()" id="detailExpenseEditCancel"
+      <ons-alert-dialog-button
+        onclick="hideEditAlertExpenseNoChange()"
+        id="detailExpenseEditCancel"
         >CANCELAR</ons-alert-dialog-button
       >
-      <ons-alert-dialog-button onclick="hideEditAlertExpense()" id="detailExpenseEditFinished">LISTO!</ons-alert-dialog-button>
+      <ons-alert-dialog-button
+        onclick="hideEditAlertExpense()"
+        id="detailExpenseEditFinished"
+        >LISTO!</ons-alert-dialog-button
+      >
     </div>
   </ons-alert-dialog>
   <!----------------------------------------------------------------->
@@ -56,27 +89,20 @@
       function (event) {
         if (event.target.matches('#detailExpense')) {
           ons.ready(function () {
-            let languaje = localStorage.getItem('storageSwitchLanguage');
-            if (languaje == 'false') {
-              document.getElementById('detailExpenseEditTitle').innerHTML = 'Edit expenditure';
-              document.getElementById('detailExpenseEditNote').innerHTML = 'Expenditure note';
-              document.getElementById('detailExpenseEditAmount').innerHTML = 'Spent money';
-              document.getElementById('detailExpenseEditDate').innerHTML = 'Date of expenditure';
-              document.getElementById('detailExpenseEditCancel').innerHTML = 'Cancel';
-              document.getElementById('detailExpenseEditFinished').innerHTML = 'Finished!';
-            } else {
-              document.getElementById('detailExpenseEditTitle').innerHTML = 'Editar gasto';
-              document.getElementById('detailExpenseEditNote').innerHTML = 'Nota del gasto';
-              document.getElementById('detailExpenseEditAmount').innerHTML = 'Dinero gastado';
-              document.getElementById('detailExpenseEditDate').innerHTML = 'Fecha del gasto';
-              document.getElementById('detailExpenseEditCancel').innerHTML = 'Cancelar';
-              document.getElementById('detailExpenseEditFinished').innerHTML = 'Listo!';
-            }
+            let lang = getLang('expense');
+
+            document.getElementById('detailExpenseEditTitle').innerHTML = lang.edit;
+            document.getElementById('detailExpenseEditNote').innerHTML = lang.note;
+            document.getElementById('detailExpenseEditAmount').innerHTML =
+              lang.expensedMoney;
+            document.getElementById('detailExpenseEditDate').innerHTML = lang.date;
+            document.getElementById('detailExpenseEditCancel').innerHTML = lang.cancel;
+            document.getElementById('detailExpenseEditFinished').innerHTML = lang.ready;
             loadDetailExpense();
           });
         }
       },
-      false
+      false,
     );
   </script>
 </ons-page>

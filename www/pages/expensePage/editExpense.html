@@ -128,24 +128,15 @@
       function (event) {
         if (event.target.matches('#editExpense')) {
           ons.ready(function () {
-            let languaje = localStorage.getItem('storageSwitchLanguage');
-            if (languaje == 'false') {
-              document.getElementById('titleExpensesEdit').innerHTML = 'Edit expenditure';
-              document.getElementById('editExpenseName').innerHTML = 'Name of expenditure';
-              document.getElementById('editExpenseIcon').innerHTML = 'Select an icon';
-              document.getElementById('editExpenseIconLabel').innerHTML = 'Click to change';
-              document.getElementById('editExpenseSwitch').innerHTML = 'Show in home';
-              document.getElementById('editExpenseFinishedButton').innerHTML = 'Finished!';
-              document.getElementById('editExpenseCancelButton').innerHTML = 'Cancel';
-            } else {
-              document.getElementById('titleExpensesEdit').innerHTML = 'Editar gasto';
-              document.getElementById('editExpenseName').innerHTML = 'Nombre del gasto';
-              document.getElementById('editExpenseIcon').innerHTML = 'Selecciona un icono';
-              document.getElementById('editExpenseIconLabel').innerHTML = 'Click para cambiar';
-              document.getElementById('editExpenseSwitch').innerHTML = 'Mostrar en inicio';
-              document.getElementById('editExpenseFinishedButton').innerHTML = 'Listo!';
-              document.getElementById('editExpenseCancelButton').innerHTML = 'Cancelar';
-            }
+            let lang = getLang('expense');
+
+            document.getElementById('titleExpensesEdit').innerHTML = lang.edit;
+            document.getElementById('editExpenseName').innerHTML = lang.name;
+            document.getElementById('editExpenseIcon').innerHTML = lang.icon;
+            document.getElementById('editExpenseIconLabel').innerHTML = lang.touch;
+            document.getElementById('editExpenseSwitch').innerHTML = lang.showHome;
+            document.getElementById('editExpenseFinishedButton').innerHTML = lang.ready;
+            document.getElementById('editExpenseCancelButton').innerHTML = lang.cancel;
 
             loadIconsEdit();
 
@@ -153,14 +144,11 @@
             document.getElementById('newExpenseNameEdit').value = expenseNameEdit;
 
             let expenseS = JSON.parse(localStorage.getItem('expenseStorage'));
-            let expenseIcon, iconUrl, expenseColor, isChecked;
+            let isChecked;
             let expenseInfoInsert = document.getElementById('expenseInfoInsert');
 
             for (let i = 0; i < expenseS.length; i++) {
               if (expenseS[i].expenseName == expenseNameEdit) {
-                expenseIcon = expenseS[i].iconName;
-                iconUrl = expenseS[i].iconUrl;
-                expenseColor = expenseS[i].expenseColor;
                 //Seteo el switch
                 isChecked = expenseS[i].toShow;
                 break;
