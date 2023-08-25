@@ -51,6 +51,8 @@ const lang = {
       read5: 'Para crear un nuevo gasto pulsa "+".',
     },
     money: {
+      money: 'Dinero',
+      modified: 'modificada exitosamente!',
       yourMoney: 'Tu dinero total',
       seeExpenses: 'Ver gastos',
       addMoney: 'Añadir dinero',
@@ -73,6 +75,7 @@ const lang = {
       days: 'DÍAS',
       ago: 'HACE',
       today: 'HOY',
+      noName: 'Ingresa un nombre',
       noDate: 'SIN DATOS DE FECHA',
       noAmount: 'Ingresa cuanto dinero deseas transferir, por favor!',
       noNegative: 'No puedes dejar una cartera en números negativos, lo siento...',
@@ -90,7 +93,6 @@ const lang = {
       toWhere: 'SELECCIONA EL DESTINO', //SELECT THE DESTINATION
       modifyMoney: 'MODIFICAR DINERO',
       delete: 'ELIMINAR',
-      noName: 'Ingresa un nombre',
       read: 'LEER TUTORIAL',
       read1:
         'Aquí podrás añadir el dinero que tienes guardado en algún otro lugar, por ejemplo; una alcancía, tu cartera o alguna tarjeta de nómina.',
@@ -289,6 +291,35 @@ const lang = {
       expenses: 'Gastos',
       myMoney: 'Mi dinero',
       settings: 'Configuración',
+    },
+    deleteOptions: {
+      delete: 'BORRAR DATOS',
+      deleteAll: 'BORRAR TODO',
+      message:
+        "Al dar click en 'Sí' se borrarán todos los datos contenidos en la aplicación, absolutamente todos, será como comenzar de nuevo en la aplicación.",
+    },
+    homeOptions: {
+      homeScreen: 'Pantalla inicio',
+      message:
+        'Los interruptores activados representan las opciones que aparecen en la pantalla de inicio.',
+      totalMoney: 'Dinero total',
+      expenses: 'Gastos',
+      saving: 'Fondo ahorrado',
+      goals: 'Metas',
+      wallets: 'Carteras',
+    },
+    lang: {
+      title: 'Lenguaje',
+      message:
+        'El interruptor señala el idioma que tendrá la aplicación. A la derecha español y en la izquierda Inglés',
+    },
+    tutorial: {
+      title: 'TUTORIALES',
+      switchTitle: 'TUTORIALES',
+      message:
+        'Si el interruptor esta encendido significa que aparecerán los tutoriales de cómo utilizar la aplicación cada que el programa lo detecte necesario.',
+      message2:
+        'Si el interruptor está desactivado, no aparecerán tutoriales sobre cómo usar la aplicación, a menos que sea el primer usuario.',
     },
 
     goals_loadicons_art: 'Arte',
