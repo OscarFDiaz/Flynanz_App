@@ -25,7 +25,7 @@ function closeAlertSaving() {
   let endMoney = parseFloat(document.getElementById('alertAddSavingEnd').textContent);
 
   let testMoney = Math.sign(endMoney);
-  if (testMoney === -1 || testMoney === -0) {
+  if (testMoney === -1) {
     ons.notification.toast(lang.noNegative1, {
       title: 'Aviso!',
       timeout: 2000,

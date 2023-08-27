@@ -147,6 +147,7 @@ const lang = {
       noActive: 'NO HAY GASTOS ACTIVADOS',
     },
     home: {
+      add: 'Añadir',
       currentTheme: 'TEMA ACTUAL',
       currentMessage: 'Actualmente tienes este tema puesto.',
       expenses: 'Gastos',
@@ -522,6 +523,7 @@ const lang = {
       noActive: 'NO ACTIVE EXPENSES',
     },
     home: {
+      add: 'Add',
       currentTheme: 'CURRENT THEME',
       currentMessage: 'You currently have this theme set.',
       expenses: 'Expenses',

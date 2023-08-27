@@ -797,6 +797,7 @@ function selectIconEdit(iconName, url) {
   sessionStorage.setItem('expenseIconUrl', url);
   // Oculto los iconos, ya tengo uno seleccionado
   document.getElementById('expandableListContainerEdit').hideExpansion();
+  document.getElementById('imageEditExpenseIcon').src = `${url}${iconName}`;
 }
 
 function deleteDetailExpense(idSend) {
@@ -885,22 +886,19 @@ function reInsertExpenseDetail(sendName) {
     for (let i = 0; i < expensesDetail.length; i++) {
       if (expensesDetail[i].expenseName == sendName) {
         let iAmount = formatMoney(expensesDetail[i].inAmount);
-        // let iName = expensesDetail[i].inName;
-        // let iDate = expensesDetail[i].inDate;
-        // let iD = expensesDetail[i].inID;
 
         let { inName, inDate, inID } = expensesDetail[i];
 
         let today = new Date().toJSON().slice(0, 10);
-        let days = dateDiff(today, iDate);
+        let days = dateDiff(today, inDate);
 
         if (inDate === '') {
           inDate = lang.noDateMayus;
         } else {
           if (Math.sign(days) === 1) {
-            inDate = `${lang.in} ${days} ${days}`;
+            inDate = `${lang.in} ${days} ${lang.days}`;
           } else if (Math.sign(days) === -1) {
-            inDate = `${ago} ${Math.abs(days)} ${days}`;
+            inDate = `${lang.ago} ${Math.abs(days)} ${lang.days}`;
           } else if (Math.sign(days) === 0) {
             inDate = lang.today;
           }
@@ -912,7 +910,7 @@ function reInsertExpenseDetail(sendName) {
           modifier="nodivider"
         >
           <div class="center" style="margin-right: 16px">
-            <div style="max-width: 50%;">
+            <div>
               <label
                 class="list-item__title labelDetailExpense"
                 style="text-align:left; margin-left:16px; font-size:22px"

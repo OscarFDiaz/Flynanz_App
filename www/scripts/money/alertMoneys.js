@@ -86,7 +86,7 @@ function hideAlertMoneys() {
   let newMoney = sessionStorage.getItem('addNewMoney'); // Se hace la suma del dinero en cuanto se ingresan datos
 
   let testMoney = Math.sign(newMoney);
-  if (testMoney === -1 || testMoney === -0) {
+  if (testMoney === -1) {
     ons.notification.toast(lang.noNegative, {
       title: 'Aviso!',
       timeout: 2000,
@@ -177,7 +177,7 @@ function hideAlertMoneysOnTransfer() {
   let moneyToTransfer = element;
 
   let testMoney = Math.sign(newMoney);
-  if (testMoney === -1 || testMoney === -0) {
+  if (testMoney === -1) {
     ons.notification.toast(lang.noNegative, {
       title: 'Aviso!',
       timeout: 2000,
@@ -351,7 +351,7 @@ function insertActionEditMoney(option) {
       ></ons-input>`;
   } else if (option === 'transfer') {
     let buttonOptions = document.getElementById('hideAlertMoneyButtons');
-    optionsContainer.innerHTML = html`<p
+    optionsContainer.innerHTML = `<p
         style="margin: 0px auto -16px 0px; text-align: center;"
       >
         ${lang.toTrans}

@@ -3,9 +3,7 @@ function showExpensesPerWallet(walletName) {
   let lang = getLang('money');
 
   let detailDetailExpenseView = document.getElementById('moneyListOfExpenses');
-  if (detailDetailExpenseView == null) {
-    return;
-  }
+  if (detailDetailExpenseView == null) return;
   detailDetailExpenseView.innerHTML = '';
 
   let expensesDetail = JSON.parse(localStorage.getItem('expenseDetailStorage'));

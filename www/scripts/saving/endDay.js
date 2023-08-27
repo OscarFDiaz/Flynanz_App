@@ -55,8 +55,8 @@ function endSavingDay() {
           // Si no me quedó dinero
           let savingStorage = JSON.parse(localStorage.getItem('savingStorage'));
 
-          savingStorage.daysLeft = parseInt(savingStorage.daysLeft) - 1;
           if (savingStorage.daysLeft > 0) {
+            savingStorage.daysLeft = parseInt(savingStorage.daysLeft) - 1;
             savingStorage.moneyLeft = savingStorage.toExpend;
           }
 

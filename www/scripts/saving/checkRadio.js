@@ -4,7 +4,7 @@ function checkRadioSelect(id) {
 
   let lang = getLang('saving');
 
-  // Si elige la opcion de mi dinero se cargan las opciones, de lo contrario se ocultan
+  // Si elige la opción de mi dinero se cargan las opciones, de lo contrario se ocultan
   if (id == 'radio-2') {
     container.innerHTML = ` <label style="color: var(--alert-tile-color)"
         >${lang.addTo}:

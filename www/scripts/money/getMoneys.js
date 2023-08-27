@@ -41,19 +41,19 @@ function getMoneys() {
       </ons-list>
     </ons-card>`;
 
+  let tutorial = localStorage.getItem('storageSwitchTutorial');
   if (moneys === null) {
-    let tutorial = localStorage.getItem('storageSwitchTutorial');
     if (Boolean(tutorial) === true) {
       tutorialView.innerHTML = `${moneyTutorial}`;
     }
     totalMoneyContainer.innerHTML = '';
     return;
   } else if (moneys.length == 0) {
-    let tutorial = localStorage.getItem('storageSwitchTutorial');
     if (Boolean(tutorial) === true) {
       tutorialView.innerHTML = `${moneyTutorial}`;
     }
     totalMoneyContainer.innerHTML = '';
+    cardExpenses.innerHTML = '';
     return;
   } else {
     tutorialView.innerHTML = '';
@@ -74,21 +74,23 @@ function getMoneys() {
         <span class="totalMoneyTitle" id="totalMoneyMoney"> ${totalMoney} </span>
       </div>
     </ons-card>`;
-  cardExpenses.innerHTML = `<ons-list
-      style="background: none;"
-      id="expenseListOfExpensesContainer"
-    >
-      <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
-        <label class="iconExpenseLabel" style="margin-left: 16px;"> ${lang.seeExpenses} </label>
-        <div
-          class="expandable-content"
-          id="moneyListOfExpenses"
-          style="grid-template-columns: 1fr;"
-        >
-          <!-- AQUI SE CARGAN LOS GASTOS -->
-        </div>
-      </ons-list-item>
-    </ons-list>`;
+
+  cardExpenses.innerHTML = `<ons-card
+      ><ons-list style="background: none;" id="expenseListOfExpensesContainer">
+        <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
+          <label class="iconExpenseLabel" style="margin-left: 16px;">
+            ${lang.seeExpenses}
+          </label>
+          <div
+            class="expandable-content"
+            id="moneyListOfExpenses"
+            style="grid-template-columns: 1fr;"
+          >
+            <!-- AQUI SE CARGAN LOS GASTOS -->
+          </div>
+        </ons-list-item>
+      </ons-list></ons-card
+    >`;
 
   let currentIndexStorage = localStorage.getItem('currentDot');
   if (currentIndexStorage == null) {

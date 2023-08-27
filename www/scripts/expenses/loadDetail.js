@@ -137,7 +137,7 @@ function loadDetailExpense() {
           modifier="nodivider"
         >
           <div class="center" style="margin-right: 16px">
-            <div style="max-width: 50%;">
+            <div >
               <label
                 class="list-item__title labelDetailExpense"
                 style="text-align:left; margin-left:16px; font-size:22px"

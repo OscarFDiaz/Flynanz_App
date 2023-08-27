@@ -5,11 +5,19 @@ function gradientButtonExpenseClick(gradient, color, color1) {
   sessionStorage.setItem('colorExpense1', color1);
 }
 
+function toggleBorder(expenseGradient) {
+  let id = expenseGradient.slice(-1);
+  const gradient = document.getElementById(`gd-${id}`);
+  gradient.tabIndex = -1;
+  gradient.focus();
+}
+
 function selectIcon(iconName, url) {
   sessionStorage.setItem('expenseIconName', iconName);
   sessionStorage.setItem('expenseIconUrl', url);
   // Oculto los iconos, ya tengo uno seleccionado
   document.getElementById('expandableListContainerExpense').hideExpansion();
+  document.getElementById('imageNewExpenseIcon').src = `${url}${iconName}`;
 }
 
 function getAmountFDays(sendName) {

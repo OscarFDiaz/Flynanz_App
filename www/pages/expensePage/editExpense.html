@@ -24,7 +24,15 @@
       <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="editExpenseIcon">
         SELECCIONA UN ICONO
       </p>
-      <div style="border: 2px solid var(--color-input); border-radius: 15px; margin-bottom: 16px">
+      <div
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 16px;
+      "
+    >
+      <div style="border: 2px solid var(--color-input); border-radius: 15px; margin-bottom: 16px; flex: 1">
         <ons-list style="background: none; margin-top: -16px">
           <ons-list-item id="expandableListContainerEdit" expandable>
             <p
@@ -39,6 +47,19 @@
           </ons-list-item>
         </ons-list>
       </div>
+      <div style="width: 48px; height: 48px">
+        <img
+          id="imageEditExpenseIcon"
+          src="./assets/icons/icons_list/art/imagesearch_roller.png"
+          style="
+            width: 100%;
+            margin: auto auto;
+            background: var(--color-input);
+            border-radius: 10px;
+          "
+        />
+      </div>
+    </div>
 
       <div>
         <p style="margin: 0px auto -16px 12px; text-align: left; color: var(--color-input-label)" id="editExpenseSwitch">MOSTRAR EN INICIO</p>
@@ -53,51 +74,61 @@
         <p style="margin: 16px auto 0px 12px; text-align: left; color: var(--color-input-label)" id="newMoneyGradientInput">Color</p>
         <div class="option">
           <ons-button
+            id="gd-0"
             class="gradientButton"
             style="background: var(--gradient_0)"
             onclick="gradientButtonExpenseClick('--gradient_0', '#bfdff8', '#f4dcf5')"
           ></ons-button>
           <ons-button
+           id="gd-1"
             class="gradientButton"
             style="background: var(--gradient_1)"
             onclick="gradientButtonExpenseClick('--gradient_1', '#e1f0e1', '#aadfda')"
           ></ons-button>
           <ons-button
+            id="gd-2"
             class="gradientButton"
             style="background: var(--gradient_2)"
             onclick="gradientButtonExpenseClick('--gradient_2', '#b3dbf1', '#beedf5')"
           ></ons-button>
           <ons-button
+            id="gd-3"
             class="gradientButton"
             style="background: var(--gradient_3)"
             onclick="gradientButtonExpenseClick('--gradient_3', '#f6e6cf', '#f3ccc4')"
           ></ons-button>
           <ons-button
+           id="gd-4"
             class="gradientButton"
             style="background: var(--gradient_4)"
             onclick="gradientButtonExpenseClick('--gradient_4', '#ff8abe', '#fce9d0')"
           ></ons-button>
           <ons-button
+            id="gd-5"
             class="gradientButton"
             style="background: var(--gradient_5)"
             onclick="gradientButtonExpenseClick('--gradient_5', '#96c1dc', '#d9d4ed')"
           ></ons-button>
           <ons-button
+            id="gd-6"
             class="gradientButton"
             style="background: var(--gradient_6)"
             onclick="gradientButtonExpenseClick('--gradient_6', '#74f2ce', '#7cffcb')"
           ></ons-button>
           <ons-button
+            id="gd-7"
             class="gradientButton"
             style="background: var(--gradient_7)"
             onclick="gradientButtonExpenseClick('--gradient_7', '#7ee8fa', '#eec0c6')"
           ></ons-button>
           <ons-button
+            id="gd-8"
             class="gradientButton"
             style="background: var(--gradient_8)"
             onclick="gradientButtonExpenseClick('--gradient_8', '#b0f3f1', '#ffcfdf')"
           ></ons-button>
           <ons-button
+            id="gd-9"
             class="gradientButton"
             style="background: var(--gradient_9)"
             onclick="gradientButtonExpenseClick('--gradient_9', '#fb8085', '#f9c1b1')"
@@ -138,8 +169,6 @@
             document.getElementById('editExpenseFinishedButton').innerHTML = lang.ready;
             document.getElementById('editExpenseCancelButton').innerHTML = lang.cancel;
 
-            loadIconsEdit();
-
             let expenseNameEdit = sessionStorage.getItem('expenseNameEdit');
             document.getElementById('newExpenseNameEdit').value = expenseNameEdit;
 
@@ -150,7 +179,11 @@
             for (let i = 0; i < expenseS.length; i++) {
               if (expenseS[i].expenseName == expenseNameEdit) {
                 //Seteo el switch
+                let {toShow, expenseGradient, iconUrl,iconName} = expenseS[i];
                 isChecked = expenseS[i].toShow;
+                toggleBorder(expenseS[i].expenseGradient);
+
+                document.getElementById('imageEditExpenseIcon').src = `${iconUrl}${iconName}`
                 break;
               }
             }
@@ -164,6 +197,18 @@
         }
       },
       false
+    );
+    document.addEventListener(
+      'show',
+      function (event) {
+        if (event.target.matches('#editExpense')) {
+          ons.ready(function () {
+            //Cargo los iconos
+            loadIconsEdit();
+          });
+        }
+      },
+      false,
     );
   </script>
 </ons-page>

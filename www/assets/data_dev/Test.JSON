@@ -4,8 +4,8 @@
       "[SOLVED] Añadir loader": "al intentar cargar o ver el porque de la carga",
       "[SOLVED] Modificar dinero": "Texto dinero actual == undefined, LS: nameSaved == undefined",
       "[SOLVED] Texto se sobrepone": "Texto nombre de la meta se sobre pone con días restantes",
+      "[SOLVED] Mostrar que color esta seleccionado": null,
       "[PENDING] Modificaciones de dinero": "Muestran siempre la opción else, excep: Llega a la meta",
-      "[PENDING] Mostrar que color esta seleccionado": null,
       "[STRANGE] Gradiente": "No carga en home page"
     },
     "data": {
@@ -41,23 +41,48 @@
           "iconUrl": "./assets/icons/icons_list/fix/"
         }
       ]
+    }
+  },
+  "Saving": {
+    "fix": {
+      "[PENDING] Evitar reducción de días": "Al llegar los días a 0 se siguen reduciendo"
     },
-    "test": {
-      "modificarDinero": {
-        "restar mas del actual": true,
-        "añadir dinero": true,
-        "cancelar sin efectos": true
-      },
-      "eliminarMeta": true,
-      "modificarMeta": {
-        "nombre": true,
-        "descripción": true,
-        "dinero necesario": true,
-        "dinero actual": true,
-        "fecha meta": true,
-        "icono": true,
-        "color": true
-      }
+    "data": {
+      "savingStorage": [
+        {
+          "expenseName": "Comida",
+          "totalExpense": 0,
+          "mainDate": "2023-08-27",
+          "toShow": true,
+          "expenseGradient": "--gradient_6",
+          "expenseColor": "#74f2ce",
+          "expenseColor1": "#7cffcb",
+          "iconName": "bakery_dining.png",
+          "iconUrl": "./assets/icons/icons_list/food/"
+        },
+        {
+          "expenseName": "Transporte",
+          "totalExpense": 0,
+          "mainDate": "2023-08-27",
+          "toShow": true,
+          "expenseGradient": "--gradient_5",
+          "expenseColor": "#96c1dc",
+          "expenseColor1": "#d9d4ed",
+          "iconName": "directions_bus.png",
+          "iconUrl": "./assets/icons/icons_list/transport/"
+        },
+        {
+          "expenseName": "Entretenimiento",
+          "totalExpense": 0,
+          "mainDate": "2023-08-27",
+          "toShow": true,
+          "expenseGradient": "--gradient_9",
+          "expenseColor": "#fb8085",
+          "expenseColor1": "#f9c1b1",
+          "iconName": "desktop_windows.png",
+          "iconUrl": "./assets/icons/icons_list/pc/"
+        }
+      ]
     }
   }
 }

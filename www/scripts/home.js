@@ -125,31 +125,67 @@ function loadOptions() {
           font-size: 14px;
           color: var(--text-without-card);
           font-weight: 500;"
-          >Añadir +</span
+          >${lang.add} +</span
         >
       </label>`;
 
-      let toInner = '';
-      toInner += `<div class="walletsContainer" onclick="fn.load('pages/moneyPage/money.html')">`;
-
-      for (let i = 0; i < moneys.length; i++) {
-        let mName = moneys[i].moneyName;
-        let mMoney = formatMoney(moneys[i].moneyCurrent);
-        let mGradient = moneys[i].moneyGradient;
-        toInner += ` <div class="wallet" style="background: var(${mGradient})">
-          <div class="tittleWalletHome">${mName}</div>
-          <div class="walletMoneyAmount">
-            $
-            <span id="${mName}-money"> ${mMoney} </span>
+      // Cartera vacía
+      if (moneys.length === 0) {
+        userHomeView.innerHTML += `<div
+          class="walletsContainer"
+          onclick="fn.load('pages/moneyPage/money.html')"
+        >
+          <div
+            class="wallet"
+            style="display: grid; justify-content: center; align-items: center; border: 3px dotted var(--card-border-color); box-shadow: none;"
+          >
+            <div class="tittleWalletHome" style="color: var(--home-total-money)">${lang.add} +</div>
           </div>
         </div>`;
+      } else {
+        let toInner = '';
+        toInner += `<div class="walletsContainer" onclick="fn.load('pages/moneyPage/money.html')">`;
+
+        for (let i = 0; i < moneys.length; i++) {
+          let mName = moneys[i].moneyName;
+          let mMoney = formatMoney(moneys[i].moneyCurrent);
+          let mGradient = moneys[i].moneyGradient;
+          toInner += `<div class="wallet" style="background: var(${mGradient})">
+            <div class="tittleWalletHome">${mName}</div>
+            <div class="walletMoneyAmount">
+              $
+              <span id="${mName}-money"> ${mMoney} </span>
+            </div>
+          </div>`;
+        }
+        toInner += `</div>`;
+        userHomeView.innerHTML += toInner;
       }
-      toInner += `</div>`;
-      userHomeView.innerHTML += toInner;
+    } else {
+      userHomeView.innerHTML += ` <label class="cardHomeTitle cardHomeTitleBolder"
+          >${lang.myMoney}
+          <span
+            onclick="pushToNewMoney()"
+            style="right: 20px;
+          position: absolute;
+          font-size: 14px;
+          color: var(--text-without-card);
+          font-weight: 500;"
+            >${lang.add} +</span
+          >
+        </label>
+        <div class="walletsContainer" onclick="fn.load('pages/moneyPage/money.html')">
+          <div
+            class="wallet"
+            style="display: grid; justify-content: center; align-items: center; border: 3px dotted var(--card-border-color); box-shadow: none;"
+          >
+            <div class="tittleWalletHome" style="color: var(--home-total-money)">${lang.add} +</div>
+          </div>
+        </div>`;
     }
   }
 
-  // DONA CON LOS GASTOS EN LAS DIFERENTES CATEGORIAS
+  // DONA CON LOS GASTOS EN LAS DIFERENTES CATEGORÍAS
   let expenses = localStorage.getItem('storageSwitchExpenses');
   if (Boolean(expenses) === true) {
     userHomeView.innerHTML += `<label class="cardHomeTitle cardHomeTitleBolder"
@@ -197,7 +233,7 @@ function loadOptions() {
           font-size: 14px;
           color: var(--text-without-card);
           font-weight: 500;"
-        >Añadir +</span
+        >${lang.add} +</span
       >
     </label>`;
     userHomeView.innerHTML += ` <div

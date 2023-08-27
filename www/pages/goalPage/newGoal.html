@@ -100,32 +100,54 @@
     </p>
     <div
       style="
-        border: 2px solid var(--color-input);
-        border-radius: 15px;
-        margin-bottom: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 16px;
       "
     >
-      <ons-list style="background: none; margin-top: -16px">
-        <ons-list-item id="expandableListContainerGoal" expandable>
-          <p
-            style="
-              margin: 0px auto 0px 12px;
-              text-align: left;
-              color: var(--card-content-text-color);
-            "
-            id="newExpenseIconLabelGoal"
-          >
-            CLICK PARA CAMBIAR
-          </p>
-          <div
-            class="expandable-content"
-            id="expenseIconListOfIconsGoal"
-            style="background-color: var(--color-input)"
-          >
-            <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
-          </div>
-        </ons-list-item>
-      </ons-list>
+      <div
+        style="
+          border: 2px solid var(--color-input);
+          border-radius: 15px;
+          margin-bottom: 16px;
+          flex: 1;
+        "
+      >
+        <ons-list style="background: none; margin-top: -16px">
+          <ons-list-item id="expandableListContainerGoal" expandable>
+            <p
+              style="
+                margin: 0px auto 0px 12px;
+                text-align: left;
+                color: var(--card-content-text-color);
+              "
+              id="newExpenseIconLabelGoal"
+            >
+              CLICK PARA CAMBIAR
+            </p>
+            <div
+              class="expandable-content"
+              id="expenseIconListOfIconsGoal"
+              style="background-color: var(--color-input)"
+            >
+              <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
+            </div>
+          </ons-list-item>
+        </ons-list>
+      </div>
+      <div style="width: 48px; height: 48px">
+        <img
+          id="imageNewGoalIcon"
+          src="./assets/icons/icons_list/fix/construction.png"
+          style="
+            width: 100%;
+            margin: auto auto;
+            background: var(--color-input);
+            border-radius: 10px;
+          "
+        />
+      </div>
     </div>
 
     <!--Seleccion de degradado-->
@@ -241,7 +263,16 @@
             document.getElementById('newExpenseIconLabelGoal').innerHTML = lang.change;
             document.getElementById('newGoalFinishedButton').innerHTML = lang.ready;
             document.getElementById('newGoalCancelButton').innerHTML = lang.cancel;
-
+          });
+        }
+      },
+      false,
+    );
+    document.addEventListener(
+      'show',
+      function (event) {
+        if (event.target.matches('#newGoal')) {
+          ons.ready(function () {
             //Cargo los iconos
             loadIconsGoal();
           });

@@ -22,8 +22,8 @@
   </ons-card>
 
   <!--GASTOS POR TARJETA-->
-  <ons-card id="cardExpensesContainer">
-  </ons-card>
+  <div id="cardExpensesContainer">
+  </div >
 
   <ons-fab position="bottom right" onclick="pushToNewMoney()" style="display: flex; justify-content: space-around">
     <img src="./assets/icons/addButton.png" alt="saving icon" style="width: 32px; margin-top: 30%" />
@@ -97,19 +97,19 @@
         if (event.target.matches("#money")) {
           ons.ready(function () {
 
-            localStorage.setItem("actuaPage", "money.html");
+            localStorage.setItem("actuaPage", "pages/moneyPage/money.html");
 
             let lang = getLang('money');
             document.getElementById('titleMoney').innerHTML = lang.myMoney;
-              document.getElementById('moneyEditAlertTitle').innerHTML = lang.modify;
-              document.getElementById('moneyEditAlertActualMoney').innerHTML = 
-              `${lang.actual}: $ 
-              <label id="editMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertNewMoney').innerHTML = 
-              `${lang.newAmount}: $ 
-              <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
-              document.getElementById('moneyEditAlertCancel').innerHTML = lang.cancel;
-              document.getElementById('moneyEditAlertFinished').innerHTML = lang.ready;
+            document.getElementById('moneyEditAlertTitle').innerHTML = lang.modify;
+            document.getElementById('moneyEditAlertActualMoney').innerHTML = 
+            `${lang.actual}: $ 
+            <label id="editMoneyActualMoney" style="color: var(--alert-custom-label-money)">0</label>`;
+            document.getElementById('moneyEditAlertNewMoney').innerHTML = 
+            `${lang.newAmount}: $ 
+            <label id="editMoneyEndMoney" style="color: var(--alert-custom-label-money)">0</label>`;
+            document.getElementById('moneyEditAlertCancel').innerHTML = lang.cancel;
+            document.getElementById('moneyEditAlertFinished').innerHTML = lang.ready;
 
             getMoneys();
 

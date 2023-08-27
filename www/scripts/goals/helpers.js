@@ -15,6 +15,8 @@ function selectIconGoal(iconName, url) {
   sessionStorage.setItem('expenseIconUrl', url);
   // Oculto los iconos, ya tengo uno seleccionado
   document.getElementById('expandableListContainerGoal').hideExpansion();
+  //Cambio el icono que se muestra en el preview
+  document.getElementById('imageNewGoalIcon').src = `${url}${iconName}`;
 }
 
 function getPercent(goalMoney, actualMoney) {
