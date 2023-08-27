@@ -1,10 +1,8 @@
 function gradientButtonClick(gradient) {
   // Defino el gradiente al que le da click
   sessionStorage.setItem('tempGradient', gradient);
-  // sessionStorage.setItem('selectedGradient', id);
 }
 
-//NOT WORKING
 function toggleBorder(goalGradient) {
   let id = goalGradient.slice(-1);
   const gradient = document.getElementById(`gd-${id}`);
