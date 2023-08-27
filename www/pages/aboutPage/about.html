@@ -13,7 +13,9 @@
       style="display: block; margin-left: auto; margin-right: auto"
     />
     <p class="paraTutorial" style="font-weight: bold">Flynanz</p>
-    <p class="paraTutorial" id="aboutAppDesc">Aplicación sencilla para el control de gastos y finanzas personales.</p>
+    <p class="paraTutorial" id="aboutAppDesc">
+      Aplicación sencilla para el control de gastos y finanzas personales.
+    </p>
     <p class="paraTutorial" id="aboutTech">Tecnologías utilizadas:</p>
     <p class="paraTutorial" style="text-align: left">● HTML5, CSS3, JS</p>
     <p class="paraTutorial" style="text-align: left">● Cordova</p>
@@ -35,34 +37,20 @@
       'init',
       function (event) {
         if (event.target.matches('#about')) {
-          let languaje = localStorage.getItem('storageSwitchLanguage');
-          if (languaje == 'false') {
-            document.getElementById('titleConfigurationAbout').innerHTML = 'About';
-            document.getElementById('aboutAppDesc').innerHTML = 'Simple application to control expenses and personal finances.';
-            document.getElementById('aboutTech').innerHTML = 'Used technology:';
+          let lang = getLang('about');
+          document.getElementById('titleConfigurationAbout').innerHTML = lang.about;
+          document.getElementById('aboutAppDesc').innerHTML = lang.desc;
+          document.getElementById('aboutTech').innerHTML = lang.stack;
 
-            document.getElementById('aboutAuthor').innerHTML = `Author:
+          document.getElementById('aboutAuthor').innerHTML = `${lang.auth}:
             <span style="color: var(--home-total-money)">OscarFDA</span>`;
-            document.getElementById('aboutVersion').innerHTML = `Version: 
+          document.getElementById('aboutVersion').innerHTML = `${lang.v}: 
             <span style="color: var(--home-total-money)">2.00.05</span>`;
-            document.getElementById('aboutCode').innerHTML = `Source code:
-            <a href="https://github.com/OscarFDiaz/Flynanz_App" style="color: var(--home-total-money)">Press here!</a>`;
-          } else {
-            document.getElementById('titleConfigurationAbout').innerHTML = 'Acerca de';
-            document.getElementById('aboutAppDesc').innerHTML =
-              'Aplicación sencilla para el control de gastos y finanzas personales.';
-            document.getElementById('aboutTech').innerHTML = 'Tecnologías utilizadas:';
-
-            document.getElementById('aboutAuthor').innerHTML = `Autor:
-            <span style="color: var(--home-total-money)">OscarFDA</span>`;
-            document.getElementById('aboutVersion').innerHTML = `Versión: 
-            <span style="color: var(--home-total-money)">2.00.05</span>`;
-            document.getElementById('aboutCode').innerHTML = `Código Fuente:
-            <a href="https://github.com/OscarFDiaz/Flynanz_App" style="color: var(--home-total-money)">Pulsa aquí!</a>`;
-          }
+          document.getElementById('aboutCode').innerHTML = `${lang.code}:
+            <a href="https://github.com/OscarFDiaz/Flynanz_App" style="color: var(--home-total-money)">${lang.touch}</a>`;
         }
       },
-      false
+      false,
     );
   </script>
 </ons-page>

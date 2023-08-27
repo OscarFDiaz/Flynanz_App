@@ -1,5 +1,15 @@
 const lang = {
   es: {
+    about: {
+      about: 'Acerca de',
+      desc: 'Aplicación sencilla para el control de gastos y finanzas personales.',
+      stack: 'Tecnologías utilizadas:',
+      auth: 'OscarFDA',
+      v: 'Versión',
+      version: '2.00.05',
+      code: 'Código Fuente:',
+      touch: 'Pulsa aquí!',
+    },
     config: {
       config: 'Configuración',
       home: 'Pantalla inicio',
