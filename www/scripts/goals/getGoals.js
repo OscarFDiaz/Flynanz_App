@@ -28,7 +28,7 @@ function getGoals() {
   </ons-card>`;
 
   let tutorial = JSON.parse(localStorage.getItem('storageSwitchTutorial'));
-  debugger;
+
   if (goals === null) {
     if (tutorial === true) {
       goalsView.innerHTML += `${goalsTutorial}`;

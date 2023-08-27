@@ -31,7 +31,7 @@ function loadDetailGoal() {
   let goalsView = document.getElementById('goalDetailContainer');
   goalsView.innerHTML = '';
 
-  goalsView.innerHTML += /*HTML*/ ` <ons-card
+  goalsView.innerHTML += ` <ons-card
       style="padding: 16px 0px 0px 0px; background: var(${goalGradient}); border: none"
       class="goalCard"
     >

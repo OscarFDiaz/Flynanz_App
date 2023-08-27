@@ -27,7 +27,7 @@
       'init',
       function (event) {
         if (event.target.matches('#goals')) {
-          localStorage.setItem('actuaPage', 'goals.html');
+          localStorage.setItem('actuaPage', 'pages/goalPage/goals.html');
           // Conseguir Goals al cagar esta página
           getGoals();
           document.getElementById('titleGoals').innerHTML = getLang('menuOptions').goals;

@@ -20,10 +20,16 @@
 }
 
 .goalTitle {
+  overflow: hidden;
+
+  width: 160px;
   margin-left: 16px;
+
   font-size: 16px;
   font-weight: 600;
   color: var(--goal-title-color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .goalDate {

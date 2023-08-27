@@ -162,15 +162,16 @@ function createAlertDialogToEditGoalMoney() {
   const lang = getLang('goals');
 
   //Guardo el nombre por si el usuario lo edita
-  localStorage.setItem('nameSaved', parseGoal.name);
-  document.getElementById('editOnlyMoneyActualMoney').innerHTML = parseGoal.actualMoney;
+  localStorage.setItem('nameSaved', parseGoal.goalName);
+  document.getElementById('editOnlyMoneyActualMoney').innerHTML =
+    parseGoal.goalActualMoney;
 
   var dialog = document.getElementById('alertEditGoalMoney');
 
   if (dialog) {
     document.getElementById('editOnlyEndMoney').innerHTML = '';
 
-    optionsContainer.innerHTML = /*HTML*/ `<ons-button
+    optionsContainer.innerHTML = `<ons-button
         class="moneyButtonAdd"
         onclick="insertActionEditGoal('add')"
         style="margin-bottom: 16px; margin-top: 16px; margin-left: 0px; width: 90%"

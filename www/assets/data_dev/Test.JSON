@@ -1,0 +1,63 @@
+{
+  "Metas": {
+    "fix": {
+      "[SOLVED] Añadir loader": "al intentar cargar o ver el porque de la carga",
+      "[SOLVED] Modificar dinero": "Texto dinero actual == undefined, LS: nameSaved == undefined",
+      "[SOLVED] Texto se sobrepone": "Texto nombre de la meta se sobre pone con días restantes",
+      "[PENDING] Modificaciones de dinero": "Muestran siempre la opción else, excep: Llega a la meta",
+      "[PENDING] Mostrar que color esta seleccionado": null,
+      "[STRANGE] Gradiente": "No carga en home page"
+    },
+    "data": {
+      "goalStorage": [
+        {
+          "goalName": "Viaje a europa",
+          "goalDescription": "Viajar por varios países europeos y experimentar su cultura y paisajes.",
+          "goalMoney": "8000.00",
+          "goalActualMoney": 0,
+          "goalDate": "2024-06-15",
+          "goalGradient": "--gradient_0",
+          "iconName": "flight_takeoff.png",
+          "iconUrl": "./assets/icons/icons_list/travel/"
+        },
+        {
+          "goalName": "Cámara Nueva",
+          "goalDescription": "Comprar una cámara fotográfica de alta calidad para mejorar mis habilidades en la fotografía.",
+          "goalMoney": "1500.00",
+          "goalActualMoney": 0,
+          "goalDate": "2023-12-30",
+          "goalGradient": "--gradient_6",
+          "iconName": "photo_camera.png",
+          "iconUrl": "./assets/icons/icons_list/camera/"
+        },
+        {
+          "goalName": "Ahorro de Emergencias",
+          "goalDescription": "Crear un fondo de ahorro destinado a emergencias inesperadas para tener tranquilidad financiera.",
+          "goalMoney": "3000.00",
+          "goalActualMoney": 0,
+          "goalDate": "Sin datos de fecha.",
+          "goalGradient": "--gradient_9",
+          "iconName": "healing.png",
+          "iconUrl": "./assets/icons/icons_list/fix/"
+        }
+      ]
+    },
+    "test": {
+      "modificarDinero": {
+        "restar mas del actual": true,
+        "añadir dinero": true,
+        "cancelar sin efectos": true
+      },
+      "eliminarMeta": true,
+      "modificarMeta": {
+        "nombre": true,
+        "descripción": true,
+        "dinero necesario": true,
+        "dinero actual": true,
+        "fecha meta": true,
+        "icono": true,
+        "color": true
+      }
+    }
+  }
+}

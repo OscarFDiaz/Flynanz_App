@@ -271,7 +271,16 @@
               lang.change;
             document.getElementById('goalCancelButtonAlertEdit').innerHTML = lang.cancel;
             document.getElementById('goalFinishedButtonAlertEdit').innerHTML = lang.ready;
-
+          });
+        }
+      },
+      false,
+    );
+    document.addEventListener(
+      'show',
+      function (event) {
+        if (event.target.matches('#editGoal')) {
+          ons.ready(function () {
             //Cargo los iconos
             loadIconsGoalEdit();
           });
