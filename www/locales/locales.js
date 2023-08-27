@@ -1,5 +1,14 @@
 const lang = {
   es: {
+    config: {
+      config: 'Configuración',
+      home: 'Pantalla inicio',
+      theme: 'Tema',
+      tutorial: 'Tutoriales',
+      lang: 'Lenguaje',
+      deleteData: 'Borrar datos',
+      about: 'Acerca de',
+    },
     expense: {
       title: 'Gastos',
       addNew: 'Añadir nuevo gasto',
@@ -10,6 +19,7 @@ const lang = {
       touch: 'Pulsa para cambiar',
       showHome: 'Mostrar en inicio',
       expensedMoney: 'Dinero gastado',
+      subTo: 'Restar a',
       date: 'Fecha del gasto',
       expensed: 'gastados',
       newExpense: 'Nuevo gasto',

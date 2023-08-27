@@ -5,7 +5,7 @@
         <i class="menuButtonIcon ion-md-menu"></i>
       </ons-toolbar-button>
     </div>
-    <div class="center labelToolbar" id="titleConfigurarion">Configuración</div>
+    <div class="center labelToolbar" id="titleConfiguration">Configuración</div>
   </ons-toolbar>
 
   <ons-list class="listConfiguration">
@@ -27,13 +27,12 @@
       <span id="itemLanguageScreen">IDIOMA</span>
     </ons-list-item>
     <ons-list-item modifier="chevron nodivider" class="itemListConfiguration" tappable onclick="pushToDeleteOptions()">
-      <span id="itemDeleteScreen">BORRAR DATPS</span>
+      <span id="itemDeleteScreen">BORRAR DATOS</span>
     </ons-list-item>
     <ons-list-item modifier="chevron nodivider" class="itemListConfiguration" tappable onclick="pushToAbout()">
       <span id="itemAboutScreen">ACERDA DE</span>
     </ons-list-item>
   </ons-list>
-
   <script>
     document.addEventListener(
       'show',
@@ -69,24 +68,14 @@
             }
           });
 
-          let language = localStorage.getItem('storageSwitchLanguage');
-          if (language == 'false') {
-            document.getElementById('titleConfigurarion').innerHTML = 'Settings';
-            document.getElementById('itemHomeScreen').innerHTML = 'Home screen';
-            document.getElementById('itemThemeScreen').innerHTML = 'Theme';
-            document.getElementById('itemTutorialScreen').innerHTML = 'Tutorials';
-            document.getElementById('itemLanguageScreen').innerHTML = 'Language';
-            document.getElementById('itemDeleteScreen').innerHTML = 'Delete data';
-            document.getElementById('itemAboutScreen').innerHTML = 'About';
-          } else {
-            document.getElementById('titleConfigurarion').innerHTML = 'Configuración';
-            document.getElementById('itemHomeScreen').innerHTML = 'Pantalla inicio';
-            document.getElementById('itemThemeScreen').innerHTML = 'Tema';
-            document.getElementById('itemTutorialScreen').innerHTML = 'Tutoriales';
-            document.getElementById('itemLanguageScreen').innerHTML = 'Lenguaje';
-            document.getElementById('itemDeleteScreen').innerHTML = 'Borrar datos';
-            document.getElementById('itemAboutScreen').innerHTML = 'Acerca de';
-          }
+          let lang = getLang('config')
+          document.getElementById('titleConfiguration').innerHTML = lang.config;
+            document.getElementById('itemHomeScreen').innerHTML = lang.home;
+            document.getElementById('itemThemeScreen').innerHTML = lang.theme;
+            document.getElementById('itemTutorialScreen').innerHTML = lang.tutorial;
+            document.getElementById('itemLanguageScreen').innerHTML = lang.lang;
+            document.getElementById('itemDeleteScreen').innerHTML = lang.deleteData;
+            document.getElementById('itemAboutScreen').innerHTML = lang.about;
         }
       },
       false
