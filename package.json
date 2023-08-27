@@ -1,7 +1,7 @@
 {
   "name": "com.oscar.diaz",
   "displayName": "Flynanz",
-  "version": "1.90.80",
+  "version": "2.01.01",
   "description": "Flynanz: Control de gastos y finanzas personales.",
   "main": "index.js",
   "dependencies": {

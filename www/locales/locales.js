@@ -9,6 +9,7 @@ const lang = {
       version: '2.00.05',
       code: 'Código Fuente',
       touch: 'Pulsa aquí!',
+      policy: 'Política de privacidad',
     },
     config: {
       config: 'Configuración',
@@ -386,6 +387,7 @@ const lang = {
       version: '2.00.05',
       code: 'Source Code',
       touch: 'Tap here!',
+      policy: 'Privacy Policy',
     },
     config: {
       config: 'Configuration',
