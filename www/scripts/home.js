@@ -333,7 +333,7 @@ function deleteAllData() {
     cancelable: true,
     callback: function (index) {
       if (0 === index) {
-        deleteProperty();
+        //deleteProperty();
         setTheme('theme-default');
         localStorage.clear();
         sessionStorage.clear();

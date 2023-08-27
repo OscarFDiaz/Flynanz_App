@@ -1,7 +1,6 @@
 // Cargar todos los scripts necesarios
 const scriptsToLoad = [
   'locales/locales.js',
-  'scripts/alertMoneys.js',
   'scripts/chart/loadChart.js',
   'scripts/chart/makeChart.js',
   'scripts/checkUpdates/checkUpdates.js',

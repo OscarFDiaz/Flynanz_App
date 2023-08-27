@@ -6,7 +6,7 @@ function getGoals() {
   goalsView.innerHTML = '';
   let goalsTutorial = '';
 
-  goalsTutorial = /*HTML*/ `<ons-card>
+  goalsTutorial = `<ons-card>
     <ons-list style="background: none;" id="expenseListOfExpensesContainer">
       <ons-list-item id="expandableListContainer" expandable style="margin-top: 0px;">
         <label class="iconExpenseLabel" style="margin-left: 50px;">
@@ -28,6 +28,7 @@ function getGoals() {
   </ons-card>`;
 
   let tutorial = JSON.parse(localStorage.getItem('storageSwitchTutorial'));
+  debugger;
   if (goals === null) {
     if (tutorial === true) {
       goalsView.innerHTML += `${goalsTutorial}`;
