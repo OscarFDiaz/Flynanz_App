@@ -1,3 +1,5 @@
+GOALS: [{"goalName":"Viaje a Europa","goalDescription":"Viajar por varios países europeos y experimentar su cultura y paisajes.","goalMoney":"8000.00","goalActualMoney":0,"goalDate":"2024-06-15","goalGradient":"--gradient_0","iconName":"flight_takeoff.png","iconUrl":"./assets/icons/icons_list/travel/"},{"goalName":"Cámara Nueva","goalDescription":"Comprar una cámara fotográfica de alta calidad para mejorar mis habilidades en la fotografía.","goalMoney":"1500.00","goalActualMoney":0,"goalDate":"2023-12-30","goalGradient":"--gradient_6","iconName":"photo_camera.png","iconUrl":"./assets/icons/icons_list/camera/"},{"goalName":"Ahorro de Emergencias","goalDescription":"Crear un fondo de ahorro destinado a emergencias inesperadas para tener tranquilidad financiera.","goalMoney":"3000.00","goalActualMoney":0,"goalDate":"Sin datos de fecha.","goalGradient":"--gradient_9","iconName":"healing.png","iconUrl":"./assets/icons/icons_list/fix/"}]
+
 moneyStorage
     moneyName
     moneyCurrent
