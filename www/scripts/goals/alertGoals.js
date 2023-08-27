@@ -6,7 +6,6 @@ function createAlertDialogToEditGoal() {
     goalDescription,
     goalMoney,
     goalActualMoney,
-    goalGradient,
     goalDate,
     iconName,
     iconUrl,
@@ -21,9 +20,6 @@ function createAlertDialogToEditGoal() {
   document.getElementById('editActualGoalMoney').value = goalActualMoney;
   document.getElementById('editGoalDate').value = goalDate;
   document.getElementById('imageEditGoalIcon').src = `${iconUrl}${iconName}`;
-
-  //Activo el borde que el usuario ha seleccionado
-  toggleBorder(goalGradient);
 }
 
 /* CUANDO SE FINALIZA DE MODIFICAR UNA META*/

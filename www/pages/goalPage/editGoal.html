@@ -193,61 +193,61 @@
           id="gd-0"
           class="gradientButton"
           style="background: var(--gradient_0)"
-          onclick="gradientButtonClick('--gradient_0', 'gd-0')"
+          onclick="gradientButtonClick('--gradient_0')"
         ></ons-button>
         <ons-button
           id="gd-1"
           class="gradientButton"
           style="background: var(--gradient_1)"
-          onclick="gradientButtonClick('--gradient_1', 'gd-1')"
+          onclick="gradientButtonClick('--gradient_1')"
         ></ons-button>
         <ons-button
           id="gd-2"
           class="gradientButton"
           style="background: var(--gradient_2)"
-          onclick="gradientButtonClick('--gradient_2', 'gd-2')"
+          onclick="gradientButtonClick('--gradient_2')"
         ></ons-button>
         <ons-button
           id="gd-3"
           class="gradientButton"
           style="background: var(--gradient_3)"
-          onclick="gradientButtonClick('--gradient_3', 'gd-3')"
+          onclick="gradientButtonClick('--gradient_3')"
         ></ons-button>
         <ons-button
           id="gd-4"
           class="gradientButton"
           style="background: var(--gradient_4)"
-          onclick="gradientButtonClick('--gradient_4', 'gd-4')"
+          onclick="gradientButtonClick('--gradient_4')"
         ></ons-button>
         <ons-button
           id="gd-5"
           class="gradientButton"
           style="background: var(--gradient_5)"
-          onclick="gradientButtonClick('--gradient_5', 'gd-5')"
+          onclick="gradientButtonClick('--gradient_5')"
         ></ons-button>
         <ons-button
           id="gd-6"
           class="gradientButton"
           style="background: var(--gradient_6)"
-          onclick="gradientButtonClick('--gradient_6', 'gd-6')"
+          onclick="gradientButtonClick('--gradient_6')"
         ></ons-button>
         <ons-button
           id="gd-7"
           class="gradientButton"
           style="background: var(--gradient_7)"
-          onclick="gradientButtonClick('--gradient_7', 'gd-7')"
+          onclick="gradientButtonClick('--gradient_7')"
         ></ons-button>
         <ons-button
           id="gd-8"
           class="gradientButton"
           style="background: var(--gradient_8)"
-          onclick="gradientButtonClick('--gradient_8', 'gd-9')"
+          onclick="gradientButtonClick('--gradient_8')"
         ></ons-button>
         <ons-button
           id="gd-9"
           class="gradientButton"
           style="background: var(--gradient_9)"
-          onclick="gradientButtonClick('--gradient_9', 'gd-8')"
+          onclick="gradientButtonClick('--gradient_9')"
         ></ons-button>
       </div>
     </div>
@@ -293,6 +293,11 @@
               lang.change;
             document.getElementById('goalCancelButtonAlertEdit').innerHTML = lang.cancel;
             document.getElementById('goalFinishedButtonAlertEdit').innerHTML = lang.ready;
+
+            //Activo el borde/gradiente que el usuario ha seleccionado
+            let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
+            let { goalGradient } = JSON.parse(retrievedGoal);
+            toggleBorder(goalGradient);
           });
         }
       },

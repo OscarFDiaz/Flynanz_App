@@ -7,7 +7,9 @@ function gradientButtonClick(gradient) {
 //NOT WORKING
 function toggleBorder(goalGradient) {
   let id = goalGradient.slice(-1);
-  document.getElementById(`gd-${id}`).focus();
+  const gradient = document.getElementById(`gd-${id}`);
+  gradient.tabIndex = -1;
+  gradient.focus();
 }
 
 function selectIconGoal(iconName, url) {
