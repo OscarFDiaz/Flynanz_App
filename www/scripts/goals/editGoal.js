@@ -184,45 +184,45 @@ function loadIconsGoalEdit() {
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Arte</p>`;
   for (let i = 0; i < artNames.length; i++) {
     if (i == 0) {
-      iconsView.innerHTML += `<img src="${art}${artNames[i]}" style="width: 50%; margin: auto auto; grid-column: 1;" onclick="selectIconGoalEdit('${artNames[i]}', '${art}')"></img>`;
+      iconsView.innerHTML += `<img src="${art}${artNames[i]}" style="width: 60%; margin: auto auto; grid-column: 1;" onclick="selectIconGoalEdit('${artNames[i]}', '${art}')"></img>`;
     } else {
-      iconsView.innerHTML += `<img src="${art}${artNames[i]}" style="width: 50%; margin: auto auto;" onclick="selectIconGoalEdit('${artNames[i]}', '${art}')"></img>`;
+      iconsView.innerHTML += `<img src="${art}${artNames[i]}" style="width: 60%; margin: auto auto;" onclick="selectIconGoalEdit('${artNames[i]}', '${art}')"></img>`;
     }
   }
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Books</p>`;
   for (let i = 0; i < bookNames.length; i++) {
     if (i == 0) {
-      iconsView.innerHTML += `<img src="${book}${bookNames[i]}" style="width: 50%; margin: auto auto; grid-column: 1;" onclick="selectIconGoalEdit('${bookNames[i]}', '${book}')"></img>`;
+      iconsView.innerHTML += `<img src="${book}${bookNames[i]}" style="width: 60%; margin: auto auto; grid-column: 1;" onclick="selectIconGoalEdit('${bookNames[i]}', '${book}')"></img>`;
     } else {
-      iconsView.innerHTML += `<img src="${book}${bookNames[i]}" style="width: 50%; margin: auto auto;" onclick="selectIconGoalEdit('${bookNames[i]}', '${book}')"></img>`;
+      iconsView.innerHTML += `<img src="${book}${bookNames[i]}" style="width: 60%; margin: auto auto;" onclick="selectIconGoalEdit('${bookNames[i]}', '${book}')"></img>`;
     }
   }
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Builds</p>`;
   for (let i = 0; i < buildsNames.length; i++) {
     if (i == 0) {
-      iconsView.innerHTML += `<img src="${builds}${buildsNames[i]}" style="width: 50%; margin: auto auto; grid-column: 1;" onclick="selectIconGoalEdit('${buildsNames[i]}', '${builds}')"></img>`;
+      iconsView.innerHTML += `<img src="${builds}${buildsNames[i]}" style="width: 60%; margin: auto auto; grid-column: 1;" onclick="selectIconGoalEdit('${buildsNames[i]}', '${builds}')"></img>`;
     } else {
-      iconsView.innerHTML += `<img src="${builds}${buildsNames[i]}" style="width: 50%; margin: auto auto;" onclick="selectIconGoalEdit('${buildsNames[i]}', '${builds}')"></img>`;
+      iconsView.innerHTML += `<img src="${builds}${buildsNames[i]}" style="width: 60%; margin: auto auto;" onclick="selectIconGoalEdit('${buildsNames[i]}', '${builds}')"></img>`;
     }
   }
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Camera</p>`;
   for (let i = 0; i < cameraNames.length; i++) {
     if (i == 0) {
-      iconsView.innerHTML += `<img src="${camera}${cameraNames[i]}" style="width: 50%; margin: auto auto; grid-column: 1;" onclick="selectIconGoalEdit('${cameraNames[i]}', '${camera}')"></img>`;
+      iconsView.innerHTML += `<img src="${camera}${cameraNames[i]}" style="width: 60%; margin: auto auto; grid-column: 1;" onclick="selectIconGoalEdit('${cameraNames[i]}', '${camera}')"></img>`;
     } else {
-      iconsView.innerHTML += `<img src="${camera}${cameraNames[i]}" style="width: 50%; margin: auto auto;" onclick="selectIconGoalEdit('${cameraNames[i]}', '${camera}')"></img>`;
+      iconsView.innerHTML += `<img src="${camera}${cameraNames[i]}" style="width: 60%; margin: auto auto;" onclick="selectIconGoalEdit('${cameraNames[i]}', '${camera}')"></img>`;
     }
   }
 
   iconsView.innerHTML += `<p style="grid-column: 1; margin-left: 20px;">Fix</p>`;
   for (let i = 0; i < fixNames.length; i++) {
     if (i == 0) {
-      iconsView.innerHTML += `<img src="${fix}${fixNames[i]}" style="width: 50%; margin: auto auto; grid-column: 1;" onclick="selectIconGoalEdit('${fixNames[i]}', '${fix}')"></img>`;
+      iconsView.innerHTML += `<img src="${fix}${fixNames[i]}" style="width: 60%; margin: auto auto; grid-column: 1;" onclick="selectIconGoalEdit('${fixNames[i]}', '${fix}')"></img>`;
     } else {
-      iconsView.innerHTML += `<img src="${fix}${fixNames[i]}" style="width: 50%; margin: auto auto;" onclick="selectIconGoalEdit('${fixNames[i]}', '${fix}')"></img>`;
+      iconsView.innerHTML += `<img src="${fix}${fixNames[i]}" style="width: 60%; margin: auto auto;" onclick="selectIconGoalEdit('${fixNames[i]}', '${fix}')"></img>`;
     }
   }
 

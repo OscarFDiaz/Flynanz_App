@@ -126,35 +126,57 @@
     </p>
     <div
       style="
-        border: 2px solid var(--color-input);
-        border-radius: 15px;
-        margin-bottom: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 16px;
       "
     >
-      <ons-list style="background: none; margin-top: -16px">
-        <ons-list-item id="expandableListContainerGoalEdit" expandable>
-          <p
-            style="
-              margin: 0px auto 0px 12px;
-              text-align: left;
-              color: var(--card-content-text-color);
-            "
-            id="newExpenseIconLabelGoalEdit"
-          >
-            CLICK PARA CAMBIAR
-          </p>
-          <div
-            class="expandable-content"
-            id="expenseIconListOfIconsGoalEdit"
-            style="background-color: var(--color-input)"
-          >
-            <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
-          </div>
-        </ons-list-item>
-      </ons-list>
+      <div
+        style="
+          border: 2px solid var(--color-input);
+          border-radius: 15px;
+          margin-bottom: 16px;
+          flex: 1;
+        "
+      >
+        <ons-list style="background: none; margin-top: -16px">
+          <ons-list-item id="expandableListContainerGoalEdit" expandable>
+            <p
+              style="
+                margin: 0px auto 0px 12px;
+                text-align: left;
+                color: var(--card-content-text-color);
+              "
+              id="newExpenseIconLabelGoalEdit"
+            >
+              CLICK PARA CAMBIAR
+            </p>
+            <div
+              class="expandable-content"
+              id="expenseIconListOfIconsGoalEdit"
+              style="background-color: var(--color-input)"
+            >
+              <!-- AQUI SE CARGAN LOS ICONOS PARA SELECCIONAR -->
+            </div>
+          </ons-list-item>
+        </ons-list>
+      </div>
+      <div style="width: 48px; height: 48px">
+        <img
+          id="imageEditGoalIcon"
+          src="./assets/icons/icons_list/art/imagesearch_roller.png"
+          style="
+            width: 100%;
+            margin: auto auto;
+            background: var(--color-input);
+            border-radius: 10px;
+          "
+        />
+      </div>
     </div>
 
-    <!--Seleccion de degradado-->
+    <!--Selección de degradado-->
     <div id="gradients-container">
       <p
         style="
@@ -171,61 +193,61 @@
           id="gd-0"
           class="gradientButton"
           style="background: var(--gradient_0)"
-          onclick="gradientButtonClick('--gradient_0')"
+          onclick="gradientButtonClick('--gradient_0', 'gd-0')"
         ></ons-button>
         <ons-button
           id="gd-1"
           class="gradientButton"
           style="background: var(--gradient_1)"
-          onclick="gradientButtonClick('--gradient_1')"
+          onclick="gradientButtonClick('--gradient_1', 'gd-1')"
         ></ons-button>
         <ons-button
           id="gd-2"
           class="gradientButton"
           style="background: var(--gradient_2)"
-          onclick="gradientButtonClick('--gradient_2')"
+          onclick="gradientButtonClick('--gradient_2', 'gd-2')"
         ></ons-button>
         <ons-button
           id="gd-3"
           class="gradientButton"
           style="background: var(--gradient_3)"
-          onclick="gradientButtonClick('--gradient_3')"
+          onclick="gradientButtonClick('--gradient_3', 'gd-3')"
         ></ons-button>
         <ons-button
           id="gd-4"
           class="gradientButton"
           style="background: var(--gradient_4)"
-          onclick="gradientButtonClick('--gradient_4')"
+          onclick="gradientButtonClick('--gradient_4', 'gd-4')"
         ></ons-button>
         <ons-button
           id="gd-5"
           class="gradientButton"
           style="background: var(--gradient_5)"
-          onclick="gradientButtonClick('--gradient_5')"
+          onclick="gradientButtonClick('--gradient_5', 'gd-5')"
         ></ons-button>
         <ons-button
           id="gd-6"
           class="gradientButton"
           style="background: var(--gradient_6)"
-          onclick="gradientButtonClick('--gradient_6')"
+          onclick="gradientButtonClick('--gradient_6', 'gd-6')"
         ></ons-button>
         <ons-button
           id="gd-7"
           class="gradientButton"
           style="background: var(--gradient_7)"
-          onclick="gradientButtonClick('--gradient_7')"
-        ></ons-button>
-        <ons-button
-          id="gd-9"
-          class="gradientButton"
-          style="background: var(--gradient_8)"
-          onclick="gradientButtonClick('--gradient_8')"
+          onclick="gradientButtonClick('--gradient_7', 'gd-7')"
         ></ons-button>
         <ons-button
           id="gd-8"
           class="gradientButton"
+          style="background: var(--gradient_8)"
+          onclick="gradientButtonClick('--gradient_8', 'gd-9')"
+        ></ons-button>
+        <ons-button
+          id="gd-9"
+          class="gradientButton"
           style="background: var(--gradient_9)"
-          onclick="gradientButtonClick('--gradient_9')"
+          onclick="gradientButtonClick('--gradient_9', 'gd-8')"
         ></ons-button>
       </div>
     </div>

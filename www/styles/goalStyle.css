@@ -108,6 +108,7 @@
   box-shadow: none;
 }
 
-.gradientButton:hover {
+.gradientButton:hover,
+.gradientButton:focus {
   border: 2px solid var(--goal-info-color);
 }

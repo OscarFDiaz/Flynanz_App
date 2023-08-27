@@ -1,6 +1,13 @@
 function gradientButtonClick(gradient) {
   // Defino el gradiente al que le da click
   sessionStorage.setItem('tempGradient', gradient);
+  // sessionStorage.setItem('selectedGradient', id);
+}
+
+//NOT WORKING
+function toggleBorder(goalGradient) {
+  let id = goalGradient.slice(-1);
+  document.getElementById(`gd-${id}`).focus();
 }
 
 function selectIconGoal(iconName, url) {
@@ -19,6 +26,7 @@ function selectIconGoalEdit(iconName, url) {
   sessionStorage.setItem('expenseIconUrl', url);
   // Oculto los iconos, ya tengo uno seleccionado
   document.getElementById('expandableListContainerGoalEdit').hideExpansion();
+  document.getElementById('imageEditGoalIcon').src = `${url}${iconName}`;
 }
 
 function makeSum() {

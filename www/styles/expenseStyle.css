@@ -64,7 +64,7 @@
 
 .list-item.expanded > .list-item__expandable-content {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   height: auto;
   text-align: left;
 }

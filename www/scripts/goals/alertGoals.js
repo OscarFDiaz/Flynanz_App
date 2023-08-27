@@ -1,8 +1,16 @@
 // ALERT DIALOG PARA EDITAR UNA META COMPLETAMENTE
 function createAlertDialogToEditGoal() {
   let retrievedGoal = sessionStorage.getItem('sessionFindGoal');
-  let { goalName, goalDescription, goalMoney, goalActualMoney, goalDate } =
-    JSON.parse(retrievedGoal);
+  let {
+    goalName,
+    goalDescription,
+    goalMoney,
+    goalActualMoney,
+    goalGradient,
+    goalDate,
+    iconName,
+    iconUrl,
+  } = JSON.parse(retrievedGoal);
 
   //Guardo el nombre por si el usuario lo edita
   localStorage.setItem('nameSaved', goalName);
@@ -12,6 +20,10 @@ function createAlertDialogToEditGoal() {
   document.getElementById('editGoalMoney').value = goalMoney;
   document.getElementById('editActualGoalMoney').value = goalActualMoney;
   document.getElementById('editGoalDate').value = goalDate;
+  document.getElementById('imageEditGoalIcon').src = `${iconUrl}${iconName}`;
+
+  //Activo el borde que el usuario ha seleccionado
+  toggleBorder(goalGradient);
 }
 
 /* CUANDO SE FINALIZA DE MODIFICAR UNA META*/
